@@ -53,7 +53,7 @@ public class Modulo_SubVenta {
     }
     public void sumaTodo(){
         total = subtotal + iva;
-        sobrante = total - efectivo;
+        sobrante = efectivo - total;
     }
     //-------funciones void----------//
     //------- get ----------//

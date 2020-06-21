@@ -132,6 +132,7 @@ public class Manejador_Ventas{
         this.IV.btn_Cobrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 if (IV.dgv_Productos.getRowCount() > 0) {
+                System.out.print(IV.dgv_Productos.getRowCount());
                 MSUV = new Modulo_SubVenta(IV.dgv_Productos.getRowCount());
                 SUV = new Sub_Venta();
                 MASUV = new Manejador_SubVenta(SUV, MSUV, IV);
