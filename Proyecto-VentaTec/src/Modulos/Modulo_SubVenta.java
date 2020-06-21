@@ -6,6 +6,7 @@
 package Modulos;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -24,7 +25,7 @@ public class Modulo_SubVenta {
     private double sobrante;
     private double iva;
     private double subtotal;
-    private String fecha;
+    private String fecha="";
     //----------Declaracion de variables----------//
     
     public Modulo_SubVenta(int row) {
@@ -87,8 +88,8 @@ public class Modulo_SubVenta {
     public void setEfectivo(double efectivo) {
         this.efectivo = efectivo;
     }
-    public void setFecha(String dia,String mes,String ano) {
-        this.fecha = dia +"/"+ mes +"/"+ ano;
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
     //------- set ----------//
 }
