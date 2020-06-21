@@ -302,8 +302,7 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
             int tam =  countRow(R);
             String A[] = new String[tam];
             while(resultado.next()){
-               A[i] = resultado.getString(1); //retorna el segundo campo(debe de ser string)
-               System.out.println(A[i] + "");
+               A[i] = resultado.getString(1); //retorna el segundo campo(debe de ser string)              
                i++;
             }
             return A;
@@ -325,7 +324,6 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
             String A[] = new String[tam];
             while(resultado.next()){
                A[i] = resultado.getString(1); //retorna el segundo campo(debe de ser string)
-               System.out.println(A[i] + "");
                i++;
             }
             return A;
