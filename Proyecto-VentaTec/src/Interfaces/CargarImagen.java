@@ -22,7 +22,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * pepe
  * @author user
  */
 public class CargarImagen implements DropTargetListener{
