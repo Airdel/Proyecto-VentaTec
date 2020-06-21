@@ -1,4 +1,4 @@
-/* Nueva modificacion
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -22,7 +22,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
- *  Pedro juan
+ *
  * @author user
  */
 public class CargarImagen implements DropTargetListener{

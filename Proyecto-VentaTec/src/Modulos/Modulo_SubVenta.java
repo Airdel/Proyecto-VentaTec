@@ -18,7 +18,7 @@ public class Modulo_SubVenta {
     public ArrayList<String> precUnitario = new ArrayList<String>();
     public ArrayList<String> importe = new ArrayList<String>();
     public ArrayList<String> descuento = new ArrayList<String>();
-    private int tamañoMaximo;
+    public int tamañoMaximo;
     private double total;
     private double efectivo;
     private double sobrante;

@@ -56,13 +56,10 @@ public class Manejador_SubVenta {
     //-----------Funciones Void-----------//
     public void ConfirmaVenta(){
         CBD.openConexion();
-        //------Almacena el renglo Seleccionado---------//   
-        int row = IV.dgv_Productos.getRowCount();
         //------Agrega todos los Renglones de Tabla Productos  E y S---------// 
-        
-        for(int i = 0;i < row;i++){
-            String CodigoProducto = IV.dgv_Productos.getValueAt(i, 0) + "";
-            int Cantidad = Integer.parseInt(IV.dgv_Productos.getValueAt(i, 2) + "");
+        for(int i = 0;i < MSUV.tamañoMaximo;i++){
+            String CodigoProducto = MSUV.idProduc.get(i);
+            int Cantidad = Integer.parseInt(MSUV.Cantidad.get(i));
             System.out.println("Producto "+CodigoProducto+" Cantidad "+Cantidad);
             CBD.insertInOut(CodigoProducto, 'S',Cantidad);
         }
