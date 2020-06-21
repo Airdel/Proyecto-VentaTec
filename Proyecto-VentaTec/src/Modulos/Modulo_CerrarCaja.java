@@ -36,7 +36,9 @@ public class Modulo_CerrarCaja {
     //----------Suma el cada spiner-----------//
     public void sumTotal(){
         total = (s500 * 500) + (s50 * 50) + (s5 * 5) + (s200 * 200) + (s20 * 20) + (s2 * 2) + (s100 * 100) + (s10 * 10) + (s1 * 1);
-        ganancias = total - cajafondo;
+        if(total-cajafondo < 0){
+        ganancias = 0;
+        }else{ganancias = total - cajafondo;}
     }// Fin sumTotal
 
     //-------- get -------//

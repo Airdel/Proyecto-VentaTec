@@ -27,6 +27,7 @@ public class Modulo_AbrirCaja {
     //----- set ------//
     public void setCajafondo(double cajafondo) {
         this.cajafondo = cajafondo;
+        
     }
     //----- set ------//
     
