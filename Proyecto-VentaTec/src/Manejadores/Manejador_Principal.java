@@ -138,6 +138,8 @@ public class Manejador_Principal {
                 if(IAC.isVisible()==false ){
                     IAC.setVisible(true);
                     IAC.setEnabled(true);
+                    IP.btn_CerrarCaja.setEnabled(true);
+                    IP.btn_AbrirCaja.setEnabled(false);
                 }
                //----Revisa si esta abierto Abrir Caja---//
            } 
