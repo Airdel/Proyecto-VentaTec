@@ -86,6 +86,7 @@ public class Manejador_Ventas {
                                 B[2] = IV.txt_Cantidad.getText();
                                 DTM.addRow(B);
                             }
+                            actualizalbl(1);
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
@@ -234,6 +235,16 @@ public class Manejador_Ventas {
 
     //-------------Fin del Constructor---------------//
     //--------Funciones Void-----------------//
+    public void actualizalbl(int canti){
+        int row = DTM.getRowCount();
+        int cantidad = Integer.parseInt(IV.lbl_Cantidad.getText());
+        IV.lbl_Cantidad.setText((cantidad+canti)+"");
+        String nombrePro = (DTM.getValueAt(row, 1) + "");
+        IV.lbl_NombreProducto.setText(nombrePro);
+        double subtotal = Float.parseFloat(IV.lbl_TotalValor.getText());
+        double total = (subtotal + Float.parseFloat(DTM.getValueAt(row, 4) + "")) * 0.16;
+        IV.lbl_TotalValor.setText(total + "");
+    }
     public void eliminaTabla() {
         //----Selecciona en numero de renglon de las seleccines es tabla----//
         int sel[] = IV.dgv_Productos.getSelectedRows();
@@ -326,11 +337,11 @@ public class Manejador_Ventas {
         }
         CBD.closeConexion();
     }// Fin llenarTabla
-
+/*
     public void compraNueva() {
         String A[] = null;
 
-        /*  float suma; 
+          float suma; 
    
     for(int r=0;r<IV.dgv_Productos.getRowCount();r++)
     {
@@ -338,7 +349,7 @@ public class Manejador_Ventas {
                   modelo.setValueAt(suma,r,2);
                   modelo.setValueAt(suma*Float.parseFloat(A[1]),r,3);
                   return;
-              }*/
+              }
         Object O[] = new Object[6];
         O[0] = A[0];
         O[1] = A[1];
@@ -380,14 +391,14 @@ public class Manejador_Ventas {
         IV.lbl_Promocion.setText("");
         IV.lbl_NumeroDeArticulosValor.setText("");
         IV.lbl_FolioVentaValor.setText("");
-        IV.lbl_CambioVentaValor.setText("");
+        IV.lbl_NombreProducto.setText("");
         IV.lbl_IVA.setText("");
         IV.txt_BuscarProducto.setText("");
         IV.txt_Cantidad.setText("");
         IV.txt_Codigo.setText("");
         //--------Limpia los textos de Interfaz Venta-------//
     }// Fin compraNueva
-
+*/
     public void validartxtCaracteresBG() throws ventaException {
         //valida los txt para que no tengan caracteres invalidos y 
         //que no tengan espacios excepto el nombre por que se separan en dos nombres por eso para el nombre tiene la de invalidonom donde no agrego el espacio

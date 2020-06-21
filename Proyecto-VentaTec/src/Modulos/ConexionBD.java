@@ -12,6 +12,7 @@ package Modulos;
 //librerias 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -130,11 +131,10 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
     //----------------------------Inserta en la Tabla Entradas_Salidas De la BD-------------------------------------------------
     public void insertInOut(String id_producto,char tipo,int cantidad){
         try{
-            
            sp = con.prepareStatement("INSERT INTO DBO.[ENTRADAS SALIDAS]([ID PRODUCTO],TIPO,CANTIDAD) VALUES(?,?,?)");
            sp.setString(1,id_producto);
            sp.setString(2,tipo + "");
-           sp.setInt(3,cantidad);
+           sp.setInt(4,cantidad);
            sp.executeUpdate();
         }catch(SQLException | NullPointerException ex){
                 System.out.print(ex.getMessage());

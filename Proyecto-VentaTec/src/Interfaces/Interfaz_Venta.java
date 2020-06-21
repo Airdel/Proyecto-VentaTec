@@ -81,10 +81,9 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
         panel2 = new javax.swing.JPanel();
         lbl_Total = new javax.swing.JLabel();
         lbl_TotalValor = new javax.swing.JLabel();
-        lbl_iva = new javax.swing.JLabel();
         lbl_NumeroDeArticulos = new javax.swing.JLabel();
         lbl_FolioVenta = new javax.swing.JLabel();
-        lbl_CambioVenta = new javax.swing.JLabel();
+        lbl_NombreP = new javax.swing.JLabel();
         txt_Codigo = new javax.swing.JTextField();
         jpn_Fecha = new javax.swing.JPanel();
         lbl_Fecha = new javax.swing.JLabel();
@@ -97,9 +96,8 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
         jpn_ComandosDeslizantesInferior = new javax.swing.JPanel();
         panel3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        lbl_IVA = new javax.swing.JLabel();
         lbl_NumeroDeArticulosValor = new javax.swing.JLabel();
-        lbl_CambioVentaValor = new javax.swing.JLabel();
+        lbl_NombreProducto = new javax.swing.JLabel();
         lbl_FolioVentaValor = new javax.swing.JLabel();
         txt_BuscarProducto = new javax.swing.JTextField();
         lbl_Codigo = new javax.swing.JLabel();
@@ -115,6 +113,10 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
         lbl_Promocion = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btn_regresar = new javax.swing.JButton();
+        lbl_FolioVenta1 = new javax.swing.JLabel();
+        lbl_FolioVentaAnterior = new javax.swing.JLabel();
+        lbl_FolioVentaValor2 = new javax.swing.JLabel();
+        lbl_FolioVenta2 = new javax.swing.JLabel();
 
         setTitle("Ventas!");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
@@ -122,15 +124,15 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
 
         panel1.setLayout(null);
 
-        lbl_Usuario.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbl_Usuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbl_Usuario.setText("ATIENDE:");
         panel1.add(lbl_Usuario);
-        lbl_Usuario.setBounds(20, 20, 60, 17);
+        lbl_Usuario.setBounds(160, 20, 79, 22);
 
-        lbl_UsuarioValor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lbl_UsuarioValor.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbl_UsuarioValor.setText("LUIS MIGUEL HERNANDEZ");
         panel1.add(lbl_UsuarioValor);
-        lbl_UsuarioValor.setBounds(90, 20, 215, 17);
+        lbl_UsuarioValor.setBounds(245, 20, 270, 22);
 
         dgv_Productos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -168,34 +170,29 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
         panel2.setBounds(1426, 1569, 44, 14);
 
         lbl_Total.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        lbl_Total.setText("TOTAL:");
+        lbl_Total.setText("TOTAL:$");
         panel1.add(lbl_Total);
-        lbl_Total.setBounds(30, 40, 120, 44);
+        lbl_Total.setBounds(30, 40, 140, 44);
 
         lbl_TotalValor.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
-        lbl_TotalValor.setText("$");
+        lbl_TotalValor.setText("0.0");
         panel1.add(lbl_TotalValor);
-        lbl_TotalValor.setBounds(160, 50, 175, 29);
-
-        lbl_iva.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lbl_iva.setText("IVA:");
-        panel1.add(lbl_iva);
-        lbl_iva.setBounds(20, 80, 50, 29);
+        lbl_TotalValor.setBounds(180, 50, 300, 29);
 
         lbl_NumeroDeArticulos.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbl_NumeroDeArticulos.setText("Numero de Articulos:");
         panel1.add(lbl_NumeroDeArticulos);
-        lbl_NumeroDeArticulos.setBounds(20, 110, 223, 22);
+        lbl_NumeroDeArticulos.setBounds(20, 90, 223, 22);
 
         lbl_FolioVenta.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbl_FolioVenta.setText("Folio Venta:");
         panel1.add(lbl_FolioVenta);
-        lbl_FolioVenta.setBounds(20, 170, 134, 22);
+        lbl_FolioVenta.setBounds(20, 150, 134, 22);
 
-        lbl_CambioVenta.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lbl_CambioVenta.setText("Cambio Venta:");
-        panel1.add(lbl_CambioVenta);
-        lbl_CambioVenta.setBounds(20, 140, 155, 22);
+        lbl_NombreP.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lbl_NombreP.setText("Nombre Producto:");
+        panel1.add(lbl_NombreP);
+        lbl_NombreP.setBounds(20, 120, 193, 22);
 
         txt_Codigo.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panel1.add(txt_Codigo);
@@ -245,7 +242,7 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
         );
 
         panel1.add(jpn_Fecha);
-        jpn_Fecha.setBounds(1020, 60, 375, 115);
+        jpn_Fecha.setBounds(1020, 60, 375, 117);
 
         jpn_InformacionDeslizanteSuperior.setBackground(new java.awt.Color(51, 255, 51));
 
@@ -320,24 +317,20 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
         );
 
         panel1.add(jpn_ComandosDeslizantesInferior);
-        jpn_ComandosDeslizantesInferior.setBounds(10, 690, 1430, 14);
-
-        lbl_IVA.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lbl_IVA.setText("1");
-        panel1.add(lbl_IVA);
-        lbl_IVA.setBounds(80, 80, 93, 30);
+        jpn_ComandosDeslizantesInferior.setBounds(10, 690, 1430, 16);
 
         lbl_NumeroDeArticulosValor.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lbl_NumeroDeArticulosValor.setText("0");
         panel1.add(lbl_NumeroDeArticulosValor);
-        lbl_NumeroDeArticulosValor.setBounds(250, 110, 93, 30);
+        lbl_NumeroDeArticulosValor.setBounds(250, 90, 93, 20);
 
-        lbl_CambioVentaValor.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        panel1.add(lbl_CambioVentaValor);
-        lbl_CambioVentaValor.setBounds(180, 140, 93, 22);
+        lbl_NombreProducto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        panel1.add(lbl_NombreProducto);
+        lbl_NombreProducto.setBounds(220, 120, 220, 22);
 
         lbl_FolioVentaValor.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panel1.add(lbl_FolioVentaValor);
-        lbl_FolioVentaValor.setBounds(150, 170, 110, 22);
+        lbl_FolioVentaValor.setBounds(150, 150, 110, 22);
 
         txt_BuscarProducto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         txt_BuscarProducto.setText("Buscar producto");
@@ -442,6 +435,24 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
 
         panel1.add(jPanel1);
         jPanel1.setBounds(70, 550, 180, 130);
+
+        lbl_FolioVenta1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lbl_FolioVenta1.setText("Folio Anterior:");
+        panel1.add(lbl_FolioVenta1);
+        lbl_FolioVenta1.setBounds(20, 180, 150, 22);
+
+        lbl_FolioVentaAnterior.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        panel1.add(lbl_FolioVentaAnterior);
+        lbl_FolioVentaAnterior.setBounds(170, 180, 110, 22);
+
+        lbl_FolioVentaValor2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        panel1.add(lbl_FolioVentaValor2);
+        lbl_FolioVentaValor2.setBounds(170, 180, 110, 22);
+
+        lbl_FolioVenta2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lbl_FolioVenta2.setText("Folio Anterior:");
+        panel1.add(lbl_FolioVenta2);
+        lbl_FolioVenta2.setBounds(20, 180, 150, 22);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -583,16 +594,19 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
     public javax.swing.JLabel labelsup;
     public javax.swing.JLabel lblFecha;
     public javax.swing.JLabel lblHora;
-    public javax.swing.JLabel lbl_CambioVenta;
-    public javax.swing.JLabel lbl_CambioVentaValor;
     public javax.swing.JLabel lbl_Cantidad;
     public javax.swing.JLabel lbl_Codigo;
     public javax.swing.JLabel lbl_Fecha;
     public javax.swing.JLabel lbl_FolioVenta;
+    public javax.swing.JLabel lbl_FolioVenta1;
+    public javax.swing.JLabel lbl_FolioVenta2;
+    public javax.swing.JLabel lbl_FolioVentaAnterior;
     public javax.swing.JLabel lbl_FolioVentaValor;
+    public javax.swing.JLabel lbl_FolioVentaValor2;
     public javax.swing.JLabel lbl_Hora;
-    public javax.swing.JLabel lbl_IVA;
     public javax.swing.JLabel lbl_IconoEmpresa;
+    public javax.swing.JLabel lbl_NombreP;
+    public javax.swing.JLabel lbl_NombreProducto;
     public javax.swing.JLabel lbl_NumeroDeArticulos;
     public javax.swing.JLabel lbl_NumeroDeArticulosValor;
     public javax.swing.JLabel lbl_Promocion;
@@ -600,7 +614,6 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
     public javax.swing.JLabel lbl_TotalValor;
     private javax.swing.JLabel lbl_Usuario;
     private javax.swing.JLabel lbl_UsuarioValor;
-    public javax.swing.JLabel lbl_iva;
     public java.awt.Panel panel1;
     private javax.swing.JPanel panel2;
     public javax.swing.JPanel panel3;
