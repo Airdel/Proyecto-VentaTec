@@ -80,7 +80,7 @@
                       <Component id="lblGanancias" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="60" max="32767" attributes="0"/>
+              <EmptySpace pref="105" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="btn_Cancelar" alignment="0" max="32767" attributes="0"/>
                   <Component id="btn_CorteCaja" alignment="0" max="32767" attributes="0"/>
@@ -221,7 +221,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblCajaFondo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="totalValue"/>
+        <Property name="text" type="java.lang.String" value="-"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -249,7 +249,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblGanancias">
       <Properties>
-        <Property name="text" type="java.lang.String" value="totalValue"/>
+        <Property name="text" type="java.lang.String" value="-"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -272,7 +272,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblTotal">
       <Properties>
-        <Property name="text" type="java.lang.String" value="totalValue"/>
+        <Property name="text" type="java.lang.String" value="-"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
