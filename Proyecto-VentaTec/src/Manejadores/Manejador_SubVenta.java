@@ -109,10 +109,11 @@ public class Manejador_SubVenta {
             String precUni = DTM.getValueAt(i, 3) +"";
             String impor = DTM.getValueAt(i, 4) +"";
             String desc = DTM.getValueAt(i, 5) +"";
+            System.out.println(idproc+","+cant+","+precUni+","+impor+","+desc);
             MSUV.agregaProduc(idproc, cant, precUni, impor, desc);
-            MSUV.sumaSubTotal();
-            MSUV.sumaTodo();
         }
+        MSUV.sumaSubTotal();
+        MSUV.sumaTodo();
         //----Suma el precio de cada producto----//
         //----Retorna la suma total----//
         double SOBRANTE = MSUV.getSobrante();
