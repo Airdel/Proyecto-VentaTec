@@ -173,11 +173,11 @@ public class Manejador_Ventas {
         this.IV.btn_Cobrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 if (IV.dgv_Productos.getRowCount() > 0) {
-                    System.out.print(IV.dgv_Productos.getRowCount());
-                    MSUV = new Modulo_SubVenta(IV.dgv_Productos.getRowCount());
-                    SUV = new Sub_Venta();
-                    MASUV = new Manejador_SubVenta(SUV, MSUV, IV);
-                    String cad = JOptionPane.showInputDialog(IV, "Coloque el Efectivo");
+                MSUV = new Modulo_SubVenta(IV.dgv_Productos.getRowCount());
+                SUV = new Sub_Venta();
+                MASUV = new Manejador_SubVenta(SUV, MSUV, IV);
+                String cad = JOptionPane.showInputDialog(IV,"Coloque el Efectivo");
+                  
                     if (MASUV.validaInput(cad)) {
                         MSUV.setEfectivo(Double.parseDouble(cad));
                         if (MASUV.venta()) {

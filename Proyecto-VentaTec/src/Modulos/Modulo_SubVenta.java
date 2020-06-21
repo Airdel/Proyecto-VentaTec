@@ -18,7 +18,7 @@ public class Modulo_SubVenta {
     public ArrayList<String> precUnitario = new ArrayList<String>();
     public ArrayList<String> importe = new ArrayList<String>();
     public ArrayList<String> descuento = new ArrayList<String>();
-    private int tamañoMaximo;
+    public int tamañoMaximo;
     private double total;
     private double efectivo;
     private double sobrante;
@@ -47,7 +47,7 @@ public class Modulo_SubVenta {
     }
     public void sumaSubTotal(){
         for(int i = 0;i < tamañoMaximo ; i++){
-            subtotal = subtotal + (Double.parseDouble(importe.get(i))*Integer.parseInt(Cantidad.get(i)));
+            subtotal = subtotal + (double)(Double.parseDouble(importe.get(i))*Integer.parseInt(Cantidad.get(i)));
         }
         iva = (subtotal * 0.16);
     }
