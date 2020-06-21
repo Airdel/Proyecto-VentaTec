@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author LUISM
+ * @author LUISM & Darien
  */
 public class Manejador_AbrirCaja {
     //-----------Declaracion Variables-----------//
