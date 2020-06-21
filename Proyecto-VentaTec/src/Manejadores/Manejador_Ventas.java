@@ -85,9 +85,6 @@ public class Manejador_Ventas{
                     }
                     catch(Exception e){System.out.println(e.getMessage());}
                     CBD.closeConexion();
-                    if(IV.txt_Codigo.getText()==""){
-                    //DTM.setRowCount(0);
-                    }
                 }
             }
         });
@@ -102,6 +99,24 @@ public class Manejador_Ventas{
                     ke.consume();
                 }
             }
+             public void keyReleased(KeyEvent ke) {
+                if(ke.getKeyCode()==KeyEvent.VK_ENTER){
+                    CBD.openConexion();
+                    String A[] = CBD.searchProduct2("[ID PRODUCTO]",IV.txt_Codigo.getText());
+                    Object B[] = new Object[6];     
+                    try{
+                        for (int i = 0; i < A.length; i++) {
+                            B = A[i].split(",");
+                            B[2] = IV.txt_Cantidad.getText();                            
+                            DTM.addRow(B);
+                        }
+                    }
+                    catch(Exception e){System.out.println(e.getMessage());}
+                    CBD.closeConexion();
+                   
+                }
+            }
+            
         });
         //--------Listener Key Listener------------//
         //--------Action Listener Performed------------//
