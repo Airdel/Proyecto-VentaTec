@@ -54,24 +54,12 @@ public class Manejador_Ventas{
         CBD = new ConexionBD();
         DTM = (DefaultTableModel) IV.dgv_Productos.getModel();
         SM = IV.dgv_Productos.getSelectionModel();
+        TAC = new TextAutoCompleter(IV1.txt_BuscarProducto);
         //--------Inicializacion de variables------------//
         //--------Listener Key Listener------------//
-        this.IV.addKeyListener(new java.awt.event.KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent ke) {
-                char c = ke.getKeyChar();
-                if(c == KeyEvent.VK_PLUS){
-                    IV.btn_Cobrar.doClick();
-                }
-                if(c == KeyEvent.VK_F5){
-                    IV.btn_BuscarProducto.doClick();
-                }
-                if(c == KeyEvent.VK_ALT && c == KeyEvent.VK_C){
-                    IV.btn_Quitar.doClick();
-                }
-                if(c == KeyEvent.VK_Q){
-                    IV.btn_regresar.doClick();
-                }
+        this.IV.txt_BuscarProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(KeyEvent ke) {
+                busquedarapida();
             }
         });
         this.IV.txt_Codigo.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -209,10 +197,13 @@ public class Manejador_Ventas{
         CBD.openConexion();
         //-----Busca el coincidente que inicia con nombreProducto-----//
         String nombreProducto = IV.txt_BuscarProducto.getText();
-        String A[] = CBD.searchInTable("PRODUCTOS","[NOMBRE PRODUCTO]",nombreProducto);
+        String A[] = CBD.searchInTable("[NOMBRE PRODUCTO]",nombreProducto);
         //-----Busca el coincidente que inicia con nombreProducto-----//
         //-----Agrega la lista de coincidencias a la variable autocompletar----//
-        TAC.addItems(A);
+        TAC.removeAllItems();
+        try{
+            TAC.addItems(A);
+        }catch(Exception e){}    
         //-----Agrega la lista de coincidencias a la variable autocompletar----//
         CBD.closeConexion();
     }// Fin busqueda rapida

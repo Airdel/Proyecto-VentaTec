@@ -17,7 +17,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
 
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -360,9 +359,10 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
     }
     
     
- public String[] searchInTable(String tabla,String campo, String dato){
+ public String[] searchInTable(String campo, String dato){
         try {
             sp = con.prepareStatement("SELECT * FROM PRODUCTOS where " + campo + " like '" + dato +"%'");
+            System.out.println("SELECT * FROM PRODUCTOS where " + campo + " like '" + dato +"%'");
             resultado = sp.executeQuery();
             PreparedStatement sp1 = con.prepareStatement("SELECT * FROM PRODUCTOS where " + campo + " like '" + dato +"%'");
             ResultSet resultado1 = sp1.executeQuery();
@@ -371,8 +371,8 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
             int i = 0;
             while(resultado.next()){
                A[i] = resultado.getString(5);
-               i++;
                System.out.println(A[i]);
+               i++;
             }
             sp.close();
             resultado.close();
@@ -492,7 +492,7 @@ public String[] getInveID(String id){
         }//Fin try catch
     }//Fin searchProduct
     
-public void UpdateInventario(String nombrep,String c,float venta,float costo,int cate,int p,String a){
+    public void UpdateInventario(String nombrep,String c,float venta,float costo,int cate,int p,String a){
         try{
             sp = con.prepareStatement("{CALL PS_UDPATE_INVENTARIO(?,?,?,?,?,?,?)}" );
             sp.setString(1, nombrep);
@@ -515,7 +515,7 @@ public void UpdateInventario(String nombrep,String c,float venta,float costo,int
            ConexionBD CBD = new ConexionBD();
            CBD.openConexion();
            
-           CBD.insertInOut("1234",'E',5);
+           CBD.searchInTable("[NOMBRE PRODUCTO]", "a");
            
            CBD.closeConexion();
        }
