@@ -74,22 +74,6 @@ public class Manejador_Ventas{
                 }
             }
         });
-        this.IV.txt_BuscarProducto.addKeyListener(new java.awt.event.KeyAdapter() {
-            @Override
-            public void keyReleased(KeyEvent ke) {
-                CBD.openConexion();
-                    String A[] = CBD.searchProduct2("[ID PRODUCTO]",SIVBP.txtCode.getText());
-                    Object B[] = new Object[5];     
-                    try{
-                        for (int i = 0; i < A.length; i++) {                
-                            B = A[i].split(",");
-                            DTM.addRow(B);
-                        }
-                    }
-                    catch(Exception e){System.out.println(e.getMessage());}
-                    CBD.closeConexion();
-            }
-        });
         this.IV.txt_Codigo.addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
             public void keyTyped(KeyEvent ke) {
@@ -102,8 +86,6 @@ public class Manejador_Ventas{
             }
             @Override
             public void keyReleased(KeyEvent ke) {
-                validartxtCaracteresBG();
-                
                 if(ke.getKeyCode()==KeyEvent.VK_ENTER){
                     CBD.openConexion();
                     String A[] = CBD.searchProduct2("[ID PRODUCTO]",IV.txt_Codigo.getText());
@@ -149,7 +131,7 @@ public class Manejador_Ventas{
                     DTM.setValueAt("0." + cad, row, 5);
                     float a =Float.parseFloat(DTM.getValueAt(row, 3)+"")- (Float.parseFloat(DTM.getValueAt(row, 3)+"") * (Float.parseFloat(DTM.getValueAt(row, 5)+"")));
                     DTM.setValueAt(a, row, 4);
-                }catch(Exception e){
+                }catch(Exception e){ showMessageDialog(IV, "Solo numeros");
                     }
             }
                 else { showMessageDialog(IV, "Es necesario seleccionar un registro");
