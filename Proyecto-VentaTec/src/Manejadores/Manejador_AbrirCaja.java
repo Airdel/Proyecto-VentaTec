@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author LUISM & Darien
+ * @author LUISM & Darienaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
  */
 public class Manejador_AbrirCaja {
     //-----------Declaracion Variables-----------//
