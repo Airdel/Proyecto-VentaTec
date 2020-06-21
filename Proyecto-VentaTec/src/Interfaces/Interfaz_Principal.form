@@ -169,6 +169,7 @@
               <Image iconType="3" name="/Imagenes/Iconos_InterfazPrincipal/cerrar caja.png"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Cerrar Caja"/>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="name" type="java.lang.String" value="btn_Usuarios" noResource="true"/>
           </Properties>
           <AuxValues>

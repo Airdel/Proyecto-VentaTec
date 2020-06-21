@@ -115,6 +115,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
 
         btn_CerrarCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/cerrar caja.png"))); // NOI18N
         btn_CerrarCaja.setText("Cerrar Caja");
+        btn_CerrarCaja.setEnabled(false);
         btn_CerrarCaja.setName("btn_Usuarios"); // NOI18N
 
         javax.swing.GroupLayout Jpanel_BotonesLayout = new javax.swing.GroupLayout(Jpanel_Botones);
@@ -154,7 +155,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         );
 
         getContentPane().add(Jpanel_Botones);
-        Jpanel_Botones.setBounds(10, 0, 247, 640);
+        Jpanel_Botones.setBounds(10, 0, 227, 640);
 
         jPanel1.setBackground(new java.awt.Color(0, 255, 0));
 
