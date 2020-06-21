@@ -61,12 +61,14 @@ public class Manejador_Principal {
         II.setEnabled(false);
         ICC.setEnabled(false);
         IAC.setEnabled(false);
+        IAU.setEnabled(false);
         //------Agregando interfaz a desktop---------//
         IP.Ventana_JPanelPrincipal.add(IR);
         IP.Ventana_JPanelPrincipal.add(ID);
         IP.Ventana_JPanelPrincipal.add(II);
         IP.Ventana_JPanelPrincipal.add(ICC);
         IP.Ventana_JPanelPrincipal.add(IAC);
+        IP.Ventana_JPanelPrincipal.add(IAU);
         //------------Inicializacion de variables-----------//
         //------Action Listener Performed-----------------------//
         this.IP.btn_CerrarSesion.addActionListener(new ActionListener() {
@@ -78,6 +80,16 @@ public class Manejador_Principal {
                 IN.setVisible(true);
                 IP.dispose();
                 //----Cierra interfaz Principal abre Inicio de secion---//
+            }
+        });
+        this.IP.btn_CrearUsuario.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //----Revisa si esta abierto Crear Usuario---//
+                if(IAU.isVisible()==false){
+                    IAU.setVisible(true);
+                    IAU.setEnabled(true);
+                }
+                //----Revisa si esta abierto Crear Usuario---//
             }
         });
         this.IP.btn_VentanaNuevaVenta.addActionListener(new ActionListener(){

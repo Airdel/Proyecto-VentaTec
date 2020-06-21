@@ -13,11 +13,9 @@ import com.mxrck.autocompleter.TextAutoCompleter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
-import static javax.swing.JOptionPane.QUESTION_MESSAGE;
 import static javax.swing.JOptionPane.YES_NO_OPTION;
 import static javax.swing.JOptionPane.YES_OPTION;
 import static javax.swing.JOptionPane.showConfirmDialog;
@@ -134,21 +132,25 @@ public class Manejador_Ventas{
         this.IV.btn_Cobrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 if (IV.dgv_Productos.getRowCount() > 0) {
-                MSUV = new Modulo_SubVenta();                 
+                MSUV = new Modulo_SubVenta(IV.dgv_Productos.getRowCount());                 
                 String cad = JOptionPane.showInputDialog(IV,"Coloque el Efectivo");
-                if(MASUV.validaInput(cad)){    
-                    MSUV.setEfectivo(Double.parseDouble(cad));
-                    SUV = new Sub_Venta();
-                    MASUV = new Manejador_SubVenta(SUV, MSUV, IV);
-                    SUV.setVisible(true);
+                    if(MASUV.validaInput(cad)){    
+                        MSUV.setEfectivo(Double.parseDouble(cad));
+                        SUV = new Sub_Venta();
+                        MASUV = new Manejador_SubVenta(SUV, MSUV, IV);
+                        if(MASUV.venta()){
+                            MASUV.rellenaSub();
+                            SUV.setVisible(true);
+                        }else{
+                            JOptionPane.showMessageDialog(IV, "Efectivo no suficiente");
+                            SUV.dispose();
+                        }
+                    }
+                }else {
+                    showMessageDialog(IV, "Es necesario ingresar productos registro");
+                    IV.txt_Codigo.requestFocus();
                 }
-                
             }
-        else {
-            showMessageDialog(IV, "Es necesario ingresar productos registro");
-            IV.txt_Codigo.requestFocus();
-        }
-        }
             
         });
         

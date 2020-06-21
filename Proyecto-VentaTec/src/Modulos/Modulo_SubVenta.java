@@ -5,47 +5,57 @@
  */
 package Modulos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author LUISM
  */
 public class Modulo_SubVenta {
     //----------Declaracion de variables----------//
+    private ArrayList<String> idProduc = new ArrayList<String>();
+    private ArrayList<String> Cantidad = new ArrayList<String>();
+    private ArrayList<String> precUnitario = new ArrayList<String>();
+    private ArrayList<String> importe = new ArrayList<String>();
+    private ArrayList<String> descuento = new ArrayList<String>();
+    private int tamañoMaximo;
     private double total;
     private double efectivo;
     private double sobrante;
     private double iva;
     private double subtotal;
     private String fecha;
-    private double descuento;
     //----------Declaracion de variables----------//
     
-    public Modulo_SubVenta() {
+    public Modulo_SubVenta(int row) {
+        this.tamañoMaximo = row;
         this.total = 0;
-        this.iva = 0;
         this.subtotal = 0;
+        this.iva = 0;
         this.fecha = "";
-        this.descuento = 0;
         this.efectivo = 0;
         this.sobrante = 0;
     }
     //-----------Fin del Constructor---------------//
     //-------funciones void----------//
-    public void sumaSub(double sum,double desc,int cant){
-        subtotal = subtotal + ((sum - (sum * desc))*cant);
+    public void agregaProduc(String idproc,String cant,String precUni,String impor,String desc){
+        idProduc.add(idproc);
+        Cantidad.add(cant);
+        precUnitario.add(precUni);
+        importe.add(impor);
+        descuento.add(desc);
+    }
+    public void sumaSubTotal(){
+        for(int i = 0;i < tamañoMaximo ; i++){
+            subtotal = subtotal + (Double.parseDouble(importe.get(i))*Integer.parseInt(Cantidad.get(i)));
+        }
         iva = (subtotal * 0.16);
     }
-    //-------funciones void----------//
-    //-------funciones return----------//
-    public boolean sumaTodo(){
+    public void sumaTodo(){
         total = subtotal + iva;
         sobrante = total - efectivo;
-        if(sobrante > 0){
-            return false;
-        }
-        return true;
     }
-    //-------funciones return----------//
+    //-------funciones void----------//
     //------- get ----------//
     public double getEfectivo() {
         return efectivo;
@@ -54,7 +64,7 @@ public class Modulo_SubVenta {
         return subtotal;
     }
     public double getSobrante() {
-        return sobrante * -1;
+        return sobrante;
     }
     public double getTotal() {
         return total;
@@ -65,8 +75,12 @@ public class Modulo_SubVenta {
     public String getFecha() {
         return fecha;
     }
-    public double getDescuento() {
-        return descuento;
+    public double getPromedioDescuento(){
+        double descuentoAcumulado = 0;
+        for(int i = 0;i < tamañoMaximo;i++){
+            descuentoAcumulado = Double.parseDouble(descuento.get(i));
+        }
+        return (descuentoAcumulado / tamañoMaximo);
     }
     //------- get ----------//
     //------- set ----------//
@@ -75,9 +89,6 @@ public class Modulo_SubVenta {
     }
     public void setFecha(String dia,String mes,String ano) {
         this.fecha = dia +"/"+ mes +"/"+ ano;
-    }
-    public void setDescuento(double descuento) {
-        this.descuento = descuento;
     }
     //------- set ----------//
 }
