@@ -22,9 +22,13 @@ private String domicilio;
 private ConexionBD con;
 //------------Declaracion de variables-------------//    
     //-----------------------Constructor Modulo usuario------------------------------------------------------------
-    public Modulo_Usuario(String nombreUsuario,String contraseña){
-        this.nombreUsuario = nombreUsuario;
-        this.contraseña = contraseña;
+    public Modulo_Usuario(){
+        this.nombreUsuario = "";
+        this.contraseña = "";
+        this.nombreReal = "";
+        this.telefono = "";
+        this.Tipo_Usuario = "";
+        this.telefono = "";
         con = new ConexionBD();
     }//Fin del constructor 
   

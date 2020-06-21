@@ -24,7 +24,9 @@ public class Manejador_InicioSesion{
     //---------------------Inicia La interfaz Principal---------------------------//
     public Manejador_InicioSesion(String nombreUsuario,String contraseña,Interfaz_InicioSesion II) {
         //------------Inicializa las variables----------------------//
-        MU = new Modulo_Usuario(nombreUsuario,contraseña);
+        MU = new Modulo_Usuario();
+        MU.setNombreUsuario(nombreUsuario);
+        MU.setContraseña(contraseña);
         //------------Inicializa las variables----------------------//
         
         //-------------Verificar Usuarios---------------------------//

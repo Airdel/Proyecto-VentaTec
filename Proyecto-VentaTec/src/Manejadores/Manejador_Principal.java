@@ -26,6 +26,7 @@ public class Manejador_Principal {
     private Interfaz_Venta IV;
     private Interfaz_CerrarCaja ICC = new Interfaz_CerrarCaja();
     private Interfaz_AbrirCaja IAC = new Interfaz_AbrirCaja();
+    private Interfaz_AgregaUsu IAU = new Interfaz_AgregaUsu();
     //-----Interfaz_x-------------------//
     //-----Modulo_x-------------------//
     private Modulo_Documentos MD = new Modulo_Documentos();
@@ -35,6 +36,7 @@ public class Manejador_Principal {
     private Modulo_Venta MV;
     private Modulo_CerrarCaja MCC = new Modulo_CerrarCaja();
     private Modulo_AbrirCaja MAC = new Modulo_AbrirCaja();
+    private Modulo_Usuario MU = new Modulo_Usuario();
     //-----Modulo_x-------------------//
     //-----Manejador_x-------------------//
     private Manejador_Documentacion MAD = new Manejador_Documentacion(ID, MD);
@@ -44,6 +46,7 @@ public class Manejador_Principal {
     private Manejador_Ventas MAV;
     private Manejador_CerrarCaja MACC = new Manejador_CerrarCaja(ICC, MCC);
     private Manejador_AbrirCaja MAAC = new Manejador_AbrirCaja(IAC, MAC);
+    private Manejador_NuevoUsu MNU = new Manejador_NuevoUsu(IAU, MU);
     //-----Manejador_x-------------------// 
     //-----Inicio de Ventana Principal-------------------// 
     public Manejador_Principal(Interfaz_Principal IP1, Modulo_Principal MP1,String T) {

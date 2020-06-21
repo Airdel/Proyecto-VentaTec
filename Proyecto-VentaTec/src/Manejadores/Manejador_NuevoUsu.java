@@ -17,11 +17,11 @@ import javax.swing.JOptionPane;
  *
  * @author LUISM
  */
-public class Manedajor_NuevoUsu  {
+public class Manejador_NuevoUsu  {
     private Interfaz_AgregaUsu IU;
     private Modulo_Usuario MU;
 
-    public Manedajor_NuevoUsu(Interfaz_AgregaUsu IU, Modulo_Usuario MU) {
+    public Manejador_NuevoUsu(Interfaz_AgregaUsu IU, Modulo_Usuario MU) {
         this.IU = IU;
         this.MU = MU;
         this.IU.btnGuardar.addActionListener(new ActionListener() {

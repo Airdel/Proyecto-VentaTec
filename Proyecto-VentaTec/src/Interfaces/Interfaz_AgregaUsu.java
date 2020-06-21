@@ -9,7 +9,7 @@ package Interfaces;
  *
  * @author LUISM
  */
-public class Interfaz_AgregaUsu extends javax.swing.JFrame {
+public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form Interfaz_AgregaUsu
