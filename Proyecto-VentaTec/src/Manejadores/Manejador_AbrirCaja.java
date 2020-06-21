@@ -40,7 +40,14 @@ public class Manejador_AbrirCaja {
                     //------Agrega el Fondo de Caja a Modulo Abrir Caja-------//
                     MAC.setCajafondo(i);
                     //------Agrega el Fondo de Caja a Modulo Abrir Caja-------//
+                    showMessageDialog("Fondo añadido!");
+                    IAC.setEnabled(false);
+                    IAC.setVisible(false);
                 }catch(Exception e){JOptionPane.showMessageDialog(IAC, "Solo Numeros");}
+            }
+
+            private void showMessageDialog(String fondo_añadido) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         });
         this.IAC.btnCerrar.addActionListener(new ActionListener() {
