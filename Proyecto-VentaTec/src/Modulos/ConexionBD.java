@@ -509,6 +509,24 @@ public String[] getInveID(String id){
     }
         
     
+    public void insertDatails(int id_venta,String id_producto,int cantidad,float desc,float subtotal,String deripcion ){
+       
+        try{
+            
+            sp = con.prepareStatement("INSERT INTO [DETALLE VENTA] VALUES(?,?,?,?,?,?)");//consulta sql para insertar
+            sp.setInt(1, id_venta);//datos
+            sp.setString(2,id_producto);//datos
+            sp.setInt(3,cantidad);//datos
+            sp.setFloat(4, desc);//datos
+            sp.setFloat(5,subtotal);//datos
+            sp.setString(6, deripcion);//datos
+            sp.executeUpdate();
+            
+            
+        }catch(SQLException e){}
+    }
+    
+    
        public static void main(String arg[]){
            ConexionBD CBD = new ConexionBD();
            CBD.openConexion();
