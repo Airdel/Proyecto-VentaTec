@@ -13,11 +13,11 @@ import java.util.ArrayList;
  */
 public class Modulo_SubVenta {
     //----------Declaracion de variables----------//
-    private ArrayList<String> idProduc = new ArrayList<String>();
-    private ArrayList<String> Cantidad = new ArrayList<String>();
-    private ArrayList<String> precUnitario = new ArrayList<String>();
-    private ArrayList<String> importe = new ArrayList<String>();
-    private ArrayList<String> descuento = new ArrayList<String>();
+    public ArrayList<String> idProduc = new ArrayList<String>();
+    public ArrayList<String> Cantidad = new ArrayList<String>();
+    public ArrayList<String> precUnitario = new ArrayList<String>();
+    public ArrayList<String> importe = new ArrayList<String>();
+    public ArrayList<String> descuento = new ArrayList<String>();
     private int tamañoMaximo;
     private double total;
     private double efectivo;
