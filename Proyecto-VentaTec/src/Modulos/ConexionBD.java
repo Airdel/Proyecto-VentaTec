@@ -143,10 +143,23 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
     
     }//Fin inserInOut
     
+    public void agregaUsuario(String nombreReal,String nombreUsu,String contra,String TipoU,String telefono,String domicilio){
+        try{
+           sp = con.prepareStatement("INSERT INTO DBO.USUARIOS(NOMBRE,[NOMBRE USUARIO],CONTRASEÑA,[TIPO USUARIO],TELEFONO,DOMICILIO) VALUES(?,?,?,?,?,?)");
+           sp.setString(1,nombreReal);
+           sp.setString(2,nombreUsu);
+           sp.setString(3,contra);
+           sp.setString(4,TipoU);
+           sp.setString(5,telefono);
+           sp.setString(6,domicilio);
+           sp.executeUpdate();
+        }catch(SQLException | NullPointerException ex){
+                System.out.print(ex.getMessage());}
+    }
     
+        
     public void insertDetailsSale(int id_venta, String id_producto, int cantidad,float descuento,float subtotal){
-    
-    
+        
     }
     
     //----------------------------Elimina en la base de datos-------------------------------------------------

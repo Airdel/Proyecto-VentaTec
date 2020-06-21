@@ -5,55 +5,57 @@
  */
 package Manejadores;
 
-import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import Interfaces.Interfaz_AgregaUsu;
+import Modulos.Modulo_Usuario;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.Action;
+import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author LUISM
  */
-@Entity
-public class Manedajor_NuevoUsu implements Serializable {
+public class Manedajor_NuevoUsu  {
+    private Interfaz_AgregaUsu IU;
+    private Modulo_Usuario MU;
 
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Manedajor_NuevoUsu)) {
-            return false;
-        }
-        Manedajor_NuevoUsu other = (Manedajor_NuevoUsu) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "Manejadores.Manedajor_NuevoUsu[ id=" + id + " ]";
+    public Manedajor_NuevoUsu(Interfaz_AgregaUsu IU, Modulo_Usuario MU) {
+        this.IU = IU;
+        this.MU = MU;
+        this.IU.btnGuardar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if(validaUsu()){rellenaUSU();}
+            }
+        });
+        this.IU.btnRegresar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                IU.setEnabled(false);
+                IU.setVisible(false);
+            }
+        });
     }
     
+    public void rellenaUSU(){
+        MU.setNombreReal(IU.txtNombreCom.getText());
+        MU.setNombreUsuario(IU.txtNombreUSU.getText());
+        MU.setContraseña(IU.txtContraseña.getText());
+        MU.setTipo_Usuario(IU.cmbTipoUSU.getSelectedItem() + "");
+        MU.setTelefono(IU.txtTelefono.getText());
+        MU.setDomicilio(IU.txtDomicilio.getText());
+        MU.agregarUsu();
+    }
+    
+    public boolean validaUsu(){
+        String contra1 = IU.txtContraseña.getText();
+        String contra2 = IU.txtConfirContra.getText();
+        if(contra1.equals(contra2)){
+            return true;
+        }
+        JOptionPane.showMessageDialog(IU, "Contraseña mal escrita");
+        return false;
+    }
 }
