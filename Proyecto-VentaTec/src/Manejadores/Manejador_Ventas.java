@@ -149,22 +149,32 @@ public class Manejador_Ventas {
             public void actionPerformed(ActionEvent ae) {
 
                 if (IV.dgv_Productos.getSelectedRow() >= 0) {
-                    String cad = JOptionPane.showInputDialog(IV, "Coloca el descuento del producto");
-
+                    float x = 0;
+                    String cad = "";
                     try {
+                        cad = JOptionPane.showInputDialog(IV, "Coloca el descuento del producto");
+                        x = Float.parseFloat(cad);
+                    } catch (Exception e) {
+                        showMessageDialog(IV, "Solo numeros");
+                        IV.dgv_Productos.requestFocus();
+                    }
+                    if (x > -1) {
                         Integer.parseInt(cad);
                         int row = IV.dgv_Productos.getSelectedRow();
                         DTM.setValueAt("0." + cad, row, 5);
                         float a = Float.parseFloat(DTM.getValueAt(row, 3) + "") - (Float.parseFloat(DTM.getValueAt(row, 3) + "") * (Float.parseFloat(DTM.getValueAt(row, 5) + "")));
                         DTM.setValueAt(a, row, 4);
-                    } catch (Exception e) {
-                        showMessageDialog(IV, "Solo numeros");
+                    } else {
+                        showMessageDialog(IV, "Ingresa un valor valido");
                     }
                 } else {
                     showMessageDialog(IV, "Es necesario seleccionar un registro");
                 }
+
             }
-        });
+        }
+        );
+
         this.IV.btn_BuscarProducto.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 IniciaSub();
@@ -172,12 +182,11 @@ public class Manejador_Ventas {
         });
         this.IV.btn_Cobrar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-                if (IV.dgv_Productos.getRowCount() > 0) {
-                MSUV = new Modulo_SubVenta(IV.dgv_Productos.getRowCount());
-                SUV = new Sub_Venta();
-                MASUV = new Manejador_SubVenta(SUV, MSUV, IV);
-                String cad = JOptionPane.showInputDialog(IV,"Coloque el Efectivo");
-                  
+                if (IV.dgv_Productos.getRowCount() > 0) {                    
+                    MSUV = new Modulo_SubVenta(IV.dgv_Productos.getRowCount());
+                    SUV = new Sub_Venta();
+                    MASUV = new Manejador_SubVenta(SUV, MSUV, IV);                    
+                    String cad = JOptionPane.showInputDialog(IV, "Coloque el Efectivo");
                     if (MASUV.validaInput(cad)) {
                         MSUV.setEfectivo(Double.parseDouble(cad));
                         if (MASUV.venta()) {
