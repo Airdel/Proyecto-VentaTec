@@ -433,14 +433,9 @@ public class Manejador_Ventas {
         return false;
     }
     
+   
     
-    
-    
-    
-    
-    
-    
-    
+
     
     
 /*
@@ -554,4 +549,6 @@ public class Manejador_Ventas {
         }
     }// Fin Validar Txt Brayan
     //--------Funciones Void-----------------//
+    
+    
 }
