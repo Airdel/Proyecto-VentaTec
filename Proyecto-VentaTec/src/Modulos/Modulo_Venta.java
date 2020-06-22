@@ -14,20 +14,69 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Modulo_Venta {
     
+    //----------Declaracion de variables----------//
+    public ArrayList<String> idProduc = new ArrayList<String>();
     public ArrayList<String> Cantidad = new ArrayList<String>();
     public ArrayList<String> precUnitario = new ArrayList<String>();
     public ArrayList<String> importe = new ArrayList<String>();
     public ArrayList<String> descuento = new ArrayList<String>();
-    private String nombreUsuario;
-    private String FolioAnterior;
-    private String FolioVenta;
-    private String nombreProducto;
-    private DefaultTableModel DTM;
+    public ArrayList<String> renglon = new ArrayList<String>();
+    private int NoArticulos;
+    private double total;
+    private double iva;
+    private double subtotal;
+    //----------Declaracion de variables----------//
     
-    public Modulo_Venta(DefaultTableModel DTM1) {
-        this.DTM = DTM1;
+    public Modulo_Venta() {
+        this.total = 0;
+        this.NoArticulos = 0;
+        this.subtotal = 0;
+        this.iva = 0;
     }
-  
+    //-----------Fin del Constructor---------------//
+    //-------funciones void----------//
+    public void agregaProduc(String reng,String idproc,String cant,String precUni,String impor,String desc){
+        renglon.add(reng);
+        idProduc.add(idproc);
+        Cantidad.add(cant);
+        precUnitario.add(precUni);
+        importe.add(impor);
+        descuento.add(desc);
+        NoArticulos++;
+    }
+    public void eliminaProduc(String idproc){
+        
+    }
+    public void sumaSubTotal(){
+        for(int i = 0;i < idProduc.size() ; i++){
+            subtotal = subtotal + (double)(Double.parseDouble(importe.get(i))*Integer.parseInt(Cantidad.get(i)));
+        }
+        iva = (subtotal * 0.16);
+    }
+    public void sumaTodo(){
+        total = subtotal + iva;
+    }
+    //-------funciones void----------//
+    //------- get ----------//
     
-    
+    public double getSubtotal() {
+        return subtotal;
+    }
+    public double getTotal() {
+        return total;
+    }
+    public double getIva() {
+        return (subtotal * 0.16);
+    }
+    public int getNoArticulos() {
+        return NoArticulos;
+    }
+    public double getPromedioDescuento(){
+        double descuentoAcumulado = 0;
+        for(int i = 0;i < idProduc.size();i++){
+            descuentoAcumulado = Double.parseDouble(descuento.get(i));
+        }
+        return (descuentoAcumulado / idProduc.size());
+    }
+    //------- get ----------//
 }

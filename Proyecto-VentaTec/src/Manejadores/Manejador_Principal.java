@@ -97,8 +97,8 @@ public class Manejador_Principal {
             public void actionPerformed(ActionEvent e) {
                 //------Inicializacion de Ventana----------//
                 IV = new Interfaz_Venta();
-                MV = new Modulo_Venta((DefaultTableModel)IV.dgv_Productos.getModel());
-                MAV = new Manejador_Ventas(IV, MV, TipoUsu,IP);
+                MV = new Modulo_Venta();
+                MAV = new Manejador_Ventas(IV, MV, TipoUsu);
                 
                 //------Inicializacion de Ventana----------//
                 //------Cierre de ventana principal y visualiza Venta----------//
