@@ -62,13 +62,14 @@ public class Manejador_CerrarCaja {
                 ICC.lblGanancias.setText(MCC.getGanancias() + "");
                 JOptionPane.showMessageDialog(ICC, "Corte realizado");
                 ICC.btn_CorteCaja.setEnabled(false);
-                }catch(Exception e){
-                    JOptionPane.showMessageDialog(ICC,e.getMessage());
-                }
-                
                 //-----Actualiza los label de Interfaz Cerrar Caja--------//
-            }
+                }catch(Exception e){
+                System.out.println("Error: "+e.getMessage());
+            }}
+                
+            
         });
+        
         //------------ACTION LISTENER PERFORMED-----------//
         //------------ACTION LISTENER ChangeListener-----------//
         this.ICC.spin_1.addChangeListener(new javax.swing.event.ChangeListener() {

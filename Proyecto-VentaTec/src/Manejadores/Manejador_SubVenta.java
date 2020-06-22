@@ -11,7 +11,9 @@ import Modulos.ConexionBD;
 import Modulos.Modulo_SubVenta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.SimpleFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -20,12 +22,14 @@ import javax.swing.table.DefaultTableModel;
  * @author LUISM
  */
 public class Manejador_SubVenta {
+
     //-----Declaracion Variables-----//
     private Sub_Venta SUV;
     private Modulo_SubVenta MSUV;
     private Interfaz_Venta IV;
     private DefaultTableModel DTM;
     private ConexionBD CBD;
+
     //-----Declaracion Variables-----//
     //---------Inicia Interfaz Sub Venta-----------//
     public Manejador_SubVenta(Sub_Venta SUV1, Modulo_SubVenta MSUV1, Interfaz_Venta IV1) {
@@ -35,8 +39,6 @@ public class Manejador_SubVenta {
         this.IV = IV1;
         this.DTM = (DefaultTableModel) IV.dgv_Productos.getModel();
         this.CBD = new ConexionBD();
-        venta();
-        rellenaSub();
         //----Inicializacion de variables---------//
         //------Action Listener Performed---------//
         this.SUV.btnAceptar.addActionListener(new ActionListener() {
@@ -54,67 +56,94 @@ public class Manejador_SubVenta {
         //------Action Listener Performed---------//
     }
     //-----------------------Fin de Constructor------------------------//
-    
+
     //-----------Funciones Void-----------//
-    public void ConfirmaVenta(){
+    public void ConfirmaVenta() {
         CBD.openConexion();
-        //------Almacena el renglo Seleccionado---------//   
-        int row = IV.dgv_Productos.getRowCount();
         //------Agrega todos los Renglones de Tabla Productos  E y S---------// 
-        for(int i = 0;i < row;i++){
-            String CodigoProducto = IV.dgv_Productos.getValueAt(i, 0) + "";
-            int Cantidad = Integer.parseInt(IV.dgv_Productos.getValueAt(i, 2) + "");
-            CBD.insertInOut(CodigoProducto, 'S',Cantidad);
+        for (int i = 0; i < MSUV.tamañoMaximo; i++) {
+            String CodigoProducto = MSUV.idProduc.get(i);
+            int Cantidad = Integer.parseInt(MSUV.Cantidad.get(i));
+            CBD.insertInOut(CodigoProducto,'S',Cantidad);
         }
         //------Agrega todos los Renglones de Tabla Productos---------//
         CBD.closeConexion();
         //------Elimina todos los Renglones de Tabla Productos---------//
+        JOptionPane.showMessageDialog(SUV,"Productos Vendidos");
         DTM.setRowCount(0);
+        SUV.dispose();
     }// Fin ConfirmaVenta
-    public void rellenaSub(){
+
+    public void rellenaSub() {
         //------Inicializa los label con valores del Modulo Sub----//
         SUV.lblTotal.setText("$" + MSUV.getTotal());
-        SUV.lblEfectivo.setText("$" + MSUV.getSubtotal());
+        SUV.lblSubTotal.setText("$" + MSUV.getSubtotal());
         SUV.lblFechaV.setText(MSUV.getFecha());
         SUV.lblSobrante.setText("$" + MSUV.getSobrante());
         SUV.lblEfectivo.setText("$" + MSUV.getEfectivo());
         SUV.lblIva.setText("$" + MSUV.getIva());
-        SUV.lblDescuento.setText(MSUV.getDescuento() + "%");
+        SUV.lblDescuento.setText(MSUV.getPromedioDescuento() + "%");
         //------Inicializa los label con valores del Modulo Sub----//
     }// Fin rellenaSub
-    public void CancelaVenta(){
+
+    public void CancelaVenta() {
         SUV.dispose();
     }// Fin CancelaVenta
     //-----------Funciones Void-----------//
     //-----------Funciones Retornables-----//
-    public boolean validaInput(String cad){
+
+    public boolean validaInput(String cad) {
         //---Valida si cadena es numero---//
-        String S[] = cad.split(".");
-        if (S.length > 2) {
+        try {
+            float num = Float.parseFloat(cad);
+            if (num < 0) {
+                JOptionPane.showMessageDialog(SUV, "Solo efectivo positivo");
+                return false;
+            }
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(SUV, "Efectivo mal escrito");
             return false;
         }
         return true;
         //---Valida si cadena es numero---//
     }// Fin validarInput
-    public boolean venta(){
+    public String fefe() {
+     Date fecha = new Date();
+        SimpleDateFormat formato =  new SimpleDateFormat("dd/MM/YYYY");
+        return formato.format(fecha);
+    }
+    
+    public boolean venta() {        
+        MSUV.setFecha(fefe());
         //----Agrega fecha a Modulo Sub----//
-        java.util.Date fecha = new Date();
-        MSUV.setFecha(fecha.getDay() + "", fecha.getMonth() + "", fecha.getYear()+1900 + "");
-        //----Agrega fecha a Modulo Sub----//
-        
         int row = IV.dgv_Productos.getRowCount();
         //----Suma el precio de cada producto----//
         for(int i = 0;i < row;i++){
-            double PrecioUnitario = Double.parseDouble(DTM.getValueAt(i, 3) + "");
-            double Oferta = Double.parseDouble(DTM.getValueAt(i, 5) + "");
-            int Cantidad =Integer.parseInt(DTM.getValueAt(i, 2) + "");
-            MSUV.sumaSub(PrecioUnitario,Oferta,Cantidad);
+            String idproc = DTM.getValueAt(i, 0) +"";
+            String cant = DTM.getValueAt(i, 2) +"";
+            String precUni = DTM.getValueAt(i, 3) +"";
+            String impor = DTM.getValueAt(i, 4) +"";
+            String desc = DTM.getValueAt(i, 5) +"";
+            MSUV.agregaProduc(idproc, cant, precUni, impor, desc);
         }
+        MSUV.sumaSubTotal();
+        MSUV.sumaTodo();
         //----Suma el precio de cada producto----//
         //----Retorna la suma total----//
-        return MSUV.sumaTodo();
+        double SOBRANTE = MSUV.getSobrante();
+        if (SOBRANTE > 0) {
+            return true;
+        }
+        return false;
         //----Retorna la suma total----//
     }// Fin venta
     //-----------Funciones Retornables-----//
+
+    public static void main(String arg[]) {
+        Interfaz_Venta IV = new Interfaz_Venta();
+        Sub_Venta SV = new Sub_Venta();
+        Modulo_SubVenta MS = new Modulo_SubVenta(10);
+        Manejador_SubVenta MAS = new Manejador_SubVenta(SV, MS, IV);
+        System.out.println(MAS.validaInput("a"));
+    }
 }

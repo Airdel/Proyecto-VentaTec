@@ -12,12 +12,12 @@ package Modulos;
 //librerias 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
 
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
@@ -131,11 +131,10 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
     //----------------------------Inserta en la Tabla Entradas_Salidas De la BD-------------------------------------------------
     public void insertInOut(String id_producto,char tipo,int cantidad){
         try{
-            
            sp = con.prepareStatement("INSERT INTO DBO.[ENTRADAS SALIDAS]([ID PRODUCTO],TIPO,CANTIDAD) VALUES(?,?,?)");
            sp.setString(1,id_producto);
            sp.setString(2,tipo + "");
-           sp.setInt(3,cantidad);
+           sp.setInt(4,cantidad);
            sp.executeUpdate();
         }catch(SQLException | NullPointerException ex){
                 System.out.print(ex.getMessage());
@@ -143,10 +142,23 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
     
     }//Fin inserInOut
     
+    public void agregaUsuario(String nombreReal,String nombreUsu,String contra,String TipoU,String telefono,String domicilio){
+        try{
+           sp = con.prepareStatement("INSERT INTO DBO.USUARIOS(NOMBRE,[NOMBRE USUARIO],CONTRASEÑA,[TIPO USUARIO],TELEFONO,DOMICILIO) VALUES(?,?,?,?,?,?)");
+           sp.setString(1,nombreReal);
+           sp.setString(2,nombreUsu);
+           sp.setString(3,contra);
+           sp.setString(4,TipoU);
+           sp.setString(5,telefono);
+           sp.setString(6,domicilio);
+           sp.executeUpdate();
+        }catch(SQLException | NullPointerException ex){
+                System.out.print(ex.getMessage());}
+    }
     
+        
     public void insertDetailsSale(int id_venta, String id_producto, int cantidad,float descuento,float subtotal){
-    
-    
+        
     }
     
     //----------------------------Elimina en la base de datos-------------------------------------------------
@@ -290,8 +302,7 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
             int tam =  countRow(R);
             String A[] = new String[tam];
             while(resultado.next()){
-               A[i] = resultado.getString(1); //retorna el segundo campo(debe de ser string)
-               System.out.println(A[i] + "");
+               A[i] = resultado.getString(1); //retorna el segundo campo(debe de ser string)              
                i++;
             }
             return A;
@@ -313,7 +324,6 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
             String A[] = new String[tam];
             while(resultado.next()){
                A[i] = resultado.getString(1); //retorna el segundo campo(debe de ser string)
-               System.out.println(A[i] + "");
                i++;
             }
             return A;
@@ -347,9 +357,10 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
     }
     
     
- public String[] searchInTable(String tabla,String campo, String dato){
+ public String[] searchInTable(String campo, String dato){
         try {
             sp = con.prepareStatement("SELECT * FROM PRODUCTOS where " + campo + " like '" + dato +"%'");
+            System.out.println("SELECT * FROM PRODUCTOS where " + campo + " like '" + dato +"%'");
             resultado = sp.executeQuery();
             PreparedStatement sp1 = con.prepareStatement("SELECT * FROM PRODUCTOS where " + campo + " like '" + dato +"%'");
             ResultSet resultado1 = sp1.executeQuery();
@@ -358,8 +369,8 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
             int i = 0;
             while(resultado.next()){
                A[i] = resultado.getString(5);
-               i++;
                System.out.println(A[i]);
+               i++;
             }
             sp.close();
             resultado.close();
@@ -479,7 +490,7 @@ public String[] getInveID(String id){
         }//Fin try catch
     }//Fin searchProduct
     
-public void UpdateInventario(String nombrep,String c,float venta,float costo,int cate,int p,String a){
+    public void UpdateInventario(String nombrep,String c,float venta,float costo,int cate,int p,String a){
         try{
             sp = con.prepareStatement("{CALL PS_UDPATE_INVENTARIO(?,?,?,?,?,?,?)}" );
             sp.setString(1, nombrep);
@@ -498,11 +509,29 @@ public void UpdateInventario(String nombrep,String c,float venta,float costo,int
     }
         
     
+    public void insertDatails(int id_venta,String id_producto,int cantidad,float desc,float subtotal,String deripcion ){
+       
+        try{
+            
+            sp = con.prepareStatement("INSERT INTO [DETALLE VENTA] VALUES(?,?,?,?,?,?)");//consulta sql para insertar
+            sp.setInt(1, id_venta);//datos
+            sp.setString(2,id_producto);//datos
+            sp.setInt(3,cantidad);//datos
+            sp.setFloat(4, desc);//datos
+            sp.setFloat(5,subtotal);//datos
+            sp.setString(6, deripcion);//datos
+            sp.executeUpdate();
+            
+            
+        }catch(SQLException e){}
+    }
+    
+    
        public static void main(String arg[]){
            ConexionBD CBD = new ConexionBD();
            CBD.openConexion();
            
-           CBD.insertInOut("1234",'E',5);
+           CBD.searchInTable("[NOMBRE PRODUCTO]", "a");
            
            CBD.closeConexion();
        }

@@ -48,7 +48,7 @@ public class Sub_Venta extends javax.swing.JFrame {
         lblTP4 = new javax.swing.JLabel();
         lblTP5 = new javax.swing.JLabel();
         lblEfectivo = new javax.swing.JLabel();
-        lblSubTotal1 = new javax.swing.JLabel();
+        lblSubTotal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -148,9 +148,9 @@ public class Sub_Venta extends javax.swing.JFrame {
 
         lblUser5.setFont(new java.awt.Font("Montserrat", 1, 12)); // NOI18N
         lblUser5.setForeground(new java.awt.Color(102, 102, 102));
-        lblUser5.setText("Descuento:");
+        lblUser5.setText("Promedio Descuento:");
         pnlInformacion.add(lblUser5);
-        lblUser5.setBounds(10, 200, 70, 16);
+        lblUser5.setBounds(10, 200, 130, 16);
 
         lblSobrante.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         lblSobrante.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -174,11 +174,11 @@ public class Sub_Venta extends javax.swing.JFrame {
         pnlInformacion.add(lblEfectivo);
         lblEfectivo.setBounds(0, 130, 200, 24);
 
-        lblSubTotal1.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        lblSubTotal1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblSubTotal1.setText("$0.00");
-        pnlInformacion.add(lblSubTotal1);
-        lblSubTotal1.setBounds(0, 80, 200, 24);
+        lblSubTotal.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
+        lblSubTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblSubTotal.setText("$0.00");
+        pnlInformacion.add(lblSubTotal);
+        lblSubTotal.setBounds(0, 80, 200, 24);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -241,7 +241,7 @@ public class Sub_Venta extends javax.swing.JFrame {
     public javax.swing.JLabel lblFechaV;
     public javax.swing.JLabel lblIva;
     public javax.swing.JLabel lblSobrante;
-    public javax.swing.JLabel lblSubTotal1;
+    public javax.swing.JLabel lblSubTotal;
     private javax.swing.JLabel lblTP2;
     private javax.swing.JLabel lblTP3;
     private javax.swing.JLabel lblTP4;

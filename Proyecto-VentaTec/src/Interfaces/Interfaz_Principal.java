@@ -70,6 +70,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         btn_VentanaInventario = new javax.swing.JButton();
         btn_VentanaNuevaVenta = new javax.swing.JButton();
         btn_CerrarCaja = new javax.swing.JButton();
+        btn_CrearUsuario = new javax.swing.JButton();
         Ventana_JPanelPrincipal = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
         JPanel_Principal = new javax.swing.JPanel();
@@ -118,6 +119,8 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         btn_CerrarCaja.setEnabled(false);
         btn_CerrarCaja.setName("btn_Usuarios"); // NOI18N
 
+        btn_CrearUsuario.setText("Crear Usuario");
+
         javax.swing.GroupLayout Jpanel_BotonesLayout = new javax.swing.GroupLayout(Jpanel_Botones);
         Jpanel_Botones.setLayout(Jpanel_BotonesLayout);
         Jpanel_BotonesLayout.setHorizontalGroup(
@@ -133,12 +136,18 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
                     .addComponent(btn_CerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btn_CerrarCaja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(Jpanel_BotonesLayout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addComponent(btn_CrearUsuario)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Jpanel_BotonesLayout.setVerticalGroup(
             Jpanel_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Jpanel_BotonesLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btn_AbrirCaja, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_CrearUsuario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btn_CerrarCaja)
                 .addGap(1, 1, 1)
@@ -305,6 +314,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
     public javax.swing.JButton btn_AbrirCaja;
     public javax.swing.JButton btn_CerrarCaja;
     public javax.swing.JButton btn_CerrarSesion;
+    public javax.swing.JButton btn_CrearUsuario;
     public javax.swing.JButton btn_VentanaDocumentos;
     public javax.swing.JButton btn_VentanaInventario;
     public javax.swing.JButton btn_VentanaNuevaVenta;

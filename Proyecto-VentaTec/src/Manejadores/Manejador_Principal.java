@@ -9,6 +9,7 @@ import Interfaces.*;
 import Modulos.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -26,6 +27,7 @@ public class Manejador_Principal {
     private Interfaz_Venta IV;
     private Interfaz_CerrarCaja ICC = new Interfaz_CerrarCaja();
     private Interfaz_AbrirCaja IAC = new Interfaz_AbrirCaja();
+    private Interfaz_AgregaUsu IAU = new Interfaz_AgregaUsu();
     //-----Interfaz_x-------------------//
     //-----Modulo_x-------------------//
     private Modulo_Documentos MD = new Modulo_Documentos();
@@ -35,6 +37,7 @@ public class Manejador_Principal {
     private Modulo_Venta MV;
     private Modulo_CerrarCaja MCC = new Modulo_CerrarCaja();
     private Modulo_AbrirCaja MAC = new Modulo_AbrirCaja();
+    private Modulo_Usuario MU = new Modulo_Usuario();
     //-----Modulo_x-------------------//
     //-----Manejador_x-------------------//
     private Manejador_Documentacion MAD = new Manejador_Documentacion(ID, MD);
@@ -44,6 +47,7 @@ public class Manejador_Principal {
     private Manejador_Ventas MAV;
     private Manejador_CerrarCaja MACC = new Manejador_CerrarCaja(ICC, MCC);
     private Manejador_AbrirCaja MAAC = new Manejador_AbrirCaja(IAC, MAC);
+    private Manejador_NuevoUsu MNU = new Manejador_NuevoUsu(IAU, MU);
     //-----Manejador_x-------------------// 
     //-----Inicio de Ventana Principal-------------------// 
     public Manejador_Principal(Interfaz_Principal IP1, Modulo_Principal MP1,String T) {
@@ -58,12 +62,14 @@ public class Manejador_Principal {
         II.setEnabled(false);
         ICC.setEnabled(false);
         IAC.setEnabled(false);
+        IAU.setEnabled(false);
         //------Agregando interfaz a desktop---------//
         IP.Ventana_JPanelPrincipal.add(IR);
         IP.Ventana_JPanelPrincipal.add(ID);
         IP.Ventana_JPanelPrincipal.add(II);
         IP.Ventana_JPanelPrincipal.add(ICC);
         IP.Ventana_JPanelPrincipal.add(IAC);
+        IP.Ventana_JPanelPrincipal.add(IAU);
         //------------Inicializacion de variables-----------//
         //------Action Listener Performed-----------------------//
         this.IP.btn_CerrarSesion.addActionListener(new ActionListener() {
@@ -77,12 +83,23 @@ public class Manejador_Principal {
                 //----Cierra interfaz Principal abre Inicio de secion---//
             }
         });
+        this.IP.btn_CrearUsuario.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                //----Revisa si esta abierto Crear Usuario---//
+                if(IAU.isVisible()==false){
+                    IAU.setVisible(true);
+                    IAU.setEnabled(true);
+                }
+                //----Revisa si esta abierto Crear Usuario---//
+            }
+        });
         this.IP.btn_VentanaNuevaVenta.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e) {
                 //------Inicializacion de Ventana----------//
                 IV = new Interfaz_Venta();
-                MV = new Modulo_Venta();
+                MV = new Modulo_Venta((DefaultTableModel)IV.dgv_Productos.getModel());
                 MAV = new Manejador_Ventas(IV, MV, TipoUsu);
+                
                 //------Inicializacion de Ventana----------//
                 //------Cierre de ventana principal y visualiza Venta----------//
                 IP.dispose();
@@ -151,9 +168,11 @@ public class Manejador_Principal {
     public void ValidaUsu(){
         if(TipoUsu.equals("G")){
             IP.btn_VentanaDocumentos.setVisible(true);
+            IP.btn_CrearUsuario.setVisible(true);
             IP.btn_VentanaInventario.setVisible(true);
         }else if(TipoUsu.equals("U")){
             IP.btn_VentanaDocumentos.setVisible(false);
+            IP.btn_CrearUsuario.setVisible(false);
             IP.btn_VentanaInventario.setVisible(false);
         }else{System.out.println("No encontro Tipo Usuario");}
     }// Fin ValidaUsu
