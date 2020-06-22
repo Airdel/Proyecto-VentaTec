@@ -59,6 +59,8 @@ public class Manejador_CerrarCaja {
                 ICC.lblTotal.setText("$"+MCC.getTotal());
                 ICC.lblCajaFondo.setText(MAC.getCajafondo() + "");
                 ICC.lblGanancias.setText(MCC.getGanancias() + "");
+                JOptionPane.showMessageDialog(ICC, "Corte realizado");
+                ICC.btn_CorteCaja.setEnabled(false);
                 //-----Actualiza los label de Interfaz Cerrar Caja--------//
             }
         });
