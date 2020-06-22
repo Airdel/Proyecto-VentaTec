@@ -70,6 +70,10 @@ public class Manejador_Ventas {
                         CBD.openConexion();
                         String A[] = CBD.searchProduct2("[NOMBRE PRODUCTO]", IV.txt_Codigo.getText());
                         Object B[] = new Object[6];
+                        System.out.println("Hola");
+                        
+                        if(!(validaProducto())){
+                        
                         try {
                             for (int i = 0; i < A.length; i++) {
                                 B = A[i].split(",");
@@ -88,7 +92,7 @@ public class Manejador_Ventas {
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
-                        CBD.closeConexion();
+                        CBD.closeConexion();}
                     } else {
                         showMessageDialog(IV, "Algunos campos estan vacios Error: no se puede generar la venta");
                         IV.dgv_Productos.requestFocus();
@@ -115,6 +119,10 @@ public class Manejador_Ventas {
                         CBD.openConexion();
                         String A[] = CBD.searchProduct2("[ID PRODUCTO]", IV.txt_Codigo.getText());
                         Object B[] = new Object[6];
+                        System.out.println("Hola");
+                        
+                        
+                        if(!(validaProducto())){
                         try {
                             for (int i = 0; i < A.length; i++) {
                                 B = A[i].split(",");
@@ -134,6 +142,7 @@ public class Manejador_Ventas {
                             System.out.println(e.getMessage());
                         }
                         CBD.closeConexion();
+                        }
                     } else {
                         showMessageDialog(IV, "Algunos campos estan vacios Error: no se puede generar la venta");
                         IV.dgv_Productos.requestFocus();
@@ -391,6 +400,41 @@ public class Manejador_Ventas {
         }
         CBD.closeConexion();
     }// Fin llenarTabla
+    
+    
+    
+    
+    
+    public boolean validaProducto(){
+        int a = 0;
+        float b = 0;
+        float imp = 0;
+        for(int i = 0;i<DTM.getRowCount();i++){
+            
+            if(DTM.getValueAt(i,0).toString().equals(IV.txt_Codigo.getText())){
+                System.out.println("ya existe ");
+                a = Integer.parseInt(DTM.getValueAt(i,2).toString()) + Integer.parseInt(IV.txt_Cantidad.getText());
+                b =  Float.parseFloat(DTM.getValueAt(i,3).toString());
+                imp = a*b;
+                DTM.setValueAt(a,i, 2);
+                DTM.setValueAt(imp,i, 4);
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 /*
     public void compraNueva() {
         String A[] = null;
