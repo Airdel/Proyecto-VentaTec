@@ -11,7 +11,7 @@ import java.awt.event.KeyEvent;
 
 /**
  *
- * @author Inovatec
+ * @author INOVATEC
  */
 
 
