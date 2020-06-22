@@ -422,6 +422,10 @@ public class Manejador_Ventas {
                 imp = a*b;
                 DTM.setValueAt(a,i, 2);
                 DTM.setValueAt(imp,i, 4);
+                MV.modificarProducto(i + " ",imp + " ",DTM.getValueAt(i,5).toString());
+                MV.sumaSubTotal();
+                MV.sumaTodo();
+                actualizalbl();
                 return true;
             }
         }
