@@ -126,7 +126,7 @@ public class Manejador_Ventas {
                                     MV.sumaTodo();
                                     actualizalbl();     
                                 }else{
-                                    JOptionPane.showMessageDialog(IV,"Producto no encontrados");
+                                    JOptionPane.showMessageDialog(IV,"Producto no encontrado");
                                 }
                             } catch (Exception e) {
                                 System.out.println(e.getMessage());
@@ -166,7 +166,7 @@ public class Manejador_Ventas {
                         
                         if(!(validaProducto())){
                             try {
-                                if(!(A.equals("null"))){
+                                if(!(A.equals(""))){
                                     B = A.split(",");
                                     B[2] = IV.txt_Cantidad.getText();
                                     DTM.addRow(B);

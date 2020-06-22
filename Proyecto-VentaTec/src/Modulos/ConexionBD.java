@@ -453,10 +453,15 @@ public String[] buscaFolio(){
         PreparedStatement sp1 = con.prepareStatement("SELECT * FROM [DETALLE VENTA]");
         ResultSet resultado1 = sp1.executeQuery();
         int row = countRow(resultado1);
+        if(row == 0){
+            String B[] = new String[1];
+            B[0] = "";
+            return B;
+        }
         String A[] = new String[row];
         int i = 0;
         while(resultado.next()){
-            A[i] = resultado.getInt(1)+","+resultado.getInt(2);
+            A[i] = resultado.getInt(1) +"";
             i++;
         }
         sp.close();
@@ -466,9 +471,9 @@ public String[] buscaFolio(){
         return A;
     }catch (SQLException ex) {
         System.out.println(ex.getMessage());
-        resultado = null;            
-        return null;
+        resultado = null;   
     }//Fin try catch
+    return null;
 }
 //-----------------------------------------------------------select--inventarios----------------
 public String[] getInveID(String id){
