@@ -359,7 +359,6 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
  public String[] searchInTable(String campo, String dato){
         try {
             sp = con.prepareStatement("SELECT * FROM PRODUCTOS where " + campo + " like '" + dato +"%'");
-            System.out.println("SELECT * FROM PRODUCTOS where " + campo + " like '" + dato +"%'");
             resultado = sp.executeQuery();
             PreparedStatement sp1 = con.prepareStatement("SELECT * FROM PRODUCTOS where " + campo + " like '" + dato +"%'");
             ResultSet resultado1 = sp1.executeQuery();
@@ -368,7 +367,6 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
             int i = 0;
             while(resultado.next()){
                A[i] = resultado.getString(5);
-               System.out.println(A[i]);
                i++;
             }
             sp.close();
