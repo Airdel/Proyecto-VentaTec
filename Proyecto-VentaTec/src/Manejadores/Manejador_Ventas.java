@@ -259,6 +259,7 @@ public class Manejador_Ventas {
                             MASUV.rellenaSub();
                             SUV.setVisible(true);
                         } else {
+                          
                             JOptionPane.showMessageDialog(IV, "Efectivo no suficiente");
                             SUV.dispose();
                         }
