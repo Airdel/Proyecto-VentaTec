@@ -169,7 +169,8 @@ public class Manejador_Ventas {
                         CBD.openConexion();
                         String A[] = CBD.searchProduct2("[ID PRODUCTO]", IV.txt_Codigo.getText());
                         Object B[] = new Object[6];
-
+                        
+                        if(!(validaProducto())){
                         try {
 
                             for (int i = 0; i < A.length; i++) {
@@ -186,6 +187,7 @@ public class Manejador_Ventas {
                             System.out.println(e.getMessage());
                         }
                         CBD.closeConexion();
+                       }
                     } else {
                         showMessageDialog(IV, "Algunos campos estan vacios Error: no se puede generar la venta");
                         IV.dgv_Productos.requestFocus();
@@ -433,7 +435,7 @@ public class Manejador_Ventas {
                 System.out.println("ya existe ");
                 a = Integer.parseInt(DTM.getValueAt(i,2).toString()) + Integer.parseInt(IV.txt_Cantidad.getText());
                 b =  Float.parseFloat(DTM.getValueAt(i,3).toString());
-                imp = a*b;
+                imp = a*b *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString()));
                 DTM.setValueAt(a,i, 2);
                 DTM.setValueAt(imp,i, 4);
                 MV.modificarProducto(i + " ",imp + " ",DTM.getValueAt(i,5).toString());
