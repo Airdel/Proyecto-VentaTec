@@ -75,6 +75,7 @@ public class Manejador_Registro {
                     IR.lblStock.setForeground(Color.black);
                     IR.lblTitulo.setForeground(Color.black);
                     JOptionPane.showMessageDialog(IR, "Producto añadido!");
+                    bandera=0;
                     //--------Limipia todos los TXT---------//
 
                 } catch (Exception error) {

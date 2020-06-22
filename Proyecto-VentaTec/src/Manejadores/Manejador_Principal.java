@@ -174,7 +174,7 @@ public class Manejador_Principal {
         }else if(TipoUsu.equals("U")){
             IP.btn_VentanaDocumentos.setVisible(false);
             IP.btn_CrearUsuario.setVisible(false);
-            IP.btn_VentanaInventario.setVisible(false);
+            IP.btn_VentanaRegistrarProducto.setVisible(false);
         }else{System.out.println("No encontro Tipo Usuario");}
     }// Fin ValidaUsu
     //---------------Funciones Void------------------//

@@ -16,6 +16,7 @@ public class Interfaz_AbrirCaja extends javax.swing.JInternalFrame {
      */
     public Interfaz_AbrirCaja() {
         initComponents();
+        //Interfaz_AbrirCaja.s;
     }
 
     /**
@@ -67,4 +68,5 @@ public class Interfaz_AbrirCaja extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn_AbrirCaja;
     // End of variables declaration//GEN-END:variables
+
 }
