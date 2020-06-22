@@ -148,6 +148,8 @@ public class Manejador_Ventas {
             }
         }
         );
+        
+        
 
         this.IV.txt_Cantidad.addKeyListener(
                 new java.awt.event.KeyAdapter() {
