@@ -129,7 +129,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
             }
         });
 
-        btn_CerrarCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/CERRARCAJA.png"))); // NOI18N
+        btn_CerrarCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/CERRARCAJA_1.png"))); // NOI18N
         btn_CerrarCaja.setEnabled(false);
         btn_CerrarCaja.setName("btn_Usuarios"); // NOI18N
 
@@ -221,7 +221,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         );
 
         JPanel_Principal.add(Ventana_JPanelPrincipal);
-        Ventana_JPanelPrincipal.setBounds(-30, 0, 1300, 660);
+        Ventana_JPanelPrincipal.setBounds(-30, 0, 1304, 660);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

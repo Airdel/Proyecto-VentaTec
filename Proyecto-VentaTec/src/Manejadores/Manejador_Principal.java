@@ -9,7 +9,6 @@ import Interfaces.*;
 import Modulos.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -62,14 +61,14 @@ public class Manejador_Principal {
         II.setEnabled(false);
         ICC.setEnabled(false);
         IAC.setEnabled(false);
-        IAU.setEnabled(false);
+        //IAU.setEnabled(false);
         //------Agregando interfaz a desktop---------//
         IP.Ventana_JPanelPrincipal.add(IR);
         IP.Ventana_JPanelPrincipal.add(ID);
         IP.Ventana_JPanelPrincipal.add(II);
+        IP.Ventana_JPanelPrincipal.add(IAU);
         IP.Ventana_JPanelPrincipal.add(ICC);
         IP.Ventana_JPanelPrincipal.add(IAC);
-        IP.Ventana_JPanelPrincipal.add(IAU);
         //------------Inicializacion de variables-----------//
         //------Action Listener Performed-----------------------//
         this.IP.btn_CerrarSesion.addActionListener(new ActionListener() {
@@ -81,16 +80,6 @@ public class Manejador_Principal {
                 IN.setVisible(true);
                 IP.dispose();
                 //----Cierra interfaz Principal abre Inicio de secion---//
-            }
-        });
-        this.IP.btn_CrearUsuario.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                //----Revisa si esta abierto Crear Usuario---//
-                if(IAU.isVisible()==false){
-                    IAU.setVisible(true);
-                    IAU.setEnabled(true);
-                }
-                //----Revisa si esta abierto Crear Usuario---//
             }
         });
         this.IP.btn_VentanaNuevaVenta.addActionListener(new ActionListener(){
@@ -105,6 +94,17 @@ public class Manejador_Principal {
                 IP.setVisible(false);
                 IV.setVisible(true);
                 //------Cierre de ventana principal y visualiza Venta----------//
+            }
+        });
+        this.IP.btn_CrearUsuario.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                //----Revisa si esta abierto Crear Usuario---//
+                if(IAU.isVisible() == false){
+                    IAU.setVisible(true);
+                    IAU.setEnabled(true);
+                }
+                //----Revisa si esta abierto Crear Usuario---//
             }
         });
         this.IP.btn_VentanaDocumentos.addActionListener(new ActionListener(){
