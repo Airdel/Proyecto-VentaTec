@@ -77,7 +77,7 @@ public class Interfaz_CerrarCaja extends javax.swing.JInternalFrame {
 
         jLabel2.setText("200:");
 
-        lblCajaFondo.setText("totalValue");
+        lblCajaFondo.setText("-");
 
         jLabel3.setText("20:");
 
@@ -87,7 +87,7 @@ public class Interfaz_CerrarCaja extends javax.swing.JInternalFrame {
 
         jLabel5.setText("100:");
 
-        lblGanancias.setText("totalValue");
+        lblGanancias.setText("-");
 
         jLabel6.setText("50:");
 
@@ -95,7 +95,7 @@ public class Interfaz_CerrarCaja extends javax.swing.JInternalFrame {
 
         jLabel8.setText("Total:");
 
-        lblTotal.setText("totalValue");
+        lblTotal.setText("-");
 
         btn_Cancelar.setText("Cancelar");
 
@@ -164,10 +164,10 @@ public class Interfaz_CerrarCaja extends javax.swing.JInternalFrame {
                         .addComponent(jLabel14)
                         .addGap(18, 18, 18)
                         .addComponent(lblGanancias)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_Cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_CorteCaja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_CorteCaja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btn_Cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -198,7 +198,6 @@ public class Interfaz_CerrarCaja extends javax.swing.JInternalFrame {
                     .addComponent(btn_CorteCaja, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -211,8 +210,8 @@ public class Interfaz_CerrarCaja extends javax.swing.JInternalFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(lblGanancias)))
-                        .addGap(0, 4, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addContainerGap(22, Short.MAX_VALUE))
+                    .addComponent(btn_Cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();

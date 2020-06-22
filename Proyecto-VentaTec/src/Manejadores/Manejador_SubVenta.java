@@ -107,14 +107,14 @@ public class Manejador_SubVenta {
         return true;
         //---Valida si cadena es numero---//
     }// Fin validarInput
-    public String fefe() {
+    public String darfecha() {
      Date fecha = new Date();
         SimpleDateFormat formato =  new SimpleDateFormat("dd/MM/YYYY");
         return formato.format(fecha);
     }
     
     public boolean venta() {        
-        MSUV.setFecha(fefe());
+        MSUV.setFecha(darfecha());
         //----Agrega fecha a Modulo Sub----//
         int row = IV.dgv_Productos.getRowCount();
         //----Suma el precio de cada producto----//

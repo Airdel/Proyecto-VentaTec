@@ -80,10 +80,10 @@
                       <Component id="lblGanancias" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="60" max="32767" attributes="0"/>
+              <EmptySpace pref="105" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="btn_Cancelar" alignment="0" max="32767" attributes="0"/>
-                  <Component id="btn_CorteCaja" alignment="0" max="32767" attributes="0"/>
+                  <Component id="btn_CorteCaja" max="32767" attributes="0"/>
+                  <Component id="btn_Cancelar" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -121,8 +121,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btn_Cancelar" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                               <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -137,10 +136,10 @@
                               <Component id="lblGanancias" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="4" max="32767" attributes="0"/>
+                      <EmptySpace pref="22" max="32767" attributes="0"/>
                   </Group>
+                  <Component id="btn_Cancelar" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -221,7 +220,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblCajaFondo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="totalValue"/>
+        <Property name="text" type="java.lang.String" value="-"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -249,7 +248,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblGanancias">
       <Properties>
-        <Property name="text" type="java.lang.String" value="totalValue"/>
+        <Property name="text" type="java.lang.String" value="-"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
@@ -272,7 +271,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lblTotal">
       <Properties>
-        <Property name="text" type="java.lang.String" value="totalValue"/>
+        <Property name="text" type="java.lang.String" value="-"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>

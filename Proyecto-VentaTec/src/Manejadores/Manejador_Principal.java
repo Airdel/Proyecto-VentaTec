@@ -102,7 +102,7 @@ public class Manejador_Principal {
                 
                 //------Inicializacion de Ventana----------//
                 //------Cierre de ventana principal y visualiza Venta----------//
-                IP.dispose();
+                IP.setVisible(false);
                 IV.setVisible(true);
                 //------Cierre de ventana principal y visualiza Venta----------//
             }
@@ -155,6 +155,8 @@ public class Manejador_Principal {
                 if(IAC.isVisible()==false ){
                     IAC.setVisible(true);
                     IAC.setEnabled(true);
+                    IP.btn_CerrarCaja.setEnabled(true);
+                    IP.btn_AbrirCaja.setEnabled(false);
                 }
                //----Revisa si esta abierto Abrir Caja---//
            } 

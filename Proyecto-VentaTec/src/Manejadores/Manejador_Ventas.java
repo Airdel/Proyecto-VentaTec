@@ -43,10 +43,11 @@ public class Manejador_Ventas {
     private Interfaces.Sub_Venta SUV;
     private Modulo_SubVenta MSUV;
     private Manejador_SubVenta MASUV;
+    private Interfaz_Principal IP;
 
     //---Declaracion de Variables-----------//
     //------Inicio de Interfaz Venta-----------//
-    public Manejador_Ventas(Interfaz_Venta IV1, Modulo_Venta MV1, String T) {
+    public Manejador_Ventas(Interfaz_Venta IV1, Modulo_Venta MV1, String T, Interfaz_Principal IP2) {
         //--------Inicializacion de variables------------//
         this.TipoUsu = T;
         this.IV = IV1;
@@ -55,6 +56,7 @@ public class Manejador_Ventas {
         DTM = (DefaultTableModel) IV.dgv_Productos.getModel();
         SM = IV.dgv_Productos.getSelectionModel();
         TAC = new TextAutoCompleter(IV1.txt_BuscarProducto);
+        this.IP = IP2;
         //--------Inicializacion de variables------------//
         //--------Listener Key Listener------------//
         this.IV.txt_BuscarProducto.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -228,9 +230,6 @@ public class Manejador_Ventas {
                         "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
 
                     IV.dispose();
-                    Interfaz_Principal IP = new Interfaz_Principal();
-                    Modulo_Principal MP = new Modulo_Principal();
-                    Manejador_Principal MAP = new Manejador_Principal(IP, MP, TipoUsu);
                     IP.setVisible(true);
                 }
 
