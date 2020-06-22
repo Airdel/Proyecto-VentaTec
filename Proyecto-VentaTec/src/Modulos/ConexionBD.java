@@ -457,15 +457,15 @@ public String[] getInve(){
 
 public String[] buscaFolio(){
     try{
-        sp = con.prepareStatement("SELECT [ID VENTA] FROM [DETALLE VENTA]");
+        sp = con.prepareStatement("SELECT * FROM [DETALLE VENTA]");
         resultado = sp.executeQuery();
-        PreparedStatement sp1 = con.prepareStatement("SELECT [ID VENTA] FROM [DETALLE VENTA]");
+        PreparedStatement sp1 = con.prepareStatement("SELECT * FROM [DETALLE VENTA]");
         ResultSet resultado1 = sp1.executeQuery();
         int row = countRow(resultado1);
         String A[] = new String[row];
         int i = 0;
         while(resultado.next()){
-            A[i] = resultado.getString(1);
+            A[i] = resultado.getInt(1)+","+resultado.getInt(2);
             i++;
         }
         sp.close();

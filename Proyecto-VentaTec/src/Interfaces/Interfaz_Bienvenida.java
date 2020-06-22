@@ -27,7 +27,6 @@ public class Interfaz_Bienvenida extends javax.swing.JFrame {
         this.T = T;
         this.nombreUsu = nombreUsu;
         this.id_usu = id_usu;
-        System.out.println(id_usu + "id_usu");
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {

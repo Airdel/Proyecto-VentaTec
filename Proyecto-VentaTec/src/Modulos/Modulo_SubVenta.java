@@ -27,7 +27,7 @@ public class Modulo_SubVenta {
     private double subtotal;
     private String fecha;
     private int folioVenta;
-    private ConexionBD CBD;
+    private ConexionBD CBD = new ConexionBD();
     private int id_Usuario;
     //----------Declaracion de variables----------//
     
@@ -68,10 +68,16 @@ public class Modulo_SubVenta {
         int folio = 0;
         CBD.openConexion();
             String A[] = CBD.buscaFolio();
-            if(A == null){
-                return 1;
+            String B[] = new String[2];
+            for(int i = 0 ; i < A.length; i++){
+                B = A[i].split(",");
+                if(B[0].equals("null")){
+                    CBD.closeConexion();
+                    return 1;
+                }
             }
-            folio = Integer.parseInt(A[A.length - 1]);
+            folio = (Integer.parseInt(B[0]) + 1);
+            System.out.println(folio + " folio");
         CBD.closeConexion();
         return folio + 1;
     }

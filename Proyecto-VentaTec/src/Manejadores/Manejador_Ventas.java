@@ -82,10 +82,11 @@ public class Manejador_Ventas {
                                 }else{
                                     JOptionPane.showMessageDialog(IV, "Producto no encontrado");
                                 }
-                        } catch (Exception e) {
-                            System.out.println(e.getMessage());
+                            } catch (Exception e) {
+                                System.out.println(e.getMessage());
+                            }
                         }
-                        CBD.closeConexion();}
+                       CBD.closeConexion();
                     } else {
                         showMessageDialog(IV, "El campo cantidad esta vacia: no se puede generar la venta");
                         IV.dgv_Productos.requestFocus();
