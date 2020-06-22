@@ -73,26 +73,31 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         btn_CrearUsuario = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         JPanel_Principal = new javax.swing.JPanel();
-        lblFecha = new javax.swing.JLabel();
         lblHora = new javax.swing.JLabel();
-        Ventana_JPanelPrincipal = new javax.swing.JDesktopPane();
+        lblFecha = new javax.swing.JLabel();
         lbl_IconoEmpresa = new javax.swing.JLabel();
+        Ventana_JPanelPrincipal = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("VentaTec - Abarrotes \"Los Ayala\"");
         setBackground(new java.awt.Color(177, 216, 211));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
-        getContentPane().setLayout(null);
+        setPreferredSize(new java.awt.Dimension(1366, 768));
+        setSize(new java.awt.Dimension(1366, 768));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Jpanel_Botones.setBackground(new java.awt.Color(51, 204, 0));
         Jpanel_Botones.setForeground(new java.awt.Color(102, 255, 102));
+        Jpanel_Botones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btn_VentanaDocumentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_Documentos.png"))); // NOI18N
         btn_VentanaDocumentos.setText("Documentos");
         btn_VentanaDocumentos.setName("btn_Rendimiento"); // NOI18N
+        Jpanel_Botones.add(btn_VentanaDocumentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 198, 86));
 
         btn_AbrirCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/CAJAGUARDAR.png"))); // NOI18N
         btn_AbrirCaja.setName("btn_Usuarios"); // NOI18N
+        Jpanel_Botones.add(btn_AbrirCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 11, 100, 84));
 
         btn_VentanaRegistrarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_RegistrarProducto.png"))); // NOI18N
         btn_VentanaRegistrarProducto.setText("Registrar Producto");
@@ -102,6 +107,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
                 btn_VentanaRegistrarProductoActionPerformed(evt);
             }
         });
+        Jpanel_Botones.add(btn_VentanaRegistrarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 198, 85));
 
         btn_CerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_Salir.png"))); // NOI18N
         btn_CerrarSesion.setText("Cerrar Sesión");
@@ -112,11 +118,13 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
                 btn_CerrarSesionActionPerformed(evt);
             }
         });
+        Jpanel_Botones.add(btn_CerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 198, -1));
 
         btn_VentanaInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_Inventario.png"))); // NOI18N
         btn_VentanaInventario.setText("Inventario");
         btn_VentanaInventario.setToolTipText("Facturas & Recibos");
         btn_VentanaInventario.setName("btn_Recibos"); // NOI18N
+        Jpanel_Botones.add(btn_VentanaInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 198, 93));
 
         btn_VentanaNuevaVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_NuevaVenta.png"))); // NOI18N
         btn_VentanaNuevaVenta.setText("Nueva Venta!");
@@ -128,10 +136,12 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
                 btn_VentanaNuevaVentaActionPerformed(evt);
             }
         });
+        Jpanel_Botones.add(btn_VentanaNuevaVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 200, -1));
 
         btn_CerrarCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/CERRARCAJA_1.png"))); // NOI18N
         btn_CerrarCaja.setEnabled(false);
         btn_CerrarCaja.setName("btn_Usuarios"); // NOI18N
+        Jpanel_Botones.add(btn_CerrarCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 100, 84));
 
         btn_CrearUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/inicioseses.png"))); // NOI18N
         btn_CrearUsuario.setText("Crear Usuario");
@@ -140,107 +150,43 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
                 btn_CrearUsuarioActionPerformed(evt);
             }
         });
+        Jpanel_Botones.add(btn_CrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 198, -1));
 
-        javax.swing.GroupLayout Jpanel_BotonesLayout = new javax.swing.GroupLayout(Jpanel_Botones);
-        Jpanel_Botones.setLayout(Jpanel_BotonesLayout);
-        Jpanel_BotonesLayout.setHorizontalGroup(
-            Jpanel_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Jpanel_BotonesLayout.createSequentialGroup()
-                .addGap(2, 2, 2)
-                .addComponent(btn_AbrirCaja, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_CerrarCaja, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_BotonesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(Jpanel_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btn_VentanaRegistrarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_VentanaDocumentos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_VentanaInventario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_VentanaNuevaVenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_CrearUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        Jpanel_BotonesLayout.setVerticalGroup(
-            Jpanel_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Jpanel_BotonesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Jpanel_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_CerrarCaja, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_AbrirCaja, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_VentanaNuevaVenta)
-                .addGap(1, 1, 1)
-                .addComponent(btn_VentanaRegistrarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addComponent(btn_VentanaDocumentos, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(btn_VentanaInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(btn_CrearUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_CerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(221, 221, 221))
-        );
-
-        getContentPane().add(Jpanel_Botones);
-        Jpanel_Botones.setBounds(8, 0, 210, 640);
+        getContentPane().add(Jpanel_Botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 700));
 
         jPanel1.setBackground(new java.awt.Color(0, 255, 0));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JPanel_Principal.setBackground(new java.awt.Color(0, 255, 0));
-        JPanel_Principal.setLayout(null);
-
-        lblFecha.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JPanel_Principal.add(lblFecha);
-        lblFecha.setBounds(820, 600, 160, 29);
+        JPanel_Principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblHora.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblHora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JPanel_Principal.add(lblHora);
-        lblHora.setBounds(820, 550, 160, 29);
+        JPanel_Principal.add(lblHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 600, 140, 30));
+
+        lblFecha.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JPanel_Principal.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 660, 140, 30));
 
         lbl_IconoEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/background.jpg"))); // NOI18N
-
-        Ventana_JPanelPrincipal.setLayer(lbl_IconoEmpresa, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        JPanel_Principal.add(lbl_IconoEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1130, -1));
 
         javax.swing.GroupLayout Ventana_JPanelPrincipalLayout = new javax.swing.GroupLayout(Ventana_JPanelPrincipal);
         Ventana_JPanelPrincipal.setLayout(Ventana_JPanelPrincipalLayout);
         Ventana_JPanelPrincipalLayout.setHorizontalGroup(
             Ventana_JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Ventana_JPanelPrincipalLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addComponent(lbl_IconoEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 1261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGap(0, 1280, Short.MAX_VALUE)
         );
         Ventana_JPanelPrincipalLayout.setVerticalGroup(
             Ventana_JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Ventana_JPanelPrincipalLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lbl_IconoEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(0, 771, Short.MAX_VALUE)
         );
 
-        JPanel_Principal.add(Ventana_JPanelPrincipal);
-        Ventana_JPanelPrincipal.setBounds(-30, 0, 1304, 660);
+        JPanel_Principal.add(Ventana_JPanelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1280, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(JPanel_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 1052, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JPanel_Principal, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
-        );
+        jPanel1.add(JPanel_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 700));
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(240, 0, 1030, 674);
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1130, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
