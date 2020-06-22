@@ -430,11 +430,10 @@ public class Manejador_Ventas {
         float b = 0;
         float imp = 0;
         for(int i = 0;i<DTM.getRowCount();i++){
-            
             if(DTM.getValueAt(i,0).toString().equals(IV.txt_Codigo.getText())){
                 a = Integer.parseInt(DTM.getValueAt(i,2).toString()) + Integer.parseInt(IV.txt_Cantidad.getText());
                 b =  Float.parseFloat(DTM.getValueAt(i,3).toString());
-                imp = a*b;
+                imp = b - (a*b);
                 DTM.setValueAt(a,i, 2);
                 DTM.setValueAt(imp,i, 4);
                 MV.modificarProducto(i + " ",imp + " ",DTM.getValueAt(i,5).toString());
