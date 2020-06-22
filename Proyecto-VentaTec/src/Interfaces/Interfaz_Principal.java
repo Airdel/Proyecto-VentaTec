@@ -75,8 +75,8 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         JPanel_Principal = new javax.swing.JPanel();
         lblHora = new javax.swing.JLabel();
         lblFecha = new javax.swing.JLabel();
-        lbl_IconoEmpresa = new javax.swing.JLabel();
         Ventana_JPanelPrincipal = new javax.swing.JDesktopPane();
+        lbl_IconoEmpresa = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("VentaTec - Abarrotes \"Los Ayala\"");
@@ -161,10 +161,9 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         btn_CrearUsuario.setBounds(10, 500, 198, 87);
 
         getContentPane().add(Jpanel_Botones);
-        Jpanel_Botones.setBounds(8, 0, 210, 650);
+        Jpanel_Botones.setBounds(8, 0, 210, 700);
 
         jPanel1.setBackground(new java.awt.Color(0, 255, 0));
-        jPanel1.setLayout(null);
 
         JPanel_Principal.setBackground(new java.awt.Color(0, 255, 0));
         JPanel_Principal.setLayout(null);
@@ -172,36 +171,49 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         lblHora.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblHora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JPanel_Principal.add(lblHora);
-        lblHora.setBounds(820, 550, 160, 29);
+        lblHora.setBounds(860, 610, 160, 30);
 
         lblFecha.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JPanel_Principal.add(lblFecha);
-        lblFecha.setBounds(820, 600, 160, 29);
+        lblFecha.setBounds(860, 650, 160, 30);
 
         lbl_IconoEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/background.jpg"))); // NOI18N
-        JPanel_Principal.add(lbl_IconoEmpresa);
-        lbl_IconoEmpresa.setBounds(20, 0, 1130, 1092);
+
+        Ventana_JPanelPrincipal.setLayer(lbl_IconoEmpresa, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout Ventana_JPanelPrincipalLayout = new javax.swing.GroupLayout(Ventana_JPanelPrincipal);
         Ventana_JPanelPrincipal.setLayout(Ventana_JPanelPrincipalLayout);
         Ventana_JPanelPrincipalLayout.setHorizontalGroup(
             Ventana_JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1280, Short.MAX_VALUE)
+            .addGroup(Ventana_JPanelPrincipalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_IconoEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 1270, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         Ventana_JPanelPrincipalLayout.setVerticalGroup(
             Ventana_JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 771, Short.MAX_VALUE)
+            .addGroup(Ventana_JPanelPrincipalLayout.createSequentialGroup()
+                .addComponent(lbl_IconoEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 749, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         JPanel_Principal.add(Ventana_JPanelPrincipal);
         Ventana_JPanelPrincipal.setBounds(-30, 0, 1280, 771);
 
-        jPanel1.add(JPanel_Principal);
-        JPanel_Principal.setBounds(0, 0, 1130, 700);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JPanel_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 1130, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(JPanel_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(240, 0, 1030, 674);
+        jPanel1.setBounds(240, 0, 1030, 700);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
