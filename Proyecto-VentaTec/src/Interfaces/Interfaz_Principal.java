@@ -71,11 +71,11 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         btn_VentanaNuevaVenta = new javax.swing.JButton();
         btn_CerrarCaja = new javax.swing.JButton();
         btn_CrearUsuario = new javax.swing.JButton();
-        Ventana_JPanelPrincipal = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
         JPanel_Principal = new javax.swing.JPanel();
         lblFecha = new javax.swing.JLabel();
         lblHora = new javax.swing.JLabel();
+        Ventana_JPanelPrincipal = new javax.swing.JDesktopPane();
         lbl_IconoEmpresa = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -121,6 +121,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         btn_VentanaNuevaVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_NuevaVenta.png"))); // NOI18N
         btn_VentanaNuevaVenta.setText("Nueva Venta!");
         btn_VentanaNuevaVenta.setToolTipText("");
+        btn_VentanaNuevaVenta.setEnabled(false);
         btn_VentanaNuevaVenta.setName("btn_NuevaVenta"); // NOI18N
         btn_VentanaNuevaVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,7 +129,8 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
             }
         });
 
-        btn_CerrarCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/CERRARCAJA_1.png"))); // NOI18N
+        btn_CerrarCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/CERRARCAJA.png"))); // NOI18N
+        btn_CerrarCaja.setEnabled(false);
         btn_CerrarCaja.setName("btn_Usuarios"); // NOI18N
 
         btn_CrearUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/inicioseses.png"))); // NOI18N
@@ -199,39 +201,44 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         lblHora.setBounds(820, 550, 160, 29);
 
         lbl_IconoEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/background.jpg"))); // NOI18N
-        JPanel_Principal.add(lbl_IconoEmpresa);
-        lbl_IconoEmpresa.setBounds(0, 0, 1010, 730);
+
+        Ventana_JPanelPrincipal.setLayer(lbl_IconoEmpresa, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout Ventana_JPanelPrincipalLayout = new javax.swing.GroupLayout(Ventana_JPanelPrincipal);
+        Ventana_JPanelPrincipal.setLayout(Ventana_JPanelPrincipalLayout);
+        Ventana_JPanelPrincipalLayout.setHorizontalGroup(
+            Ventana_JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Ventana_JPanelPrincipalLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lbl_IconoEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 1280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        Ventana_JPanelPrincipalLayout.setVerticalGroup(
+            Ventana_JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Ventana_JPanelPrincipalLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(lbl_IconoEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        JPanel_Principal.add(Ventana_JPanelPrincipal);
+        Ventana_JPanelPrincipal.setBounds(-30, 0, 1300, 660);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(JPanel_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 992, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addGap(0, 0, 0)
+                .addComponent(JPanel_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 1052, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(JPanel_Principal, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
         );
 
-        Ventana_JPanelPrincipal.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout Ventana_JPanelPrincipalLayout = new javax.swing.GroupLayout(Ventana_JPanelPrincipal);
-        Ventana_JPanelPrincipal.setLayout(Ventana_JPanelPrincipalLayout);
-        Ventana_JPanelPrincipalLayout.setHorizontalGroup(
-            Ventana_JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        Ventana_JPanelPrincipalLayout.setVerticalGroup(
-            Ventana_JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Ventana_JPanelPrincipalLayout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(Ventana_JPanelPrincipal);
-        Ventana_JPanelPrincipal.setBounds(240, 0, 1010, 640);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(240, 0, 1030, 674);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

@@ -97,7 +97,7 @@ public class Manejador_Principal {
             public void actionPerformed(ActionEvent e) {
                 //------Inicializacion de Ventana----------//
                 IV = new Interfaz_Venta();
-                MV = new Modulo_Venta((DefaultTableModel)IV.dgv_Productos.getModel());
+                MV = new Modulo_Venta();
                 MAV = new Manejador_Ventas(IV, MV, TipoUsu,IP);
                 
                 //------Inicializacion de Ventana----------//
@@ -157,6 +157,7 @@ public class Manejador_Principal {
                     IAC.setEnabled(true);
                     IP.btn_CerrarCaja.setEnabled(true);
                     IP.btn_AbrirCaja.setEnabled(false);
+                    IP.btn_VentanaNuevaVenta.setEnabled(true);
                 }
                //----Revisa si esta abierto Abrir Caja---//
            } 
