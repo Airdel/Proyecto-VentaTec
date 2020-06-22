@@ -53,7 +53,7 @@ public class Modulo_SubVenta {
         descuento.add(desc);
     }
     public void sumaSubTotal(){
-        for(int i = 0;i < tamañoMaximo ; i++){
+        for(int i = 0;i < idProduc.size() ; i++){
             subtotal = subtotal + (double)(Double.parseDouble(importe.get(i))*Integer.parseInt(Cantidad.get(i)));
         }
         iva = (subtotal * 0.16);
@@ -71,6 +71,7 @@ public class Modulo_SubVenta {
             String B[] = new String[2];
             for(int i = 0 ; i < A.length; i++){
                 B = A[i].split(",");
+                System.out.println(B[0]);
                 if(B[0].equals("null")){
                     CBD.closeConexion();
                     return 1;

@@ -66,12 +66,7 @@ public class Modulo_Venta {
         NoArticulos--;
     }
     public void modificarProducto(String reng,String impor,String desc,String cant){
-        int ren = 0;
-        for(int i = 0; i < renglon.size();i++){
-            if(renglon.get(i).equals(reng)){
-                ren = Integer.parseInt(renglon.get(i));
-            }
-        }
+        int ren = Integer.parseInt(reng);
         Cantidad.set(ren,cant);
         importe.set(ren,impor);
         descuento.set(ren,desc);
@@ -130,4 +125,17 @@ public class Modulo_Venta {
         return (descuentoAcumulado / idProduc.size());
     }
     //------- get ----------//
+    public String toString(){
+        String cad = "";
+        for(int i = 0;i<idProduc.size();i++ ){
+            cad = cad + idProduc.get(i) + " idProduc ";
+            cad = cad + Cantidad.get(i) + " Cantidad ";
+            cad = cad + precUnitario.get(i) + " precUnitario ";
+            cad = cad + importe.get(i) + " importe ";
+            cad = cad + descuento.get(i) + " descuento ";
+            cad = cad + renglon.get(i) + " renglon "+ "\n";
+        }
+        cad = cad + NoArticulos + " NoArticulos " + iva + " iva " + subtotal + " subtotal " + total + " total ";
+        return cad;
+    }
 }

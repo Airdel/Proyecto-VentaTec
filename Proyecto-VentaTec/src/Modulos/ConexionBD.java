@@ -62,7 +62,7 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
         try {
             sp = con.prepareStatement("SELECT "+ tipo +" FROM USUARIOS where [NOMBRE USUARIO] ='" + campo +"' AND CONTRASEÑA ='"+dato+"'");
             resultado = sp.executeQuery();
-            if(resultado.next()) return resultado.getString(1);
+            if(resultado.next()){return resultado.getString(1);}
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
             resultado = null;
@@ -402,30 +402,21 @@ public String[] searchProduct(String campo, String dato){
             return null;
         }//Fin try catch
 }
-public String[] searchProduct2(String campo, String dato){
+public String searchProduct2(String campo, String dato){
         try {
             sp = con.prepareStatement("SELECT * FROM PRODUCTOS WHERE "+campo+" = '"+dato+"'");
             resultado = sp.executeQuery();
-            PreparedStatement sp1 = con.prepareStatement("SELECT * FROM PRODUCTOS WHERE "+campo+" = '"+dato+"'");
-            ResultSet resultado1 = sp1.executeQuery();
-            int row = countRow(resultado1);
-            String A[] = new String[row];
-            int i = 0;
-            while(resultado.next()){
-               A[i] = resultado.getString(1) + "," + resultado.getString(5) + "," + resultado.getString(6) +"," +
+            String cad = "";
+            if(resultado.next()){
+                cad = resultado.getString(1) + "," + resultado.getString(5) + "," + resultado.getString(6) +"," +
                       resultado.getFloat(7) + "," + resultado.getFloat(7) + ",0.0";
-               i++;
+                return cad;
             }
-            sp.close();
-            resultado.close();
-            sp1.close();
-            resultado1.close();
-            return A;
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            resultado = null;            
-            return null;
+            resultado = null;
         }//Fin try catch
+        return "";
 }
 //-----------------------------------------------------------select--inventarios----------------
 public String[] getInve(){

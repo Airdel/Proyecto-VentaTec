@@ -63,21 +63,20 @@ public class Manejador_Ventas {
                 if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
                     if (!(IV.txt_Cantidad.getText().equals(""))) {
                         CBD.openConexion();
-                        String A[] = CBD.searchProduct2("[NOMBRE PRODUCTO]", IV.txt_BuscarProducto.getText());
+                        String A = CBD.searchProduct2("[NOMBRE PRODUCTO]", IV.txt_BuscarProducto.getText());
                         Object B[] = new Object[6];
                         if(!(validaProducto())){
                             try {
-                                for (int i = 0; i < A.length; i++) {
-                                    B = A[i].split(",");
+                                if(!(A.equals(""))){
+                                    B = A.split(",");
                                     B[2] = IV.txt_Cantidad.getText();
                                     DTM.addRow(B);
-                                }
-                                if(!(B[0].equals("null"))){
+                                    
                                     int row = DTM.getRowCount();
-                                    MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
+                                    Float impUnit = Float.parseFloat(B[3] + "") - (Float.parseFloat(B[3] + "") * Float.parseFloat(B[5] + ""));
+                                    MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "",impUnit + "",  B[5]+ "");
                                     MV.sumaSubTotal();
-                                    MV.getTotal();
-                                    actualizalbl();
+                                    MV.sumaTodo();
                                     IV.txt_Codigo.setText(B[0] + "");
                                 }else{
                                     JOptionPane.showMessageDialog(IV, "Producto no encontrado");
@@ -86,7 +85,7 @@ public class Manejador_Ventas {
                                 System.out.println(e.getMessage());
                             }
                         }
-                       CBD.closeConexion();
+                        CBD.closeConexion();
                     } else {
                         showMessageDialog(IV, "El campo cantidad esta vacia: no se puede generar la venta");
                         IV.dgv_Productos.requestFocus();
@@ -111,30 +110,29 @@ public class Manejador_Ventas {
                 if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
                     if (!(IV.txt_Cantidad.getText().equals("") || IV.txt_Codigo.getText().equals(""))) {
                         CBD.openConexion();
-                        String A[] = CBD.searchProduct2("[ID PRODUCTO]", IV.txt_Codigo.getText());
+                        String A = CBD.searchProduct2("[ID PRODUCTO]", IV.txt_Codigo.getText());
                         Object B[] = new Object[6];
-                        
                         if(!(validaProducto())){
-                        try {
-                            for (int i = 0; i < A.length; i++) {
-                                B = A[i].split(",");
-                                B[2] = IV.txt_Cantidad.getText();
-                                DTM.addRow(B);
+                            try {
+                                if(!(A.equals(""))){
+                                    B = A.split(",");
+                                    B[2] = IV.txt_Cantidad.getText();
+                                    DTM.addRow(B);
+
+                                    int row = DTM.getRowCount();
+                                    Float impUnit = Float.parseFloat(B[3] + "") - (Float.parseFloat(B[3] + "") * Float.parseFloat(B[5] + ""));
+                                    MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "",impUnit + "",  B[5]+ "");
+                                    MV.sumaSubTotal();
+                                    MV.sumaTodo();
+                                    actualizalbl();     
+                                }else{
+                                    JOptionPane.showMessageDialog(IV,"Producto no encontrados");
+                                }
+                            } catch (Exception e) {
+                                System.out.println(e.getMessage());
                             }
-                            if(!(B[0].equals("null"))){
-                                int row = DTM.getRowCount();
-                                MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "",(Float.parseFloat(B[3].toString())* Integer.parseInt(IV.txt_Cantidad.getText())) + "", B[5]+ "");
-                                MV.sumaSubTotal();
-                                MV.getTotal();
-                                actualizalbl();
-                            }else{
-                                JOptionPane.showMessageDialog(IV, "Producto no encontrado");
-                            }
-                        } catch (Exception e) {
-                            System.out.println(e.getMessage());
                         }
                         CBD.closeConexion();
-                        }
                     } else {
                         showMessageDialog(IV, "Algunos campos estan vacios Error: no se puede generar la venta");
                         IV.dgv_Productos.requestFocus();
@@ -163,26 +161,30 @@ public class Manejador_Ventas {
 
                     if (!(IV.txt_Cantidad.getText().equals("") || IV.txt_Codigo.getText().equals(""))) {
                         CBD.openConexion();
-                        String A[] = CBD.searchProduct2("[ID PRODUCTO]", IV.txt_Codigo.getText());
+                        String A = CBD.searchProduct2("[ID PRODUCTO]", IV.txt_Codigo.getText());
                         Object B[] = new Object[6];
                         
                         if(!(validaProducto())){
-                        try {
-                            for (int i = 0; i < A.length; i++) {
-                                B = A[i].split(",");
-                                B[2] = IV.txt_Cantidad.getText();
-                                DTM.addRow(B);
+                            try {
+                                if(!(A.equals("null"))){
+                                    B = A.split(",");
+                                    B[2] = IV.txt_Cantidad.getText();
+                                    DTM.addRow(B);
+                                    
+                                    int row = DTM.getRowCount();
+                                    Float impUnit = Float.parseFloat(B[3] + "") - (Float.parseFloat(B[3] + "") * Float.parseFloat(B[5] + ""));
+                                    MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "",impUnit + "",  B[5]+ "");
+                                    MV.sumaSubTotal();
+                                    MV.sumaTodo();
+                                    actualizalbl(); 
+                                }else{
+                                    JOptionPane.showMessageDialog(IV, "Producto no encontrado");
+                                }
+                            } catch (Exception e) {
+                                System.out.println(e.getMessage());
                             }
-                            int row = DTM.getRowCount();
-                            MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "",(Float.parseFloat(B[3].toString())* Integer.parseInt(IV.txt_Cantidad.getText())) + "",  B[5]+ "");
-                            MV.sumaSubTotal();
-                            MV.getTotal();
-                            actualizalbl();    
-                        } catch (Exception e) {
-                            System.out.println(e.getMessage());
                         }
                         CBD.closeConexion();
-                       }
                     } else {
                         showMessageDialog(IV, "Algunos campos estan vacios Error: no se puede generar la venta");
                         IV.dgv_Productos.requestFocus();
@@ -391,7 +393,7 @@ public class Manejador_Ventas {
                         int rows = DTM.getRowCount();
                         MV.agregaProduc((rows - 1) + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
                         MV.sumaSubTotal();
-                        MV.getTotal();
+                        MV.sumaTodo();
                         actualizalbl();
                     }
                 }
@@ -433,21 +435,20 @@ public class Manejador_Ventas {
         float precioUimporte = 0;
         float imp = 0;
         for(int i = 0;i<DTM.getRowCount();i++){
-            if(DTM.getValueAt(i,0).toString().equals(IV.txt_Codigo.getText())){
+            if((DTM.getValueAt(i,0) + "").equals(IV.txt_Codigo.getText())){
                 CANTIDAD = Integer.parseInt(DTM.getValueAt(i,2).toString()) + Integer.parseInt(IV.txt_Cantidad.getText());
                 PRECIOU =  Float.parseFloat(DTM.getValueAt(i,3).toString());
-                imp = CANTIDAD*PRECIOU *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString()));
-                precioUimporte = PRECIOU *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString()));
+                imp = CANTIDAD*(PRECIOU *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString())));
+                precioUimporte = PRECIOU -(PRECIOU * Float.parseFloat(DTM.getValueAt(i,5).toString()));
                 DTM.setValueAt(CANTIDAD,i, 2);
                 DTM.setValueAt(imp,i, 4);
-                MV.modificarProducto(i + " ",precioUimporte + "",DTM.getValueAt(i,5).toString(),CANTIDAD+"");
+                MV.modificarProducto(i + "",precioUimporte + "",DTM.getValueAt(i,5).toString(),CANTIDAD+"");
                 MV.sumaSubTotal();
                 MV.sumaTodo();
                 actualizalbl();
                 return true;
             }
         }
-        
         return false;
     }
     
