@@ -163,6 +163,7 @@ public class Manejador_Inventario {
         //----------------Listener Mouse Listener-------------//   
         this.II.btnUpdate.addMouseMotionListener(new java.awt.event.MouseAdapter(){
            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                DTM.fireTableDataChanged();
                 DTM.setRowCount(0);
                 llenartabla();            
             }
