@@ -10,16 +10,28 @@ package Modulos;
  * @author LUIS INC
  */
 public class Modulo_Principal {
-    private char Estado;
+    private String tipoUSU;
+    private String nameUsu;
+
+    public Modulo_Principal(String tipoUSU, String nameUsu) {
+        this.tipoUSU = tipoUSU;
+        this.nameUsu = nameUsu;
+    }
+
+    public String getTipoUSU() {
+        return tipoUSU;
+    }
+
+    public void setTipoUSU(String tipoUSU) {
+        this.tipoUSU = tipoUSU;
+    }
+
+    public String getNameUsu() {
+        return nameUsu;
+    }
+
+    public void setNameUsu(String nameUsu) {
+        this.nameUsu = nameUsu;
+    }
     
-    public Modulo_Principal(){
-        Estado = 'A';
-    }
-     public void setEstado(char status){
-         Estado = status;
-         System.out.println("Estado real: "+Estado);
-    }
-     public char getEstado(){
-         return Estado;
-     }
 }

@@ -16,6 +16,7 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
      */
     public Interfaz_AgregaUsu() {
         initComponents();
+        this.setSize(630, 561);
     }
 
     /**
@@ -56,7 +57,7 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         jspStock1 = new javax.swing.JSeparator();
         txtTelefono = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(null);
 
         lblSubT.setFont(new java.awt.Font("Montserrat", 1, 24)); // NOI18N

@@ -15,7 +15,7 @@ import Modulos.ConexionBD;
 
 
 public class Interfaz_Registro extends javax.swing.JInternalFrame {
-    ConexionBD con = new ConexionBD();
+
     /**
      * Creates new form Interfaz_Registro
      */

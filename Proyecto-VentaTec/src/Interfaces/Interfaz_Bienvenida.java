@@ -10,10 +10,6 @@ import Modulos.Modulo_Principal;
 //import com.sun.org.apache.bcel.internal.generic.BREAKPOINT;
 import java.awt.Color;
 import static java.lang.Thread.sleep;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-import javax.swing.JLayeredPane;
-import javax.swing.JPanel;
 import javax.swing.UIManager;
 
 /**
@@ -22,11 +18,13 @@ import javax.swing.UIManager;
  */
 public class Interfaz_Bienvenida extends javax.swing.JFrame {
     private String T;
+    private String nombreUsu;
     /**
      * Creates new form Principal
      */
-    public Interfaz_Bienvenida(String T) {
+    public Interfaz_Bienvenida(String T,String nombreUsu) {
         this.T = T;
+        this.nombreUsu = nombreUsu;
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
@@ -141,8 +139,8 @@ public class Interfaz_Bienvenida extends javax.swing.JFrame {
         if (barra.getValue() == 100) {
             this.dispose();
             Interfaz_Principal IP = new Interfaz_Principal();
-            Modulo_Principal MP = new Modulo_Principal();
-            Manejador_Principal MAP = new Manejador_Principal(IP, MP,T);
+            Modulo_Principal MP = new Modulo_Principal(T,nombreUsu);
+            Manejador_Principal MAP = new Manejador_Principal(IP, MP);
             IP.setVisible(true);
         }
 

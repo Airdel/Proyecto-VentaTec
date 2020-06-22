@@ -58,11 +58,11 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
     }//fin de la funcion closeConexion
     
     //-----------------------------------------Consultar Datos De La BD TipoUsuari--------------------------------------------------------
-    public String consultaT(String campo, String dato){
+    public String consultaT(String tipo,String campo, String dato){
         try {
-            sp = con.prepareStatement("SELECT * FROM USUARIOS where [NOMBRE USUARIO] ='" + campo +"' AND CONTRASEÑA ='"+dato+"'");
+            sp = con.prepareStatement("SELECT "+ tipo +" FROM USUARIOS where [NOMBRE USUARIO] ='" + campo +"' AND CONTRASEÑA ='"+dato+"'");
             resultado = sp.executeQuery();
-            if(resultado.next()) return resultado.getString(5);
+            if(resultado.next()) return resultado.getString(1);
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
             resultado = null;

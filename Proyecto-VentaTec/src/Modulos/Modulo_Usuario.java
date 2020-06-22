@@ -37,7 +37,8 @@ private ConexionBD con;
         con.openConexion();
         if(con.consulta("USUARIOS","[NOMBRE USUARIO]", this.nombreUsuario) &&
            con.consulta("USUARIOS","CONTRASEÑA", this.contraseña) ){
-           this.Tipo_Usuario = con.consultaT(this.nombreUsuario, this.contraseña); 
+           this.Tipo_Usuario = con.consultaT("[TIPO USUARIO]",this.nombreUsuario, this.contraseña); 
+           this.nombreReal = con.consultaT("[NOMBRE]",this.nombreUsuario, this.contraseña); 
            con.closeConexion();
            return true;
         }
@@ -56,7 +57,9 @@ private ConexionBD con;
         this.nombreReal = nombreReal;
         
     }
-
+    public String getNombreReal() {
+        return nombreReal;
+    }
     public void setTipo_Usuario(String Tipo_Usuario) {
         this.Tipo_Usuario = Tipo_Usuario;
     }

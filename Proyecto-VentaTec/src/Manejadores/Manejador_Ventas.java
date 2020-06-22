@@ -6,21 +6,17 @@ import Interfaces.SubInterfaz_Venta_BuscarProducto;
 import Interfaces.Sub_Venta;
 import MailyOtros.ventaException;
 import Modulos.ConexionBD;
-import Modulos.Modulo_Principal;
 import Modulos.Modulo_Venta;
 import Modulos.Modulo_SubVenta;
 import com.mxrck.autocompleter.TextAutoCompleter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import javax.swing.InputVerifier;
-import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.YES_NO_OPTION;
 import static javax.swing.JOptionPane.YES_OPTION;
 import static javax.swing.JOptionPane.showConfirmDialog;
 import static javax.swing.JOptionPane.showMessageDialog;
-import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 import javax.swing.table.DefaultTableModel;
 
@@ -36,7 +32,6 @@ public class Manejador_Ventas {
     private Modulo_Venta MV;
     private ConexionBD CBD;
     private DefaultTableModel DTM;
-    private String TipoUsu;
     private TextAutoCompleter TAC;
     private SubInterfaz_Venta_BuscarProducto SIVBP;
     private ListSelectionModel SM;
@@ -47,11 +42,11 @@ public class Manejador_Ventas {
 
     //---Declaracion de Variables-----------//
     //------Inicio de Interfaz Venta-----------//
-    public Manejador_Ventas(Interfaz_Venta IV1, Modulo_Venta MV1, String T, Interfaz_Principal IP2) {
+    public Manejador_Ventas(Interfaz_Venta IV1, Modulo_Venta MV1, Interfaz_Principal IP2) {
         //--------Inicializacion de variables------------//
-        this.TipoUsu = T;
         this.IV = IV1;
         this.MV = MV1;
+        IV.lbl_UsuarioValor.setText(MV.getNameUsu());
         CBD = new ConexionBD();
         DTM = (DefaultTableModel) IV.dgv_Productos.getModel();
         SM = IV.dgv_Productos.getSelectionModel();
@@ -66,9 +61,9 @@ public class Manejador_Ventas {
             @Override
             public void keyReleased(KeyEvent ke) {
                 if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
-                    if (!(IV.txt_Cantidad.getText().equals("") || IV.txt_Codigo.getText().equals(""))) {
+                    if (!(IV.txt_Cantidad.getText().equals(""))) {
                         CBD.openConexion();
-                        String A[] = CBD.searchProduct2("[NOMBRE PRODUCTO]", IV.txt_Codigo.getText());
+                        String A[] = CBD.searchProduct2("[NOMBRE PRODUCTO]", IV.txt_BuscarProducto.getText());
                         Object B[] = new Object[6];
                         System.out.println("Hola");
                         
@@ -86,6 +81,7 @@ public class Manejador_Ventas {
                                 MV.sumaSubTotal();
                                 MV.getTotal();
                                 actualizalbl();
+                                IV.txt_Codigo.setText(B[0] + "");
                             }else{
                                 JOptionPane.showMessageDialog(IV, "Producto no encontrado");
                             }
@@ -94,7 +90,7 @@ public class Manejador_Ventas {
                         }
                         CBD.closeConexion();}
                     } else {
-                        showMessageDialog(IV, "Algunos campos estan vacios Error: no se puede generar la venta");
+                        showMessageDialog(IV, "El campo cantidad esta vacia: no se puede generar la venta");
                         IV.dgv_Productos.requestFocus();
                     }
 
@@ -217,13 +213,21 @@ public class Manejador_Ventas {
                     }
                     if (x > -1) {
                         Integer.parseInt(cad);
-                        int row = IV.dgv_Productos.getSelectedRow();
-                        DTM.setValueAt("0." + cad, row, 5);
-                        float importe = Float.parseFloat(DTM.getValueAt(row, 3) + "") - (Float.parseFloat(DTM.getValueAt(row, 3) + "") * (Float.parseFloat(DTM.getValueAt(row, 5) + "")));
-                        DTM.setValueAt(importe, row, 4);
-                        String impor = DTM.getValueAt(row, 4) + "";
-                        String desc = DTM.getValueAt(row, 5) + "";
-                        MV.modificarProducto((row - 1) + "", impor, desc);
+                        int row[] = IV.dgv_Productos.getSelectedRows();
+                        float cant = 0,PU = 0;
+                        for(int i = 0; i < row.length;i++){
+                            DTM.setValueAt("0." + cad, row[i], 5);
+                            cant = (Float.parseFloat(DTM.getValueAt(row[i], 5) + ""));
+                            PU = Float.parseFloat(DTM.getValueAt(row[i], 3) + "");
+                            float importe = PU - (PU * cant);
+                            DTM.setValueAt(importe, row[i], 4);
+                            String impor = DTM.getValueAt(row[i], 4) + "";
+                            String desc = DTM.getValueAt(row[i], 5) + "";
+                            MV.modificarProducto(row[i] + "", impor, desc);
+                        }
+                        MV.sumaSubTotal();
+                        MV.sumaTodo();
+                        actualizalbl();
                     } else {
                         showMessageDialog(IV, "Ingresa un valor valido");
                     }

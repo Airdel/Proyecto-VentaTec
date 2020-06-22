@@ -28,12 +28,11 @@ public class Manejador_InicioSesion{
         MU.setNombreUsuario(nombreUsuario);
         MU.setContraseña(contraseña);
         //------------Inicializa las variables----------------------//
-        
         //-------------Verificar Usuarios---------------------------//
             if(MU.validateUser()){
                II.dispose(); //---Cerrar ventana Inicio de secion
                //---Crear la interfaz bienvenida
-               Interfaz_Bienvenida IB = new Interfaz_Bienvenida(MU.getTipo_Usuario());
+               Interfaz_Bienvenida IB = new Interfaz_Bienvenida(MU.getTipo_Usuario(),MU.getNombreReal());
                IB.setVisible(true);
             }//Fin if
             else{

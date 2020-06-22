@@ -613,7 +613,7 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
     public javax.swing.JLabel lbl_Total;
     public javax.swing.JLabel lbl_TotalValor;
     private javax.swing.JLabel lbl_Usuario;
-    private javax.swing.JLabel lbl_UsuarioValor;
+    public javax.swing.JLabel lbl_UsuarioValor;
     public java.awt.Panel panel1;
     private javax.swing.JPanel panel2;
     public javax.swing.JPanel panel3;

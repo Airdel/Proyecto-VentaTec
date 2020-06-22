@@ -21,13 +21,15 @@ public class Modulo_Venta {
     public ArrayList<String> importe = new ArrayList<String>();
     public ArrayList<String> descuento = new ArrayList<String>();
     public ArrayList<String> renglon = new ArrayList<String>();
+    private String nameUsu;
     private int NoArticulos;
     private double total;
     private double iva;
     private double subtotal;
     //----------Declaracion de variables----------//
     
-    public Modulo_Venta() {
+    public Modulo_Venta(String nameUsu) {
+        this.nameUsu = nameUsu;
         this.total = 0;
         this.NoArticulos = 0;
         this.subtotal = 0;
@@ -81,7 +83,7 @@ public class Modulo_Venta {
     }
     
     public void eliminaTodo(){
-        for(int i = (idProduc.size() - 1); i >=0 ; i++){
+        for(int i = (idProduc.size() - 1); i >=0 ; i--){
             renglon.remove(i);
             idProduc.remove(i);
             Cantidad.remove(i);
@@ -96,7 +98,10 @@ public class Modulo_Venta {
     }
     //-------funciones void----------//
     //------- get ----------//
-    
+
+    public String getNameUsu() {
+        return nameUsu;
+    }
     public double getSubtotal() {
         return subtotal;
     }
