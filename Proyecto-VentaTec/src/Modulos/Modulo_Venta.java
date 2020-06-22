@@ -61,13 +61,14 @@ public class Modulo_Venta {
         descuento.remove(ren);
         NoArticulos--;
     }
-    public void modificarProducto(String reng,String impor,String desc){
+    public void modificarProducto(String reng,String impor,String desc,String cant){
         int ren = 0;
         for(int i = 0; i < renglon.size();i++){
             if(renglon.get(i).equals(reng)){
                 ren = Integer.parseInt(renglon.get(i));
             }
         }
+        Cantidad.set(ren,cant);
         importe.set(ren,impor);
         descuento.set(ren,desc);
     }

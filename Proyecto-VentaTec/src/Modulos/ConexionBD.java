@@ -395,7 +395,7 @@ public String[] searchProduct(String campo, String dato){
             int i = 0;
             while(resultado.next()){
                A[i] = resultado.getString(1) + "," + resultado.getString(5) + "," + resultado.getString(6) +"," +
-                      resultado.getFloat(7) + "," + resultado.getFloat(8);
+                      resultado.getFloat(7) + "," + resultado.getFloat(8) + ",0.0";
                i++;
             }
             sp.close();

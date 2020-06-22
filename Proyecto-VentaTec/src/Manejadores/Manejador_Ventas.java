@@ -65,26 +65,23 @@ public class Manejador_Ventas {
                         CBD.openConexion();
                         String A[] = CBD.searchProduct2("[NOMBRE PRODUCTO]", IV.txt_BuscarProducto.getText());
                         Object B[] = new Object[6];
-                        System.out.println("Hola");
-                        
                         if(!(validaProducto())){
-                        
-                        try {
-                            for (int i = 0; i < A.length; i++) {
-                                B = A[i].split(",");
-                                B[2] = IV.txt_Cantidad.getText();
-                                DTM.addRow(B);
-                            }
-                            if(!(B[0].equals("null"))){
-                                int row = DTM.getRowCount();
-                                MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
-                                MV.sumaSubTotal();
-                                MV.getTotal();
-                                actualizalbl();
-                                IV.txt_Codigo.setText(B[0] + "");
-                            }else{
-                                JOptionPane.showMessageDialog(IV, "Producto no encontrado");
-                            }
+                            try {
+                                for (int i = 0; i < A.length; i++) {
+                                    B = A[i].split(",");
+                                    B[2] = IV.txt_Cantidad.getText();
+                                    DTM.addRow(B);
+                                }
+                                if(!(B[0].equals("null"))){
+                                    int row = DTM.getRowCount();
+                                    MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
+                                    MV.sumaSubTotal();
+                                    MV.getTotal();
+                                    actualizalbl();
+                                    IV.txt_Codigo.setText(B[0] + "");
+                                }else{
+                                    JOptionPane.showMessageDialog(IV, "Producto no encontrado");
+                                }
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
@@ -115,8 +112,6 @@ public class Manejador_Ventas {
                         CBD.openConexion();
                         String A[] = CBD.searchProduct2("[ID PRODUCTO]", IV.txt_Codigo.getText());
                         Object B[] = new Object[6];
-                        System.out.println("Hola");
-                        
                         
                         if(!(validaProducto())){
                         try {
@@ -216,16 +211,19 @@ public class Manejador_Ventas {
                     if (x > -1) {
                         Integer.parseInt(cad);
                         int row[] = IV.dgv_Productos.getSelectedRows();
-                        float cant = 0,PU = 0;
+                        int cant = 0;
+                        float PU = 0,descu = 0;
                         for(int i = 0; i < row.length;i++){
                             DTM.setValueAt("0." + cad, row[i], 5);
-                            cant = (Float.parseFloat(DTM.getValueAt(row[i], 5) + ""));
+                            descu = Float.parseFloat(DTM.getValueAt(row[i], 5) + "");
                             PU = Float.parseFloat(DTM.getValueAt(row[i], 3) + "");
-                            float importe = PU - (PU * cant);
+                            cant = Integer.parseInt(DTM.getValueAt(row[i], 2) + "");
+                            float importe = cant * (PU - (PU * descu));
                             DTM.setValueAt(importe, row[i], 4);
-                            String impor = DTM.getValueAt(row[i], 4) + "";
+                            String imporUnitario = (PU - (PU * descu)) + "";
                             String desc = DTM.getValueAt(row[i], 5) + "";
-                            MV.modificarProducto(row[i] + "", impor, desc);
+                            String cantidad = cant +"";
+                            MV.modificarProducto(row[i] + "", imporUnitario, desc,cantidad);
                         }
                         MV.sumaSubTotal();
                         MV.sumaTodo();
@@ -361,19 +359,41 @@ public class Manejador_Ventas {
             public void actionPerformed(ActionEvent ae) {
                 int row[] = SIVBP.dgv_Productos.getSelectedRows();
                 Object B[] = new Object[6];
-                for(int i = 0; i < row.length; i++){
-                    B[0] = ddd.getValueAt(row[i], 0);
-                    B[1] = ddd.getValueAt(row[i], 1);
-                    B[2] = ddd.getValueAt(row[i], 2);
-                    B[3] = ddd.getValueAt(row[i], 3);
-                    B[4] = ddd.getValueAt(row[i], 4);
+                for(int j = 0; j < row.length; j++){
+                    B[0] = ddd.getValueAt(row[j], 0);
+                    B[1] = ddd.getValueAt(row[j], 1);
+                    B[2] = ddd.getValueAt(row[j], 2);
+                    B[3] = ddd.getValueAt(row[j], 3);
+                    B[4] = ddd.getValueAt(row[j], 4);
                     B[5] = "0.0";
-                    DTM.addRow(B);
-                    int rows = DTM.getRowCount();
-                    MV.agregaProduc((rows - 1) + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
-                    MV.sumaSubTotal();
-                    MV.getTotal();
-                    actualizalbl();
+                    int CANTIDAD = 0;
+                    float PRECIOU = 0;
+                    float precioUimporte = 0;
+                    float imp = 0;
+                    boolean encontro = false;
+                    for(int i = 0;i<DTM.getRowCount();i++){
+                        if(DTM.getValueAt(i,0).toString().equals(B[0])){
+                            CANTIDAD = Integer.parseInt(DTM.getValueAt(i,2).toString()) + Integer.parseInt(B[2] + "");
+                            PRECIOU =  Float.parseFloat(DTM.getValueAt(i,3).toString());
+                            imp = CANTIDAD*PRECIOU *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString()));
+                            precioUimporte = PRECIOU *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString()));
+                            DTM.setValueAt(CANTIDAD,i, 2);
+                            DTM.setValueAt(imp,i, 4);
+                            MV.modificarProducto(i + " ",precioUimporte + "",DTM.getValueAt(i,5).toString(),CANTIDAD+"");
+                            MV.sumaSubTotal();
+                            MV.sumaTodo();
+                            actualizalbl();
+                            encontro = true;
+                        }
+                    }
+                    if(!encontro){
+                        DTM.addRow(B);
+                        int rows = DTM.getRowCount();
+                        MV.agregaProduc((rows - 1) + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
+                        MV.sumaSubTotal();
+                        MV.getTotal();
+                        actualizalbl();
+                    }
                 }
             }
         });
@@ -387,11 +407,12 @@ public class Manejador_Ventas {
                     CBD.openConexion();
                     //----Busca producto segun id ------//
                     String A[] = CBD.searchProduct("[ID PRODUCTO]", SIVBP.txtCode.getText());
-                    Object B[] = new Object[5];
+                    Object B[] = new Object[6];
                     try {
                         //-------Agrega a tabla SubVentaBuscarProducto------//
                         for (int i = 0; i < A.length; i++) {
                             B = A[i].split(",");
+                            B[2] = 1 + "";
                             ddd.addRow(B);
                         }
                         //-------Agrega a tabla SubVentaBuscarProducto------//
@@ -406,40 +427,20 @@ public class Manejador_Ventas {
         SIVBP.setVisible(true);
     }// Fin Inicio Sub
 
-    public void llenartabla() {
-        CBD.openConexion();
-        //----Busca producto segun id ------//
-        String A[] = CBD.searchProduct("[ID PRODUCTO]", IV.txt_Codigo.getText());
-        Object B[] = new Object[5];
-        try {
-            //-------Agrega a tabla SubVentaBuscarProducto------//
-            for (int i = 0; i < A.length; i++) {
-                B = A[i].split(",");
-                DTM.addRow(B);
-            }
-            //-------Agrega a tabla SubVentaBuscarProducto------//
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        CBD.closeConexion();
-    }// Fin llenarTabla
-    
-    
-    
-    
-    
     public boolean validaProducto(){
-        int a = 0;
-        float b = 0;
+        int CANTIDAD = 0;
+        float PRECIOU = 0;
+        float precioUimporte = 0;
         float imp = 0;
         for(int i = 0;i<DTM.getRowCount();i++){
             if(DTM.getValueAt(i,0).toString().equals(IV.txt_Codigo.getText())){
-                a = Integer.parseInt(DTM.getValueAt(i,2).toString()) + Integer.parseInt(IV.txt_Cantidad.getText());
-                b =  Float.parseFloat(DTM.getValueAt(i,3).toString());
-                imp = a*b *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString()));
-                DTM.setValueAt(a,i, 2);
+                CANTIDAD = Integer.parseInt(DTM.getValueAt(i,2).toString()) + Integer.parseInt(IV.txt_Cantidad.getText());
+                PRECIOU =  Float.parseFloat(DTM.getValueAt(i,3).toString());
+                imp = CANTIDAD*PRECIOU *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString()));
+                precioUimporte = PRECIOU *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString()));
+                DTM.setValueAt(CANTIDAD,i, 2);
                 DTM.setValueAt(imp,i, 4);
-                MV.modificarProducto(i + " ",imp + " ",DTM.getValueAt(i,5).toString());
+                MV.modificarProducto(i + " ",precioUimporte + "",DTM.getValueAt(i,5).toString(),CANTIDAD+"");
                 MV.sumaSubTotal();
                 MV.sumaTodo();
                 actualizalbl();
