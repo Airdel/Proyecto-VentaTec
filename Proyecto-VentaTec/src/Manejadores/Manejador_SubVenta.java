@@ -78,8 +78,8 @@ public class Manejador_SubVenta {
                     Float.parseFloat(MSUV.descuento.get(i)),
                     MSUV.getSubtotal(),"Descripcion");
         }
-        CBD.insertVentas(MSUV.getId_Usuario());
-        CBD.insertTicket(MSUV.getFolioVenta());
+        CBD.insertVentas(MSUV.getFolioVenta(),MSUV.getId_Usuario());
+        CBD.insertTicket(MSUV.getFolioVenta(),MSUV.getFolioVenta(),MSUV.getTotal(),MSUV.getSubtotal(),MSUV.getIva());
         //------Agrega todos los Renglones de Tabla Productos---------//
         //------Agrega todos los Renglones de DETALLE VENTA---------//
         ;

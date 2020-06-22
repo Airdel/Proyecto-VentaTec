@@ -521,20 +521,25 @@ public String[] getInveID(String id){
     
     }
         
-    public void insertVentas(int id_usuario){
+    public void insertVentas(int id_venta,int id_usuario){
         try{
             
-            sp = con.prepareStatement("INSERT INTO VENTAS([ID USUARIO]) VALUES(?)");//consulta sql para insertar
-            sp.setInt(1,id_usuario);//datos
+            sp = con.prepareStatement("INSERT INTO VENTAS([ID VENTA],[ID USUARIO]) VALUES(?,?)");//consulta sql para insertar
+            sp.setInt(1,id_venta);//datos
+            sp.setInt(2,id_usuario);//datos
             sp.executeUpdate();
             
         }catch(SQLException e){System.out.println(e.getMessage());}
     }
-    public void insertTicket(int id_venta){
+    public void insertTicket(int id_ticket,int id_venta,double Total,double subtotal,double iva){
         try{
             
-            sp = con.prepareStatement("INSERT INTO TICKETS([ID VENTA]) VALUES(?)");//consulta sql para insertar
-            sp.setInt(1, id_venta);//datos
+            sp = con.prepareStatement("INSERT INTO TICKETS([ID TICKET],[ID VENTA],TOTAL,SUBTOTAL,IVA) VALUES(?,?,?,?)");//consulta sql para insertar
+            sp.setInt(1, id_ticket);//datos
+            sp.setInt(2, id_venta);//datos
+            sp.setDouble(3, Total);//datos
+            sp.setDouble(4, subtotal);//datos
+            sp.setDouble(5, iva);//datos
             sp.executeUpdate();
             
         }catch(SQLException e){System.out.println(e.getMessage());}
