@@ -59,6 +59,16 @@ public class Modulo_Venta {
         descuento.remove(ren);
         NoArticulos--;
     }
+    public void modificarProducto(String reng,String impor,String desc){
+        int ren = 0;
+        for(int i = 0; i < renglon.size();i++){
+            if(renglon.get(i).equals(reng)){
+                ren = Integer.parseInt(renglon.get(i));
+            }
+        }
+        importe.set(ren,impor);
+        descuento.set(ren,desc);
+    }
     public void sumaSubTotal(){
         subtotal = 0;
         for(int i = 0;i < idProduc.size() ; i++){
@@ -68,6 +78,21 @@ public class Modulo_Venta {
     }
     public void sumaTodo(){
         total = subtotal + iva;
+    }
+    
+    public void eliminaTodo(){
+        for(int i = (idProduc.size() - 1); i >=0 ; i++){
+            renglon.remove(i);
+            idProduc.remove(i);
+            Cantidad.remove(i);
+            precUnitario.remove(i);
+            importe.remove(i);
+            descuento.remove(i);
+        }
+        this.total = 0;
+        this.NoArticulos = 0;
+        this.subtotal = 0;
+        this.iva = 0;
     }
     //-------funciones void----------//
     //------- get ----------//

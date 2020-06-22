@@ -63,6 +63,39 @@ public class Manejador_Ventas {
             public void keyTyped(KeyEvent ke) {
                 busquedarapida();
             }
+            @Override
+            public void keyReleased(KeyEvent ke) {
+                if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
+                    if (!(IV.txt_Cantidad.getText().equals("") || IV.txt_Codigo.getText().equals(""))) {
+                        CBD.openConexion();
+                        String A[] = CBD.searchProduct2("[NOMBRE PRODUCTO]", IV.txt_Codigo.getText());
+                        Object B[] = new Object[6];
+                        try {
+                            for (int i = 0; i < A.length; i++) {
+                                B = A[i].split(",");
+                                B[2] = IV.txt_Cantidad.getText();
+                                DTM.addRow(B);
+                            }
+                            if(!(B[0].equals("null"))){
+                                int row = DTM.getRowCount();
+                                MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
+                                MV.sumaSubTotal();
+                                MV.getTotal();
+                                actualizalbl();
+                            }else{
+                                JOptionPane.showMessageDialog(IV, "Producto no encontrado");
+                            }
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
+                        CBD.closeConexion();
+                    } else {
+                        showMessageDialog(IV, "Algunos campos estan vacios Error: no se puede generar la venta");
+                        IV.dgv_Productos.requestFocus();
+                    }
+
+                }
+            }
         });
         this.IV.txt_Codigo.addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
@@ -94,6 +127,8 @@ public class Manejador_Ventas {
                                 MV.sumaSubTotal();
                                 MV.getTotal();
                                 actualizalbl();
+                            }else{
+                                JOptionPane.showMessageDialog(IV, "Producto no encontrado");
                             }
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
@@ -175,8 +210,11 @@ public class Manejador_Ventas {
                         Integer.parseInt(cad);
                         int row = IV.dgv_Productos.getSelectedRow();
                         DTM.setValueAt("0." + cad, row, 5);
-                        float a = Float.parseFloat(DTM.getValueAt(row, 3) + "") - (Float.parseFloat(DTM.getValueAt(row, 3) + "") * (Float.parseFloat(DTM.getValueAt(row, 5) + "")));
-                        DTM.setValueAt(a, row, 4);
+                        float importe = Float.parseFloat(DTM.getValueAt(row, 3) + "") - (Float.parseFloat(DTM.getValueAt(row, 3) + "") * (Float.parseFloat(DTM.getValueAt(row, 5) + "")));
+                        DTM.setValueAt(importe, row, 4);
+                        String impor = DTM.getValueAt(row, 4) + "";
+                        String desc = DTM.getValueAt(row, 5) + "";
+                        MV.modificarProducto((row - 1) + "", impor, desc);
                     } else {
                         showMessageDialog(IV, "Ingresa un valor valido");
                     }
@@ -198,7 +236,7 @@ public class Manejador_Ventas {
                 if (IV.dgv_Productos.getRowCount() > 0) {                    
                     MSUV = new Modulo_SubVenta(IV.dgv_Productos.getRowCount());
                     SUV = new Sub_Venta();
-                    MASUV = new Manejador_SubVenta(SUV, MSUV, IV);                    
+                    MASUV = new Manejador_SubVenta(SUV, MSUV, IV, MV);                    
                     String cad = JOptionPane.showInputDialog(IV, "Coloque el Efectivo");
                     if (MASUV.validaInput(cad)) {
                         MSUV.setEfectivo(Double.parseDouble(cad));
@@ -333,6 +371,7 @@ public class Manejador_Ventas {
             }
         });
         //----Listener Key Listener----//
+        SIVBP.setVisible(true);
     }// Fin Inicio Sub
 
     public void llenartabla() {

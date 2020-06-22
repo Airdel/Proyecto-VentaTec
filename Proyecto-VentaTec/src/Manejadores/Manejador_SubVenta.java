@@ -9,6 +9,7 @@ import Interfaces.Interfaz_Venta;
 import Interfaces.Sub_Venta;
 import Modulos.ConexionBD;
 import Modulos.Modulo_SubVenta;
+import Modulos.Modulo_Venta;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -26,17 +27,19 @@ public class Manejador_SubVenta {
     //-----Declaracion Variables-----//
     private Sub_Venta SUV;
     private Modulo_SubVenta MSUV;
+    private Modulo_Venta MV;
     private Interfaz_Venta IV;
     private DefaultTableModel DTM;
     private ConexionBD CBD;
 
     //-----Declaracion Variables-----//
     //---------Inicia Interfaz Sub Venta-----------//
-    public Manejador_SubVenta(Sub_Venta SUV1, Modulo_SubVenta MSUV1, Interfaz_Venta IV1) {
+    public Manejador_SubVenta(Sub_Venta SUV1, Modulo_SubVenta MSUV1, Interfaz_Venta IV1,Modulo_Venta MV1) {
         //----Inicializacion de variables---------//
         this.SUV = SUV1;
         this.MSUV = MSUV1;
         this.IV = IV1;
+        this.MV = MV1;
         this.DTM = (DefaultTableModel) IV.dgv_Productos.getModel();
         this.CBD = new ConexionBD();
         //----Inicializacion de variables---------//
@@ -45,6 +48,10 @@ public class Manejador_SubVenta {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 ConfirmaVenta();
+                MV.eliminaTodo();
+                IV.lbl_NumeroDeArticulosValor.setText(MV.getNoArticulos() + "");
+                IV.lbl_TotalValor.setText("0.0");
+                IV.lbl_NombreProducto.setText("");
             }
         });
         this.SUV.btnCancelar.addActionListener(new ActionListener() {
@@ -143,7 +150,8 @@ public class Manejador_SubVenta {
         Interfaz_Venta IV = new Interfaz_Venta();
         Sub_Venta SV = new Sub_Venta();
         Modulo_SubVenta MS = new Modulo_SubVenta(10);
-        Manejador_SubVenta MAS = new Manejador_SubVenta(SV, MS, IV);
+        Modulo_Venta MV = new Modulo_Venta();
+        Manejador_SubVenta MAS = new Manejador_SubVenta(SV, MS, IV, MV);
         System.out.println(MAS.validaInput("a"));
     }
 }
