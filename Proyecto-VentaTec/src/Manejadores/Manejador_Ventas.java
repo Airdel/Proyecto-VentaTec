@@ -86,7 +86,11 @@ public class Manejador_Ventas {
                                 B[2] = IV.txt_Cantidad.getText();
                                 DTM.addRow(B);
                             }
-                            actualizalbl(1);
+                            int row = DTM.getRowCount();
+                            MV.agregaProduc(row + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
+                            MV.sumaSubTotal();
+                            MV.getTotal();
+                            actualizalbl();
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
@@ -210,6 +214,8 @@ public class Manejador_Ventas {
             public void actionPerformed(ActionEvent ae) {
                 if (IV.dgv_Productos.getSelectedRow() >= 0) {
                     eliminaTabla();
+                    
+                    actualizalbl();
                 } else {
                     showMessageDialog(IV, "Es necesario seleccionar un registro");
                 }
@@ -235,15 +241,12 @@ public class Manejador_Ventas {
 
     //-------------Fin del Constructor---------------//
     //--------Funciones Void-----------------//
-    public void actualizalbl(int canti){
+    public void actualizalbl(){
         int row = DTM.getRowCount();
-        int cantidad = Integer.parseInt(IV.lbl_Cantidad.getText());
-        IV.lbl_Cantidad.setText((cantidad+canti)+"");
+        IV.lbl_NumeroDeArticulosValor.setText(MV.getNoArticulos() + "");
         String nombrePro = (DTM.getValueAt(row, 1) + "");
         IV.lbl_NombreProducto.setText(nombrePro);
-        double subtotal = Float.parseFloat(IV.lbl_TotalValor.getText());
-        double total = (subtotal + Float.parseFloat(DTM.getValueAt(row, 4) + "")) * 0.16;
-        IV.lbl_TotalValor.setText(total + "");
+        IV.lbl_TotalValor.setText((MV.getSubtotal() + MV.getIva()) + "");
     }
     public void eliminaTabla() {
         //----Selecciona en numero de renglon de las seleccines es tabla----//
@@ -254,6 +257,7 @@ public class Manejador_Ventas {
             return;
         }
         for (int i = 0; i < sel.length; i++) {
+            System.out.println("Selected = "+sel[i]);
             DTM.removeRow(sel[i]);
         }
     }// Fin elimina Tabla
