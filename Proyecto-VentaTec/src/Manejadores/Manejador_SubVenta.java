@@ -67,7 +67,6 @@ public class Manejador_SubVenta {
     public void ConfirmaVenta() {
         CBD.openConexion();
         //------Agrega todos los Renglones de Tabla Productos  E y S---------//
-
         for (int i = 0; i < MSUV.tamañoMaximo; i++) {
             String CodigoProducto = MSUV.idProduc.get(i);
             int Cantidad = Integer.parseInt(MSUV.Cantidad.get(i));
