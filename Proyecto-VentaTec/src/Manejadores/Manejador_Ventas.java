@@ -127,7 +127,7 @@ public class Manejador_Ventas {
                             }
                             if(!(B[0].equals("null"))){
                                 int row = DTM.getRowCount();
-                                MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
+                                MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "",(Float.parseFloat(B[3].toString())* Integer.parseInt(IV.txt_Cantidad.getText())) + "", B[5]+ "");
                                 MV.sumaSubTotal();
                                 MV.getTotal();
                                 actualizalbl();
@@ -179,7 +179,7 @@ public class Manejador_Ventas {
                                 DTM.addRow(B);
                             }
                             int row = DTM.getRowCount();
-                            MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
+                            MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "",(Float.parseFloat(B[3].toString())* Integer.parseInt(IV.txt_Cantidad.getText())) + "",  B[5]+ "");
                             MV.sumaSubTotal();
                             MV.getTotal();
                             actualizalbl();    
