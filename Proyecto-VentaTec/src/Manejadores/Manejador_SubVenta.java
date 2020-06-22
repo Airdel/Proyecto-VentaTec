@@ -149,7 +149,7 @@ public class Manejador_SubVenta {
         Interfaz_Venta IV = new Interfaz_Venta();
         Sub_Venta SV = new Sub_Venta();
         Modulo_SubVenta MS = new Modulo_SubVenta(10);
-        Modulo_Venta MV = new Modulo_Venta();
+        Modulo_Venta MV = new Modulo_Venta("Prueba");
         Manejador_SubVenta MAS = new Manejador_SubVenta(SV, MS, IV, MV);
         System.out.println(MAS.validaInput("a"));
     }

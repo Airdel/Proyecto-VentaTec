@@ -16,7 +16,6 @@ import java.awt.event.ActionListener;
  */
 public class Manejador_Principal {
     //-------Declaracion de variables---------------------------//
-    private String TipoUsu;
     //-----Interfaz_x-------------------//
     private Interfaz_Documentacion ID = new Interfaz_Documentacion();
     private Interfaz_InicioSesion IN;
@@ -49,9 +48,8 @@ public class Manejador_Principal {
     private Manejador_NuevoUsu MNU = new Manejador_NuevoUsu(IAU, MU);
     //-----Manejador_x-------------------// 
     //-----Inicio de Ventana Principal-------------------// 
-    public Manejador_Principal(Interfaz_Principal IP1, Modulo_Principal MP1,String T) {
+    public Manejador_Principal(Interfaz_Principal IP1, Modulo_Principal MP1) {
         //------------Inicializacion de variables-----------//
-        this.TipoUsu = T;
         this.IP = IP1;
         this.MP = MP1;
         ValidaUsu();
@@ -86,8 +84,8 @@ public class Manejador_Principal {
             public void actionPerformed(ActionEvent e) {
                 //------Inicializacion de Ventana----------//
                 IV = new Interfaz_Venta();
-                MV = new Modulo_Venta();
-                MAV = new Manejador_Ventas(IV, MV, TipoUsu,IP);
+                MV = new Modulo_Venta(MP.getNameUsu());
+                MAV = new Manejador_Ventas(IV, MV,IP);
                 
                 //------Inicializacion de Ventana----------//
                 //------Cierre de ventana principal y visualiza Venta----------//
@@ -167,11 +165,11 @@ public class Manejador_Principal {
     //---------------Fin Constructor------------------//
     //---------------Funciones Void------------------//
     public void ValidaUsu(){
-        if(TipoUsu.equals("G")){
+        if(MP.getTipoUSU().equals("G")){
             IP.btn_VentanaDocumentos.setVisible(true);
             IP.btn_CrearUsuario.setVisible(true);
             IP.btn_VentanaInventario.setVisible(true);
-        }else if(TipoUsu.equals("U")){
+        }else if(MP.getTipoUSU().equals("U")){
             IP.btn_VentanaDocumentos.setVisible(false);
             IP.btn_CrearUsuario.setVisible(false);
             IP.btn_VentanaRegistrarProducto.setVisible(false);

@@ -32,7 +32,6 @@ public class Manejador_Ventas {
     private Modulo_Venta MV;
     private ConexionBD CBD;
     private DefaultTableModel DTM;
-    private String TipoUsu;
     private TextAutoCompleter TAC;
     private SubInterfaz_Venta_BuscarProducto SIVBP;
     private ListSelectionModel SM;
@@ -43,11 +42,11 @@ public class Manejador_Ventas {
 
     //---Declaracion de Variables-----------//
     //------Inicio de Interfaz Venta-----------//
-    public Manejador_Ventas(Interfaz_Venta IV1, Modulo_Venta MV1, String T, Interfaz_Principal IP2) {
+    public Manejador_Ventas(Interfaz_Venta IV1, Modulo_Venta MV1, Interfaz_Principal IP2) {
         //--------Inicializacion de variables------------//
-        this.TipoUsu = T;
         this.IV = IV1;
         this.MV = MV1;
+        IV.lbl_UsuarioValor.setText(MV.getNameUsu());
         CBD = new ConexionBD();
         DTM = (DefaultTableModel) IV.dgv_Productos.getModel();
         SM = IV.dgv_Productos.getSelectionModel();
