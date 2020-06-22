@@ -9,6 +9,7 @@ import Interfaces.*;
 import Modulos.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -96,11 +97,12 @@ public class Manejador_Principal {
             public void actionPerformed(ActionEvent e) {
                 //------Inicializacion de Ventana----------//
                 IV = new Interfaz_Venta();
-                MV = new Modulo_Venta();
-                MAV = new Manejador_Ventas(IV, MV, TipoUsu);
+                MV = new Modulo_Venta((DefaultTableModel)IV.dgv_Productos.getModel());
+                MAV = new Manejador_Ventas(IV, MV, TipoUsu,IP);
+                
                 //------Inicializacion de Ventana----------//
                 //------Cierre de ventana principal y visualiza Venta----------//
-                IP.dispose();
+                IP.setVisible(false);
                 IV.setVisible(true);
                 //------Cierre de ventana principal y visualiza Venta----------//
             }
@@ -153,6 +155,8 @@ public class Manejador_Principal {
                 if(IAC.isVisible()==false ){
                     IAC.setVisible(true);
                     IAC.setEnabled(true);
+                    IP.btn_CerrarCaja.setEnabled(true);
+                    IP.btn_AbrirCaja.setEnabled(false);
                 }
                //----Revisa si esta abierto Abrir Caja---//
            } 

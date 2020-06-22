@@ -64,13 +64,14 @@ public class Manejador_SubVenta {
         for (int i = 0; i < MSUV.tamañoMaximo; i++) {
             String CodigoProducto = MSUV.idProduc.get(i);
             int Cantidad = Integer.parseInt(MSUV.Cantidad.get(i));
-            System.out.println("Producto " + CodigoProducto + " Cantidad " + Cantidad);
-            CBD.insertInOut(CodigoProducto, 'S', Cantidad);
+            CBD.insertInOut(CodigoProducto,'S',Cantidad);
         }
         //------Agrega todos los Renglones de Tabla Productos---------//
         CBD.closeConexion();
         //------Elimina todos los Renglones de Tabla Productos---------//
+        JOptionPane.showMessageDialog(SUV,"Productos Vendidos");
         DTM.setRowCount(0);
+        SUV.dispose();
     }// Fin ConfirmaVenta
 
     public void rellenaSub() {
@@ -117,13 +118,12 @@ public class Manejador_SubVenta {
         //----Agrega fecha a Modulo Sub----//
         int row = IV.dgv_Productos.getRowCount();
         //----Suma el precio de cada producto----//
-        for (int i = 0; i < row; i++) {
-            String idproc = DTM.getValueAt(i, 0) + "";
-            String cant = DTM.getValueAt(i, 2) + "";
-            String precUni = DTM.getValueAt(i, 3) + "";
-            String impor = DTM.getValueAt(i, 4) + "";
-            String desc = DTM.getValueAt(i, 5) + "";
-            System.out.println(idproc + "," + cant + "," + precUni + "," + impor + "," + desc);
+        for(int i = 0;i < row;i++){
+            String idproc = DTM.getValueAt(i, 0) +"";
+            String cant = DTM.getValueAt(i, 2) +"";
+            String precUni = DTM.getValueAt(i, 3) +"";
+            String impor = DTM.getValueAt(i, 4) +"";
+            String desc = DTM.getValueAt(i, 5) +"";
             MSUV.agregaProduc(idproc, cant, precUni, impor, desc);
         }
         MSUV.sumaSubTotal();

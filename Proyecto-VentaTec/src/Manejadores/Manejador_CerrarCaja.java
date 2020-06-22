@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author LUISM
+ * @author LUISM----------------------------------------------------------------
  */
 public class Manejador_CerrarCaja {
     //---Declaracion de variables-----------//
@@ -40,6 +40,7 @@ public class Manejador_CerrarCaja {
         ICC.btn_CorteCaja.addActionListener(new ActionListener() {
             //-----Inicializa Modulo Cerrar Caja--------//
             public void actionPerformed(ActionEvent ae) {
+                try{
                 MCC.setS1(Integer.parseInt(ICC.spin_1.getValue() + ""));
                 MCC.setS10(Integer.parseInt(ICC.spin_10.getValue() + ""));
                 MCC.setS100(Integer.parseInt(ICC.spin_100.getValue() + ""));
@@ -59,9 +60,16 @@ public class Manejador_CerrarCaja {
                 ICC.lblTotal.setText("$"+MCC.getTotal());
                 ICC.lblCajaFondo.setText(MAC.getCajafondo() + "");
                 ICC.lblGanancias.setText(MCC.getGanancias() + "");
+                JOptionPane.showMessageDialog(ICC, "Corte realizado");
+                ICC.btn_CorteCaja.setEnabled(false);
                 //-----Actualiza los label de Interfaz Cerrar Caja--------//
-            }
+                }catch(Exception e){
+                System.out.println("Error: "+e.getMessage());
+            }}
+                
+            
         });
+        
         //------------ACTION LISTENER PERFORMED-----------//
         //------------ACTION LISTENER ChangeListener-----------//
         this.ICC.spin_1.addChangeListener(new javax.swing.event.ChangeListener() {

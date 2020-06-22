@@ -12,6 +12,7 @@ package Modulos;
 //librerias 
 import java.sql.CallableStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -130,11 +131,10 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
     //----------------------------Inserta en la Tabla Entradas_Salidas De la BD-------------------------------------------------
     public void insertInOut(String id_producto,char tipo,int cantidad){
         try{
-            
            sp = con.prepareStatement("INSERT INTO DBO.[ENTRADAS SALIDAS]([ID PRODUCTO],TIPO,CANTIDAD) VALUES(?,?,?)");
            sp.setString(1,id_producto);
            sp.setString(2,tipo + "");
-           sp.setInt(3,cantidad);
+           sp.setInt(4,cantidad);
            sp.executeUpdate();
         }catch(SQLException | NullPointerException ex){
                 System.out.print(ex.getMessage());
@@ -508,6 +508,24 @@ public String[] getInveID(String id){
     
     }
         
+    
+    public void insertDatails(int id_venta,String id_producto,int cantidad,float desc,float subtotal,String deripcion ){
+       
+        try{
+            
+            sp = con.prepareStatement("INSERT INTO [DETALLE VENTA] VALUES(?,?,?,?,?,?)");//consulta sql para insertar
+            sp.setInt(1, id_venta);//datos
+            sp.setString(2,id_producto);//datos
+            sp.setInt(3,cantidad);//datos
+            sp.setFloat(4, desc);//datos
+            sp.setFloat(5,subtotal);//datos
+            sp.setString(6, deripcion);//datos
+            sp.executeUpdate();
+            
+            
+        }catch(SQLException e){}
+    }
+    
     
        public static void main(String arg[]){
            ConexionBD CBD = new ConexionBD();
