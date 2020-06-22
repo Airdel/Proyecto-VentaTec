@@ -344,13 +344,29 @@ public class Manejador_Ventas {
                 SIVBP.dispose();
             }
         });
+        SIVBP.btnAna.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                int row[] = SIVBP.dgv_Productos.getSelectedRows();
+                Object B[] = new Object[5];
+                for(int i = 0; i < row.length; i++){
+                    B[0] = ddd.getValueAt(row[i], 0);
+                    B[1] = ddd.getValueAt(row[i], 1);
+                    B[2] = ddd.getValueAt(row[i], 2);
+                    B[3] = ddd.getValueAt(row[i], 3);
+                    B[4] = ddd.getValueAt(row[i], 4);
+                    B[5] = ddd.getValueAt(row[i], 5);
+                    DTM.addRow(B);
+                }
+            }
+        });
         //----Action Listener Performed----//
         //----Listener Key Listener----//
         SIVBP.txtCode.addKeyListener(new java.awt.event.KeyAdapter() {
             //------Agrega a la tabla el registro con el TXTCode----//
             public void keyReleased(KeyEvent ke) {
                 if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
-                    ddd.setRowCount(0); //---Elimina tab;a---//
+                    ddd.setRowCount(0); //---Elimina tabla---//
                     CBD.openConexion();
                     //----Busca producto segun id ------//
                     String A[] = CBD.searchProduct("[ID PRODUCTO]", SIVBP.txtCode.getText());
@@ -362,15 +378,13 @@ public class Manejador_Ventas {
                             ddd.addRow(B);
                         }
                         //-------Agrega a tabla SubVentaBuscarProducto------//
+                        if(!(B[0].equals("null"))){
+                            JOptionPane.showMessageDialog(SIVBP, "Producto no encontrado");
+                        }
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
                     CBD.closeConexion();
-                    //-------Elimina la tabla------//
-                    if (SIVBP.txtCode.getText() == "") {
-                        ddd.setRowCount(0);
-                    }
-                    //-------Elimina la tabla------//
                 }
             }
         });
