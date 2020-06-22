@@ -7,7 +7,7 @@ package Modulos;
 
 /**
  *
- * @author LUISM
+ * @author LUIS es gai
  */
 public class Modulo_CerrarCaja {
     //--------Declaracion Variables-------//
