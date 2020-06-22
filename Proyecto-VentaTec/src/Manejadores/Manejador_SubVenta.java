@@ -128,9 +128,9 @@ public class Manejador_SubVenta {
             String idproc = DTM.getValueAt(i, 0) +"";
             String cant = DTM.getValueAt(i, 2) +"";
             String precUni = DTM.getValueAt(i, 3) +"";
-            String impor = DTM.getValueAt(i, 4) +"";
             String desc = DTM.getValueAt(i, 5) +"";
-            MSUV.agregaProduc(idproc, cant, precUni, impor, desc);
+            String imporUnitario = (Float.parseFloat(precUni) - (Float.parseFloat(precUni) * Float.parseFloat(desc)))+"";
+            MSUV.agregaProduc(idproc, cant, precUni, imporUnitario, desc);
         }
         MSUV.sumaSubTotal();
         MSUV.sumaTodo();

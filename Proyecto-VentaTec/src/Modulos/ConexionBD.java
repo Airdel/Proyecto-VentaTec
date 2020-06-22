@@ -134,7 +134,7 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
            sp = con.prepareStatement("INSERT INTO DBO.[ENTRADAS SALIDAS]([ID PRODUCTO],TIPO,CANTIDAD) VALUES(?,?,?)");
            sp.setString(1,id_producto);
            sp.setString(2,tipo + "");
-           sp.setInt(4,cantidad);
+           sp.setInt(3,cantidad);
            sp.executeUpdate();
         }catch(SQLException | NullPointerException ex){
                 System.out.print(ex.getMessage());
@@ -346,7 +346,6 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
             String A[] = new String[tam];
             while(resultado.next()){
                A[i] = resultado.getString(1); //retorna el segundo campo(debe de ser string)
-               System.out.println(A[i] + "");
                i++;
             }
             return A;
@@ -531,7 +530,7 @@ public String[] getInveID(String id){
            ConexionBD CBD = new ConexionBD();
            CBD.openConexion();
            
-           CBD.searchInTable("[NOMBRE PRODUCTO]", "a");
+           CBD.insertInOut("12", 'E',10);
            
            CBD.closeConexion();
        }

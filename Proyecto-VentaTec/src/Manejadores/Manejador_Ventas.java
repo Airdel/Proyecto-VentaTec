@@ -167,7 +167,6 @@ public class Manejador_Ventas {
                         
                         if(!(validaProducto())){
                         try {
-
                             for (int i = 0; i < A.length; i++) {
                                 B = A[i].split(",");
                                 B[2] = IV.txt_Cantidad.getText();
