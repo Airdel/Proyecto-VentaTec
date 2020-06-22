@@ -127,7 +127,7 @@ public class Manejador_Ventas {
                             }
                             if(!(B[0].equals("null"))){
                                 int row = DTM.getRowCount();
-                                MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
+                                MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "",(Float.parseFloat(B[3].toString())* Integer.parseInt(IV.txt_Cantidad.getText())) + "", B[5]+ "");
                                 MV.sumaSubTotal();
                                 MV.getTotal();
                                 actualizalbl();
@@ -169,7 +169,8 @@ public class Manejador_Ventas {
                         CBD.openConexion();
                         String A[] = CBD.searchProduct2("[ID PRODUCTO]", IV.txt_Codigo.getText());
                         Object B[] = new Object[6];
-
+                        
+                        if(!(validaProducto())){
                         try {
 
                             for (int i = 0; i < A.length; i++) {
@@ -178,7 +179,7 @@ public class Manejador_Ventas {
                                 DTM.addRow(B);
                             }
                             int row = DTM.getRowCount();
-                            MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
+                            MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "",(Float.parseFloat(B[3].toString())* Integer.parseInt(IV.txt_Cantidad.getText())) + "",  B[5]+ "");
                             MV.sumaSubTotal();
                             MV.getTotal();
                             actualizalbl();    
@@ -186,6 +187,7 @@ public class Manejador_Ventas {
                             System.out.println(e.getMessage());
                         }
                         CBD.closeConexion();
+                       }
                     } else {
                         showMessageDialog(IV, "Algunos campos estan vacios Error: no se puede generar la venta");
                         IV.dgv_Productos.requestFocus();
@@ -257,6 +259,7 @@ public class Manejador_Ventas {
                             MASUV.rellenaSub();
                             SUV.setVisible(true);
                         } else {
+                          
                             JOptionPane.showMessageDialog(IV, "Efectivo no suficiente");
                             SUV.dispose();
                         }
@@ -353,13 +356,34 @@ public class Manejador_Ventas {
                 SIVBP.dispose();
             }
         });
+        SIVBP.btnAna.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                int row[] = SIVBP.dgv_Productos.getSelectedRows();
+                Object B[] = new Object[6];
+                for(int i = 0; i < row.length; i++){
+                    B[0] = ddd.getValueAt(row[i], 0);
+                    B[1] = ddd.getValueAt(row[i], 1);
+                    B[2] = ddd.getValueAt(row[i], 2);
+                    B[3] = ddd.getValueAt(row[i], 3);
+                    B[4] = ddd.getValueAt(row[i], 4);
+                    B[5] = "0.0";
+                    DTM.addRow(B);
+                    int rows = DTM.getRowCount();
+                    MV.agregaProduc((rows - 1) + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
+                    MV.sumaSubTotal();
+                    MV.getTotal();
+                    actualizalbl();
+                }
+            }
+        });
         //----Action Listener Performed----//
         //----Listener Key Listener----//
         SIVBP.txtCode.addKeyListener(new java.awt.event.KeyAdapter() {
             //------Agrega a la tabla el registro con el TXTCode----//
             public void keyReleased(KeyEvent ke) {
                 if (ke.getKeyCode() == KeyEvent.VK_ENTER) {
-                    ddd.setRowCount(0); //---Elimina tab;a---//
+                    ddd.setRowCount(0); //---Elimina tabla---//
                     CBD.openConexion();
                     //----Busca producto segun id ------//
                     String A[] = CBD.searchProduct("[ID PRODUCTO]", SIVBP.txtCode.getText());
@@ -375,11 +399,6 @@ public class Manejador_Ventas {
                         System.out.println(e.getMessage());
                     }
                     CBD.closeConexion();
-                    //-------Elimina la tabla------//
-                    if (SIVBP.txtCode.getText() == "") {
-                        ddd.setRowCount(0);
-                    }
-                    //-------Elimina la tabla------//
                 }
             }
         });
@@ -414,12 +433,10 @@ public class Manejador_Ventas {
         float b = 0;
         float imp = 0;
         for(int i = 0;i<DTM.getRowCount();i++){
-            
             if(DTM.getValueAt(i,0).toString().equals(IV.txt_Codigo.getText())){
-                System.out.println("ya existe ");
                 a = Integer.parseInt(DTM.getValueAt(i,2).toString()) + Integer.parseInt(IV.txt_Cantidad.getText());
                 b =  Float.parseFloat(DTM.getValueAt(i,3).toString());
-                imp = a*b;
+                imp = a*b *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString()));
                 DTM.setValueAt(a,i, 2);
                 DTM.setValueAt(imp,i, 4);
                 MV.modificarProducto(i + " ",imp + " ",DTM.getValueAt(i,5).toString());
