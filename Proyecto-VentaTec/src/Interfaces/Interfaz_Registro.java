@@ -80,7 +80,7 @@ public class Interfaz_Registro extends javax.swing.JInternalFrame {
         lblTitulo.setForeground(new java.awt.Color(66, 65, 70));
         lblTitulo.setText("Campos Obligatorios *");
         jPanel1.add(lblTitulo);
-        lblTitulo.setBounds(130, 410, 210, 30);
+        lblTitulo.setBounds(50, 400, 210, 30);
 
         lblSubT.setFont(new java.awt.Font("Montserrat", 1, 24)); // NOI18N
         lblSubT.setForeground(new java.awt.Color(66, 65, 70));
@@ -99,32 +99,33 @@ public class Interfaz_Registro extends javax.swing.JInternalFrame {
 
         lblSubT1.setFont(new java.awt.Font("Montserrat", 0, 18)); // NOI18N
         lblSubT1.setForeground(new java.awt.Color(66, 65, 70));
-        lblSubT1.setText("Producto:");
+        lblSubT1.setText("Información del Producto:");
         jPanel1.add(lblSubT1);
-        lblSubT1.setBounds(40, 50, 90, 30);
+        lblSubT1.setBounds(20, 50, 220, 30);
 
         lblID_Pro.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblID_Pro.setForeground(new java.awt.Color(66, 65, 70));
         lblID_Pro.setText("Codigo Barra: *");
         jPanel1.add(lblID_Pro);
-        lblID_Pro.setBounds(130, 80, 120, 30);
+        lblID_Pro.setBounds(50, 80, 120, 30);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/PUPKING.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_Venta/icon_Empresa.png"))); // NOI18N
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(510, 50, 101, 94);
+        jLabel1.setBounds(410, 50, 210, 160);
 
-        btnGuardar.setBackground(new java.awt.Color(78, 193, 188));
-        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/Guardar.png"))); // NOI18N
-        btnGuardar.setBorderPainted(false);
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_RegistrarProducto.png"))); // NOI18N
+        btnGuardar.setText("Guardar Producto");
+        btnGuardar.setToolTipText("");
+        btnGuardar.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         btnGuardar.setContentAreaFilled(false);
         jPanel1.add(btnGuardar);
-        btnGuardar.setBounds(530, 0, 90, 40);
+        btnGuardar.setBounds(340, 430, 210, 80);
 
         jspNombre.setBackground(new java.awt.Color(99, 99, 101));
         jspNombre.setForeground(new java.awt.Color(99, 99, 101));
         jspNombre.setDoubleBuffered(true);
         jPanel1.add(jspNombre);
-        jspNombre.setBounds(270, 170, 120, 20);
+        jspNombre.setBounds(190, 170, 120, 20);
 
         txtNombre.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtNombre.setForeground(new java.awt.Color(102, 102, 102));
@@ -132,7 +133,7 @@ public class Interfaz_Registro extends javax.swing.JInternalFrame {
         txtNombre.setOpaque(false);
         txtNombre.setSelectedTextColor(new java.awt.Color(66, 65, 70));
         jPanel1.add(txtNombre);
-        txtNombre.setBounds(270, 150, 120, 22);
+        txtNombre.setBounds(190, 150, 120, 22);
 
         txtDescripcion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtDescripcion.setForeground(new java.awt.Color(102, 102, 102));
@@ -140,19 +141,19 @@ public class Interfaz_Registro extends javax.swing.JInternalFrame {
         txtDescripcion.setOpaque(false);
         txtDescripcion.setSelectedTextColor(new java.awt.Color(66, 65, 70));
         jPanel1.add(txtDescripcion);
-        txtDescripcion.setBounds(230, 180, 240, 22);
+        txtDescripcion.setBounds(150, 180, 240, 22);
 
         lblDescripcion.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblDescripcion.setForeground(new java.awt.Color(66, 65, 70));
         lblDescripcion.setText("Descripción:");
         jPanel1.add(lblDescripcion);
-        lblDescripcion.setBounds(130, 180, 110, 30);
+        lblDescripcion.setBounds(50, 180, 110, 30);
 
         jspDescripcion.setBackground(new java.awt.Color(99, 99, 101));
         jspDescripcion.setForeground(new java.awt.Color(99, 99, 101));
         jspDescripcion.setDoubleBuffered(true);
         jPanel1.add(jspDescripcion);
-        jspDescripcion.setBounds(230, 200, 240, 20);
+        jspDescripcion.setBounds(150, 200, 240, 20);
 
         txtPrecio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtPrecio.setForeground(new java.awt.Color(102, 102, 102));
@@ -160,19 +161,19 @@ public class Interfaz_Registro extends javax.swing.JInternalFrame {
         txtPrecio.setOpaque(false);
         txtPrecio.setSelectedTextColor(new java.awt.Color(66, 65, 70));
         jPanel1.add(txtPrecio);
-        txtPrecio.setBounds(240, 220, 80, 22);
+        txtPrecio.setBounds(160, 220, 80, 22);
 
         lblPrecio.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblPrecio.setForeground(new java.awt.Color(66, 65, 70));
         lblPrecio.setText("*Precio:          $");
         jPanel1.add(lblPrecio);
-        lblPrecio.setBounds(130, 220, 110, 30);
+        lblPrecio.setBounds(50, 220, 110, 30);
 
         jspPrecio.setBackground(new java.awt.Color(99, 99, 101));
         jspPrecio.setForeground(new java.awt.Color(99, 99, 101));
         jspPrecio.setDoubleBuffered(true);
         jPanel1.add(jspPrecio);
-        jspPrecio.setBounds(240, 240, 80, 20);
+        jspPrecio.setBounds(160, 240, 80, 20);
 
         txtCosto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtCosto.setForeground(new java.awt.Color(102, 102, 102));
@@ -185,35 +186,35 @@ public class Interfaz_Registro extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(txtCosto);
-        txtCosto.setBounds(240, 250, 220, 22);
+        txtCosto.setBounds(160, 250, 220, 22);
 
         lblCosto.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblCosto.setForeground(new java.awt.Color(66, 65, 70));
         lblCosto.setText("*Costo:           $");
         jPanel1.add(lblCosto);
-        lblCosto.setBounds(130, 250, 110, 30);
+        lblCosto.setBounds(50, 250, 110, 30);
 
         jspCosto.setBackground(new java.awt.Color(99, 99, 101));
         jspCosto.setForeground(new java.awt.Color(99, 99, 101));
         jspCosto.setDoubleBuffered(true);
         jPanel1.add(jspCosto);
-        jspCosto.setBounds(240, 270, 80, 20);
+        jspCosto.setBounds(160, 270, 80, 20);
 
         lblCategoria.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblCategoria.setForeground(new java.awt.Color(66, 65, 70));
         lblCategoria.setText("*Categoria del Producto: ");
         jPanel1.add(lblCategoria);
-        lblCategoria.setBounds(130, 280, 180, 40);
+        lblCategoria.setBounds(50, 280, 180, 40);
 
         cmbCategoria.setOpaque(false);
         jPanel1.add(cmbCategoria);
-        cmbCategoria.setBounds(310, 290, 150, 20);
+        cmbCategoria.setBounds(230, 290, 150, 20);
 
         lblStock.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblStock.setForeground(new java.awt.Color(66, 65, 70));
         lblStock.setText("*Cantidad:");
         jPanel1.add(lblStock);
-        lblStock.setBounds(130, 320, 80, 30);
+        lblStock.setBounds(50, 320, 80, 30);
 
         txtStock.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtStock.setForeground(new java.awt.Color(102, 102, 102));
@@ -221,45 +222,51 @@ public class Interfaz_Registro extends javax.swing.JInternalFrame {
         txtStock.setOpaque(false);
         txtStock.setSelectedTextColor(new java.awt.Color(66, 65, 70));
         jPanel1.add(txtStock);
-        txtStock.setBounds(210, 320, 120, 22);
+        txtStock.setBounds(130, 320, 120, 22);
 
         jspStock.setBackground(new java.awt.Color(99, 99, 101));
         jspStock.setForeground(new java.awt.Color(99, 99, 101));
         jspStock.setDoubleBuffered(true);
         jPanel1.add(jspStock);
-        jspStock.setBounds(210, 340, 120, 20);
+        jspStock.setBounds(130, 340, 120, 20);
 
         lblPresentacion.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblPresentacion.setForeground(new java.awt.Color(66, 65, 70));
         lblPresentacion.setText("*Presentación: ");
         jPanel1.add(lblPresentacion);
-        lblPresentacion.setBounds(130, 360, 180, 40);
+        lblPresentacion.setBounds(50, 360, 180, 40);
 
         cmbPresentacion.setOpaque(false);
         jPanel1.add(cmbPresentacion);
-        cmbPresentacion.setBounds(250, 370, 210, 20);
+        cmbPresentacion.setBounds(170, 370, 210, 20);
 
-        btnRegresar.setBackground(new java.awt.Color(255, 153, 0));
-        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/regreso-NegroF.png"))); // NOI18N
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_Salir.png"))); // NOI18N
         btnRegresar.setText("Regresar");
-        btnRegresar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRegresar.setAlignmentX(0.5F);
+        btnRegresar.setBorder(null);
+        btnRegresar.setContentAreaFilled(false);
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnRegresar);
-        btnRegresar.setBounds(430, 460, 160, 45);
+        btnRegresar.setBounds(80, 440, 190, 80);
 
         jPanel1.add(cmbProvedor);
-        cmbProvedor.setBounds(240, 130, 120, 20);
+        cmbProvedor.setBounds(160, 130, 120, 20);
 
         lblNombre1.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblNombre1.setForeground(new java.awt.Color(66, 65, 70));
         lblNombre1.setText("*Nombre Producto: ");
         jPanel1.add(lblNombre1);
-        lblNombre1.setBounds(130, 150, 150, 30);
+        lblNombre1.setBounds(50, 150, 150, 30);
 
         lblProvedor.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblProvedor.setForeground(new java.awt.Color(66, 65, 70));
         lblProvedor.setText("*Proveedor: *");
         jPanel1.add(lblProvedor);
-        lblProvedor.setBounds(130, 120, 100, 30);
+        lblProvedor.setBounds(50, 120, 100, 30);
 
         txtID_Producto.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtID_Producto.setForeground(new java.awt.Color(102, 102, 102));
@@ -267,13 +274,13 @@ public class Interfaz_Registro extends javax.swing.JInternalFrame {
         txtID_Producto.setOpaque(false);
         txtID_Producto.setSelectedTextColor(new java.awt.Color(66, 65, 70));
         jPanel1.add(txtID_Producto);
-        txtID_Producto.setBounds(240, 82, 120, 22);
+        txtID_Producto.setBounds(160, 80, 120, 22);
 
         jspID_Prod.setBackground(new java.awt.Color(99, 99, 101));
         jspID_Prod.setForeground(new java.awt.Color(99, 99, 101));
         jspID_Prod.setDoubleBuffered(true);
         jPanel1.add(jspID_Prod);
-        jspID_Prod.setBounds(240, 100, 120, 20);
+        jspID_Prod.setBounds(160, 100, 120, 20);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -292,6 +299,10 @@ public class Interfaz_Registro extends javax.swing.JInternalFrame {
     private void txtCostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCostoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCostoActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -344,18 +355,18 @@ public class Interfaz_Registro extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jspPrecio;
     private javax.swing.JSeparator jspStock;
     private javax.swing.JSeparator jspTitulo;
-    private javax.swing.JLabel lblCategoria;
-    private javax.swing.JLabel lblCosto;
-    private javax.swing.JLabel lblDescripcion;
-    private javax.swing.JLabel lblID_Pro;
-    private javax.swing.JLabel lblNombre1;
-    private javax.swing.JLabel lblPrecio;
-    private javax.swing.JLabel lblPresentacion;
-    private javax.swing.JLabel lblProvedor;
-    private javax.swing.JLabel lblStock;
+    public javax.swing.JLabel lblCategoria;
+    public javax.swing.JLabel lblCosto;
+    public javax.swing.JLabel lblDescripcion;
+    public javax.swing.JLabel lblID_Pro;
+    public javax.swing.JLabel lblNombre1;
+    public javax.swing.JLabel lblPrecio;
+    public javax.swing.JLabel lblPresentacion;
+    public javax.swing.JLabel lblProvedor;
+    public javax.swing.JLabel lblStock;
     private javax.swing.JLabel lblSubT;
     private javax.swing.JLabel lblSubT1;
-    private javax.swing.JLabel lblTitulo;
+    public javax.swing.JLabel lblTitulo;
     public javax.swing.JTextField txtCosto;
     public javax.swing.JTextField txtDescripcion;
     public javax.swing.JTextField txtID_Producto;

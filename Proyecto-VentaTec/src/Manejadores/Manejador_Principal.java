@@ -157,6 +157,7 @@ public class Manejador_Principal {
                     IAC.setEnabled(true);
                     IP.btn_CerrarCaja.setEnabled(true);
                     IP.btn_AbrirCaja.setEnabled(false);
+                    IP.btn_VentanaNuevaVenta.setEnabled(true);
                 }
                //----Revisa si esta abierto Abrir Caja---//
            } 
