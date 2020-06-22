@@ -71,8 +71,18 @@ public class Manejador_SubVenta {
             String CodigoProducto = MSUV.idProduc.get(i);
             int Cantidad = Integer.parseInt(MSUV.Cantidad.get(i));
             CBD.insertInOut(CodigoProducto,'S',Cantidad);
+            CBD.insertDatails(MSUV.getFolioVenta(),
+                    MSUV.idProduc.get(i),
+                    Integer.parseInt(MSUV.Cantidad.get(i)),
+                    Float.parseFloat(MSUV.descuento.get(i)),
+                    MSUV.getSubtotal(),
+                    MSUV.getIva(),
+                    MSUV.getTotal(),"Descripcion");
         }
         //------Agrega todos los Renglones de Tabla Productos---------//
+        //------Agrega todos los Renglones de DETALLE VENTA---------//
+        ;
+        //------Agrega todos los Renglones de DETALLE VENTA---------//
         CBD.closeConexion();
         //------Elimina todos los Renglones de Tabla Productos---------//
         JOptionPane.showMessageDialog(SUV,"Productos Vendidos");

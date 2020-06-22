@@ -25,7 +25,9 @@ public class Modulo_SubVenta {
     private double sobrante;
     private double iva;
     private double subtotal;
-    private String fecha="";
+    private String fecha;
+    private int folioVenta;
+    private ConexionBD CBD;
     //----------Declaracion de variables----------//
     
     public Modulo_SubVenta(int row) {
@@ -36,6 +38,8 @@ public class Modulo_SubVenta {
         this.fecha = "";
         this.efectivo = 0;
         this.sobrante = 0;
+        this.folioVenta = buscaFolio();
+        this.CBD = new ConexionBD();
     }
     //-----------Fin del Constructor---------------//
     //-------funciones void----------//
@@ -57,6 +61,19 @@ public class Modulo_SubVenta {
         sobrante = efectivo - total;
     }
     //-------funciones void----------//
+    //-------funciones retornables----------//
+    public int buscaFolio(){
+        int folio = 0;
+        CBD.openConexion();
+            String A[] = CBD.buscaFolio();
+            if(A == null){
+                return 1;
+            }
+            folio = Integer.parseInt(A[A.length - 1]);
+        CBD.closeConexion();
+        return folio + 1;
+    }
+    //-------funciones retornables----------//
     //------- get ----------//
     public double getEfectivo() {
         return efectivo;
@@ -75,6 +92,9 @@ public class Modulo_SubVenta {
     }
     public String getFecha() {
         return fecha;
+    }
+    public int getFolioVenta() {
+        return folioVenta;
     }
     public double getPromedioDescuento(){
         double descuentoAcumulado = 0;

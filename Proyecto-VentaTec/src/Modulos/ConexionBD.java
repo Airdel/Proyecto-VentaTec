@@ -156,11 +156,6 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
                 System.out.print(ex.getMessage());}
     }
     
-        
-    public void insertDetailsSale(int id_venta, String id_producto, int cantidad,float descuento,float subtotal){
-        
-    }
-    
     //----------------------------Elimina en la base de datos-------------------------------------------------
     public void deleteDBProd(String campo,String dato){
         try{
@@ -381,6 +376,7 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
         }//Fin try catch
         
     }//Fin searchInTable
+ 
 public String[] searchProduct(String campo, String dato){
         try {
             sp = con.prepareStatement("SELECT * FROM PRODUCTOS WHERE "+campo+" LIKE '"+dato+"%'");
@@ -459,6 +455,30 @@ public String[] getInve(){
         }//Fin try catch
     }//Fin searchProduct
 
+public String[] buscaFolio(){
+    try{
+        sp = con.prepareStatement("SELECT [ID VENTA] FROM [DETALLE VENTA]");
+        resultado = sp.executeQuery();
+        PreparedStatement sp1 = con.prepareStatement("SELECT [ID VENTA] FROM [DETALLE VENTA]");
+        ResultSet resultado1 = sp1.executeQuery();
+        int row = countRow(resultado1);
+        String A[] = new String[row];
+        int i = 0;
+        while(resultado.next()){
+            A[i] = resultado.getString(1);
+            i++;
+        }
+        sp.close();
+        resultado.close();
+        sp1.close();
+        resultado1.close();
+        return A;
+    }catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+        resultado = null;            
+        return null;
+    }//Fin try catch
+}
 //-----------------------------------------------------------select--inventarios----------------
 public String[] getInveID(String id){
         try {
@@ -506,17 +526,19 @@ public String[] getInveID(String id){
     }
         
     
-    public void insertDatails(int id_venta,String id_producto,int cantidad,float desc,float subtotal,String deripcion ){
+    public void insertDatails(int id_venta,String id_producto,int cantidad,double desc,double subtotal,double iva,double total,String deripcion ){
        
         try{
             
-            sp = con.prepareStatement("INSERT INTO [DETALLE VENTA] VALUES(?,?,?,?,?,?)");//consulta sql para insertar
+            sp = con.prepareStatement("INSERT INTO [DETALLE VENTA] VALUES(?,?,?,?,?,?,?,?)");//consulta sql para insertar
             sp.setInt(1, id_venta);//datos
             sp.setString(2,id_producto);//datos
             sp.setInt(3,cantidad);//datos
-            sp.setFloat(4, desc);//datos
-            sp.setFloat(5,subtotal);//datos
-            sp.setString(6, deripcion);//datos
+            sp.setDouble(4, desc);//datos
+            sp.setDouble(5,subtotal);//datos
+            sp.setDouble(6, iva);//datos
+            sp.setDouble(7, total);//datos
+            sp.setString(8, deripcion);//datos
             sp.executeUpdate();
             
             
