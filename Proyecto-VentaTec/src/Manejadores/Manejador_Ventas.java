@@ -360,15 +360,20 @@ public class Manejador_Ventas {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 int row[] = SIVBP.dgv_Productos.getSelectedRows();
-                Object B[] = new Object[5];
+                Object B[] = new Object[6];
                 for(int i = 0; i < row.length; i++){
                     B[0] = ddd.getValueAt(row[i], 0);
                     B[1] = ddd.getValueAt(row[i], 1);
                     B[2] = ddd.getValueAt(row[i], 2);
                     B[3] = ddd.getValueAt(row[i], 3);
                     B[4] = ddd.getValueAt(row[i], 4);
-                    B[5] = ddd.getValueAt(row[i], 5);
+                    B[5] = "0.0";
                     DTM.addRow(B);
+                    int rows = DTM.getRowCount();
+                    MV.agregaProduc((rows - 1) + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
+                    MV.sumaSubTotal();
+                    MV.getTotal();
+                    actualizalbl();
                 }
             }
         });
@@ -390,9 +395,6 @@ public class Manejador_Ventas {
                             ddd.addRow(B);
                         }
                         //-------Agrega a tabla SubVentaBuscarProducto------//
-                        if(!(B[0].equals("null"))){
-                            JOptionPane.showMessageDialog(SIVBP, "Producto no encontrado");
-                        }
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -433,7 +435,6 @@ public class Manejador_Ventas {
         for(int i = 0;i<DTM.getRowCount();i++){
             
             if(DTM.getValueAt(i,0).toString().equals(IV.txt_Codigo.getText())){
-                System.out.println("ya existe ");
                 a = Integer.parseInt(DTM.getValueAt(i,2).toString()) + Integer.parseInt(IV.txt_Cantidad.getText());
                 b =  Float.parseFloat(DTM.getValueAt(i,3).toString());
                 imp = a*b *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString()));
