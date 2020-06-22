@@ -84,7 +84,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
         setPreferredSize(new java.awt.Dimension(1366, 768));
         setSize(new java.awt.Dimension(1366, 768));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().setLayout(null);
 
         Jpanel_Botones.setBackground(new java.awt.Color(51, 204, 0));
         Jpanel_Botones.setForeground(new java.awt.Color(102, 255, 102));
@@ -152,24 +152,28 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         });
         Jpanel_Botones.add(btn_CrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 198, -1));
 
-        getContentPane().add(Jpanel_Botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(8, 0, 220, 700));
+        getContentPane().add(Jpanel_Botones);
+        Jpanel_Botones.setBounds(8, 0, 210, 650);
 
         jPanel1.setBackground(new java.awt.Color(0, 255, 0));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(null);
 
         JPanel_Principal.setBackground(new java.awt.Color(0, 255, 0));
-        JPanel_Principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        JPanel_Principal.setLayout(null);
 
         lblHora.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblHora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JPanel_Principal.add(lblHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 600, 140, 30));
+        JPanel_Principal.add(lblHora);
+        lblHora.setBounds(820, 550, 160, 29);
 
         lblFecha.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JPanel_Principal.add(lblFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 660, 140, 30));
+        JPanel_Principal.add(lblFecha);
+        lblFecha.setBounds(820, 600, 160, 29);
 
         lbl_IconoEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/background.jpg"))); // NOI18N
-        JPanel_Principal.add(lbl_IconoEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1130, -1));
+        JPanel_Principal.add(lbl_IconoEmpresa);
+        lbl_IconoEmpresa.setBounds(20, 0, 1130, 1092);
 
         javax.swing.GroupLayout Ventana_JPanelPrincipalLayout = new javax.swing.GroupLayout(Ventana_JPanelPrincipal);
         Ventana_JPanelPrincipal.setLayout(Ventana_JPanelPrincipalLayout);
@@ -182,11 +186,14 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
             .addGap(0, 771, Short.MAX_VALUE)
         );
 
-        JPanel_Principal.add(Ventana_JPanelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1280, -1));
+        JPanel_Principal.add(Ventana_JPanelPrincipal);
+        Ventana_JPanelPrincipal.setBounds(-30, 0, 1280, 771);
 
-        jPanel1.add(JPanel_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1130, 700));
+        jPanel1.add(JPanel_Principal);
+        JPanel_Principal.setBounds(0, 0, 1130, 700);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 1130, -1));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(240, 0, 1030, 674);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
