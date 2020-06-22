@@ -98,7 +98,7 @@ public class Manejador_Principal {
                 //------Inicializacion de Ventana----------//
                 IV = new Interfaz_Venta();
                 MV = new Modulo_Venta();
-                MAV = new Manejador_Ventas(IV, MV, TipoUsu);
+                MAV = new Manejador_Ventas(IV, MV, TipoUsu,IP);
                 
                 //------Inicializacion de Ventana----------//
                 //------Cierre de ventana principal y visualiza Venta----------//

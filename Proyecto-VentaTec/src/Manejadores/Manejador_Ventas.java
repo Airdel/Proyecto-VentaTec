@@ -88,11 +88,13 @@ public class Manejador_Ventas {
                                 B[2] = IV.txt_Cantidad.getText();
                                 DTM.addRow(B);
                             }
-                            int row = DTM.getRowCount();
-                            MV.agregaProduc(row + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
-                            MV.sumaSubTotal();
-                            MV.getTotal();
-                            actualizalbl();
+                            if(!(B[0].equals("null"))){
+                                int row = DTM.getRowCount();
+                                MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
+                                MV.sumaSubTotal();
+                                MV.getTotal();
+                                actualizalbl();
+                            }
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
@@ -135,7 +137,11 @@ public class Manejador_Ventas {
                                 B[2] = IV.txt_Cantidad.getText();
                                 DTM.addRow(B);
                             }
-
+                            int row = DTM.getRowCount();
+                            MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "", B[4]+ "", B[5]+ "");
+                            MV.sumaSubTotal();
+                            MV.getTotal();
+                            actualizalbl();    
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
@@ -216,7 +222,8 @@ public class Manejador_Ventas {
             public void actionPerformed(ActionEvent ae) {
                 if (IV.dgv_Productos.getSelectedRow() >= 0) {
                     eliminaTabla();
-                    
+                    MV.sumaSubTotal();
+                    MV.sumaTodo();
                     actualizalbl();
                 } else {
                     showMessageDialog(IV, "Es necesario seleccionar un registro");
@@ -242,10 +249,15 @@ public class Manejador_Ventas {
     //--------Funciones Void-----------------//
     public void actualizalbl(){
         int row = DTM.getRowCount();
-        IV.lbl_NumeroDeArticulosValor.setText(MV.getNoArticulos() + "");
-        String nombrePro = (DTM.getValueAt(row, 1) + "");
-        IV.lbl_NombreProducto.setText(nombrePro);
-        IV.lbl_TotalValor.setText((MV.getSubtotal() + MV.getIva()) + "");
+        if(DTM.getRowCount() != 0){
+            IV.lbl_NumeroDeArticulosValor.setText(MV.getNoArticulos() + "");
+            String nombrePro = (DTM.getValueAt(row - 1, 1) + "");
+            IV.lbl_NombreProducto.setText(nombrePro);
+            IV.lbl_TotalValor.setText((MV.getSubtotal() + MV.getIva()) + "");
+        }else{
+            IV.lbl_NumeroDeArticulosValor.setText(MV.getNoArticulos() + "");
+            IV.lbl_TotalValor.setText("0.0");
+        }
     }
     public void eliminaTabla() {
         //----Selecciona en numero de renglon de las seleccines es tabla----//
@@ -255,8 +267,8 @@ public class Manejador_Ventas {
             JOptionPane.showMessageDialog(IV, "Selecciona una columna a eliminar");
             return;
         }
-        for (int i = 0; i < sel.length; i++) {
-            System.out.println("Selected = "+sel[i]);
+        for (int i = (sel.length - 1); i >= 0 ; i--) {
+            MV.eliminaProduc(sel[i] + "");
             DTM.removeRow(sel[i]);
         }
     }// Fin elimina Tabla

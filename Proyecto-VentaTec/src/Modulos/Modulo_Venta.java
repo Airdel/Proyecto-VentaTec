@@ -44,10 +44,23 @@ public class Modulo_Venta {
         descuento.add(desc);
         NoArticulos++;
     }
-    public void eliminaProduc(String idproc){
-        
+    public void eliminaProduc(String reng){
+        int ren = 0;
+        for(int i = 0; i < renglon.size();i++){
+            if(renglon.get(i).equals(reng)){
+                ren = Integer.parseInt(renglon.get(i));
+            }
+        }
+        renglon.remove(ren);
+        idProduc.remove(ren);
+        Cantidad.remove(ren);
+        precUnitario.remove(ren);
+        importe.remove(ren);
+        descuento.remove(ren);
+        NoArticulos--;
     }
     public void sumaSubTotal(){
+        subtotal = 0;
         for(int i = 0;i < idProduc.size() ; i++){
             subtotal = subtotal + (double)(Double.parseDouble(importe.get(i))*Integer.parseInt(Cantidad.get(i)));
         }
