@@ -91,7 +91,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         btn_VentanaDocumentos.setText("Documentos");
         btn_VentanaDocumentos.setName("btn_Rendimiento"); // NOI18N
 
-        btn_AbrirCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/CAJAGUARDAR_2.png"))); // NOI18N
+        btn_AbrirCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/CAJAGUARDAR.png"))); // NOI18N
         btn_AbrirCaja.setName("btn_Usuarios"); // NOI18N
 
         btn_VentanaRegistrarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_RegistrarProducto.png"))); // NOI18N
@@ -128,7 +128,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
             }
         });
 
-        btn_CerrarCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/CERRARCAJA.png"))); // NOI18N
+        btn_CerrarCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/CERRARCAJA_1.png"))); // NOI18N
         btn_CerrarCaja.setName("btn_Usuarios"); // NOI18N
 
         btn_CrearUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/inicioseses.png"))); // NOI18N

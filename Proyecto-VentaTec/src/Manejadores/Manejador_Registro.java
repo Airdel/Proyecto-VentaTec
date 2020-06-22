@@ -8,6 +8,7 @@ package Manejadores;
 import Interfaces.Interfaz_Registro;
 import Modulos.ConexionBD;
 import Modulos.Modulo_Registro;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
@@ -19,10 +20,13 @@ import javax.swing.JOptionPane;
  * @author LUIS INC
  */
 public class Manejador_Registro {
+
     //------Declaracion de Variables----//
     private Interfaz_Registro IR;
     private Modulo_Registro MR;
     private ConexionBD CBD;
+    public int bandera = 0;
+
     //------Declaracion de Variables----//
     //---------------Inicia la ventana Registro--------------//
     public Manejador_Registro(Interfaz_Registro IR1, Modulo_Registro MR1) {
@@ -33,8 +37,8 @@ public class Manejador_Registro {
         llenarCombo();
         //-------Inicializacion de variables----//  
         //--------Action Listener Performet-------------------//
-        this.IR.btnGuardar.addActionListener(new ActionListener(){
-            public void actionPerformed(ActionEvent e){
+        this.IR.btnGuardar.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
                 try {
                     //--------Agrega caracteristicas a Modulo Registro---------//
                     MR.setCantidad(Integer.parseInt(IR.txtStock.getText()));
@@ -58,16 +62,46 @@ public class Manejador_Registro {
                     IR.cmbPresentacion.setSelectedIndex(0);
                     IR.txtID_Producto.setText("");
                     IR.cmbProvedor.setSelectedIndex(0);
+                    //color negro
+                    IR.txtStock.setForeground(Color.black);
+                    IR.lblCategoria.setForeground(Color.black);
+                    IR.lblCosto.setForeground(Color.black);
+                    IR.lblDescripcion.setForeground(Color.black);
+                    IR.lblNombre1.setForeground(Color.black);
+                    IR.lblPrecio.setForeground(Color.black);
+                    IR.lblPresentacion.setForeground(Color.black);
+                    IR.lblID_Pro.setForeground(Color.black);
+                    IR.lblProvedor.setForeground(Color.black);
+                    IR.lblStock.setForeground(Color.black);
+                    IR.lblTitulo.setForeground(Color.black);
                     JOptionPane.showMessageDialog(IR, "Producto añadido!");
                     //--------Limipia todos los TXT---------//
-                }catch(Exception error) {
-                    JOptionPane.showMessageDialog(IR, "Ha ocurrido un error, contacta el administrador del sistema!\n"+error);
+
+                } catch (Exception error) {
+
+                    if (bandera == 1) {
+                        JOptionPane.showMessageDialog(IR, "Ha ocurrido un error, contacta el administrador del sistema!\n" + error);
+
+                    } else {
+                        JOptionPane.showMessageDialog(IR, "EXISTEN CAMPOS VACIOS!");
+                        IR.lblTitulo.setForeground(Color.red);
+                        IR.lblCategoria.setForeground(Color.red);
+                        IR.lblCosto.setForeground(Color.red);
+                        IR.lblDescripcion.setForeground(Color.red);
+                        IR.lblID_Pro.setForeground(Color.red);
+                        IR.lblNombre1.setForeground(Color.red);
+                        IR.lblPresentacion.setForeground(Color.red);
+                        IR.lblPrecio.setForeground(Color.red);
+                        IR.lblProvedor.setForeground(Color.red);
+                        IR.lblStock.setForeground(Color.red);
+                        bandera = bandera + 1;
+                    }
                 }
             }
         });
-        this.IR.btnRegresar.addActionListener(new ActionListener(){
+        this.IR.btnRegresar.addActionListener(new ActionListener() {
             //--------Oculta la Interfaz Registro en Interfaz Principal-------//
-            public void actionPerformed(ActionEvent e){
+            public void actionPerformed(ActionEvent e) {
                 IR.setVisible(false);
                 IR.setEnabled(false);
             }
@@ -79,48 +113,48 @@ public class Manejador_Registro {
             //---------Valida Solo Numeros------------//
             public void keyTyped(KeyEvent ke) {
                 char c = ke.getKeyChar();
-                if(!((c >= 48 && c <= 57))){
+                if (!((c >= 48 && c <= 57))) {
                     ke.consume();
-                }else if(IR.txtID_Producto.getText().length() == 25){//----Tamaño----//
+                } else if (IR.txtID_Producto.getText().length() == 25) {//----Tamaño----//
                     ke.consume();
                 }
             }
             //---------Valida Solo Numeros------------//
         });
-        
+
         this.IR.txtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
             //---------Valida Solo Letras------------//
             public void keyTyped(KeyEvent ke) {
                 char c = ke.getKeyChar();
-                if(!((c >= 65 && c <= 90)||(c >= 97 && c <= 122)||(c == KeyEvent.VK_ESCAPE)||(c == 130)||(c == 181)||(c == 144)||(c == 214)||(c == 224)||(c == 233)||(c >= 160 && c <= 163))){
+                if (!((c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c == KeyEvent.VK_ESCAPE) || (c == 130) || (c == 181) || (c == 144) || (c == 214) || (c == 224) || (c == 233) || (c >= 160 && c <= 163))) {
                     ke.consume();
-                }else if(IR.txtNombre.getText().length() == 20){//----Tamaño----//
+                } else if (IR.txtNombre.getText().length() == 20) {//----Tamaño----//
                     ke.consume();
                 }
             }
             //---------Valida Solo Letras------------//
         });
-       
+
         this.IR.txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
             //---------Valida Solo Numeros y Punto------------//
             public void keyTyped(KeyEvent ke) {
                 char c = ke.getKeyChar();
-                if(!((c >= 48 && c <= 57)||(c == 46))){
+                if (!((c >= 48 && c <= 57) || (c == 46))) {
                     ke.consume();
-                }else if(IR.txtPrecio.getText().length() == 25){//----Tamaño----//
+                } else if (IR.txtPrecio.getText().length() == 25) {//----Tamaño----//
                     ke.consume();
                 }
             }
             //---------Valida Solo Numeros y Punto------------//
         });
-        
-       this.IR.txtCosto.addKeyListener(new java.awt.event.KeyAdapter() {
+
+        this.IR.txtCosto.addKeyListener(new java.awt.event.KeyAdapter() {
             //---------Valida Solo Numeros y Punto------------//
             public void keyTyped(KeyEvent ke) {
                 char c = ke.getKeyChar();
-                if(!((c >= 48 && c <= 57)||(c == 46))){
+                if (!((c >= 48 && c <= 57) || (c == 46))) {
                     ke.consume();
-                }else if(IR.txtCosto.getText().length() == 25){//----Tamaño----//
+                } else if (IR.txtCosto.getText().length() == 25) {//----Tamaño----//
                     ke.consume();
                 }
             }
@@ -130,9 +164,9 @@ public class Manejador_Registro {
             //---------Valida Solo Numeros------------//
             public void keyTyped(KeyEvent ke) {
                 char c = ke.getKeyChar();
-                if(!((c >= 48 && c <= 57))){
+                if (!((c >= 48 && c <= 57))) {
                     ke.consume();
-                }else if(IR.txtStock.getText().length() == 25){//----Tamaño----//
+                } else if (IR.txtStock.getText().length() == 25) {//----Tamaño----//
                     ke.consume();
                 }
             }
@@ -140,12 +174,13 @@ public class Manejador_Registro {
         });
         //--------Action Listener KeyListener-------------------//
     }
+
     //---------------Fin Constructor------------------//
-    public void validaTxt(){
+    public void validaTxt() {
         //---Valida si Precio esta bien---//
         String textP = IR.txtPrecio.getText();
         String S[] = textP.split(".");
-        if(S.length > 2){
+        if (S.length > 2) {
             JOptionPane.showMessageDialog(IR, "Precio mal escrito");
             return;
         }
@@ -153,49 +188,49 @@ public class Manejador_Registro {
         //---Valida si Costo esta bien---//
         String textC = IR.txtCosto.getText();
         String S1[] = textC.split(".");
-        if(S1.length > 2){
+        if (S1.length > 2) {
             JOptionPane.showMessageDialog(IR, "Costo mal escrito");
             return;
         }
         //---Valida si Costo esta bien---//
         //---Valida si Cantidad esta bien---//
         String textCan = IR.txtStock.getText();
-        if(textCan.equals("")){
+        if (textCan.equals("")) {
             JOptionPane.showMessageDialog(IR, "Cantidad esta vacia");
             return;
         }
         //---Valida si Cantidad esta bien---//
         //---Valida si Nombre esta bien---//
         String textName = IR.txtNombre.getText();
-        if(textName.equals("")){
+        if (textName.equals("")) {
             JOptionPane.showMessageDialog(IR, "Nombre del producto esta vacio");
             return;
         }
         //---Valida si Nombre esta bien---//
         //---Valida si Descripcion esta bien---//
         String textDes = IR.txtDescripcion.getText();
-        if(textDes.equals("")){
+        if (textDes.equals("")) {
             JOptionPane.showMessageDialog(IR, "Descripcion del producto esta vacio");
             return;
         }
         //---Valida si Descripcion esta bien---//
         //---Valida si Combo Categoria esta bien---//
         Object cmbCat = IR.cmbCategoria.getSelectedItem();
-        if(cmbCat == null){
+        if (cmbCat == null) {
             JOptionPane.showMessageDialog(IR, "Categoria del producto esta vacia");
             return;
         }
         //---Valida si Combo Categoria esta bien---//
         //---Valida si Combo Presentacion esta bien---//
         Object cmbPre = IR.cmbPresentacion.getSelectedItem();
-        if(cmbPre == null){
+        if (cmbPre == null) {
             JOptionPane.showMessageDialog(IR, "Presentacion del producto esta vacio");
             return;
         }
         //---Valida si Combo Presentacion esta bien---//
     }// Fin validaTxt
-    
-    public void llenarCombo(){
+
+    public void llenarCombo() {
         CBD.openConexion();
         //---Variables Auxiliares---//
         String A[] = CBD.allCat();
@@ -203,7 +238,7 @@ public class Manejador_Registro {
         String C[] = CBD.allProvedor();
         //---Variables Auxiliares---//
         //---Llena Combo Categoria---//
-        for (int i = 0;i<A.length;i++) {
+        for (int i = 0; i < A.length; i++) {
             IR.cmbCategoria.addItem(A[i]);
         }
         //---Llena Combo Categoria---//
@@ -217,6 +252,6 @@ public class Manejador_Registro {
             IR.cmbProvedor.addItem(C1);
         }
         //---Llena Combo Provedor---//
-        CBD.closeConexion();     
+        CBD.closeConexion();
     }// Fin llenarCombo
 }//Fin llenarCombo
