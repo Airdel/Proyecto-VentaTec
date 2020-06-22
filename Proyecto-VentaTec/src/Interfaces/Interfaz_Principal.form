@@ -43,7 +43,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="10" y="0" width="-1" height="640"/>
+          <AbsoluteConstraints x="10" y="0" width="220" height="640"/>
         </Constraint>
       </Constraints>
 
@@ -52,21 +52,20 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="btn_VentanaInventario" alignment="1" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="btn_AbrirCaja" min="-2" pref="90" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="btn_CerrarCaja" min="-2" pref="98" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="btn_VentanaRegistrarProducto" alignment="1" min="-2" pref="198" max="-2" attributes="0"/>
                       <Component id="btn_VentanaDocumentos" alignment="0" max="32767" attributes="0"/>
-                      <Component id="btn_VentanaRegistrarProducto" alignment="0" max="32767" attributes="0"/>
-                      <Component id="btn_AbrirCaja" max="32767" attributes="0"/>
+                      <Component id="btn_VentanaInventario" alignment="0" max="32767" attributes="0"/>
                       <Component id="btn_VentanaNuevaVenta" alignment="0" max="32767" attributes="0"/>
-                      <Component id="btn_CerrarSesion" alignment="0" max="32767" attributes="0"/>
-                      <Component id="btn_CerrarCaja" alignment="0" max="32767" attributes="0"/>
+                      <Component id="btn_CrearUsuario" max="32767" attributes="0"/>
+                      <Component id="btn_CerrarSesion" max="32767" attributes="0"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
-                  <Component id="btn_CrearUsuario" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="12" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -74,22 +73,23 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_AbrirCaja" min="-2" pref="84" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_CrearUsuario" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="btn_CerrarCaja" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="btn_CerrarCaja" min="-2" pref="84" max="-2" attributes="0"/>
+                      <Component id="btn_AbrirCaja" alignment="1" min="-2" pref="84" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                   <Component id="btn_VentanaNuevaVenta" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                  <Component id="btn_VentanaRegistrarProducto" min="-2" pref="85" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                  <Component id="btn_VentanaRegistrarProducto" min="-2" pref="85" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                   <Component id="btn_VentanaDocumentos" min="-2" pref="86" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                   <Component id="btn_VentanaInventario" min="-2" pref="93" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-                  <Component id="btn_CerrarSesion" pref="88" max="32767" attributes="0"/>
-                  <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
+                  <Component id="btn_CrearUsuario" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="btn_CerrarSesion" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="226" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -110,9 +110,8 @@
         <Component class="javax.swing.JButton" name="btn_AbrirCaja">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos_InterfazPrincipal/abrircaja.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos_InterfazPrincipal/CAJAGUARDAR_2.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Abrir Caja"/>
             <Property name="name" type="java.lang.String" value="btn_Usuarios" noResource="true"/>
           </Properties>
           <AuxValues>
@@ -127,6 +126,9 @@
             <Property name="text" type="java.lang.String" value="Registrar Producto"/>
             <Property name="name" type="java.lang.String" value="btn_RegistrarProducto" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_VentanaRegistrarProductoActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -140,6 +142,9 @@
             <Property name="toolTipText" type="java.lang.String" value="Salir"/>
             <Property name="name" type="java.lang.String" value="btn_CerrarSesion" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_CerrarSesionActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -166,6 +171,9 @@
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="name" type="java.lang.String" value="btn_NuevaVenta" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_VentanaNuevaVentaActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -173,9 +181,8 @@
         <Component class="javax.swing.JButton" name="btn_CerrarCaja">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Imagenes/Iconos_InterfazPrincipal/cerrar caja.png"/>
+              <Image iconType="3" name="/Imagenes/Iconos_InterfazPrincipal/CERRARCAJA.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Cerrar Caja"/>
             <Property name="name" type="java.lang.String" value="btn_Usuarios" noResource="true"/>
           </Properties>
           <AuxValues>
@@ -184,8 +191,14 @@
         </Component>
         <Component class="javax.swing.JButton" name="btn_CrearUsuario">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Imagenes/Iconos_InterfazPrincipal/inicioseses.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Crear Usuario"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_CrearUsuarioActionPerformed"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
@@ -298,7 +311,7 @@
                   </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="10" y="0" width="990" height="730"/>
+                      <AbsoluteConstraints x="0" y="0" width="1010" height="730"/>
                     </Constraint>
                   </Constraints>
                 </Component>
