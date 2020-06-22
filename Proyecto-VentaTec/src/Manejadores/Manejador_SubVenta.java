@@ -14,7 +14,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.SimpleFormatter;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -67,7 +66,8 @@ public class Manejador_SubVenta {
     //-----------Funciones Void-----------//
     public void ConfirmaVenta() {
         CBD.openConexion();
-        //------Agrega todos los Renglones de Tabla Productos  E y S---------// 
+        //------Agrega todos los Renglones de Tabla Productos  E y S---------//
+
         for (int i = 0; i < MSUV.tamañoMaximo; i++) {
             String CodigoProducto = MSUV.idProduc.get(i);
             int Cantidad = Integer.parseInt(MSUV.Cantidad.get(i));

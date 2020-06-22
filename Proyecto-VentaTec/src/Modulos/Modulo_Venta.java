@@ -81,7 +81,7 @@ public class Modulo_Venta {
     }
     
     public void eliminaTodo(){
-        for(int i = (idProduc.size() - 1); i >=0 ; i++){
+        for(int i = (idProduc.size() - 1); i >=0 ; i--){
             renglon.remove(i);
             idProduc.remove(i);
             Cantidad.remove(i);
