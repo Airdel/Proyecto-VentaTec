@@ -28,9 +28,10 @@ public class Modulo_SubVenta {
     private String fecha;
     private int folioVenta;
     private ConexionBD CBD;
+    private int id_Usuario;
     //----------Declaracion de variables----------//
     
-    public Modulo_SubVenta(int row) {
+    public Modulo_SubVenta(int row,int idU) {
         this.tamañoMaximo = row;
         this.total = 0;
         this.subtotal = 0;
@@ -40,6 +41,7 @@ public class Modulo_SubVenta {
         this.sobrante = 0;
         this.folioVenta = buscaFolio();
         this.CBD = new ConexionBD();
+        this.id_Usuario = idU;
     }
     //-----------Fin del Constructor---------------//
     //-------funciones void----------//
@@ -95,6 +97,9 @@ public class Modulo_SubVenta {
     }
     public int getFolioVenta() {
         return folioVenta;
+    }
+    public int getId_Usuario() {
+        return id_Usuario;
     }
     public double getPromedioDescuento(){
         double descuentoAcumulado = 0;

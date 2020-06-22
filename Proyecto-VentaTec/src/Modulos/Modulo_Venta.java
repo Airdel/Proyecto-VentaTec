@@ -22,14 +22,18 @@ public class Modulo_Venta {
     public ArrayList<String> descuento = new ArrayList<String>();
     public ArrayList<String> renglon = new ArrayList<String>();
     private String nameUsu;
+    private String tipoUsu;
+    private int id_usu;
     private int NoArticulos;
     private double total;
     private double iva;
     private double subtotal;
     //----------Declaracion de variables----------//
     
-    public Modulo_Venta(String nameUsu) {
+    public Modulo_Venta(String nameUsu,String tipoUsu,int id_usu) {
         this.nameUsu = nameUsu;
+        this.tipoUsu = tipoUsu;
+        this.id_usu = id_usu;
         this.total = 0;
         this.NoArticulos = 0;
         this.subtotal = 0;
@@ -102,6 +106,9 @@ public class Modulo_Venta {
 
     public String getNameUsu() {
         return nameUsu;
+    }
+    public int getId_usu() {
+        return id_usu;
     }
     public double getSubtotal() {
         return subtotal;

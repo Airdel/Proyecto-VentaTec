@@ -71,13 +71,15 @@ public class Manejador_SubVenta {
             String CodigoProducto = MSUV.idProduc.get(i);
             int Cantidad = Integer.parseInt(MSUV.Cantidad.get(i));
             CBD.insertInOut(CodigoProducto,'S',Cantidad);
-            CBD.insertDatails(MSUV.getFolioVenta(),
+            CBD.insertDetails(MSUV.getFolioVenta(),
                     MSUV.idProduc.get(i),
                     Integer.parseInt(MSUV.Cantidad.get(i)),
                     Float.parseFloat(MSUV.descuento.get(i)),
                     MSUV.getSubtotal(),
                     MSUV.getIva(),
                     MSUV.getTotal(),"Descripcion");
+            CBD.insertVentas(MSUV.getId_Usuario());
+            CBD.insertTicket(MSUV.getFolioVenta());
         }
         //------Agrega todos los Renglones de Tabla Productos---------//
         //------Agrega todos los Renglones de DETALLE VENTA---------//
@@ -154,13 +156,4 @@ public class Manejador_SubVenta {
         //----Retorna la suma total----//
     }// Fin venta
     //-----------Funciones Retornables-----//
-
-    public static void main(String arg[]) {
-        Interfaz_Venta IV = new Interfaz_Venta();
-        Sub_Venta SV = new Sub_Venta();
-        Modulo_SubVenta MS = new Modulo_SubVenta(10);
-        Modulo_Venta MV = new Modulo_Venta("Prueba");
-        Manejador_SubVenta MAS = new Manejador_SubVenta(SV, MS, IV, MV);
-        System.out.println(MAS.validaInput("a"));
-    }
 }

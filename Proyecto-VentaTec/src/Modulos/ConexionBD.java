@@ -525,8 +525,25 @@ public String[] getInveID(String id){
     
     }
         
-    
-    public void insertDatails(int id_venta,String id_producto,int cantidad,double desc,double subtotal,double iva,double total,String deripcion ){
+    public void insertVentas(int id_usuario){
+        try{
+            
+            sp = con.prepareStatement("INSERT INTO VENTAS([ID USUARIO]) VALUES(?)");//consulta sql para insertar
+            sp.setInt(1,id_usuario);//datos
+            sp.executeUpdate();
+            
+        }catch(SQLException e){System.out.println(e.getMessage());}
+    }
+    public void insertTicket(int id_venta){
+        try{
+            
+            sp = con.prepareStatement("INSERT INTO TICKETS([ID VENTA]) VALUES(?)");//consulta sql para insertar
+            sp.setInt(1, id_venta);//datos
+            sp.executeUpdate();
+            
+        }catch(SQLException e){System.out.println(e.getMessage());}
+    }
+    public void insertDetails(int id_venta,String id_producto,int cantidad,double desc,double subtotal,double iva,double total,String descripcion ){
        
         try{
             
@@ -538,11 +555,11 @@ public String[] getInveID(String id){
             sp.setDouble(5,subtotal);//datos
             sp.setDouble(6, iva);//datos
             sp.setDouble(7, total);//datos
-            sp.setString(8, deripcion);//datos
+            sp.setString(8, descripcion);//datos
             sp.executeUpdate();
             
             
-        }catch(SQLException e){}
+        }catch(SQLException e){System.out.println(e.getMessage());}
     }
     
     

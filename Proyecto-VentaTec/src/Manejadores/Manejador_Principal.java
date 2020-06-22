@@ -84,7 +84,7 @@ public class Manejador_Principal {
             public void actionPerformed(ActionEvent e) {
                 //------Inicializacion de Ventana----------//
                 IV = new Interfaz_Venta();
-                MV = new Modulo_Venta(MP.getNameUsu());
+                MV = new Modulo_Venta(MP.getNameUsu(),MP.getTipoUSU(),MP.getId_usu());
                 MAV = new Manejador_Ventas(IV, MV,IP);
                 
                 //------Inicializacion de Ventana----------//

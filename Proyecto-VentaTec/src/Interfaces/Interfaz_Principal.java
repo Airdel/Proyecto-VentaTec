@@ -82,7 +82,6 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         setTitle("VentaTec - Abarrotes \"Los Ayala\"");
         setBackground(new java.awt.Color(177, 216, 211));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
-        setPreferredSize(new java.awt.Dimension(1366, 768));
         setSize(new java.awt.Dimension(1366, 768));
         getContentPane().setLayout(null);
 
@@ -199,7 +198,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         );
 
         JPanel_Principal.add(Ventana_JPanelPrincipal);
-        Ventana_JPanelPrincipal.setBounds(-30, 0, 1280, 771);
+        Ventana_JPanelPrincipal.setBounds(-30, 0, 1282, 771);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
