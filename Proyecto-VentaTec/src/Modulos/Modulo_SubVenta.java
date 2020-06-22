@@ -69,6 +69,7 @@ public class Modulo_SubVenta {
         CBD.openConexion();
             String A[] = CBD.buscaFolio();
             if(A[0].equals("")){
+                System.out.println("1 folio");
                 return 1;
             }
             folio = (Integer.parseInt(A[A.length - 1]) + 1);

@@ -71,16 +71,15 @@ public class Manejador_SubVenta {
             String CodigoProducto = MSUV.idProduc.get(i);
             int Cantidad = Integer.parseInt(MSUV.Cantidad.get(i));
             CBD.insertInOut(CodigoProducto,'S',Cantidad);
+            System.out.println(MSUV.getFolioVenta() + "Folio");
             CBD.insertDetails(MSUV.getFolioVenta(),
                     MSUV.idProduc.get(i),
                     Integer.parseInt(MSUV.Cantidad.get(i)),
                     Float.parseFloat(MSUV.descuento.get(i)),
-                    MSUV.getSubtotal(),
-                    MSUV.getIva(),
-                    MSUV.getTotal(),"Descripcion");
-            CBD.insertVentas(MSUV.getId_Usuario());
-            CBD.insertTicket(MSUV.getFolioVenta());
+                    MSUV.getSubtotal(),"Descripcion");
         }
+        CBD.insertVentas(MSUV.getId_Usuario());
+        CBD.insertTicket(MSUV.getFolioVenta());
         //------Agrega todos los Renglones de Tabla Productos---------//
         //------Agrega todos los Renglones de DETALLE VENTA---------//
         ;

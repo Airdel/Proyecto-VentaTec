@@ -539,19 +539,17 @@ public String[] getInveID(String id){
             
         }catch(SQLException e){System.out.println(e.getMessage());}
     }
-    public void insertDetails(int id_venta,String id_producto,int cantidad,double desc,double subtotal,double iva,double total,String descripcion ){
+    public void insertDetails(int id_venta,String id_producto,int cantidad,double desc,double subtotal,String descripcion ){
        
         try{
             
-            sp = con.prepareStatement("INSERT INTO [DETALLE VENTA] VALUES(?,?,?,?,?,?,?,?)");//consulta sql para insertar
+            sp = con.prepareStatement("INSERT INTO [DETALLE VENTA] VALUES(?,?,?,?,?,?)");//consulta sql para insertar
             sp.setInt(1, id_venta);//datos
             sp.setString(2,id_producto);//datos
             sp.setInt(3,cantidad);//datos
             sp.setDouble(4, desc);//datos
             sp.setDouble(5,subtotal);//datos
-            sp.setDouble(6, iva);//datos
-            sp.setDouble(7, total);//datos
-            sp.setString(8, descripcion);//datos
+            sp.setString(6, descripcion);//datos
             sp.executeUpdate();
             
             
