@@ -88,16 +88,18 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
 
         Jpanel_Botones.setBackground(new java.awt.Color(51, 204, 0));
         Jpanel_Botones.setForeground(new java.awt.Color(102, 255, 102));
-        Jpanel_Botones.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Jpanel_Botones.setLayout(null);
 
         btn_VentanaDocumentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_Documentos.png"))); // NOI18N
         btn_VentanaDocumentos.setText("Documentos");
         btn_VentanaDocumentos.setName("btn_Rendimiento"); // NOI18N
-        Jpanel_Botones.add(btn_VentanaDocumentos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 198, 86));
+        Jpanel_Botones.add(btn_VentanaDocumentos);
+        btn_VentanaDocumentos.setBounds(10, 300, 198, 86);
 
         btn_AbrirCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/CAJAGUARDAR.png"))); // NOI18N
         btn_AbrirCaja.setName("btn_Usuarios"); // NOI18N
-        Jpanel_Botones.add(btn_AbrirCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(2, 11, 100, 84));
+        Jpanel_Botones.add(btn_AbrirCaja);
+        btn_AbrirCaja.setBounds(2, 11, 100, 84);
 
         btn_VentanaRegistrarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_RegistrarProducto.png"))); // NOI18N
         btn_VentanaRegistrarProducto.setText("Registrar Producto");
@@ -107,7 +109,8 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
                 btn_VentanaRegistrarProductoActionPerformed(evt);
             }
         });
-        Jpanel_Botones.add(btn_VentanaRegistrarProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 198, 85));
+        Jpanel_Botones.add(btn_VentanaRegistrarProducto);
+        btn_VentanaRegistrarProducto.setBounds(10, 200, 198, 85);
 
         btn_CerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_Salir.png"))); // NOI18N
         btn_CerrarSesion.setText("Cerrar Sesión");
@@ -118,13 +121,15 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
                 btn_CerrarSesionActionPerformed(evt);
             }
         });
-        Jpanel_Botones.add(btn_CerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 600, 198, -1));
+        Jpanel_Botones.add(btn_CerrarSesion);
+        btn_CerrarSesion.setBounds(10, 600, 198, 89);
 
         btn_VentanaInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_Inventario.png"))); // NOI18N
         btn_VentanaInventario.setText("Inventario");
         btn_VentanaInventario.setToolTipText("Facturas & Recibos");
         btn_VentanaInventario.setName("btn_Recibos"); // NOI18N
-        Jpanel_Botones.add(btn_VentanaInventario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 198, 93));
+        Jpanel_Botones.add(btn_VentanaInventario);
+        btn_VentanaInventario.setBounds(10, 400, 198, 93);
 
         btn_VentanaNuevaVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_NuevaVenta.png"))); // NOI18N
         btn_VentanaNuevaVenta.setText("Nueva Venta!");
@@ -136,12 +141,14 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
                 btn_VentanaNuevaVentaActionPerformed(evt);
             }
         });
-        Jpanel_Botones.add(btn_VentanaNuevaVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 200, -1));
+        Jpanel_Botones.add(btn_VentanaNuevaVenta);
+        btn_VentanaNuevaVenta.setBounds(10, 100, 200, 89);
 
         btn_CerrarCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/CERRARCAJA_1.png"))); // NOI18N
         btn_CerrarCaja.setEnabled(false);
         btn_CerrarCaja.setName("btn_Usuarios"); // NOI18N
-        Jpanel_Botones.add(btn_CerrarCaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 100, 84));
+        Jpanel_Botones.add(btn_CerrarCaja);
+        btn_CerrarCaja.setBounds(110, 10, 100, 84);
 
         btn_CrearUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/inicioseses.png"))); // NOI18N
         btn_CrearUsuario.setText("Crear Usuario");
@@ -150,7 +157,8 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
                 btn_CrearUsuarioActionPerformed(evt);
             }
         });
-        Jpanel_Botones.add(btn_CrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 198, -1));
+        Jpanel_Botones.add(btn_CrearUsuario);
+        btn_CrearUsuario.setBounds(10, 500, 198, 87);
 
         getContentPane().add(Jpanel_Botones);
         Jpanel_Botones.setBounds(8, 0, 210, 650);
