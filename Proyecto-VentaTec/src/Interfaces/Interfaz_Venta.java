@@ -520,7 +520,7 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable {
                 panelsup.setLocation(x, y2);
             }
             x =x-80;
-            System.out.println(x+"soy x");
+            //System.out.println(x+"soy x");
             panel3.setLocation(x, y);
             panelsup.setLocation(x, y2);
 
