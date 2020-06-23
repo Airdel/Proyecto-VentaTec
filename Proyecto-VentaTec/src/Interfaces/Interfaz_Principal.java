@@ -87,6 +87,11 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         setBackground(new java.awt.Color(177, 216, 211));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
         setSize(new java.awt.Dimension(1366, 768));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         Jpanel_Botones.setBackground(new java.awt.Color(51, 204, 0));
@@ -202,7 +207,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         );
 
         JPanel_Principal.add(Ventana_JPanelPrincipal);
-        Ventana_JPanelPrincipal.setBounds(-30, 0, 1282, 771);
+        Ventana_JPanelPrincipal.setBounds(-30, 0, 1280, 771);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -236,6 +241,13 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
     private void btn_CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CerrarSesionActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_CerrarSesionActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+      if (showConfirmDialog(rootPane, "¿Desea salir del sistema?",
+            "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
+        System.exit(0);
+    }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -316,12 +328,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
           calendar.get(Calendar.SECOND);
     
     }
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
-    if (showConfirmDialog(rootPane, "¿Desea salir del sistema?",
-            "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
-        System.exit(0);
-    }
-}
+
     
     
      //obtener la hora del SYSTEM VENVATEC :vVLSVKDFBJVBJSDBHNVSDJB

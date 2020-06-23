@@ -22,6 +22,7 @@ public class Interfaz_Registro extends javax.swing.JInternalFrame {
     public Interfaz_Registro() {
         initComponents();
         this.setTitle("Registro");
+        this.setLocation(200,50);
        //this.setLocationRelativeTo(null);
     }
 

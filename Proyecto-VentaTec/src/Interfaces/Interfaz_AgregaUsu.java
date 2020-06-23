@@ -17,6 +17,8 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
     public Interfaz_AgregaUsu() {
         initComponents();
         this.setSize(630, 561);
+        this.setLocation(200,50);
+     
     }
 
     /**
