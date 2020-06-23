@@ -1,11 +1,9 @@
 
 package Interfaces;
 
-import Modulos.ConexionBD;
 import java.awt.Color;
 import java.awt.dnd.DropTarget;
 import static java.lang.Thread.sleep;
-import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;

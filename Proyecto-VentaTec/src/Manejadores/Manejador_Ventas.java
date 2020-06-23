@@ -159,7 +159,7 @@ public class Manejador_Ventas {
                 char c = ke.getKeyChar();
                 if (!(c >= 48 && c <= 57)) {
                     ke.consume();
-                } else if (IV.txt_Codigo.getText().length() == 4) {
+                } else if (IV.txt_Cantidad.getText().length() == 4) {
                     ke.consume();
                 }
             }
