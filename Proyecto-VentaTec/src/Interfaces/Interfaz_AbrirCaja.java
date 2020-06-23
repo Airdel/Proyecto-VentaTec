@@ -16,7 +16,7 @@ public class Interfaz_AbrirCaja extends javax.swing.JInternalFrame {
      */
     public Interfaz_AbrirCaja() {
         initComponents();
-        //Interfaz_AbrirCaja.s;
+        //Interfaz_AbrirCaja.s;        
     }
 
     /**

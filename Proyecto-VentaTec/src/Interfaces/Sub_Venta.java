@@ -5,6 +5,10 @@
  */
 package Interfaces;
 
+import static javax.swing.JOptionPane.YES_NO_OPTION;
+import static javax.swing.JOptionPane.YES_OPTION;
+import static javax.swing.JOptionPane.showConfirmDialog;
+
 /**
  *
  * @author LUISM
@@ -51,6 +55,11 @@ public class Sub_Venta extends javax.swing.JFrame {
         lblSubTotal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         pnlInformacion.setBackground(new java.awt.Color(255, 255, 255));
         pnlInformacion.setLayout(null);
@@ -193,6 +202,13 @@ public class Sub_Venta extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+         if (showConfirmDialog(rootPane, "¿Desea salir del sistema?",
+                "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

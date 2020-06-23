@@ -12,6 +12,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
+import static javax.swing.JOptionPane.YES_OPTION;
+import static javax.swing.JOptionPane.showConfirmDialog;
 
 /**
  *
@@ -38,6 +41,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
     public void IniCom(){
         initComponents();
         this.setSize(1285, 740);
+        this.setExtendedState(this.MAXIMIZED_BOTH);
         
         this.getContentPane().setBackground(new Color(223, 223, 223));
         Jpanel_Botones.setBackground(new Color(223, 223 ,223));
@@ -312,6 +316,12 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
           calendar.get(Calendar.SECOND);
     
     }
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
+    if (showConfirmDialog(rootPane, "¿Desea salir del sistema?",
+            "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
+        System.exit(0);
+    }
+}
     
     
      //obtener la hora del SYSTEM VENVATEC :vVLSVKDFBJVBJSDBHNVSDJB

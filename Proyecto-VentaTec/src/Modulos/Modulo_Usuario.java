@@ -5,6 +5,8 @@
  */
 package Modulos;
 
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -37,6 +39,7 @@ private ConexionBD con;
     //-----------------------Devuelve Falso o verdadero si el contraseña y usuario existen-------------------------------
     public boolean validateUser(){
         con.openConexion();
+        try{
         if(con.consulta("USUARIOS","[NOMBRE USUARIO]", this.nombreUsuario) &&
            con.consulta("USUARIOS","CONTRASEÑA", this.contraseña) ){
            this.Tipo_Usuario = con.consultaT("[TIPO USUARIO]",this.nombreUsuario, this.contraseña); 
@@ -45,6 +48,9 @@ private ConexionBD con;
            con.closeConexion();
            return true;
         }
+        } catch (Exception e) {
+                                JOptionPane.showMessageDialog(null,"Usuario o Contraseña incorrectas");
+                            }
         con.closeConexion();
        return false;
     }//fin de iniciar seseion
