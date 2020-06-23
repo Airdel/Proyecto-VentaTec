@@ -71,7 +71,7 @@ public class Manejador_Ventas {
                             try {
                                 if(!(A.equals(""))){
                                     B[2] = IV.txt_Cantidad.getText();
-                                    B[4] = Double.parseDouble(B[2]+"")*(Double.parseDouble(B[3]+"")*(1 - Double.parseDouble(B[5]+"")));
+                                    B[4] = (Double.parseDouble(B[2]+"")*(Double.parseDouble(B[3]+"")*(1 - Double.parseDouble(B[5]+""))))+"";
                                     DTM.addRow(B);
                                     
                                     int row = DTM.getRowCount();
@@ -119,7 +119,7 @@ public class Manejador_Ventas {
                                 if(!(A.equals(""))){
                                     B = A.split(",");
                                     B[2] = IV.txt_Cantidad.getText();
-                                    B[4] = Double.parseDouble(B[2]+"")*(Double.parseDouble(B[3]+"")*(1 - Double.parseDouble(B[5]+"")));
+                                    B[4] = (Double.parseDouble(B[2]+"")*(Double.parseDouble(B[3]+"")*(1 - Double.parseDouble(B[5]+""))))+"";
                                     DTM.addRow(B);
 
                                     int row = DTM.getRowCount();
