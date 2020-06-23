@@ -324,7 +324,7 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
 
         lbl_NombreProducto.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panel1.add(lbl_NombreProducto);
-        lbl_NombreProducto.setBounds(220, 120, 220, 22);
+        lbl_NombreProducto.setBounds(220, 120, 220, 30);
 
         lbl_FolioVentaValor.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         panel1.add(lbl_FolioVentaValor);
