@@ -458,7 +458,9 @@ public class Manejador_Ventas {
                 MV.sumaSubTotal();
                 MV.sumaTodo();
                 actualizalbl();
-                return true;} else showMessageDialog(null,"DEJA DE ESTAR JUGANDO, NO PUEDES VENDER MAS DEL PRODUCTO QUE TIENES EN INVENTARIO. PRODUCTO MAX:" + stock);
+                return true;} else{
+                    IV.lblHora.requestFocus();    
+                    showMessageDialog(null,"DEJA DE ESTAR JUGANDO, NO PUEDES VENDER MAS DEL PRODUCTO QUE TIENES EN INVENTARIO. PRODUCTO MAX:" + stock);}
                 return true;
             }
         }
