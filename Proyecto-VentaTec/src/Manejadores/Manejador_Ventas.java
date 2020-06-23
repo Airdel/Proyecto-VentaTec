@@ -65,10 +65,11 @@ public class Manejador_Ventas {
                         CBD.openConexion();
                         String A = CBD.searchProduct2("[NOMBRE PRODUCTO]", IV.txt_BuscarProducto.getText());
                         Object B[] = new Object[6];
+                        B = A.split(",");
+                        IV.txt_Codigo.setText(B[0]+"");
                         if(!(validaProducto())){
                             try {
                                 if(!(A.equals(""))){
-                                    B = A.split(",");
                                     B[2] = IV.txt_Cantidad.getText();
                                     B[4] = Double.parseDouble(B[2]+"")*(Double.parseDouble(B[3]+"")*(1 - Double.parseDouble(B[5]+"")));
                                     DTM.addRow(B);

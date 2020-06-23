@@ -19,7 +19,6 @@ import Interfaces.Interfaz_Principal;
 import Modulos.ConexionBD;
 import MailyOtros.MailException;
 import Modulos.Modulo_Documentos;
-import Modulos.Modulo_Principal;
 import Modulos.Modulo_Ticket;
 import java.awt.FileDialog;
 import java.awt.event.ActionEvent;
@@ -105,7 +104,7 @@ public class Manejador_Documentacion{
             }
             //------Rellena la tabla Documentacion----------//
         }
-        catch(Exception e){}
+        catch(Exception e){System.out.println(e.getMessage());}
         CBD.closeConexion();
     }// Fin RellenaTabla
     

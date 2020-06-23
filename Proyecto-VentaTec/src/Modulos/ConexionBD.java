@@ -232,7 +232,7 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
     //--------------------Devuelve un Arreglo con lo que contiene la varibel resultado---------------------------------------------------
     public String[] getTicket(){
         try{
-            ps = con.prepareCall("{CALL PS_TICKET}");
+            ps = con.prepareCall("EXEC PS_TICKET");
             resultado = ps.executeQuery();            
             //PreparedStatement sp1 = con.prepareStatement("{CALL PS_TICKET}");
             //ResultSet resultado1 = sp1.executeQuery();
@@ -423,9 +423,9 @@ public String searchProduct2(String campo, String dato){
 //-----------------------------------------------------------select--inventarios----------------
 public String[] getInve(){
         try {
-            sp = con.prepareStatement("{CALL PS_GETINVENTARIO}");
+            sp = con.prepareStatement("EXEC PS_GETINVENTARIO");
             resultado = sp.executeQuery();
-            PreparedStatement sp1 = con.prepareStatement("{CALL PS_GETINVENTARIO}");
+            PreparedStatement sp1 = con.prepareStatement("EXEC PS_GETINVENTARIO");
             ResultSet resultado1 = sp1.executeQuery();
             int row = countRow(resultado1);
             String A[] = new String[row];
@@ -572,9 +572,6 @@ public String getInveID(String id){
             return null;
         }
     }
-       
-    
-   
     
        public static void main(String arg[]){
            ConexionBD CBD = new ConexionBD();
