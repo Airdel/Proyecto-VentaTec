@@ -33,22 +33,21 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         jspTitulo = new javax.swing.JSeparator();
         lblSubT1 = new javax.swing.JLabel();
         btnGuardar = new javax.swing.JButton();
-        lblID_Pro = new javax.swing.JLabel();
+        lblnombre = new javax.swing.JLabel();
         txtNombreCom = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        lblProvedor = new javax.swing.JLabel();
-        lblNombre1 = new javax.swing.JLabel();
+        lblnomuser = new javax.swing.JLabel();
+        lblcontraseña = new javax.swing.JLabel();
         txtContraseña = new javax.swing.JTextField();
-        lblDescripcion = new javax.swing.JLabel();
         jspNombre = new javax.swing.JSeparator();
         jspID_Prod = new javax.swing.JSeparator();
         jspDescripcion = new javax.swing.JSeparator();
         txtConfirContra = new javax.swing.JTextField();
-        lblPrecio = new javax.swing.JLabel();
+        lblconfirmar = new javax.swing.JLabel();
         lblCosto = new javax.swing.JLabel();
-        lblCategoria = new javax.swing.JLabel();
+        lbltelefono = new javax.swing.JLabel();
         cmbTipoUSU = new javax.swing.JComboBox<>();
-        lblStock = new javax.swing.JLabel();
+        lbldomocilio = new javax.swing.JLabel();
         txtDomicilio = new javax.swing.JTextField();
         jspStock = new javax.swing.JSeparator();
         btnRegresar = new javax.swing.JButton();
@@ -87,18 +86,18 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         getContentPane().add(lblSubT1);
         lblSubT1.setBounds(80, 50, 130, 30);
 
-        btnGuardar.setBackground(new java.awt.Color(78, 193, 188));
-        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/Guardar.png"))); // NOI18N
-        btnGuardar.setBorderPainted(false);
+        btnGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_Venta/1.png"))); // NOI18N
+        btnGuardar.setText("Guardar Usuario");
+        btnGuardar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnGuardar.setContentAreaFilled(false);
         getContentPane().add(btnGuardar);
-        btnGuardar.setBounds(530, 0, 90, 40);
+        btnGuardar.setBounds(140, 440, 170, 70);
 
-        lblID_Pro.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
-        lblID_Pro.setForeground(new java.awt.Color(66, 65, 70));
-        lblID_Pro.setText("Nombre Completo: *");
-        getContentPane().add(lblID_Pro);
-        lblID_Pro.setBounds(130, 80, 150, 30);
+        lblnombre.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        lblnombre.setForeground(new java.awt.Color(66, 65, 70));
+        lblnombre.setText("Nombre Completo: *");
+        getContentPane().add(lblnombre);
+        lblnombre.setBounds(130, 80, 150, 30);
 
         txtNombreCom.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtNombreCom.setForeground(new java.awt.Color(102, 102, 102));
@@ -112,17 +111,17 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         getContentPane().add(jLabel1);
         jLabel1.setBounds(510, 50, 100, 100);
 
-        lblProvedor.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
-        lblProvedor.setForeground(new java.awt.Color(66, 65, 70));
-        lblProvedor.setText("Nombre Usuario: *");
-        getContentPane().add(lblProvedor);
-        lblProvedor.setBounds(130, 130, 130, 30);
+        lblnomuser.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        lblnomuser.setForeground(new java.awt.Color(66, 65, 70));
+        lblnomuser.setText("Nombre Usuario: *");
+        getContentPane().add(lblnomuser);
+        lblnomuser.setBounds(130, 130, 130, 30);
 
-        lblNombre1.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
-        lblNombre1.setForeground(new java.awt.Color(66, 65, 70));
-        lblNombre1.setText("Contraseña: *");
-        getContentPane().add(lblNombre1);
-        lblNombre1.setBounds(130, 170, 100, 30);
+        lblcontraseña.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        lblcontraseña.setForeground(new java.awt.Color(66, 65, 70));
+        lblcontraseña.setText("Contraseña: *");
+        getContentPane().add(lblcontraseña);
+        lblcontraseña.setBounds(130, 170, 100, 30);
 
         txtContraseña.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtContraseña.setForeground(new java.awt.Color(102, 102, 102));
@@ -131,12 +130,6 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         txtContraseña.setSelectedTextColor(new java.awt.Color(66, 65, 70));
         getContentPane().add(txtContraseña);
         txtContraseña.setBounds(270, 180, 170, 22);
-
-        lblDescripcion.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
-        lblDescripcion.setForeground(new java.awt.Color(66, 65, 70));
-        lblDescripcion.setText("Confirmar ");
-        getContentPane().add(lblDescripcion);
-        lblDescripcion.setBounds(130, 210, 80, 30);
 
         jspNombre.setBackground(new java.awt.Color(99, 99, 101));
         jspNombre.setForeground(new java.awt.Color(99, 99, 101));
@@ -154,7 +147,7 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         jspDescripcion.setForeground(new java.awt.Color(99, 99, 101));
         jspDescripcion.setDoubleBuffered(true);
         getContentPane().add(jspDescripcion);
-        jspDescripcion.setBounds(270, 260, 170, 20);
+        jspDescripcion.setBounds(300, 260, 170, 20);
 
         txtConfirContra.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtConfirContra.setForeground(new java.awt.Color(102, 102, 102));
@@ -162,13 +155,13 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         txtConfirContra.setOpaque(false);
         txtConfirContra.setSelectedTextColor(new java.awt.Color(66, 65, 70));
         getContentPane().add(txtConfirContra);
-        txtConfirContra.setBounds(270, 240, 170, 22);
+        txtConfirContra.setBounds(300, 240, 170, 22);
 
-        lblPrecio.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
-        lblPrecio.setForeground(new java.awt.Color(66, 65, 70));
-        lblPrecio.setText("Contraseña:");
-        getContentPane().add(lblPrecio);
-        lblPrecio.setBounds(130, 230, 110, 30);
+        lblconfirmar.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        lblconfirmar.setForeground(new java.awt.Color(66, 65, 70));
+        lblconfirmar.setText("Confirmar Contraseña:");
+        getContentPane().add(lblconfirmar);
+        lblconfirmar.setBounds(130, 230, 180, 30);
 
         lblCosto.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblCosto.setForeground(new java.awt.Color(66, 65, 70));
@@ -176,11 +169,11 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         getContentPane().add(lblCosto);
         lblCosto.setBounds(130, 290, 130, 30);
 
-        lblCategoria.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
-        lblCategoria.setForeground(new java.awt.Color(66, 65, 70));
-        lblCategoria.setText("Telefono:");
-        getContentPane().add(lblCategoria);
-        lblCategoria.setBounds(130, 340, 80, 40);
+        lbltelefono.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        lbltelefono.setForeground(new java.awt.Color(66, 65, 70));
+        lbltelefono.setText("Telefono:");
+        getContentPane().add(lbltelefono);
+        lbltelefono.setBounds(130, 340, 80, 40);
 
         cmbTipoUSU.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cmbTipoUSU.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G", "U" }));
@@ -188,11 +181,11 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         getContentPane().add(cmbTipoUSU);
         cmbTipoUSU.setBounds(270, 290, 50, 28);
 
-        lblStock.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
-        lblStock.setForeground(new java.awt.Color(66, 65, 70));
-        lblStock.setText("Domicilio:");
-        getContentPane().add(lblStock);
-        lblStock.setBounds(130, 390, 80, 30);
+        lbldomocilio.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        lbldomocilio.setForeground(new java.awt.Color(66, 65, 70));
+        lbldomocilio.setText("Domicilio:");
+        getContentPane().add(lbldomocilio);
+        lbldomocilio.setBounds(130, 390, 80, 30);
 
         txtDomicilio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtDomicilio.setForeground(new java.awt.Color(102, 102, 102));
@@ -208,18 +201,24 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         getContentPane().add(jspStock);
         jspStock.setBounds(270, 410, 170, 20);
 
-        btnRegresar.setBackground(new java.awt.Color(255, 153, 0));
-        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/regreso-NegroF.png"))); // NOI18N
+        btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
+        btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_Venta/10_1.png"))); // NOI18N
         btnRegresar.setText("Regresar");
-        btnRegresar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnRegresar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnRegresar.setContentAreaFilled(false);
         getContentPane().add(btnRegresar);
-        btnRegresar.setBounds(430, 460, 160, 45);
+        btnRegresar.setBounds(330, 435, 160, 70);
 
         txtNombreUSU.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtNombreUSU.setForeground(new java.awt.Color(102, 102, 102));
         txtNombreUSU.setBorder(null);
         txtNombreUSU.setOpaque(false);
         txtNombreUSU.setSelectedTextColor(new java.awt.Color(66, 65, 70));
+        txtNombreUSU.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreUSUActionPerformed(evt);
+            }
+        });
         getContentPane().add(txtNombreUSU);
         txtNombreUSU.setBounds(270, 130, 220, 22);
 
@@ -245,6 +244,10 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNombreUSUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreUSUActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreUSUActionPerformed
 
     /**
      * @param args the command line arguments
@@ -293,17 +296,16 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
     private javax.swing.JSeparator jspStock;
     private javax.swing.JSeparator jspStock1;
     private javax.swing.JSeparator jspTitulo;
-    private javax.swing.JLabel lblCategoria;
-    private javax.swing.JLabel lblCosto;
-    private javax.swing.JLabel lblDescripcion;
-    private javax.swing.JLabel lblID_Pro;
-    private javax.swing.JLabel lblNombre1;
-    private javax.swing.JLabel lblPrecio;
-    private javax.swing.JLabel lblProvedor;
-    private javax.swing.JLabel lblStock;
+    public javax.swing.JLabel lblCosto;
     private javax.swing.JLabel lblSubT;
     private javax.swing.JLabel lblSubT1;
-    private javax.swing.JLabel lblTitulo;
+    public javax.swing.JLabel lblTitulo;
+    public javax.swing.JLabel lblconfirmar;
+    public javax.swing.JLabel lblcontraseña;
+    public javax.swing.JLabel lbldomocilio;
+    public javax.swing.JLabel lblnombre;
+    public javax.swing.JLabel lblnomuser;
+    public javax.swing.JLabel lbltelefono;
     public javax.swing.JTextField txtConfirContra;
     public javax.swing.JTextField txtContraseña;
     public javax.swing.JTextField txtDomicilio;
