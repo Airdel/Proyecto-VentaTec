@@ -150,9 +150,6 @@ public class Manejador_Ventas {
             }
         }
         );
-        
-        
-
         this.IV.txt_Cantidad.addKeyListener(
                 new java.awt.event.KeyAdapter() {
             @Override
@@ -314,6 +311,7 @@ public class Manejador_Ventas {
     //-------------Fin del Constructor---------------//
     //--------Funciones Void-----------------//
     public void actualizalbl(){
+        MV.redondeaTodo();
         int row = DTM.getRowCount();
         if(DTM.getRowCount() != 0){
             IV.lbl_NumeroDeArticulosValor.setText(MV.getNoArticulos() + "");
@@ -446,7 +444,13 @@ public class Manejador_Ventas {
         float PRECIOU = 0;
         float precioUimporte = 0;
         float imp = 0;
-        int stock = Integer.parseInt(CBD.getInventario(IV.txt_Codigo.getText()));
+        int stock;
+        try{
+            stock = Integer.parseInt(CBD.getInventario(IV.txt_Codigo.getText()));
+        }catch(Exception e){JOptionPane.showMessageDialog(IV, "Producto no encontrado");
+            IV.lbl_Cantidad.requestFocus();
+            return true;
+        }
         if(stock == 0){
             IV.lblHora.requestFocus();
             showMessageDialog(null,"No se encuentra este producto en inventario. Cantidad de producto = 0");

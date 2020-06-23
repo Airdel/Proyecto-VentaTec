@@ -98,6 +98,7 @@ public class Manejador_SubVenta {
     }// Fin ConfirmaVenta
 
     public void rellenaSub() {
+        MSUV.redondeaTodo();
         //------Inicializa los label con valores del Modulo Sub----//
         SUV.lblTotal.setText("$" + MSUV.getTotal());
         SUV.lblSubTotal.setText("$" + MSUV.getSubtotal());
