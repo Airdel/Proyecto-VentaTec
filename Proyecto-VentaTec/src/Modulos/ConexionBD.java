@@ -557,11 +557,30 @@ public String getInveID(String id){
     }
     
     
+    public String getInventario(String id){
+        try{
+            sp = con.prepareStatement("SELECT STOCK FROM  INVENTARIO WHERE [ID PRODUCTO] ='"+ id +"' AND [ID INVENTARIO]=1");
+            resultado = sp.executeQuery();
+            if(resultado.next()){
+                String A = resultado.getInt("STOCK") + "";
+                sp.close();
+                resultado.close();
+                return A;
+            }
+            return null;   
+        }catch(SQLException YokoYDorian){
+            return null;
+        }
+    }
+       
+    
+   
+    
        public static void main(String arg[]){
            ConexionBD CBD = new ConexionBD();
            CBD.openConexion();
            
-           CBD.insertInOut("12", 'E',10);
+           System.out.println(CBD.getInventario("1234"));
            
            CBD.closeConexion();
        }

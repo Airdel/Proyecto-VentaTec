@@ -167,6 +167,7 @@ public class Manejador_Ventas {
                         CBD.openConexion();
                         String A = CBD.searchProduct2("[ID PRODUCTO]", IV.txt_Codigo.getText());
                         Object B[] = new Object[6];
+
                         
                         if(!(validaProducto())){
                             try {
@@ -439,18 +440,25 @@ public class Manejador_Ventas {
         float PRECIOU = 0;
         float precioUimporte = 0;
         float imp = 0;
+        int stock = Integer.parseInt(CBD.getInventario(IV.txt_Codigo.getText()));
+        
         for(int i = 0;i<DTM.getRowCount();i++){
             if((DTM.getValueAt(i,0) + "").equals(IV.txt_Codigo.getText())){
+                
                 CANTIDAD = Integer.parseInt(DTM.getValueAt(i,2).toString()) + Integer.parseInt(IV.txt_Cantidad.getText());
+                if(stock>=CANTIDAD){
+                
                 PRECIOU =  Float.parseFloat(DTM.getValueAt(i,3).toString());
                 imp = CANTIDAD*(PRECIOU *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString())));
                 precioUimporte = PRECIOU -(PRECIOU * Float.parseFloat(DTM.getValueAt(i,5).toString()));
+                
                 DTM.setValueAt(CANTIDAD,i, 2);
                 DTM.setValueAt(imp,i, 4);
                 MV.modificarProducto(i + "",precioUimporte + "",DTM.getValueAt(i,5).toString(),CANTIDAD+"");
                 MV.sumaSubTotal();
                 MV.sumaTodo();
                 actualizalbl();
+                return true;} else showMessageDialog(null,"DEJA DE ESTAR JUGANDO, NO PUEDES VENDER MAS DEL PRODUCTO QUE TIENES EN INVENTARIO. PRODUCTO MAX:" + stock);
                 return true;
             }
         }
