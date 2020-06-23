@@ -89,7 +89,7 @@ public class Manejador_NuevoUsu {
                     IU.txtDomicilio.setText("");
                     IU.txtNombreUSU.setText("");
                     IU.txtTelefono.setText("");
-                    IU.lbltelefono.setText("");
+                    
 
                 }
 
