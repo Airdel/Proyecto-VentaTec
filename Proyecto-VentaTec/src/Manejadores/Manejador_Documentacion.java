@@ -60,15 +60,23 @@ public class Manejador_Documentacion{
         //----------Action Listener Performed---------------//
         this.ID.tblDocumento.addMouseListener(new java.awt.event.MouseAdapter() {
             //-----------Actualiza todos los TXT con info de la tabla----------//
-            public void mouseReleased(MouseEvent me) {
+            public void mouseClicked(MouseEvent me) {
                 int row = ID.tblDocumento.getSelectedRow();
                 ID.lblTicket.setText(DTM.getValueAt(row, 0) + "");
+            }
+            public void mouseReleased(MouseEvent me) {
+                if(!(rellenalbl())){
+                    System.out.println("Ticket no encontrado " + ID.lblTicket);
+                }
             }
             //-----------Actualiza todos los TXT con info de la tabla----------//
         });
         this.ID.btnBuscar.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                BuscarTicket();
+                String cad = ID.txtBuscar.getText();
+                if(!(cad.equals(""))){
+                    BuscarTicket(cad);
+                }
             }
         });
         this.ID.btnImpTicket.addActionListener(new ActionListener(){
@@ -87,12 +95,15 @@ public class Manejador_Documentacion{
         });
         this.ID.btnPDF.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                    HacerPDF();
+                HacerPDF();
             }
         });
         this.ID.btnEnviarM.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                EnviarMail();
+                String cad = JOptionPane.showInputDialog("Coloca tu correo");
+                if(!(cad.equals(""))){
+                    EnviarMail(cad);
+                }
             }
         });
         this.ID.btnRegresar.addActionListener(new ActionListener(){
@@ -188,11 +199,31 @@ public class Manejador_Documentacion{
     }// Fin Hacer PDF
     //-------------------------Funciones void---------------//
     //-------------------------Funciones Return---------------//
-    public int BuscarTicket(){
+    public boolean rellenalbl(){
+        String IDV = ID.lblTicket.getText();
+        CBD.openConexion();
+        String info = CBD.getInfoTick(IDV);
+        if(!(info.equals(""))){
+            String B[] = new String[5];
+            String F[] = new String[3];
+            B = info.split(",");
+            ID.lblTotal.setText(B[0]);
+            ID.lblSubTotal.setText(B[1]);
+            ID.lblIva.setText(B[2]);
+            F = B[3].split("-");
+            ID.lblFechaV.setText(F[2] + "/" + F[1] + "/" + F[0]);
+            ID.lblUsuario.setText(B[4]);
+            CBD.closeConexion();
+            return true;
+        }
+        CBD.closeConexion();
+        return false;
+    }
+    public int BuscarTicket(String cad){
         CBD.openConexion();
         //-------Inicializa variables---------//
         String G[] = new String[DTM.getRowCount()];
-        String B = ID.txtBuscar.getText();
+        String B = cad;
         //-------Inicializa variables---------//
         //-------Busca ticket a ticket en la tabla---------//
         for (int i = 0;i < DTM.getRowCount();i++){
@@ -208,13 +239,13 @@ public class Manejador_Documentacion{
         return 1;
     }// Fin BuscarTicket
     
-    public boolean EnviarMail(){
+    public boolean EnviarMail(String cad){
         try{
             if(DTM.getRowCount()==0){
                 throw new MailException("No existen registros");
             }else{
                 
-                String To = JOptionPane.showInputDialog("Coloca tu correo");
+                String To = cad;
               // String To="briangr99@gmail.com"; 
                String me = "";
                    /*for(int i=0;i < ID.tblDocumento.getRowCount();i++){

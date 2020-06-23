@@ -477,6 +477,24 @@ public String[] buscaFolio(){
     }//Fin try catch
     return null;
 }
+public String getInfoTick(String idT){
+        try {
+            sp = con.prepareStatement("EXEC PS_GETINFOTICKET "+idT);
+            resultado = sp.executeQuery();
+            String cad = "";
+            while(resultado.next()){
+               cad = resultado.getString(1) + "," + resultado.getString(2) + "," + resultado.getString(3) +"," +
+                      resultado.getString(4) + "," +  resultado.getString(5);
+               return cad;
+            }
+            sp.close();
+            resultado.close();
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            resultado = null;       
+        }//Fin try catch
+        return "";
+}//Fin searchProduct
 //-----------------------------------------------------------select--inventarios----------------
 public String getInveID(String id){
         try {
@@ -496,7 +514,7 @@ public String getInveID(String id){
             resultado = null;       
         }//Fin try catch
         return "";
-    }//Fin searchProduct
+}//Fin searchProduct
     
     public void UpdateInventario(String nombrep,String descripcion,float precio,float costo,int categoria,int presentacion,String idProc){
         try{
@@ -577,7 +595,7 @@ public String getInveID(String id){
            ConexionBD CBD = new ConexionBD();
            CBD.openConexion();
            
-           System.out.println(CBD.getInventario("1234"));
+           System.out.println(CBD.getInfoTick("1"));
            
            CBD.closeConexion();
        }
