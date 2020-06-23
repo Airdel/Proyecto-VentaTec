@@ -48,6 +48,8 @@ public class Manejador_SubVenta {
             public void actionPerformed(ActionEvent ae) {
                 ConfirmaVenta();
                 MV.eliminaTodo();
+                IV.lbl_FolioVentaAnterior.setText(MSUV.getFolioVenta()+"");
+                IV.lbl_FolioVentaValor.setText((MSUV.getFolioVenta() + 1)+"");
                 IV.lbl_NumeroDeArticulosValor.setText(MV.getNoArticulos() + "");
                 IV.lbl_TotalValor.setText("0.0");
                 IV.lbl_NombreProducto.setText("");
@@ -104,6 +106,7 @@ public class Manejador_SubVenta {
     }// Fin rellenaSub
 
     public void CancelaVenta() {
+        IV.lbl_FolioVentaValor.setText(MSUV.getFolioVenta() +"");
         SUV.dispose();
     }// Fin CancelaVenta
     //-----------Funciones Void-----------//

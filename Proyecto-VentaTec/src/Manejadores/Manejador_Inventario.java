@@ -5,22 +5,14 @@
  */
 package Manejadores;
 
-import Interfaces.Interfaz_Inventario;
-import Modulos.Modulo_Inventario;
 import Modulos.ConexionBD;
-import Modulos.ConexionBD;
-import Modulos.Modulo_Principal;
 import Modulos.Modulo_Inventario;
 import Interfaces.Interfaz_Inventario;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import static java.lang.Thread.sleep;
 import javax.swing.JOptionPane;
-import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -170,16 +162,6 @@ public class Manejador_Inventario {
             }
         });
         //----------------Listener Mouse Listener-------------//   
-        new Thread() {
-            public void run() {
-                try {
-                    llenartabla();
-                    sleep(1000);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }.start();
     }
     //-----------------Fin de Constructor---------------//
 
