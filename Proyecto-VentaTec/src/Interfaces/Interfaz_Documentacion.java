@@ -40,7 +40,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         lblTP2 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
         lblTP3 = new javax.swing.JLabel();
-        lblDescuento = new javax.swing.JLabel();
+        lblUsuario = new javax.swing.JLabel();
         lblSubTotal = new javax.swing.JLabel();
         lblUser4 = new javax.swing.JLabel();
         lblIva = new javax.swing.JLabel();
@@ -135,12 +135,12 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         pnlInformacion.add(lblTP3);
         lblTP3.setBounds(10, 70, 50, 16);
 
-        lblDescuento.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
-        lblDescuento.setForeground(new java.awt.Color(102, 102, 102));
-        lblDescuento.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblDescuento.setText("0%");
-        pnlInformacion.add(lblDescuento);
-        lblDescuento.setBounds(80, 130, 120, 20);
+        lblUsuario.setFont(new java.awt.Font("Montserrat", 1, 12)); // NOI18N
+        lblUsuario.setForeground(new java.awt.Color(102, 102, 102));
+        lblUsuario.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblUsuario.setText("PRUEBA");
+        pnlInformacion.add(lblUsuario);
+        lblUsuario.setBounds(60, 130, 140, 20);
 
         lblSubTotal.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         lblSubTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -213,9 +213,9 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
 
         lblUser5.setFont(new java.awt.Font("Montserrat", 1, 12)); // NOI18N
         lblUser5.setForeground(new java.awt.Color(102, 102, 102));
-        lblUser5.setText("Descuento:");
+        lblUser5.setText("Usuario:");
         pnlInformacion.add(lblUser5);
-        lblUser5.setBounds(10, 130, 70, 16);
+        lblUser5.setBounds(10, 130, 50, 16);
 
         jPanel1.add(pnlInformacion);
         pnlInformacion.setBounds(680, 60, 210, 460);
@@ -353,7 +353,6 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
     private javax.swing.JToolBar jToolBar1;
     private javax.swing.JToolBar jToolBar2;
     private javax.swing.JToolBar jToolBar3;
-    public javax.swing.JLabel lblDescuento;
     public javax.swing.JLabel lblFechaV;
     public javax.swing.JLabel lblIva;
     public javax.swing.JLabel lblSubTotal;
@@ -364,6 +363,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblUser4;
     private javax.swing.JLabel lblUser5;
     private javax.swing.JLabel lblUser6;
+    public javax.swing.JLabel lblUsuario;
     private javax.swing.JPanel pnlBotonInformacion;
     private javax.swing.JPanel pnlBotonMenu;
     private javax.swing.JPanel pnlBusqueda;
