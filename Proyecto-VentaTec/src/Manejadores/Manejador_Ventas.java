@@ -448,7 +448,7 @@ public class Manejador_Ventas {
             if((DTM.getValueAt(i,0) + "").equals(IV.txt_Codigo.getText())){
                 
                 CANTIDAD = Integer.parseInt(DTM.getValueAt(i,2).toString()) + Integer.parseInt(IV.txt_Cantidad.getText());
-                if(stock>=CANTIDAD && CANTIDAD != 0){
+                if(stock>=CANTIDAD && stock != 0){
                 
                 PRECIOU =  Float.parseFloat(DTM.getValueAt(i,3).toString());
                 imp = CANTIDAD*(PRECIOU *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString())));
