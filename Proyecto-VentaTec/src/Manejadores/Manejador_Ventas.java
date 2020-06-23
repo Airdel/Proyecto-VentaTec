@@ -448,7 +448,7 @@ public class Manejador_Ventas {
             if((DTM.getValueAt(i,0) + "").equals(IV.txt_Codigo.getText())){
                 
                 CANTIDAD = Integer.parseInt(DTM.getValueAt(i,2).toString()) + Integer.parseInt(IV.txt_Cantidad.getText());
-                if(stock>=CANTIDAD){
+                if(stock>=CANTIDAD && CANTIDAD != 0){
                 
                 PRECIOU =  Float.parseFloat(DTM.getValueAt(i,3).toString());
                 imp = CANTIDAD*(PRECIOU *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString())));
@@ -461,7 +461,7 @@ public class Manejador_Ventas {
                 MV.sumaTodo();
                 actualizalbl();
                 return true;} else{
-                    IV.lblHora.requestFocus();    
+                    IV.lblHora.requestFocus();
                     showMessageDialog(null,"DEJA DE ESTAR JUGANDO, NO PUEDES VENDER MAS DEL PRODUCTO QUE TIENES EN INVENTARIO. PRODUCTO MAX:" + stock);}
                 return true;
             }
