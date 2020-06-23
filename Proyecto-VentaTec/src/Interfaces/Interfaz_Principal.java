@@ -37,7 +37,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
     
     public void IniCom(){
         initComponents();
-        this.setSize(1259, 700);
+        this.setSize(1285, 740);
         
         this.getContentPane().setBackground(new Color(223, 223, 223));
         Jpanel_Botones.setBackground(new Color(223, 223 ,223));
