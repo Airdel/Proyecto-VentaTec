@@ -73,8 +73,8 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         btn_CrearUsuario = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         JPanel_Principal = new javax.swing.JPanel();
-        lblFecha = new javax.swing.JLabel();
         lblHora = new javax.swing.JLabel();
+        lblFecha = new javax.swing.JLabel();
         Ventana_JPanelPrincipal = new javax.swing.JDesktopPane();
         lbl_IconoEmpresa = new javax.swing.JLabel();
 
@@ -82,17 +82,23 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         setTitle("VentaTec - Abarrotes \"Los Ayala\"");
         setBackground(new java.awt.Color(177, 216, 211));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
+        setSize(new java.awt.Dimension(1366, 768));
         getContentPane().setLayout(null);
 
         Jpanel_Botones.setBackground(new java.awt.Color(51, 204, 0));
         Jpanel_Botones.setForeground(new java.awt.Color(102, 255, 102));
+        Jpanel_Botones.setLayout(null);
 
         btn_VentanaDocumentos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_Documentos.png"))); // NOI18N
         btn_VentanaDocumentos.setText("Documentos");
         btn_VentanaDocumentos.setName("btn_Rendimiento"); // NOI18N
+        Jpanel_Botones.add(btn_VentanaDocumentos);
+        btn_VentanaDocumentos.setBounds(10, 300, 198, 86);
 
         btn_AbrirCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/CAJAGUARDAR.png"))); // NOI18N
         btn_AbrirCaja.setName("btn_Usuarios"); // NOI18N
+        Jpanel_Botones.add(btn_AbrirCaja);
+        btn_AbrirCaja.setBounds(2, 11, 100, 84);
 
         btn_VentanaRegistrarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_RegistrarProducto.png"))); // NOI18N
         btn_VentanaRegistrarProducto.setText("Registrar Producto");
@@ -102,6 +108,8 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
                 btn_VentanaRegistrarProductoActionPerformed(evt);
             }
         });
+        Jpanel_Botones.add(btn_VentanaRegistrarProducto);
+        btn_VentanaRegistrarProducto.setBounds(10, 200, 198, 85);
 
         btn_CerrarSesion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_Salir.png"))); // NOI18N
         btn_CerrarSesion.setText("Cerrar Sesión");
@@ -112,11 +120,15 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
                 btn_CerrarSesionActionPerformed(evt);
             }
         });
+        Jpanel_Botones.add(btn_CerrarSesion);
+        btn_CerrarSesion.setBounds(10, 600, 198, 89);
 
         btn_VentanaInventario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_Inventario.png"))); // NOI18N
         btn_VentanaInventario.setText("Inventario");
         btn_VentanaInventario.setToolTipText("Facturas & Recibos");
         btn_VentanaInventario.setName("btn_Recibos"); // NOI18N
+        Jpanel_Botones.add(btn_VentanaInventario);
+        btn_VentanaInventario.setBounds(10, 400, 198, 93);
 
         btn_VentanaNuevaVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_NuevaVenta.png"))); // NOI18N
         btn_VentanaNuevaVenta.setText("Nueva Venta!");
@@ -128,10 +140,14 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
                 btn_VentanaNuevaVentaActionPerformed(evt);
             }
         });
+        Jpanel_Botones.add(btn_VentanaNuevaVenta);
+        btn_VentanaNuevaVenta.setBounds(10, 100, 200, 89);
 
         btn_CerrarCaja.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/CERRARCAJA_1.png"))); // NOI18N
         btn_CerrarCaja.setEnabled(false);
         btn_CerrarCaja.setName("btn_Usuarios"); // NOI18N
+        Jpanel_Botones.add(btn_CerrarCaja);
+        btn_CerrarCaja.setBounds(110, 10, 100, 84);
 
         btn_CrearUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/inicioseses.png"))); // NOI18N
         btn_CrearUsuario.setText("Crear Usuario");
@@ -140,67 +156,26 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
                 btn_CrearUsuarioActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout Jpanel_BotonesLayout = new javax.swing.GroupLayout(Jpanel_Botones);
-        Jpanel_Botones.setLayout(Jpanel_BotonesLayout);
-        Jpanel_BotonesLayout.setHorizontalGroup(
-            Jpanel_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Jpanel_BotonesLayout.createSequentialGroup()
-                .addGap(2, 2, 2)
-                .addComponent(btn_AbrirCaja, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btn_CerrarCaja, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jpanel_BotonesLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(Jpanel_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(btn_VentanaRegistrarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_VentanaDocumentos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_VentanaInventario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_VentanaNuevaVenta, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_CrearUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_CerrarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
-        );
-        Jpanel_BotonesLayout.setVerticalGroup(
-            Jpanel_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Jpanel_BotonesLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Jpanel_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_CerrarCaja, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_AbrirCaja, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_VentanaNuevaVenta)
-                .addGap(1, 1, 1)
-                .addComponent(btn_VentanaRegistrarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(4, 4, 4)
-                .addComponent(btn_VentanaDocumentos, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(btn_VentanaInventario, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(btn_CrearUsuario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btn_CerrarSesion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(221, 221, 221))
-        );
+        Jpanel_Botones.add(btn_CrearUsuario);
+        btn_CrearUsuario.setBounds(10, 500, 198, 87);
 
         getContentPane().add(Jpanel_Botones);
-        Jpanel_Botones.setBounds(8, 0, 210, 640);
+        Jpanel_Botones.setBounds(8, 0, 210, 700);
 
         jPanel1.setBackground(new java.awt.Color(0, 255, 0));
 
         JPanel_Principal.setBackground(new java.awt.Color(0, 255, 0));
         JPanel_Principal.setLayout(null);
 
-        lblFecha.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        JPanel_Principal.add(lblFecha);
-        lblFecha.setBounds(820, 600, 160, 29);
-
         lblHora.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblHora.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JPanel_Principal.add(lblHora);
-        lblHora.setBounds(820, 550, 160, 29);
+        lblHora.setBounds(860, 610, 160, 30);
+
+        lblFecha.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        JPanel_Principal.add(lblFecha);
+        lblFecha.setBounds(860, 650, 160, 30);
 
         lbl_IconoEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/background.jpg"))); // NOI18N
 
@@ -210,37 +185,34 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         Ventana_JPanelPrincipal.setLayout(Ventana_JPanelPrincipalLayout);
         Ventana_JPanelPrincipalLayout.setHorizontalGroup(
             Ventana_JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Ventana_JPanelPrincipalLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addComponent(lbl_IconoEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 1261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(Ventana_JPanelPrincipalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lbl_IconoEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 1270, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
         );
         Ventana_JPanelPrincipalLayout.setVerticalGroup(
             Ventana_JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Ventana_JPanelPrincipalLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(lbl_IconoEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 660, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(Ventana_JPanelPrincipalLayout.createSequentialGroup()
+                .addComponent(lbl_IconoEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 749, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 22, Short.MAX_VALUE))
         );
 
         JPanel_Principal.add(Ventana_JPanelPrincipal);
-        Ventana_JPanelPrincipal.setBounds(-30, 0, 1304, 660);
+        Ventana_JPanelPrincipal.setBounds(-30, 0, 1282, 771);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(JPanel_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 1052, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(JPanel_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 1130, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(JPanel_Principal, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE)
+            .addComponent(JPanel_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(240, 0, 1030, 674);
+        jPanel1.setBounds(240, 0, 1030, 700);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

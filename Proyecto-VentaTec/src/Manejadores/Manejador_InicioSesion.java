@@ -32,7 +32,7 @@ public class Manejador_InicioSesion{
             if(MU.validateUser()){
                II.dispose(); //---Cerrar ventana Inicio de secion
                //---Crear la interfaz bienvenida
-               Interfaz_Bienvenida IB = new Interfaz_Bienvenida(MU.getTipo_Usuario(),MU.getNombreReal());
+               Interfaz_Bienvenida IB = new Interfaz_Bienvenida(MU.getTipo_Usuario(),MU.getNombreReal(),MU.getIdUsuario());
                IB.setVisible(true);
             }//Fin if
             else{

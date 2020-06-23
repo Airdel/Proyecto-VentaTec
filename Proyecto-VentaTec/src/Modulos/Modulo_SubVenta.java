@@ -25,10 +25,13 @@ public class Modulo_SubVenta {
     private double sobrante;
     private double iva;
     private double subtotal;
-    private String fecha="";
+    private String fecha;
+    private int folioVenta;
+    private ConexionBD CBD = new ConexionBD();
+    private int id_Usuario;
     //----------Declaracion de variables----------//
     
-    public Modulo_SubVenta(int row) {
+    public Modulo_SubVenta(int row,int idU) {
         this.tamañoMaximo = row;
         this.total = 0;
         this.subtotal = 0;
@@ -36,6 +39,9 @@ public class Modulo_SubVenta {
         this.fecha = "";
         this.efectivo = 0;
         this.sobrante = 0;
+        this.folioVenta = buscaFolio();
+        this.CBD = new ConexionBD();
+        this.id_Usuario = idU;
     }
     //-----------Fin del Constructor---------------//
     //-------funciones void----------//
@@ -47,7 +53,7 @@ public class Modulo_SubVenta {
         descuento.add(desc);
     }
     public void sumaSubTotal(){
-        for(int i = 0;i < tamañoMaximo ; i++){
+        for(int i = 0;i < idProduc.size() ; i++){
             subtotal = subtotal + (double)(Double.parseDouble(importe.get(i))*Integer.parseInt(Cantidad.get(i)));
         }
         iva = (subtotal * 0.16);
@@ -57,6 +63,21 @@ public class Modulo_SubVenta {
         sobrante = efectivo - total;
     }
     //-------funciones void----------//
+    //-------funciones retornables----------//
+    public int buscaFolio(){
+        int folio = 0;
+        CBD.openConexion();
+            String A[] = CBD.buscaFolio();
+            if(A[0].equals("")){
+                System.out.println("1 folio");
+                return 1;
+            }
+            folio = (Integer.parseInt(A[A.length - 1]) + 1);
+            System.out.println(folio + " folio");
+        CBD.closeConexion();
+        return folio + 1;
+    }
+    //-------funciones retornables----------//
     //------- get ----------//
     public double getEfectivo() {
         return efectivo;
@@ -75,6 +96,12 @@ public class Modulo_SubVenta {
     }
     public String getFecha() {
         return fecha;
+    }
+    public int getFolioVenta() {
+        return folioVenta;
+    }
+    public int getId_Usuario() {
+        return id_Usuario;
     }
     public double getPromedioDescuento(){
         double descuentoAcumulado = 0;

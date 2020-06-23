@@ -71,8 +71,19 @@ public class Manejador_SubVenta {
             String CodigoProducto = MSUV.idProduc.get(i);
             int Cantidad = Integer.parseInt(MSUV.Cantidad.get(i));
             CBD.insertInOut(CodigoProducto,'S',Cantidad);
+            System.out.println(MSUV.getFolioVenta() + "Folio");
+            CBD.insertDetails(MSUV.getFolioVenta(),
+                    MSUV.idProduc.get(i),
+                    Integer.parseInt(MSUV.Cantidad.get(i)),
+                    Float.parseFloat(MSUV.descuento.get(i)),
+                    MSUV.getSubtotal(),"Descripcion");
         }
+        CBD.insertVentas(MSUV.getFolioVenta(),MSUV.getId_Usuario());
+        CBD.insertTicket(MSUV.getFolioVenta(),MSUV.getFolioVenta(),MSUV.getTotal(),MSUV.getSubtotal(),MSUV.getIva());
         //------Agrega todos los Renglones de Tabla Productos---------//
+        //------Agrega todos los Renglones de DETALLE VENTA---------//
+        ;
+        //------Agrega todos los Renglones de DETALLE VENTA---------//
         CBD.closeConexion();
         //------Elimina todos los Renglones de Tabla Productos---------//
         JOptionPane.showMessageDialog(SUV,"Productos Vendidos");
@@ -128,9 +139,9 @@ public class Manejador_SubVenta {
             String idproc = DTM.getValueAt(i, 0) +"";
             String cant = DTM.getValueAt(i, 2) +"";
             String precUni = DTM.getValueAt(i, 3) +"";
-            String impor = DTM.getValueAt(i, 4) +"";
             String desc = DTM.getValueAt(i, 5) +"";
-            MSUV.agregaProduc(idproc, cant, precUni, impor, desc);
+            String imporUnitario = (Float.parseFloat(precUni) - (Float.parseFloat(precUni) * Float.parseFloat(desc)))+"";
+            MSUV.agregaProduc(idproc, cant, precUni, imporUnitario, desc);
         }
         MSUV.sumaSubTotal();
         MSUV.sumaTodo();
@@ -144,13 +155,4 @@ public class Manejador_SubVenta {
         //----Retorna la suma total----//
     }// Fin venta
     //-----------Funciones Retornables-----//
-
-    public static void main(String arg[]) {
-        Interfaz_Venta IV = new Interfaz_Venta();
-        Sub_Venta SV = new Sub_Venta();
-        Modulo_SubVenta MS = new Modulo_SubVenta(10);
-        Modulo_Venta MV = new Modulo_Venta("Prueba");
-        Manejador_SubVenta MAS = new Manejador_SubVenta(SV, MS, IV, MV);
-        System.out.println(MAS.validaInput("a"));
-    }
 }

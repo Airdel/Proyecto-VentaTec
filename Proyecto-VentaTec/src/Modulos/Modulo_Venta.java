@@ -22,14 +22,18 @@ public class Modulo_Venta {
     public ArrayList<String> descuento = new ArrayList<String>();
     public ArrayList<String> renglon = new ArrayList<String>();
     private String nameUsu;
+    private String tipoUsu;
+    private int id_usu;
     private int NoArticulos;
     private double total;
     private double iva;
     private double subtotal;
     //----------Declaracion de variables----------//
     
-    public Modulo_Venta(String nameUsu) {
+    public Modulo_Venta(String nameUsu,String tipoUsu,int id_usu) {
         this.nameUsu = nameUsu;
+        this.tipoUsu = tipoUsu;
+        this.id_usu = id_usu;
         this.total = 0;
         this.NoArticulos = 0;
         this.subtotal = 0;
@@ -61,13 +65,9 @@ public class Modulo_Venta {
         descuento.remove(ren);
         NoArticulos--;
     }
-    public void modificarProducto(String reng,String impor,String desc){
-        int ren = 0;
-        for(int i = 0; i < renglon.size();i++){
-            if(renglon.get(i).equals(reng)){
-                ren = Integer.parseInt(renglon.get(i));
-            }
-        }
+    public void modificarProducto(String reng,String impor,String desc,String cant){
+        int ren = Integer.parseInt(reng);
+        Cantidad.set(ren,cant);
         importe.set(ren,impor);
         descuento.set(ren,desc);
     }
@@ -102,6 +102,9 @@ public class Modulo_Venta {
     public String getNameUsu() {
         return nameUsu;
     }
+    public int getId_usu() {
+        return id_usu;
+    }
     public double getSubtotal() {
         return subtotal;
     }
@@ -122,4 +125,17 @@ public class Modulo_Venta {
         return (descuentoAcumulado / idProduc.size());
     }
     //------- get ----------//
+    public String toString(){
+        String cad = "";
+        for(int i = 0;i<idProduc.size();i++ ){
+            cad = cad + idProduc.get(i) + " idProduc ";
+            cad = cad + Cantidad.get(i) + " Cantidad ";
+            cad = cad + precUnitario.get(i) + " precUnitario ";
+            cad = cad + importe.get(i) + " importe ";
+            cad = cad + descuento.get(i) + " descuento ";
+            cad = cad + renglon.get(i) + " renglon "+ "\n";
+        }
+        cad = cad + NoArticulos + " NoArticulos " + iva + " iva " + subtotal + " subtotal " + total + " total ";
+        return cad;
+    }
 }

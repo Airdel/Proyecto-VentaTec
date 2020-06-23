@@ -62,7 +62,7 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
         try {
             sp = con.prepareStatement("SELECT "+ tipo +" FROM USUARIOS where [NOMBRE USUARIO] ='" + campo +"' AND CONTRASEÑA ='"+dato+"'");
             resultado = sp.executeQuery();
-            if(resultado.next()) return resultado.getString(1);
+            if(resultado.next()){return resultado.getString(1);}
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
             resultado = null;
@@ -134,7 +134,7 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
            sp = con.prepareStatement("INSERT INTO DBO.[ENTRADAS SALIDAS]([ID PRODUCTO],TIPO,CANTIDAD) VALUES(?,?,?)");
            sp.setString(1,id_producto);
            sp.setString(2,tipo + "");
-           sp.setInt(4,cantidad);
+           sp.setInt(3,cantidad);
            sp.executeUpdate();
         }catch(SQLException | NullPointerException ex){
                 System.out.print(ex.getMessage());
@@ -154,11 +154,6 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
            sp.executeUpdate();
         }catch(SQLException | NullPointerException ex){
                 System.out.print(ex.getMessage());}
-    }
-    
-        
-    public void insertDetailsSale(int id_venta, String id_producto, int cantidad,float descuento,float subtotal){
-        
     }
     
     //----------------------------Elimina en la base de datos-------------------------------------------------
@@ -346,7 +341,6 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
             String A[] = new String[tam];
             while(resultado.next()){
                A[i] = resultado.getString(1); //retorna el segundo campo(debe de ser string)
-               System.out.println(A[i] + "");
                i++;
             }
             return A;
@@ -360,7 +354,6 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
  public String[] searchInTable(String campo, String dato){
         try {
             sp = con.prepareStatement("SELECT * FROM PRODUCTOS where " + campo + " like '" + dato +"%'");
-            System.out.println("SELECT * FROM PRODUCTOS where " + campo + " like '" + dato +"%'");
             resultado = sp.executeQuery();
             PreparedStatement sp1 = con.prepareStatement("SELECT * FROM PRODUCTOS where " + campo + " like '" + dato +"%'");
             ResultSet resultado1 = sp1.executeQuery();
@@ -369,7 +362,6 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
             int i = 0;
             while(resultado.next()){
                A[i] = resultado.getString(5);
-               System.out.println(A[i]);
                i++;
             }
             sp.close();
@@ -384,6 +376,7 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
         }//Fin try catch
         
     }//Fin searchInTable
+ 
 public String[] searchProduct(String campo, String dato){
         try {
             sp = con.prepareStatement("SELECT * FROM PRODUCTOS WHERE "+campo+" LIKE '"+dato+"%'");
@@ -395,7 +388,7 @@ public String[] searchProduct(String campo, String dato){
             int i = 0;
             while(resultado.next()){
                A[i] = resultado.getString(1) + "," + resultado.getString(5) + "," + resultado.getString(6) +"," +
-                      resultado.getFloat(7) + "," + resultado.getFloat(8);
+                      resultado.getFloat(7) + "," + resultado.getFloat(8) + ",0.0";
                i++;
             }
             sp.close();
@@ -409,30 +402,21 @@ public String[] searchProduct(String campo, String dato){
             return null;
         }//Fin try catch
 }
-public String[] searchProduct2(String campo, String dato){
+public String searchProduct2(String campo, String dato){
         try {
             sp = con.prepareStatement("SELECT * FROM PRODUCTOS WHERE "+campo+" = '"+dato+"'");
             resultado = sp.executeQuery();
-            PreparedStatement sp1 = con.prepareStatement("SELECT * FROM PRODUCTOS WHERE "+campo+" = '"+dato+"'");
-            ResultSet resultado1 = sp1.executeQuery();
-            int row = countRow(resultado1);
-            String A[] = new String[row];
-            int i = 0;
-            while(resultado.next()){
-               A[i] = resultado.getString(1) + "," + resultado.getString(5) + "," + resultado.getString(6) +"," +
+            String cad = "";
+            if(resultado.next()){
+                cad = resultado.getString(1) + "," + resultado.getString(5) + "," + resultado.getString(6) +"," +
                       resultado.getFloat(7) + "," + resultado.getFloat(7) + ",0.0";
-               i++;
+                return cad;
             }
-            sp.close();
-            resultado.close();
-            sp1.close();
-            resultado1.close();
-            return A;
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            resultado = null;            
-            return null;
+            resultado = null;
         }//Fin try catch
+        return "";
 }
 //-----------------------------------------------------------select--inventarios----------------
 public String[] getInve(){
@@ -462,6 +446,35 @@ public String[] getInve(){
         }//Fin try catch
     }//Fin searchProduct
 
+public String[] buscaFolio(){
+    try{
+        sp = con.prepareStatement("SELECT * FROM [DETALLE VENTA]");
+        resultado = sp.executeQuery();
+        PreparedStatement sp1 = con.prepareStatement("SELECT * FROM [DETALLE VENTA]");
+        ResultSet resultado1 = sp1.executeQuery();
+        int row = countRow(resultado1);
+        if(row == 0){
+            String B[] = new String[1];
+            B[0] = "";
+            return B;
+        }
+        String A[] = new String[row];
+        int i = 0;
+        while(resultado.next()){
+            A[i] = resultado.getInt(1) +"";
+            i++;
+        }
+        sp.close();
+        resultado.close();
+        sp1.close();
+        resultado1.close();
+        return A;
+    }catch (SQLException ex) {
+        System.out.println(ex.getMessage());
+        resultado = null;   
+    }//Fin try catch
+    return null;
+}
 //-----------------------------------------------------------select--inventarios----------------
 public String[] getInveID(String id){
         try {
@@ -508,8 +521,30 @@ public String[] getInveID(String id){
     
     }
         
-    
-    public void insertDatails(int id_venta,String id_producto,int cantidad,float desc,float subtotal,String deripcion ){
+    public void insertVentas(int id_venta,int id_usuario){
+        try{
+            
+            sp = con.prepareStatement("INSERT INTO VENTAS([ID VENTA],[ID USUARIO]) VALUES(?,?)");//consulta sql para insertar
+            sp.setInt(1,id_venta);//datos
+            sp.setInt(2,id_usuario);//datos
+            sp.executeUpdate();
+            
+        }catch(SQLException e){System.out.println(e.getMessage());}
+    }
+    public void insertTicket(int id_ticket,int id_venta,double Total,double subtotal,double iva){
+        try{
+            
+            sp = con.prepareStatement("INSERT INTO TICKETS([ID TICKET],[ID VENTA],TOTAL,SUBTOTAL,IVA) VALUES(?,?,?,?)");//consulta sql para insertar
+            sp.setInt(1, id_ticket);//datos
+            sp.setInt(2, id_venta);//datos
+            sp.setDouble(3, Total);//datos
+            sp.setDouble(4, subtotal);//datos
+            sp.setDouble(5, iva);//datos
+            sp.executeUpdate();
+            
+        }catch(SQLException e){System.out.println(e.getMessage());}
+    }
+    public void insertDetails(int id_venta,String id_producto,int cantidad,double desc,double subtotal,String descripcion ){
        
         try{
             
@@ -517,13 +552,13 @@ public String[] getInveID(String id){
             sp.setInt(1, id_venta);//datos
             sp.setString(2,id_producto);//datos
             sp.setInt(3,cantidad);//datos
-            sp.setFloat(4, desc);//datos
-            sp.setFloat(5,subtotal);//datos
-            sp.setString(6, deripcion);//datos
+            sp.setDouble(4, desc);//datos
+            sp.setDouble(5,subtotal);//datos
+            sp.setString(6, descripcion);//datos
             sp.executeUpdate();
             
             
-        }catch(SQLException e){}
+        }catch(SQLException e){System.out.println(e.getMessage());}
     }
     
     
@@ -531,7 +566,7 @@ public String[] getInveID(String id){
            ConexionBD CBD = new ConexionBD();
            CBD.openConexion();
            
-           CBD.searchInTable("[NOMBRE PRODUCTO]", "a");
+           CBD.insertInOut("12", 'E',10);
            
            CBD.closeConexion();
        }

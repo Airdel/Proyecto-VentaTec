@@ -13,6 +13,7 @@ package Modulos;
 public class Modulo_Usuario {
     
 //------------Declaracion de variables-------------//
+private int idUsuario;
 private String nombreUsuario;
 private String nombreReal;
 private String Tipo_Usuario;
@@ -29,6 +30,7 @@ private ConexionBD con;
         this.telefono = "";
         this.Tipo_Usuario = "";
         this.telefono = "";
+        this.idUsuario = 0;
         con = new ConexionBD();
     }//Fin del constructor 
   
@@ -39,6 +41,7 @@ private ConexionBD con;
            con.consulta("USUARIOS","CONTRASEÑA", this.contraseña) ){
            this.Tipo_Usuario = con.consultaT("[TIPO USUARIO]",this.nombreUsuario, this.contraseña); 
            this.nombreReal = con.consultaT("[NOMBRE]",this.nombreUsuario, this.contraseña); 
+           this.idUsuario = Integer.parseInt(con.consultaT("[ID USUARIO]",this.nombreUsuario, this.contraseña) + "");
            con.closeConexion();
            return true;
         }
@@ -82,6 +85,10 @@ private ConexionBD con;
 
     public String getContraseña() {
         return contraseña;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
     }
 
     public void setContraseña(String contraseña) {

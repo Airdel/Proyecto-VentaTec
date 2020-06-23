@@ -19,12 +19,14 @@ import javax.swing.UIManager;
 public class Interfaz_Bienvenida extends javax.swing.JFrame {
     private String T;
     private String nombreUsu;
+    private int id_usu;
     /**
      * Creates new form Principal
      */
-    public Interfaz_Bienvenida(String T,String nombreUsu) {
+    public Interfaz_Bienvenida(String T,String nombreUsu,int id_usu) {
         this.T = T;
         this.nombreUsu = nombreUsu;
+        this.id_usu = id_usu;
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
@@ -139,7 +141,7 @@ public class Interfaz_Bienvenida extends javax.swing.JFrame {
         if (barra.getValue() == 100) {
             this.dispose();
             Interfaz_Principal IP = new Interfaz_Principal();
-            Modulo_Principal MP = new Modulo_Principal(T,nombreUsu);
+            Modulo_Principal MP = new Modulo_Principal(T,nombreUsu,id_usu);
             Manejador_Principal MAP = new Manejador_Principal(IP, MP);
             IP.setVisible(true);
         }

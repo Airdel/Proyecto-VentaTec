@@ -18,6 +18,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import static java.lang.Thread.sleep;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.table.DefaultTableModel;
@@ -66,7 +67,7 @@ public class Manejador_Inventario {
                 char c = ke.getKeyChar();
                 if (!((c >= 48 && c <= 57))) {
                     ke.consume();
-                } else if (II.txtPrecio.getText().length() == 20) {
+                } else if (II.txtCantidad.getText().length() == 20) {
                     ke.consume();
                 }
             }
@@ -79,7 +80,7 @@ public class Manejador_Inventario {
                 char c = ke.getKeyChar();
                 if (!((c >= 48 && c <= 57) || (c == 46))) {
                     ke.consume();
-                } else if (II.txtPrecio.getText().length() == 20) {
+                } else if (II.txtCosto.getText().length() == 20) {
                     ke.consume();
                 }
             }
@@ -169,6 +170,16 @@ public class Manejador_Inventario {
             }
         });
         //----------------Listener Mouse Listener-------------//   
+        new Thread() {
+            public void run() {
+                try {
+                    llenartabla();
+                    sleep(1000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }.start();
     }
     //-----------------Fin de Constructor---------------//
 
@@ -209,83 +220,65 @@ public class Manejador_Inventario {
     }//Fin llenarCombo
 
     public void validaTxt() {
-        //---Valida si Precio es numero---//
-        String textP = II.txtPrecio.getText();
-        String S[] = textP.split(".");
-        if (S.length > 2) {
-            JOptionPane.showMessageDialog(II, "Precio mal escrito");
-            return;
-        }
-        //---Valida si Precio es numero---//
-        //---Valida si Costo es numero---//
-        String textC = II.txtCosto.getText();
-        String S1[] = textC.split(".");
-        if (S1.length > 2) {
-            JOptionPane.showMessageDialog(II, "Costo mal escrito");
-            return;
-        }
-        //---Valida si Costo es numero---//
-        //---Valida si Cantidad esta vacio---//
-        String textCan = II.txtCantidad.getText();
-        if (textCan.equals("")) {
-            JOptionPane.showMessageDialog(II, "Cantidad esta vacia");
-            return;
-        }
-        //---Valida si Cantidad esta vacio---//
-        //---Valida si Nombre Producto esa vacio---//
-        String textName = II.txtNombreProducto.getText();
-        if (textName.equals("")) {
-            JOptionPane.showMessageDialog(II, "Nombre del producto esta vacio");
-            return;
-        }
-        //---Valida si Nombre Producto esa vacio---//
-        //---Valida si Descripcion esa vacio---//
-        String textDes = II.txtDescripcion.getText();
-        if (textDes.equals("")) {
-            JOptionPane.showMessageDialog(II, "Descripcion del producto esta vacio");
-            return;
-        }
-        //---Valida si Descripcion esa vacio---//
-        //---Valida si Categoria esa vacio---//
-        Object cmbCat = II.cmbCategoria.getSelectedItem();
-        if (cmbCat == null) {
-            JOptionPane.showMessageDialog(II, "Categoria del producto esta vacia");
-            return;
-        }
-        //---Valida si Categoria esa vacio---//
-        //---Valida si Presentacion esa vacio---//
-        Object cmbPre = II.cmbPresentacion.getSelectedItem();
-        if (cmbPre == null) {
-            JOptionPane.showMessageDialog(II, "Presentacion del producto esta vacio");
-            return;
-        }
-        //---Valida si Presentacion esa vacio---//
+        try{
+            //---Valida si Precio es numero---//
+            String textP = II.txtPrecio.getText();
+            Float.parseFloat(textP);
+            //---Valida si Precio es numero---//
+            //---Valida si Costo es numero---//
+            String textC = II.txtCosto.getText();
+            Float.parseFloat(textC);
+            //---Valida si Costo es numero---//
+            //---Valida si Cantidad esta vacio---//
+            String textCan = II.txtCantidad.getText();
+            if (textCan.equals("")) {
+                JOptionPane.showMessageDialog(II, "Cantidad esta vacia");
+                return;
+            }
+            //---Valida si Cantidad esta vacio---//
+            //---Valida si Nombre Producto esa vacio---//
+            String textName = II.txtNombreProducto.getText();
+            if (textName.equals("")) {
+                JOptionPane.showMessageDialog(II, "Nombre del producto esta vacio");
+                return;
+            }
+            //---Valida si Nombre Producto esa vacio---//
+            //---Valida si Descripcion esa vacio---//
+            String textDes = II.txtDescripcion.getText();
+            if (textDes.equals("")) {
+                JOptionPane.showMessageDialog(II, "Descripcion del producto esta vacio");
+                return;
+            }
+            //---Valida si Descripcion esa vacio---//
+            //---Valida si Categoria esa vacio---//
+            Object cmbCat = II.cmbCategoria.getSelectedItem();
+            if (cmbCat == null) {
+                JOptionPane.showMessageDialog(II, "Categoria del producto esta vacia");
+                return;
+            }
+            //---Valida si Categoria esa vacio---//
+            //---Valida si Presentacion esa vacio---//
+            Object cmbPre = II.cmbPresentacion.getSelectedItem();
+            if (cmbPre == null) {
+                JOptionPane.showMessageDialog(II, "Presentacion del producto esta vacio");
+                return;
+            }
+            //---Valida si Presentacion esa vacio---//
+        }catch(Exception e){JOptionPane.showMessageDialog(II, "Casillas mas escritas");}
     }// Fin valida Txt
 
     public void modificaDato() {
-        //----Valida si existen renglones en tabla Inventario---//
-        int a = II.dgvProductos.getSelectedRow();
-        if (II.dgvProductos.equals("")) {
-            showMessageDialog(II, "No existen registros");
-        }
-        //----Valida si existen renglones en tabla Inventario---//
         CBD.openConexion();
         //(@NOMBRE VARCHAR,org = cmbOrden.getSelectedIndex()@DESCRIPCION VARCHAR,@PREV MONEY,@PREC MONEY,@IDCATE TINYINT,@IDPRESENTACION TINYINT,@ID INT)
-        String r = "";
-        int x = 0;
-        int y = 0;
-        float w =0;
-        float z =0;
         CBD.UpdateInventario(
                 II.txtNombreProducto.getText(),//NOMBRE
                 II.txtDescripcion.getText(),//DESCRIPCION
-                w=Float.parseFloat(II.txtPrecio.getText()),//PRECIO VENTA
-                z=Float.parseFloat(II.txtCosto.getText()),//PRECIO COSTO
-                x = II.cmbCategoria.getSelectedIndex()+1,//CATEGORIA CMB int 
-                y = II.cmbPresentacion.getSelectedIndex()+1,//PRESENTACIONN CMB int
-                r = II.lblid.getText()//ID
+                Float.parseFloat(II.txtPrecio.getText()),//PRECIO VENTA
+                Float.parseFloat(II.txtCosto.getText()),//PRECIO COSTO
+                II.cmbCategoria.getSelectedIndex()+1,//CATEGORIA CMB int 
+                II.cmbPresentacion.getSelectedIndex()+1,//PRESENTACIONN CMB int
+                II.lblid.getText()//ID
         );
-
         CBD.closeConexion();
     }// Fin modifica Dato
 
