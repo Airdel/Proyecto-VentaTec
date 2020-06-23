@@ -174,7 +174,7 @@ public class Manejador_Ventas {
                                 if(!(A.equals(""))){
                                     B = A.split(",");
                                     B[2] = IV.txt_Cantidad.getText();
-                                    B[4] = Double.parseDouble(B[2]+"")*(Double.parseDouble(B[3]+"")*(1 - Double.parseDouble(B[5]+"")));
+                                    B[4] = (Double.parseDouble(B[2]+"")*(Double.parseDouble(B[3]+"")*(1 - Double.parseDouble(B[5]+""))))+"";
                                     DTM.addRow(B);
                                     
                                     int row = DTM.getRowCount();
@@ -387,7 +387,7 @@ public class Manejador_Ventas {
                             precioUimporte = PRECIOU *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString()));
                             DTM.setValueAt(CANTIDAD,i, 2);
                             DTM.setValueAt(imp,i, 4);
-                            MV.modificarProducto(i + " ",precioUimporte + "",DTM.getValueAt(i,5).toString(),CANTIDAD+"");
+                            MV.modificarProducto(i + "",precioUimporte + "",DTM.getValueAt(i,5).toString(),CANTIDAD+"");
                             MV.sumaSubTotal();
                             MV.sumaTodo();
                             actualizalbl();
