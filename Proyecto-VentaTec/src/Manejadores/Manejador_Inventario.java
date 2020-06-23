@@ -153,10 +153,11 @@ public class Manejador_Inventario {
         
         
         //----------------Listener Mouse Listener-------------//   
-        this.II.btnUpdate.addMouseMotionListener(new java.awt.event.MouseAdapter(){
-           public void mouseReleased(java.awt.event.MouseEvent evt) {
+        this.II.btnUpdate.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent ae) {
                 DTM.setRowCount(0);
                 llenartabla();            
+                JOptionPane.showMessageDialog(II,"El inventario se ha actualizado");
             }
         });
         //----------------Listener Mouse Listener-------------//   

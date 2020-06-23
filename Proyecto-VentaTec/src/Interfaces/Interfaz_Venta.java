@@ -7,6 +7,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
+import static javax.swing.JOptionPane.YES_OPTION;
+import static javax.swing.JOptionPane.showConfirmDialog;
 
 /**
  *
@@ -17,6 +21,7 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable {
 
     public Interfaz_Venta() {
         initComponents();
+        this.setExtendedState(this.MAXIMIZED_BOTH);
         ///--------------------
        /* new Thread() {
             public void a() {
@@ -116,6 +121,11 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable {
         setTitle("Ventas!");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         panel1.setLayout(null);
 
@@ -148,7 +158,7 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable {
         jScrollPane1.setViewportView(dgv_Productos);
 
         panel1.add(jScrollPane1);
-        jScrollPane1.setBounds(380, 295, 932, 200);
+        jScrollPane1.setBounds(380, 295, 932, 220);
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
@@ -302,7 +312,7 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable {
             jpn_ComandosDeslizantesInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpn_ComandosDeslizantesInferiorLayout.createSequentialGroup()
                 .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 40, Short.MAX_VALUE))
+                .addGap(0, 69, Short.MAX_VALUE))
         );
         jpn_ComandosDeslizantesInferiorLayout.setVerticalGroup(
             jpn_ComandosDeslizantesInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,7 +322,7 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable {
         );
 
         panel1.add(jpn_ComandosDeslizantesInferior);
-        jpn_ComandosDeslizantesInferior.setBounds(10, 690, 1430, 14);
+        jpn_ComandosDeslizantesInferior.setBounds(10, 750, 1430, 14);
 
         lbl_NumeroDeArticulosValor.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbl_NumeroDeArticulosValor.setText("0");
@@ -365,34 +375,33 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable {
         jpn_BotonesLayout.setHorizontalGroup(
             jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpn_BotonesLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(33, 33, 33)
                 .addComponent(btn_BuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addGap(83, 83, 83)
                 .addComponent(btn_Quitar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addComponent(btn_AplicarDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(57, 57, 57)
                 .addComponent(btn_Cobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addGap(22, 22, 22))
         );
         jpn_BotonesLayout.setVerticalGroup(
             jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpn_BotonesLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addGroup(jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpn_BotonesLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_AplicarDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_Cobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_Quitar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btn_BuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btn_AplicarDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Quitar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpn_BotonesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_BuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(1, 1, 1)
+                        .addComponent(btn_Cobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         panel1.add(jpn_Botones);
-        jpn_Botones.setBounds(380, 500, 932, 180);
+        jpn_Botones.setBounds(380, 530, 932, 200);
 
         lbl_IconoEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_Venta/icon_Empresa.png"))); // NOI18N
         panel1.add(lbl_IconoEmpresa);
@@ -457,13 +466,18 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 713, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+       if (showConfirmDialog(rootPane, "¿Desea salir del sistema?",
+            "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
+        System.exit(0);
+    }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

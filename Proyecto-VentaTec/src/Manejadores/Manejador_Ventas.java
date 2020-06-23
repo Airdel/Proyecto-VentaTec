@@ -95,6 +95,10 @@ public class Manejador_Ventas {
                     }
 
                 }
+                if (ke.getKeyCode() == KeyEvent.VK_DELETE) {
+                IV.txt_BuscarProducto.setText("");
+                }
+
             }
         });
         this.IV.txt_Codigo.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -274,7 +278,7 @@ public class Manejador_Ventas {
                     }
                 } else {
                     showMessageDialog(IV, "Es necesario ingresar productos registro");
-                    IV.txt_Codigo.requestFocus();
+                    IV.dgv_Productos.requestFocus();
                 }
             }
 

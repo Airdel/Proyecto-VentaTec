@@ -10,6 +10,9 @@ import Modulos.Modulo_Principal;
 //import com.sun.org.apache.bcel.internal.generic.BREAKPOINT;
 import java.awt.Color;
 import static java.lang.Thread.sleep;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
+import static javax.swing.JOptionPane.YES_OPTION;
+import static javax.swing.JOptionPane.showConfirmDialog;
 import javax.swing.UIManager;
 
 /**
@@ -20,6 +23,7 @@ public class Interfaz_Bienvenida extends javax.swing.JFrame {
     private String T;
     private String nombreUsu;
     private int id_usu;
+ 
     /**
      * Creates new form Principal
      */
