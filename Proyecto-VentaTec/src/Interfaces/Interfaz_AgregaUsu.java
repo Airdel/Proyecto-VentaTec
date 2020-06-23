@@ -69,7 +69,7 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         lblTitulo.setForeground(new java.awt.Color(66, 65, 70));
         lblTitulo.setText("Campos Obligatorios *");
         getContentPane().add(lblTitulo);
-        lblTitulo.setBounds(210, 10, 210, 30);
+        lblTitulo.setBounds(300, 50, 210, 30);
 
         jspTitulo.setBackground(new java.awt.Color(99, 99, 101));
         jspTitulo.setForeground(new java.awt.Color(99, 99, 101));
@@ -91,13 +91,13 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         btnGuardar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnGuardar.setContentAreaFilled(false);
         getContentPane().add(btnGuardar);
-        btnGuardar.setBounds(140, 440, 170, 70);
+        btnGuardar.setBounds(130, 440, 170, 70);
 
         lblnombre.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblnombre.setForeground(new java.awt.Color(66, 65, 70));
         lblnombre.setText("Nombre Completo: *");
         getContentPane().add(lblnombre);
-        lblnombre.setBounds(130, 80, 150, 30);
+        lblnombre.setBounds(70, 90, 150, 30);
 
         txtNombreCom.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtNombreCom.setForeground(new java.awt.Color(102, 102, 102));
@@ -105,23 +105,23 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         txtNombreCom.setOpaque(false);
         txtNombreCom.setSelectedTextColor(new java.awt.Color(66, 65, 70));
         getContentPane().add(txtNombreCom);
-        txtNombreCom.setBounds(270, 90, 220, 22);
+        txtNombreCom.setBounds(210, 100, 220, 22);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/UserName_100px.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(510, 50, 100, 100);
+        jLabel1.setBounds(480, 50, 130, 120);
 
         lblnomuser.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblnomuser.setForeground(new java.awt.Color(66, 65, 70));
         lblnomuser.setText("Nombre Usuario: *");
         getContentPane().add(lblnomuser);
-        lblnomuser.setBounds(130, 130, 130, 30);
+        lblnomuser.setBounds(70, 140, 130, 30);
 
         lblcontraseña.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblcontraseña.setForeground(new java.awt.Color(66, 65, 70));
         lblcontraseña.setText("Contraseña: *");
         getContentPane().add(lblcontraseña);
-        lblcontraseña.setBounds(130, 170, 100, 30);
+        lblcontraseña.setBounds(70, 190, 100, 30);
 
         txtContraseña.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtContraseña.setForeground(new java.awt.Color(102, 102, 102));
@@ -129,25 +129,25 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         txtContraseña.setOpaque(false);
         txtContraseña.setSelectedTextColor(new java.awt.Color(66, 65, 70));
         getContentPane().add(txtContraseña);
-        txtContraseña.setBounds(270, 180, 170, 22);
+        txtContraseña.setBounds(170, 190, 260, 22);
 
         jspNombre.setBackground(new java.awt.Color(99, 99, 101));
         jspNombre.setForeground(new java.awt.Color(99, 99, 101));
         jspNombre.setDoubleBuffered(true);
         getContentPane().add(jspNombre);
-        jspNombre.setBounds(270, 200, 170, 20);
+        jspNombre.setBounds(170, 210, 260, 20);
 
         jspID_Prod.setBackground(new java.awt.Color(99, 99, 101));
         jspID_Prod.setForeground(new java.awt.Color(99, 99, 101));
         jspID_Prod.setDoubleBuffered(true);
         getContentPane().add(jspID_Prod);
-        jspID_Prod.setBounds(270, 110, 220, 20);
+        jspID_Prod.setBounds(210, 120, 220, 20);
 
         jspDescripcion.setBackground(new java.awt.Color(99, 99, 101));
         jspDescripcion.setForeground(new java.awt.Color(99, 99, 101));
         jspDescripcion.setDoubleBuffered(true);
         getContentPane().add(jspDescripcion);
-        jspDescripcion.setBounds(300, 260, 170, 20);
+        jspDescripcion.setBounds(230, 260, 200, 20);
 
         txtConfirContra.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtConfirContra.setForeground(new java.awt.Color(102, 102, 102));
@@ -155,37 +155,37 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         txtConfirContra.setOpaque(false);
         txtConfirContra.setSelectedTextColor(new java.awt.Color(66, 65, 70));
         getContentPane().add(txtConfirContra);
-        txtConfirContra.setBounds(300, 240, 170, 22);
+        txtConfirContra.setBounds(230, 240, 200, 22);
 
         lblconfirmar.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblconfirmar.setForeground(new java.awt.Color(66, 65, 70));
         lblconfirmar.setText("Confirmar Contraseña:");
         getContentPane().add(lblconfirmar);
-        lblconfirmar.setBounds(130, 230, 180, 30);
+        lblconfirmar.setBounds(70, 240, 180, 30);
 
         lblCosto.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblCosto.setForeground(new java.awt.Color(66, 65, 70));
         lblCosto.setText("Tipo de Usuario:");
         getContentPane().add(lblCosto);
-        lblCosto.setBounds(130, 290, 130, 30);
+        lblCosto.setBounds(70, 290, 130, 30);
 
         lbltelefono.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lbltelefono.setForeground(new java.awt.Color(66, 65, 70));
         lbltelefono.setText("Telefono:");
         getContentPane().add(lbltelefono);
-        lbltelefono.setBounds(130, 340, 80, 40);
+        lbltelefono.setBounds(70, 330, 80, 40);
 
         cmbTipoUSU.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         cmbTipoUSU.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "G", "U" }));
         cmbTipoUSU.setOpaque(false);
         getContentPane().add(cmbTipoUSU);
-        cmbTipoUSU.setBounds(270, 290, 50, 28);
+        cmbTipoUSU.setBounds(220, 290, 50, 28);
 
         lbldomocilio.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lbldomocilio.setForeground(new java.awt.Color(66, 65, 70));
         lbldomocilio.setText("Domicilio:");
         getContentPane().add(lbldomocilio);
-        lbldomocilio.setBounds(130, 390, 80, 30);
+        lbldomocilio.setBounds(70, 380, 80, 30);
 
         txtDomicilio.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtDomicilio.setForeground(new java.awt.Color(102, 102, 102));
@@ -193,13 +193,13 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         txtDomicilio.setOpaque(false);
         txtDomicilio.setSelectedTextColor(new java.awt.Color(66, 65, 70));
         getContentPane().add(txtDomicilio);
-        txtDomicilio.setBounds(270, 390, 170, 22);
+        txtDomicilio.setBounds(140, 390, 290, 20);
 
         jspStock.setBackground(new java.awt.Color(99, 99, 101));
         jspStock.setForeground(new java.awt.Color(99, 99, 101));
         jspStock.setDoubleBuffered(true);
         getContentPane().add(jspStock);
-        jspStock.setBounds(270, 410, 170, 20);
+        jspStock.setBounds(140, 410, 290, 20);
 
         btnRegresar.setBackground(new java.awt.Color(204, 204, 204));
         btnRegresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_Venta/10_1.png"))); // NOI18N
@@ -207,7 +207,7 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         btnRegresar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRegresar.setContentAreaFilled(false);
         getContentPane().add(btnRegresar);
-        btnRegresar.setBounds(330, 435, 160, 70);
+        btnRegresar.setBounds(340, 440, 160, 70);
 
         txtNombreUSU.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtNombreUSU.setForeground(new java.awt.Color(102, 102, 102));
@@ -220,19 +220,19 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(txtNombreUSU);
-        txtNombreUSU.setBounds(270, 130, 220, 22);
+        txtNombreUSU.setBounds(200, 150, 230, 22);
 
         jspID_Prod1.setBackground(new java.awt.Color(99, 99, 101));
         jspID_Prod1.setForeground(new java.awt.Color(99, 99, 101));
         jspID_Prod1.setDoubleBuffered(true);
         getContentPane().add(jspID_Prod1);
-        jspID_Prod1.setBounds(270, 150, 220, 20);
+        jspID_Prod1.setBounds(200, 170, 230, 20);
 
         jspStock1.setBackground(new java.awt.Color(99, 99, 101));
         jspStock1.setForeground(new java.awt.Color(99, 99, 101));
         jspStock1.setDoubleBuffered(true);
         getContentPane().add(jspStock1);
-        jspStock1.setBounds(270, 370, 170, 20);
+        jspStock1.setBounds(140, 360, 180, 20);
 
         txtTelefono.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtTelefono.setForeground(new java.awt.Color(102, 102, 102));
@@ -240,7 +240,7 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         txtTelefono.setOpaque(false);
         txtTelefono.setSelectedTextColor(new java.awt.Color(66, 65, 70));
         getContentPane().add(txtTelefono);
-        txtTelefono.setBounds(270, 350, 170, 22);
+        txtTelefono.setBounds(140, 340, 180, 22);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
