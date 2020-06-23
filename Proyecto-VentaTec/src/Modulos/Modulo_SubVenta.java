@@ -73,7 +73,7 @@ public class Modulo_SubVenta {
             }
             folio = (Integer.parseInt(A[A.length - 1]) + 1);
         CBD.closeConexion();
-        return folio + 1;
+        return folio;
     }
     //-------funciones retornables----------//
     //------- get ----------//
