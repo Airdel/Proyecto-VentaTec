@@ -70,6 +70,7 @@ public class Manejador_Ventas {
                                 if(!(A.equals(""))){
                                     B = A.split(",");
                                     B[2] = IV.txt_Cantidad.getText();
+                                    B[4] = Double.parseDouble(B[2]+"")*(Double.parseDouble(B[3]+"")*(1 - Double.parseDouble(B[5]+"")));
                                     DTM.addRow(B);
                                     
                                     int row = DTM.getRowCount();
@@ -117,6 +118,7 @@ public class Manejador_Ventas {
                                 if(!(A.equals(""))){
                                     B = A.split(",");
                                     B[2] = IV.txt_Cantidad.getText();
+                                    B[4] = Double.parseDouble(B[2]+"")*(Double.parseDouble(B[3]+"")*(1 - Double.parseDouble(B[5]+"")));
                                     DTM.addRow(B);
 
                                     int row = DTM.getRowCount();
@@ -151,7 +153,7 @@ public class Manejador_Ventas {
                 char c = ke.getKeyChar();
                 if (!(c >= 48 && c <= 57)) {
                     ke.consume();
-                } else if (IV.txt_Codigo.getText().length() == 4) {
+                } else if (IV.txt_Cantidad.getText().length() == 4) {
                     ke.consume();
                 }
             }
@@ -169,6 +171,7 @@ public class Manejador_Ventas {
                                 if(!(A.equals(""))){
                                     B = A.split(",");
                                     B[2] = IV.txt_Cantidad.getText();
+                                    B[4] = Double.parseDouble(B[2]+"")*(Double.parseDouble(B[3]+"")*(1 - Double.parseDouble(B[5]+"")));
                                     DTM.addRow(B);
                                     
                                     int row = DTM.getRowCount();
