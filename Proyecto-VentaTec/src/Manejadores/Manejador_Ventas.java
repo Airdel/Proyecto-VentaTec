@@ -447,99 +447,37 @@ public class Manejador_Ventas {
         float precioUimporte = 0;
         float imp = 0;
         int stock = Integer.parseInt(CBD.getInventario(IV.txt_Codigo.getText()));
-        
+        if(stock == 0){
+            IV.lblHora.requestFocus();
+            showMessageDialog(null,"No se encuentra este producto en inventario. Cantidad de producto = 0");
+            return true;
+        }
         for(int i = 0;i<DTM.getRowCount();i++){
             if((DTM.getValueAt(i,0) + "").equals(IV.txt_Codigo.getText())){
                 
                 CANTIDAD = Integer.parseInt(DTM.getValueAt(i,2).toString()) + Integer.parseInt(IV.txt_Cantidad.getText());
-                if(stock>=CANTIDAD && stock != 0){
-                
-                PRECIOU =  Float.parseFloat(DTM.getValueAt(i,3).toString());
-                imp = CANTIDAD*(PRECIOU *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString())));
-                precioUimporte = PRECIOU -(PRECIOU * Float.parseFloat(DTM.getValueAt(i,5).toString()));
-                
-                DTM.setValueAt(CANTIDAD,i, 2);
-                DTM.setValueAt(imp,i, 4);
-                MV.modificarProducto(i + "",precioUimporte + "",DTM.getValueAt(i,5).toString(),CANTIDAD+"");
-                MV.sumaSubTotal();
-                MV.sumaTodo();
-                actualizalbl();
-                return true;} else{
+                if(stock>=CANTIDAD){
+                    PRECIOU =  Float.parseFloat(DTM.getValueAt(i,3).toString());
+                    imp = CANTIDAD*(PRECIOU *(1 - Float.parseFloat(DTM.getValueAt(i,5).toString())));
+                    precioUimporte = PRECIOU -(PRECIOU * Float.parseFloat(DTM.getValueAt(i,5).toString()));
+
+                    DTM.setValueAt(CANTIDAD,i, 2);
+                    DTM.setValueAt(imp,i, 4);
+                    MV.modificarProducto(i + "",precioUimporte + "",DTM.getValueAt(i,5).toString(),CANTIDAD+"");
+                    MV.sumaSubTotal();
+                    MV.sumaTodo();
+                    actualizalbl();
+                    return true;
+                }else{
                     IV.lblHora.requestFocus();
-                    showMessageDialog(null,"DEJA DE ESTAR JUGANDO, NO PUEDES VENDER MAS DEL PRODUCTO QUE TIENES EN INVENTARIO. PRODUCTO MAX:" + stock);}
-                return true;
+                    showMessageDialog(null,"DEJA DE ESTAR JUGANDO, NO PUEDES VENDER MAS DEL PRODUCTO QUE TIENES EN INVENTARIO. PRODUCTO MAX:" + stock);
+                    return true;
+                }                
             }
         }
         return false;
     }
-    
-   
-    
 
-    
-    
-/*
-    public void compraNueva() {
-        String A[] = null;
-
-          float suma; 
-   
-    for(int r=0;r<IV.dgv_Productos.getRowCount();r++)
-    {
-                  suma=Integer.parseFloat(DTM.getValueAt(r,).toString())+Integer.parseInt(txtCantidad.getText());
-                  modelo.setValueAt(suma,r,2);
-                  modelo.setValueAt(suma*Float.parseFloat(A[1]),r,3);
-                  return;
-              }
-        Object O[] = new Object[6];
-        O[0] = A[0];
-        O[1] = A[1];
-        O[2] = A[2];
-        O[3] = IV.txt_Cantidad.getText();
-        O[5] = A[5];
-        O[6] = A[6];
-        float subtotal = 0;
-        float iva = 0;
-        float total = 0;
-        float importe = Integer.parseInt(IV.txt_Cantidad.getText()) * Integer.parseInt(A[4]);
-        O[4] = importe;
-        DTM.addRow(O);
-        IV.txt_Cantidad.setText("");
-        subtotal = subtotal + importe;
-        iva = (float) (subtotal * 0.16);
-        IV.lbl_IVA.setText(iva + "");
-        total = subtotal + iva;
-        IV.lbl_TotalValor.setText(total + "");
-
-        //Verificación de entrada de datos para txt_Codigo y txt_Presentación
-        InputVerifier fieldVerifier = new InputVerifier() {
-            @Override
-            public boolean verify(JComponent input) {
-                JTextField temp = (JTextField) input;
-                try {
-                    int number = Integer.parseInt(temp.getText());
-                    return true;
-                } catch (NumberFormatException e) {
-                    JOptionPane.showMessageDialog(null, "Sólo numeros!");
-                }
-                return false;
-            }
-        };
-        IV.txt_Codigo.setInputVerifier(fieldVerifier);
-
-        //--------Limpia los textos de Interfaz Venta-------//
-        IV.lbl_TotalValor.setText("");
-        IV.lbl_Promocion.setText("");
-        IV.lbl_NumeroDeArticulosValor.setText("");
-        IV.lbl_FolioVentaValor.setText("");
-        IV.lbl_NombreProducto.setText("");
-        IV.lbl_IVA.setText("");
-        IV.txt_BuscarProducto.setText("");
-        IV.txt_Cantidad.setText("");
-        IV.txt_Codigo.setText("");
-        //--------Limpia los textos de Interfaz Venta-------//
-    }// Fin compraNueva
-*/
     public void validartxtCaracteresBG() throws ventaException {
         //valida los txt para que no tengan caracteres invalidos y 
         //que no tengan espacios excepto el nombre por que se separan en dos nombres por eso para el nombre tiene la de invalidonom donde no agrego el espacio
@@ -588,7 +526,5 @@ public class Manejador_Ventas {
             }
         }
     }// Fin Validar Txt Brayan
-    //--------Funciones Void-----------------//
-    
-    
+    //--------Funciones Void-----------------//    
 }
