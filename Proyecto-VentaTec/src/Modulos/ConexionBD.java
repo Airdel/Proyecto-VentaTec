@@ -157,13 +157,15 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
     }
     
     //----------------------------Elimina en la base de datos-------------------------------------------------
-    public void deleteDBProd(String campo,String dato){
+    public boolean deleteDBProd(String campo,String dato){
         try{
            sp = con.prepareStatement("DELETE FROM PRODUCTOS where "+ campo +" = '"+ dato +"'");
            sp.executeUpdate();
+           return true;
         }catch(SQLException ex){
            System.out.println(ex.getMessage()); 
         }//Fin try catch
+        return false;
     }//Fin deleteTable
     
     
@@ -476,44 +478,37 @@ public String[] buscaFolio(){
     return null;
 }
 //-----------------------------------------------------------select--inventarios----------------
-public String[] getInveID(String id){
+public String getInveID(String id){
         try {
-            sp = con.prepareStatement("{CALL PS_GETINVENTARIO_ID("+id+")}");
+            sp = con.prepareStatement("EXEC PS_GETINVENTARIO_ID "+id);
             resultado = sp.executeQuery();
-            PreparedStatement sp1 = con.prepareStatement("{CALL PS_GETINVENTARIO_ID("+id+")}");
-            ResultSet resultado1 = sp1.executeQuery();
-            int row = countRow(resultado1);
-            String A[] = new String[row];
-            int i = 0;
+            String cad = "";
             while(resultado.next()){
-               A[i] = resultado.getString(1) + "," + resultado.getString(2) + "," + resultado.getFloat(3) +"," +
+               cad = resultado.getString(1) + "," + resultado.getString(2) + "," + resultado.getFloat(3) +"," +
                       resultado.getFloat(4) + "," + resultado.getString(5)+","+resultado.getString(6)+","+
                       resultado.getString(7) + "," + resultado.getString(8);
-               i++;
+               return cad;
             }
             sp.close();
             resultado.close();
-            sp1.close();
-            resultado1.close();
-            return A;
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
-            resultado = null;            
-            return null;
+            resultado = null;       
         }//Fin try catch
+        return "";
     }//Fin searchProduct
     
-    public void UpdateInventario(String nombrep,String c,float venta,float costo,int cate,int p,String a){
+    public void UpdateInventario(String nombrep,String descripcion,float precio,float costo,int categoria,int presentacion,String idProc){
         try{
-            sp = con.prepareStatement("{CALL PS_UDPATE_INVENTARIO(?,?,?,?,?,?,?)}" );
+            sp = con.prepareStatement("EXEC PS_UDPATE_INVENTARIO ?,?,?,?,?,?,?" );
             sp.setString(1, nombrep);
-            sp.setString(2,c);
-            sp.setFloat(3, venta);
+            sp.setString(2,descripcion);
+            sp.setFloat(3, precio);
             sp.setFloat(4, costo);
-            sp.setInt(5, cate);
-            sp.setInt(6, p);
-            sp.setString(7, a);                        
-            sp.executeUpdate();
+            sp.setInt(5, categoria);
+            sp.setInt(6, presentacion);
+            sp.setString(7, idProc);                        
+            sp.execute();
             sp.close();
         }catch(SQLException ex){
             JOptionPane.showMessageDialog(null, ex);

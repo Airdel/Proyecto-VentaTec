@@ -120,7 +120,6 @@ public class Manejador_Inventario {
             public void actionPerformed(ActionEvent ae) {
                 //----Valida txt de Intentario---//
                 validaTxt();
-                modificaDato();
                 //----Valida txt de Intentario---//
                 int i = JOptionPane.showConfirmDialog(II, "¿Seguro quiere modificar este producto?");
                 if (i == 0) {
@@ -169,12 +168,17 @@ public class Manejador_Inventario {
     public void eliminaBD() {
         CBD.openConexion();
         //------Reune los datos de producto con id--------------//
-        String A[] = CBD.getInveID(II.lblid.getText());
+        String A = CBD.getInveID(II.lblid.getText());
+        String B[] = A.split(",");
         //------Reune los datos de producto con id--------------//
         //------Verifica si la cantidad es 0--------------//
-        if (Integer.parseInt(A[5]) == 0) {
+        if (Integer.parseInt(B[5]) == 0) {
             //------Elimina--------------//
-            CBD.deleteDBProd("[ID PRODUCTO]", A[7]);
+            if(CBD.deleteDBProd("[ID PRODUCTO]", B[7])){
+                JOptionPane.showMessageDialog(II, "Producto eliminado");
+            }else{
+                JOptionPane.showMessageDialog(II, "Error producto no pudo ser eliminado");
+            }
             //------Elimina--------------//
         } else {
             JOptionPane.showMessageDialog(II, "No puedes eliminar un producto si su existencia es mayor a 0");
