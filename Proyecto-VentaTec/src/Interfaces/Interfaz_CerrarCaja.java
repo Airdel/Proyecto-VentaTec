@@ -16,6 +16,7 @@ public class Interfaz_CerrarCaja extends javax.swing.JInternalFrame {
      */
     public Interfaz_CerrarCaja() {
         initComponents();
+        this.setLocation(283,184);
     }
 
     /**

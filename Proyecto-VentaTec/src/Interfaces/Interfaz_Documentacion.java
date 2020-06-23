@@ -16,6 +16,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
      */
     public Interfaz_Documentacion() {
         this.setSize(649, 498);
+        this.setLocation(100,50);
         initComponents();
     }
 
