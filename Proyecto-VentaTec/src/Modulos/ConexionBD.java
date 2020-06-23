@@ -234,16 +234,16 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
         try{
             ps = con.prepareCall("EXEC PS_TICKET");
             resultado = ps.executeQuery();            
-            //PreparedStatement sp1 = con.prepareStatement("{CALL PS_TICKET}");
-            //ResultSet resultado1 = sp1.executeQuery();
-            int row = countRow(resultado);
+            PreparedStatement sp1 = con.prepareStatement("EXEC PS_TICKET");
+            ResultSet resultado1 = sp1.executeQuery();
+            int row = countRow(resultado1);
             //Declaraacion de variables 
             int i =0;
             String A[] = new String[row];
             //Recorrer las filas que contiene Resultado
             while(resultado.next()){
-                A[i] = resultado.getInt(1) + "," + resultado.getString(2) + "," + resultado.getInt(3) + "," +
-                       resultado.getInt(4) + "," + resultado.getFloat(5) + "," + resultado.getFloat(6) + "," + 
+                A[i] = resultado.getInt(1) + "," + resultado.getInt(2) + "," + resultado.getString(3) + "," +
+                       resultado.getString(4) + "," + resultado.getInt(5) + "," + resultado.getFloat(6) + "," + 
                        resultado.getFloat(7);
                 
                 i++;

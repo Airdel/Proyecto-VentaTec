@@ -23,6 +23,7 @@ import Modulos.Modulo_Ticket;
 import java.awt.FileDialog;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -57,6 +58,14 @@ public class Manejador_Documentacion{
         rellenaTabla();
         //----------INICIALIZACION Variables----------------//
         //----------Action Listener Performed---------------//
+        this.ID.tblDocumento.addMouseListener(new java.awt.event.MouseAdapter() {
+            //-----------Actualiza todos los TXT con info de la tabla----------//
+            public void mouseReleased(MouseEvent me) {
+                int row = ID.tblDocumento.getSelectedRow();
+                ID.lblTicket.setText(DTM.getValueAt(row, 0) + "");
+            }
+            //-----------Actualiza todos los TXT con info de la tabla----------//
+        });
         this.ID.btnBuscar.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 BuscarTicket();
@@ -64,17 +73,21 @@ public class Manejador_Documentacion{
         });
         this.ID.btnImpTicket.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                ImpTicket();
+                if(Integer.parseInt(ID.lblTicket.getText())==0){
+                    ImpTicket();
+                }else{JOptionPane.showMessageDialog(ID, "Busque un ticket para poder usar esta funcion");}
             }
         });
         this.ID.btnInfoAdicional.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                ImpTicket();
+                if(Integer.parseInt(ID.lblTicket.getText())==0){
+                    ImpTicket();
+                }else{JOptionPane.showMessageDialog(ID, "Busque un ticket para poder usar esta funcion");}
             }
         });
         this.ID.btnPDF.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
-                HacerPDF();
+                    HacerPDF();
             }
         });
         this.ID.btnEnviarM.addActionListener(new ActionListener(){
@@ -113,7 +126,7 @@ public class Manejador_Documentacion{
         //--------Inicializacion variables----------//
         MT = new Modulo_Ticket();
         int ROW = ID.tblDocumento.getSelectedRow();
-        int TICKET = Integer.parseInt(DTM.getValueAt(ROW, 0) + "");
+        int TICKET = Integer.parseInt(ID.lblTicket.getText());
         String S[] = CBD.getTicketID(TICKET);
         //--------Inicializacion variables----------//
         //-----------Rellena Ticket------------//
