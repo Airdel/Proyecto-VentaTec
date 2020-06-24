@@ -85,7 +85,7 @@ public class Manejador_Ventas {
                                     MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "",impUnit + "",  B[5]+ "");
                                     MV.sumaSubTotal();
                                     MV.sumaTodo();
-                                    IV.txt_Codigo.setText(B[0] + "");
+                                    actualizalbl(); 
                                 }else{
                                     JOptionPane.showMessageDialog(IV, "Producto no encontrado");
                                 }
@@ -175,8 +175,6 @@ public class Manejador_Ventas {
                         CBD.openConexion();
                         String A = CBD.searchProduct2("[ID PRODUCTO]", IV.txt_Codigo.getText());
                         Object B[] = new Object[6];
-
-                        
                         if(!(validaProducto())){
                             try {
                                 if(!(A.equals(""))){
@@ -204,7 +202,6 @@ public class Manejador_Ventas {
                         IV.dgv_Productos.requestFocus();
                     }
                     IV.txt_Cantidad.setText("1");
-
                 }
             }
 
@@ -457,14 +454,16 @@ public class Manejador_Ventas {
         float PRECIOU = 0;
         float precioUimporte = 0;
         float imp = 0;
-        int stock,stockDP;
+        int stock = 0,stockDP = 0;
         try{
             stock = Integer.parseInt(CBD.getInventario(IV.txt_Codigo.getText()));
-            stockDP = Integer.parseInt(CBD.getCantidadDevProc(IV.txt_Codigo.getText()));
         }catch(Exception e){JOptionPane.showMessageDialog(IV, "Producto no encontrado");
             IV.lbl_Cantidad.requestFocus();
             return true;
         }
+        try{
+            stockDP = Integer.parseInt(CBD.getCantidadDevProc(IV.txt_Codigo.getText()));
+        }catch(Exception e){}
         stock = stock - stockDP;
         if(stock == 0){
             IV.lblHora.requestFocus();
