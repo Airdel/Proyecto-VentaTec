@@ -431,6 +431,22 @@ public boolean devolverProc(String IDPRODUCTO, String IDVENTA){
         }//Fin try catch
         return false;
 }
+
+public String getCantidadDevProc(String IDProducto){
+        try {
+            sp = con.prepareStatement("SELECT SUM(CANTIDAD) FROM [PRODUCTO DEFECTUOSO] WHERE IDPRODUCTO = " + IDProducto);
+            resultado = sp.executeQuery();
+            String cad = "";
+            if(resultado.next()){
+                cad = resultado.getString(1) + "";
+                return cad;
+            }
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            resultado = null;
+        }//Fin try catch
+        return "";
+}
 //-----------------------------------------------------------select--inventarios----------------
 public String[] getInve(){
         try {
