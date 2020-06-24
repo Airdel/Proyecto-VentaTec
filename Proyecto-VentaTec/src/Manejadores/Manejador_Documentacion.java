@@ -79,7 +79,7 @@ public class Manejador_Documentacion implements Printable{
             public void actionPerformed(ActionEvent e){
                 String cad = ID.txtBuscar.getText();
                 if(!(cad.equals(""))){
-                    BuscarTicket(cad);
+                    rellenaTablaID();
                 }else{
                     JOptionPane.showMessageDialog(ID, "El texto de busqueda esta vacio");
                 }
@@ -140,6 +140,21 @@ public class Manejador_Documentacion implements Printable{
     public void rellenaTabla(){
         CBD.openConexion();
         String S[] = CBD.getTicket(); //Llamada a get Ticket
+        String S2[] = new String[8];
+        try{
+            //------Rellena la tabla Documentacion----------//
+            for (int i = 0;i < S.length;i++){
+                S2 = S[i].split(",");
+                DTM.addRow(S2);
+            }
+            //------Rellena la tabla Documentacion----------//
+        }
+        catch(Exception e){System.out.println(e.getMessage());}
+        CBD.closeConexion();
+    }// Fin RellenaTabla
+    public void rellenaTablaID(){
+        CBD.openConexion();
+        String S[] = CBD.getTicketID(Integer.parseInt(ID.txtBuscar.getText())); //Llamada a get Ticket
         String S2[] = new String[8];
         try{
             //------Rellena la tabla Documentacion----------//
@@ -227,25 +242,6 @@ public class Manejador_Documentacion implements Printable{
         CBD.closeConexion();
         return false;
     }
-    public int BuscarTicket(String cad){
-        CBD.openConexion();
-        //-------Inicializa variables---------//
-        String G[] = new String[DTM.getRowCount()];
-        String B = cad;
-        //-------Inicializa variables---------//
-        //-------Busca ticket a ticket en la tabla---------//
-        for (int i = 0;i < DTM.getRowCount();i++){
-            if(B.equals(DTM.getValueAt(i,0) + "")){
-                SM.setSelectionInterval(i, i + 1);
-                CBD.closeConexion();
-                return 0;
-            }
-        }
-        //-------Busca ticket a ticket en la tabla---------//
-        JOptionPane.showMessageDialog(ID, "Ticket no encontrado","Busca Ticket",JOptionPane.INFORMATION_MESSAGE);
-        CBD.closeConexion();
-        return 1;
-    }// Fin BuscarTicket
     
     public boolean EnviarMail(String cad){
         try{
