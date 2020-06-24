@@ -199,13 +199,13 @@ public class Interfaz_CerrarCaja extends javax.swing.JInternalFrame {
         lblFecha.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(lblFecha);
-        lblFecha.setBounds(400, 170, 110, 30);
+        lblFecha.setBounds(480, 170, 110, 30);
 
         lblfecha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lblfecha.setText("Fecha:");
         lblfecha.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         getContentPane().add(lblfecha);
-        lblfecha.setBounds(320, 160, 70, 50);
+        lblfecha.setBounds(390, 160, 70, 50);
 
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/src_CerrarCaja/Separator.png"))); // NOI18N
         getContentPane().add(jLabel9);
