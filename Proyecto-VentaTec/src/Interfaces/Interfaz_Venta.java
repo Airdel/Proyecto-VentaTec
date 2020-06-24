@@ -426,13 +426,14 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable {
 
         lbl_Promocion.setBackground(new java.awt.Color(102, 255, 51));
         lbl_Promocion.setForeground(new java.awt.Color(102, 255, 51));
+        lbl_Promocion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_Venta/12.png"))); // NOI18N
         lbl_Promocion.setText("                       Arrastra la promoción del día aquí");
         lbl_Promocion.setToolTipText("");
         lbl_Promocion.setMaximumSize(new java.awt.Dimension(344, 344));
         lbl_Promocion.setMinimumSize(new java.awt.Dimension(344, 344));
         lbl_Promocion.setPreferredSize(new java.awt.Dimension(344, 344));
         panel1.add(lbl_Promocion);
-        lbl_Promocion.setBounds(10, 200, 349, 344);
+        lbl_Promocion.setBounds(10, 230, 349, 344);
 
         btn_regresar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_Venta/Q (2)_1.png"))); // NOI18N
         btn_regresar.setMnemonic('q');
@@ -455,7 +456,7 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable {
         );
 
         panel1.add(jPanel1);
-        jPanel1.setBounds(70, 550, 180, 130);
+        jPanel1.setBounds(70, 590, 180, 130);
 
         lbl_FolioVenta1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbl_FolioVenta1.setText("Folio Anterior:");
