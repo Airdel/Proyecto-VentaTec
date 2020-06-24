@@ -88,14 +88,14 @@ public class Manejador_Documentacion implements Printable{
         this.ID.btnImpTicket.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if(Integer.parseInt(ID.lblTicket.getText())==0){
-                    ImpTicket();
+                    HacerPDF();
                 }else{JOptionPane.showMessageDialog(ID, "Busque un ticket para poder usar esta funcion");}
             }
         });
         this.ID.btnInfoAdicional.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 if(Integer.parseInt(ID.lblTicket.getText())==0){
-                    ImpTicket();
+                    HacerPDF();
                 }else{JOptionPane.showMessageDialog(ID, "Busque un ticket para poder usar esta funcion");}
             }
         });
