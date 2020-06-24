@@ -1,11 +1,13 @@
 package Manejadores;
 
+import Interfaces.Interfaz_DevolverProducto;
 import Interfaces.Interfaz_Principal;
 import Interfaces.Interfaz_Venta;
 import Interfaces.SubInterfaz_Venta_BuscarProducto;
 import Interfaces.Sub_Venta;
 import MailyOtros.ventaException;
 import Modulos.ConexionBD;
+import Modulos.Modulo_DevolverProducto;
 import Modulos.Modulo_Venta;
 import Modulos.Modulo_SubVenta;
 import com.mxrck.autocompleter.TextAutoCompleter;
@@ -40,6 +42,9 @@ public class Manejador_Ventas {
     private Modulo_SubVenta MSUV;
     private Manejador_SubVenta MASUV;
     private Interfaz_Principal IP;
+    private Interfaz_DevolverProducto IDP;
+    private Modulo_DevolverProducto MDP;
+    private Manejador_DevolverProducto MADP;
 
     //---Declaracion de Variables-----------//
     //------Inicio de Interfaz Venta-----------//
@@ -207,6 +212,14 @@ public class Manejador_Ventas {
         });
         //--------Listener Key Listener------------//
         //--------Action Listener Performed------------//
+        this.IV.btn_devolver.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                IDP = new Interfaz_DevolverProducto();
+                MDP = new Modulo_DevolverProducto();
+                MADP = new Manejador_DevolverProducto(IDP, MDP);
+            }
+        });
         this.IV.btn_AplicarDescuento.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
 
