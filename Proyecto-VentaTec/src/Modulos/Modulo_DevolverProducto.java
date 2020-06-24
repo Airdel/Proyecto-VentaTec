@@ -10,27 +10,27 @@ package Modulos;
  * @author LUISM
  */
 public class Modulo_DevolverProducto {
-    private String IDProducto;
-    private String IDVenta;
+    private int IDProducto;
+    private int IDVenta;
 
     public Modulo_DevolverProducto() {
-        this.IDProducto = "";
-        this.IDVenta = "";
+        this.IDProducto = 0;
+        this.IDVenta = 0;
     }
 
-    public void setIDProducto(String IDProducto) {
+    public void setIDProducto(int IDProducto) {
         this.IDProducto = IDProducto;
     }
 
-    public void setIDVenta(String IDVenta) {
+    public void setIDVenta(int IDVenta) {
         this.IDVenta = IDVenta;
     }
 
-    public String getIDProducto() {
+    public int getIDProducto() {
         return IDProducto;
     }
 
-    public String getIDVenta() {
+    public int getIDVenta() {
         return IDVenta;
     }
     
