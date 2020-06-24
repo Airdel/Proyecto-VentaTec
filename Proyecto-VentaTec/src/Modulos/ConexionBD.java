@@ -282,9 +282,10 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
             resultado1.close();
             return A; 
         }catch(SQLException e){
-            return null;
         }//Fin try catch
-   
+        String B[] = new String[1];
+        B[0] = "";
+        return B;
     }//fin clase getTicketID
     
     //-------------------------Devuelve un Arreglo Con todos los datos de una tabla------------------------------------------------

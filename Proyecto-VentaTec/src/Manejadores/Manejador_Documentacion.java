@@ -79,7 +79,11 @@ public class Manejador_Documentacion implements Printable{
             public void actionPerformed(ActionEvent e){
                 String cad = ID.txtBuscar.getText();
                 if(!(cad.equals(""))){
-                    rellenaTablaID();
+                    DTM.setRowCount(0);
+                    if(!(rellenaTablaID())){
+                        JOptionPane.showMessageDialog(ID, "Ticket no encontrado");
+                        rellenaTabla();
+                    }
                 }else{
                     JOptionPane.showMessageDialog(ID, "El texto de busqueda esta vacio");
                 }
@@ -152,9 +156,12 @@ public class Manejador_Documentacion implements Printable{
         catch(Exception e){System.out.println(e.getMessage());}
         CBD.closeConexion();
     }// Fin RellenaTabla
-    public void rellenaTablaID(){
+    public boolean rellenaTablaID(){
         CBD.openConexion();
         String S[] = CBD.getTicketID(Integer.parseInt(ID.txtBuscar.getText())); //Llamada a get Ticket
+        if(S[0].equals("")){
+            return false;
+        }
         String S2[] = new String[8];
         try{
             //------Rellena la tabla Documentacion----------//
@@ -166,6 +173,7 @@ public class Manejador_Documentacion implements Printable{
         }
         catch(Exception e){System.out.println(e.getMessage());}
         CBD.closeConexion();
+        return true;
     }// Fin RellenaTabla
     
     public void ImpTicket(){
