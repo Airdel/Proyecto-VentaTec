@@ -17,7 +17,7 @@ import javax.swing.UIManager;
 
 /**
  *
- * @author user
+ * @author INOVATEC
  */
 public class Interfaz_Bienvenida extends javax.swing.JFrame {
     private String T;

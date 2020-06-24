@@ -6,6 +6,7 @@
 package Manejadores;
 
 import Interfaces.Interfaz_AbrirCaja;
+import Interfaces.Interfaz_Principal;
 import Modulos.Modulo_AbrirCaja;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,12 +21,14 @@ public class Manejador_AbrirCaja {
     private Interfaz_AbrirCaja IAC;
     private Modulo_AbrirCaja MAC;
     private Manejador_Principal MP;
+    private Interfaz_Principal IP;
     //-----------Declaracion Variables-----------//
     //-----Iniciar Interfaz Abrir Caja-----------//
-    public Manejador_AbrirCaja(Interfaz_AbrirCaja IAC1, Modulo_AbrirCaja MAC1) {
+    public Manejador_AbrirCaja(Interfaz_AbrirCaja IAC1, Modulo_AbrirCaja MAC1,Interfaz_Principal ip) {
         //-----------Inicializacion --------------------//
         this.IAC = IAC1;
         this.MAC = MAC1;
+        this.IP = ip;
         //-----------Inicializacion --------------------//
         //-----------ACTION LISTENER PERFORMED--------------------//
         this.IAC.btn_AbrirCaja.addActionListener(new ActionListener() {
@@ -44,6 +47,7 @@ public class Manejador_AbrirCaja {
                     //------Agrega el Fondo de Caja a Modulo Abrir Caja-------//
                     
                     IAC.setVisible(false); //Cierre de la interfaz de abrir caja
+                    IP.btn_CerrarSesion.setEnabled(false);
                     
                     }
                 }catch(Exception e){JOptionPane.showMessageDialog(IAC, "Solo Numeros");}

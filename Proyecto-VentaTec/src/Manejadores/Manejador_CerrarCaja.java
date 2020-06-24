@@ -71,6 +71,7 @@ public class Manejador_CerrarCaja {
                 JOptionPane.showMessageDialog(ICC, "Corte realizado");
                 ICC.btn_CorteCaja.setEnabled(false);
                 IP.btn_VentanaNuevaVenta.setEnabled(false);
+                IP.btn_CerrarSesion.setEnabled(true);
                 ICC.setVisible(false);
                 //-----Actualiza los label de Interfaz Cerrar Caja--------//
                 }catch(Exception e){

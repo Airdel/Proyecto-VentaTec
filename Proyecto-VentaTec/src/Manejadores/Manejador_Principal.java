@@ -49,7 +49,7 @@ public class Manejador_Principal {
     private Manejador_Registro MAR = new Manejador_Registro(IR, MR);
     private Manejador_Ventas MAV;
     private Manejador_CerrarCaja MACC = new Manejador_CerrarCaja(ICC, MCC, this.IP);
-    private Manejador_AbrirCaja MAAC = new Manejador_AbrirCaja(IAC, MAC);
+    private Manejador_AbrirCaja MAAC = new Manejador_AbrirCaja(IAC, MAC,this.IP);
     private Manejador_NuevoUsu MNU = new Manejador_NuevoUsu(IAU, MU);
     //-----Manejador_x-------------------// 
     //-----Inicio de Ventana Principal-------------------// 
@@ -151,6 +151,8 @@ public class Manejador_Principal {
                     ICC.setVisible(true);
                     ICC.setEnabled(false);
                     IP.btn_VentanaNuevaVenta.setEnabled(false);
+                    IP.btn_CerrarSesion.setEnabled(true);
+                    
                                      
                 }
                //----Revisa si esta abierto Cerrar Caja---//
@@ -167,6 +169,7 @@ public class Manejador_Principal {
                     IP.btn_CerrarCaja.setEnabled(true);
                     IP.btn_AbrirCaja.setEnabled(false);
                     IP.btn_VentanaNuevaVenta.setEnabled(true);
+                    IP.btn_CerrarSesion.setEnabled(false);
                     try{
                     //------Agrega el Fondo de caja-------//
                     double i = Double.parseDouble(JOptionPane.showInputDialog(IP, "Agregar caja fondo"));
