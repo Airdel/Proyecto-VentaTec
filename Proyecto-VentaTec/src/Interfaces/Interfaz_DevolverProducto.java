@@ -36,6 +36,8 @@ public class Interfaz_DevolverProducto extends javax.swing.JFrame {
         lbl_Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Devolver Producto");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
         getContentPane().setLayout(null);
 
         lbl_IdProducto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
