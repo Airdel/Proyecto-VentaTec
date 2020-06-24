@@ -94,48 +94,34 @@ public class Interfaz_Bienvenida extends javax.swing.JFrame {
     private void initComponents() {
 
         barra = new javax.swing.JProgressBar();
-        jLabel3 = new javax.swing.JLabel();
         labporcentaje = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
+        setMaximumSize(new java.awt.Dimension(547, 319));
+        setMinimumSize(new java.awt.Dimension(547, 319));
+        setPreferredSize(new java.awt.Dimension(547, 319));
+        setSize(new java.awt.Dimension(547, 319));
+        getContentPane().setLayout(null);
 
         barra.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 barraStateChanged(evt);
             }
         });
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/aaa_1.jpg"))); // NOI18N
+        getContentPane().add(barra);
+        barra.setBounds(0, 300, 547, 19);
 
         labporcentaje.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
-        labporcentaje.setForeground(new java.awt.Color(255, 255, 255));
+        labporcentaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labporcentaje.setText("1");
+        getContentPane().add(labporcentaje);
+        labporcentaje.setBounds(230, 270, 90, 21);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(barra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(243, 243, 243)
-                        .addComponent(labporcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel3)))
-                .addContainerGap(70, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(labporcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(barra, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_Empresa.png"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(160, -40, 390, 360);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -155,7 +141,7 @@ public class Interfaz_Bienvenida extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar barra;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labporcentaje;
     // End of variables declaration//GEN-END:variables
 }

@@ -152,7 +152,7 @@ public class Manejador_Principal {
                     ICC.setEnabled(false);
                     IP.btn_VentanaNuevaVenta.setEnabled(false);
                     IP.btn_CerrarSesion.setEnabled(true);
-                    
+                    IP.btn_CerrarCaja.setEnabled(false);
                                      
                 }
                //----Revisa si esta abierto Cerrar Caja---//
@@ -185,7 +185,12 @@ public class Manejador_Principal {
                     //IAC.setVisible(false); //Cierre de la interfaz de abrir caja
                     
                     }
-                }catch(Exception e){JOptionPane.showMessageDialog(IAC, "Solo Numeros"+e);}
+                }catch(Exception e){JOptionPane.showMessageDialog(IAC, "Solo Numeros");
+                IP.btn_AbrirCaja.setEnabled(true); 
+                IP.btn_VentanaNuevaVenta.setEnabled(false);
+                IP.btn_CerrarCaja.setEnabled(false);
+                 IP.btn_CerrarSesion.setEnabled(true);
+                }
                 }
                //----Revisa si esta abierto Abrir Caja---//
            } 

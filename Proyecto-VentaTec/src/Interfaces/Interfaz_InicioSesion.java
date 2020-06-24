@@ -9,6 +9,8 @@ import Manejadores.Manejador_InicioSesion;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
 // Paquetes e importaciones - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 /**
  *
@@ -44,10 +46,11 @@ public class Interfaz_InicioSesion extends javax.swing.JFrame {
         lblUser3 = new javax.swing.JLabel();
         lbl_Background = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Inicio de Sesion.");
         setBackground(new java.awt.Color(223, 223, 223));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
+        setUndecorated(true);
 
         pnLogin.setBackground(new java.awt.Color(255, 255, 255));
         pnLogin.setForeground(new java.awt.Color(66, 65, 70));
@@ -187,7 +190,10 @@ public class Interfaz_InicioSesion extends javax.swing.JFrame {
     private void btn_SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_SalirActionPerformed
         this.btn_Salir.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent ae) {
-               System.exit(0);
+                int reply = JOptionPane.showConfirmDialog(null,
+                    "Realmente deseas salir", "Salir", JOptionPane.YES_NO_OPTION);
+                // 0=yes, 1=no, 2=cancel
+                if(reply==JOptionPane.YES_OPTION){System.exit(0);}
            } 
         });
     }//GEN-LAST:event_btn_SalirActionPerformed

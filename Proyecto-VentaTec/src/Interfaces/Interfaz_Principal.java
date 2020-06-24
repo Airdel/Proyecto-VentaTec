@@ -75,7 +75,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         Ventana_JPanelPrincipal = new javax.swing.JDesktopPane();
         lbl_IconoEmpresa = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("VentaTec - Abarrotes \"Los Ayala\"");
         setBackground(new java.awt.Color(177, 216, 211));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
@@ -85,7 +85,6 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
                 formWindowClosing(evt);
             }
         });
-        getContentPane().setLayout(null);
 
         Jpanel_Botones.setBackground(new java.awt.Color(51, 204, 0));
         Jpanel_Botones.setForeground(new java.awt.Color(102, 255, 102));
@@ -141,9 +140,6 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         Jpanel_Botones.add(btn_CrearUsuario);
         btn_CrearUsuario.setBounds(10, 500, 198, 87);
 
-        getContentPane().add(Jpanel_Botones);
-        Jpanel_Botones.setBounds(8, 0, 210, 700);
-
         jPanel1.setBackground(new java.awt.Color(0, 255, 0));
 
         JPanel_Principal.setBackground(new java.awt.Color(0, 255, 0));
@@ -168,9 +164,9 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         Ventana_JPanelPrincipalLayout.setHorizontalGroup(
             Ventana_JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Ventana_JPanelPrincipalLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lbl_IconoEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 1270, Short.MAX_VALUE)
-                .addGap(0, 0, 0))
+                .addGap(18, 18, 18)
+                .addComponent(lbl_IconoEmpresa, javax.swing.GroupLayout.PREFERRED_SIZE, 1262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Ventana_JPanelPrincipalLayout.setVerticalGroup(
             Ventana_JPanelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,7 +176,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         );
 
         JPanel_Principal.add(Ventana_JPanelPrincipal);
-        Ventana_JPanelPrincipal.setBounds(-30, 0, 1280, 771);
+        Ventana_JPanelPrincipal.setBounds(-30, 0, 1290, 771);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -193,17 +189,30 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
             .addComponent(JPanel_Principal, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(240, 0, 1030, 700);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(8, 8, 8)
+                .addComponent(Jpanel_Botones, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Jpanel_Botones, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-      if (showConfirmDialog(rootPane, "¿Desea salir del sistema?",
-            "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
-        System.exit(0);
-    }
+//      if (showConfirmDialog(rootPane, "¿Desea salir del sistema?",
+//            "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
+//        System.exit(0);
+//    }
     }//GEN-LAST:event_formWindowClosing
 
     /**

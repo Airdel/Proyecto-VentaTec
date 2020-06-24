@@ -97,7 +97,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         lblTP2.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblTP2.setText("Total:");
         pnlInformacion.add(lblTP2);
-        lblTP2.setBounds(10, 10, 100, 18);
+        lblTP2.setBounds(10, 10, 100, 19);
 
         lblTotal.setFont(new java.awt.Font("Montserrat", 1, 26)); // NOI18N
         lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -108,7 +108,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         lblTP3.setFont(new java.awt.Font("Montserrat", 1, 12)); // NOI18N
         lblTP3.setText("SubTotal");
         pnlInformacion.add(lblTP3);
-        lblTP3.setBounds(10, 70, 50, 15);
+        lblTP3.setBounds(10, 70, 50, 16);
 
         lblUsuario.setFont(new java.awt.Font("Montserrat", 1, 12)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(102, 102, 102));
@@ -121,13 +121,13 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         lblSubTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblSubTotal.setText("$0.00");
         pnlInformacion.add(lblSubTotal);
-        lblSubTotal.setBounds(0, 86, 200, 23);
+        lblSubTotal.setBounds(0, 86, 200, 24);
 
         lblUser4.setFont(new java.awt.Font("Montserrat", 1, 12)); // NOI18N
         lblUser4.setForeground(new java.awt.Color(102, 102, 102));
         lblUser4.setText("IVA:");
         pnlInformacion.add(lblUser4);
-        lblUser4.setBounds(10, 160, 30, 15);
+        lblUser4.setBounds(10, 160, 30, 16);
 
         lblIva.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         lblIva.setForeground(new java.awt.Color(102, 102, 102));
@@ -140,7 +140,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         lblUser6.setForeground(new java.awt.Color(102, 102, 102));
         lblUser6.setText("Fecha Venta:");
         pnlInformacion.add(lblUser6);
-        lblUser6.setBounds(10, 190, 80, 15);
+        lblUser6.setBounds(10, 190, 80, 16);
 
         lblFechaV.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         lblFechaV.setForeground(new java.awt.Color(102, 102, 102));
@@ -190,7 +190,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         lblUser5.setForeground(new java.awt.Color(102, 102, 102));
         lblUser5.setText("Usuario:");
         pnlInformacion.add(lblUser5);
-        lblUser5.setBounds(10, 130, 50, 15);
+        lblUser5.setBounds(10, 130, 50, 16);
 
         jPanel1.add(pnlInformacion);
         pnlInformacion.setBounds(680, 60, 210, 450);
@@ -302,7 +302,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 510, Short.MAX_VALUE)
         );
 
         pack();

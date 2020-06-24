@@ -16,6 +16,7 @@ public class Interfaz_DevolverProducto extends javax.swing.JFrame {
      */
     public Interfaz_DevolverProducto() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -35,40 +36,77 @@ public class Interfaz_DevolverProducto extends javax.swing.JFrame {
         txt_IdVenta = new javax.swing.JTextField();
         lbl_Background = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Devolver Producto");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
+        setMaximumSize(new java.awt.Dimension(333, 171));
+        setMinimumSize(new java.awt.Dimension(333, 171));
+        setName("Devolver Producto"); // NOI18N
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(333, 171));
 
         lbl_IdProducto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbl_IdProducto.setText("Código de Producto:");
-        getContentPane().add(lbl_IdProducto);
-        lbl_IdProducto.setBounds(2, 23, 170, 22);
 
         btn_Confirmar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btn_Confirmar.setText("Confirmar");
-        getContentPane().add(btn_Confirmar);
-        btn_Confirmar.setBounds(10, 110, 165, 50);
 
         btn_Cancelar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btn_Cancelar.setText("Cancelar");
-        getContentPane().add(btn_Cancelar);
-        btn_Cancelar.setBounds(190, 110, 130, 50);
 
         lbl_IdVenta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbl_IdVenta.setText("Código de Venta:");
-        getContentPane().add(lbl_IdVenta);
-        lbl_IdVenta.setBounds(30, 70, 140, 22);
 
         txt_IdProducto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        getContentPane().add(txt_IdProducto);
-        txt_IdProducto.setBounds(183, 20, 140, 28);
 
         txt_IdVenta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        getContentPane().add(txt_IdVenta);
-        txt_IdVenta.setBounds(180, 70, 140, 28);
 
         lbl_Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/src_CerrarCaja/bluetriangles.png"))); // NOI18N
-        getContentPane().add(lbl_Background);
-        lbl_Background.setBounds(0, 0, 340, 170);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(183, 183, 183)
+                .addComponent(txt_IdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(lbl_IdVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(btn_Confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(2, 2, 2)
+                .addComponent(lbl_IdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(txt_IdVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(190, 190, 190)
+                .addComponent(btn_Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(lbl_Background, javax.swing.GroupLayout.PREFERRED_SIZE, 340, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(txt_IdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(lbl_IdVenta)
+                .addGap(18, 18, 18)
+                .addComponent(btn_Confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(lbl_IdProducto))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(txt_IdVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(btn_Cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(lbl_Background)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -111,7 +149,7 @@ public class Interfaz_DevolverProducto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn_Cancelar;
     public javax.swing.JButton btn_Confirmar;
-    private javax.swing.JLabel lbl_Background;
+    public javax.swing.JLabel lbl_Background;
     private javax.swing.JLabel lbl_IdProducto;
     private javax.swing.JLabel lbl_IdVenta;
     public javax.swing.JTextField txt_IdProducto;
