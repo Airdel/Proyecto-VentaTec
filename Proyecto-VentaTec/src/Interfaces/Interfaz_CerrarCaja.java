@@ -5,6 +5,9 @@
  */
 package Interfaces;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  * @author darie
@@ -16,6 +19,7 @@ public class Interfaz_CerrarCaja extends javax.swing.JInternalFrame {
      */
     public Interfaz_CerrarCaja() {
         initComponents();
+        lblFecha.setText(fechaSystem());
     }
 
     /**
@@ -47,179 +51,180 @@ public class Interfaz_CerrarCaja extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
-        btn_Cancelar = new javax.swing.JButton();
         spin_500 = new javax.swing.JSpinner();
         spin_200 = new javax.swing.JSpinner();
         spin_100 = new javax.swing.JSpinner();
         spin_50 = new javax.swing.JSpinner();
         spin_20 = new javax.swing.JSpinner();
+        lblFecha = new javax.swing.JLabel();
+        lblfecha = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
 
+        setBorder(javax.swing.BorderFactory.createEtchedBorder());
         setTitle("Corte de Caja");
         setFrameIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png"))); // NOI18N
+        setMaximumSize(new java.awt.Dimension(624, 354));
+        setMinimumSize(new java.awt.Dimension(624, 354));
+        getContentPane().setLayout(null);
 
+        spin_10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         spin_10.setModel(new javax.swing.SpinnerNumberModel());
+        getContentPane().add(spin_10);
+        spin_10.setBounds(140, 110, 54, 24);
 
+        spin_5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         spin_5.setModel(new javax.swing.SpinnerNumberModel());
+        getContentPane().add(spin_5);
+        spin_5.setBounds(230, 20, 54, 24);
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("2:");
+        getContentPane().add(jLabel10);
+        jLabel10.setBounds(210, 70, 13, 17);
 
+        spin_2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         spin_2.setModel(new javax.swing.SpinnerNumberModel());
+        getContentPane().add(spin_2);
+        spin_2.setBounds(230, 70, 54, 24);
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("1:");
+        getContentPane().add(jLabel11);
+        jLabel11.setBounds(210, 120, 13, 17);
 
+        spin_1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         spin_1.setModel(new javax.swing.SpinnerNumberModel());
+        getContentPane().add(spin_1);
+        spin_1.setBounds(230, 110, 54, 24);
 
         btn_CorteCaja.setText("Corte de Caja!");
+        btn_CorteCaja.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_CorteCajaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btn_CorteCaja);
+        btn_CorteCaja.setBounds(10, 160, 280, 50);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("500:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(10, 20, 29, 17);
 
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel12.setText("Caja Fondo:");
+        getContentPane().add(jLabel12);
+        jLabel12.setBounds(320, 60, 130, 27);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("200:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(10, 70, 29, 17);
 
+        lblCajaFondo.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         lblCajaFondo.setText("-");
+        getContentPane().add(lblCajaFondo);
+        lblCajaFondo.setBounds(470, 60, 130, 22);
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("20:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(120, 70, 21, 17);
 
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel14.setText("Ganancias:");
+        getContentPane().add(jLabel14);
+        jLabel14.setBounds(320, 100, 120, 27);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("10:");
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(120, 120, 21, 17);
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("100:");
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(10, 120, 29, 17);
 
+        lblGanancias.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         lblGanancias.setText("-");
+        getContentPane().add(lblGanancias);
+        lblGanancias.setBounds(470, 110, 130, 22);
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("50:");
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(120, 20, 21, 17);
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("5:");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(210, 20, 13, 17);
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel8.setText("Total:");
+        getContentPane().add(jLabel8);
+        jLabel8.setBounds(380, 10, 70, 27);
 
+        lblTotal.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         lblTotal.setText("-");
+        getContentPane().add(lblTotal);
+        lblTotal.setBounds(470, 20, 130, 22);
 
-        btn_Cancelar.setText("Cancelar");
-
+        spin_500.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         spin_500.setModel(new javax.swing.SpinnerNumberModel());
+        getContentPane().add(spin_500);
+        spin_500.setBounds(50, 20, 54, 24);
 
+        spin_200.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         spin_200.setModel(new javax.swing.SpinnerNumberModel());
+        getContentPane().add(spin_200);
+        spin_200.setBounds(50, 70, 54, 24);
 
+        spin_100.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         spin_100.setModel(new javax.swing.SpinnerNumberModel());
+        getContentPane().add(spin_100);
+        spin_100.setBounds(50, 110, 54, 24);
 
+        spin_50.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         spin_50.setModel(new javax.swing.SpinnerNumberModel());
+        getContentPane().add(spin_50);
+        spin_50.setBounds(140, 20, 54, 24);
 
+        spin_20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         spin_20.setModel(new javax.swing.SpinnerNumberModel());
+        getContentPane().add(spin_20);
+        spin_20.setBounds(140, 70, 54, 24);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spin_200, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spin_20, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spin_2, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel12)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblCajaFondo))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spin_500, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spin_50, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spin_5, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel8)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblTotal))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spin_100, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spin_10, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(spin_1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel14)
-                        .addGap(18, 18, 18)
-                        .addComponent(lblGanancias)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btn_CorteCaja, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btn_Cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel6)
-                            .addComponent(spin_500, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(spin_50, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)
-                            .addComponent(spin_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTotal))
-                        .addGap(19, 19, 19)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(spin_200, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3)
-                            .addComponent(spin_20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel10)
-                            .addComponent(spin_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCajaFondo)))
-                    .addComponent(btn_CorteCaja, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel5)
-                                .addComponent(spin_100, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel4)
-                                .addComponent(spin_10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel11)
-                                .addComponent(spin_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblGanancias)))
-                        .addContainerGap(22, Short.MAX_VALUE))
-                    .addComponent(btn_Cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
+        lblFecha.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        lblFecha.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        getContentPane().add(lblFecha);
+        lblFecha.setBounds(400, 170, 110, 30);
+
+        lblfecha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblfecha.setText("Fecha:");
+        lblfecha.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        getContentPane().add(lblfecha);
+        lblfecha.setBounds(320, 160, 70, 50);
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/src_CerrarCaja/Separator.png"))); // NOI18N
+        getContentPane().add(jLabel9);
+        jLabel9.setBounds(240, -30, 120, 312);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_CorteCajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CorteCajaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_CorteCajaActionPerformed
+    
+    private static String fechaSystem(){
+      Date fecha=new Date();
+      SimpleDateFormat formatoF= new SimpleDateFormat("dd/MM/YYYY");
+      return formatoF.format(fecha);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton btn_Cancelar;
     public javax.swing.JButton btn_CorteCaja;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -233,9 +238,12 @@ public class Interfaz_CerrarCaja extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     public javax.swing.JLabel lblCajaFondo;
+    public javax.swing.JLabel lblFecha;
     public javax.swing.JLabel lblGanancias;
     public javax.swing.JLabel lblTotal;
+    private javax.swing.JLabel lblfecha;
     public javax.swing.JSpinner spin_1;
     public javax.swing.JSpinner spin_10;
     public javax.swing.JSpinner spin_100;
