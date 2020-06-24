@@ -130,11 +130,11 @@ public class Interfaz_DevolverProducto extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_Cancelar;
-    private javax.swing.JButton btn_Confirmar;
+    public javax.swing.JButton btn_Cancelar;
+    public javax.swing.JButton btn_Confirmar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField txt_IdProducto;
-    private javax.swing.JTextField txt_IdVenta;
+    public javax.swing.JTextField txt_IdProducto;
+    public javax.swing.JTextField txt_IdVenta;
     // End of variables declaration//GEN-END:variables
 }
