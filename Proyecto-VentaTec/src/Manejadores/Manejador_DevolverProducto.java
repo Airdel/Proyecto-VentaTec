@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author LUISM
+ * @author LUISMI
  */
 public class Manejador_DevolverProducto {
     private Interfaz_DevolverProducto IDP;
@@ -26,6 +26,28 @@ public class Manejador_DevolverProducto {
         this.IDP = IDP;
         this.MDP = MDP;
         this.CBD = new ConexionBD();
+        this.IDP.txt_IdProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent ke) {
+                char c = ke.getKeyChar();
+                if (!(c >= 48 && c <= 57)) {
+                    ke.consume();
+                } else if (IDP.txt_IdProducto.getText().length() == 6) {
+                    ke.consume();
+                }
+            }
+        });
+        this.IDP.txt_IdVenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent ke) {
+                char c = ke.getKeyChar();
+                if (!(c >= 48 && c <= 57)) {
+                    ke.consume();
+                } else if (IDP.txt_IdProducto.getText().length() == 6) {
+                    ke.consume();
+                }
+            }
+        });
         this.IDP.btn_Cancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
