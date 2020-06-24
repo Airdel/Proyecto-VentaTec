@@ -54,6 +54,35 @@ public class Manejador_DevolverProducto {
                 IDP.dispose();
             }
         });
+            this.IDP.txt_IdProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            //---------Valida Solo Letras y numeros------------//
+            public void keyTyped(KeyEvent ke) {
+                char c = ke.getKeyChar();
+                if (!((c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c == KeyEvent.VK_ESCAPE)|| (c == 130) || (c == 181) || (c == 144) || (c == 214) || (c == 224) || (c == 233) || (c >= 160 && c <= 163))) {
+                    ke.consume();
+                } else if (IDP.txt_IdProducto.getText().length() == 13) {//----Tamaño----//
+                    ke.consume();
+                }
+            }
+            //---------Valida Solo Letras y numeros------------//
+        });
+            
+            this.IDP.txt_IdVenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            //---------numeros------------//
+            public void keyTyped(KeyEvent ke) {
+                char c = ke.getKeyChar();
+                if (!((c >= 48 && c <= 57) )) {
+                    ke.consume();
+                } else if (IDP.txt_IdVenta.getText().length() == 40) {//----Tamaño----//
+                    ke.consume();
+                }
+            }
+            //--------- numeros------------//
+        });    
+        
+            
+            
+    
         this.IDP.btn_Confirmar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -68,6 +97,6 @@ public class Manejador_DevolverProducto {
                 CBD.closeConexion();
             }
         });
+        
     }
-    
 }
