@@ -10,6 +10,7 @@ import Modulos.ConexionBD;
 import Modulos.Modulo_DevolverProducto;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,6 +26,28 @@ public class Manejador_DevolverProducto {
         this.IDP = IDP;
         this.MDP = MDP;
         this.CBD = new ConexionBD();
+        this.IDP.txt_IdProducto.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent ke) {
+                char c = ke.getKeyChar();
+                if (!(c >= 48 && c <= 57)) {
+                    ke.consume();
+                } else if (IDP.txt_IdProducto.getText().length() == 6) {
+                    ke.consume();
+                }
+            }
+        });
+        this.IDP.txt_IdVenta.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent ke) {
+                char c = ke.getKeyChar();
+                if (!(c >= 48 && c <= 57)) {
+                    ke.consume();
+                } else if (IDP.txt_IdProducto.getText().length() == 6) {
+                    ke.consume();
+                }
+            }
+        });
         this.IDP.btn_Cancelar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
