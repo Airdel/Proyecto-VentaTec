@@ -80,6 +80,7 @@ public class Manejador_Ventas {
                                     MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "",impUnit + "",  B[5]+ "");
                                     MV.sumaSubTotal();
                                     MV.sumaTodo();
+                                    actualizalbl();
                                     IV.txt_Codigo.setText(B[0] + "");
                                 }else{
                                     JOptionPane.showMessageDialog(IV, "Producto no encontrado");
