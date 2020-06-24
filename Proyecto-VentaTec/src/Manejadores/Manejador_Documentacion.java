@@ -83,6 +83,7 @@ public class Manejador_Documentacion implements Printable{
                     if(!(rellenaTablaID())){
                         JOptionPane.showMessageDialog(ID, "Ticket no encontrado");
                         rellenaTabla();
+                        rellenalbl();
                     }
                 }else{
                     JOptionPane.showMessageDialog(ID, "El texto de busqueda esta vacio");
