@@ -457,13 +457,15 @@ public class Manejador_Ventas {
         float PRECIOU = 0;
         float precioUimporte = 0;
         float imp = 0;
-        int stock;
+        int stock,stockDP;
         try{
             stock = Integer.parseInt(CBD.getInventario(IV.txt_Codigo.getText()));
+            stockDP = Integer.parseInt(CBD.getCantidadDevProc(IV.txt_Codigo.getText()));
         }catch(Exception e){JOptionPane.showMessageDialog(IV, "Producto no encontrado");
             IV.lbl_Cantidad.requestFocus();
             return true;
         }
+        stock = stock - stockDP;
         if(stock == 0){
             IV.lblHora.requestFocus();
             showMessageDialog(null,"No se encuentra este producto en inventario. Cantidad de producto = 0");
