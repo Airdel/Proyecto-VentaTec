@@ -43,7 +43,7 @@ public class Manejador_DevolverProducto {
                 char c = ke.getKeyChar();
                 if (!(c >= 48 && c <= 57)) {
                     ke.consume();
-                } else if (IDP.txt_IdProducto.getText().length() == 6) {
+                } else if (IDP.txt_IdVenta.getText().length() == 6) {
                     ke.consume();
                 }
             }
@@ -86,8 +86,8 @@ public class Manejador_DevolverProducto {
         this.IDP.btn_Confirmar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                MDP.setIDProducto(IDP.txt_IdProducto.getText());
-                MDP.setIDVenta(IDP.txt_IdVenta.getText());
+                MDP.setIDProducto(Integer.parseInt(IDP.txt_IdProducto.getText()));
+                MDP.setIDVenta(Integer.parseInt(IDP.txt_IdVenta.getText()));
                 CBD.openConexion();
                 if(CBD.devolverProc(MDP.getIDProducto(), MDP.getIDVenta())){
                     JOptionPane.showMessageDialog(IDP, "Producto devuelto exitosamente");
