@@ -109,6 +109,7 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable {
         btn_BuscarProducto = new javax.swing.JButton();
         btn_Quitar = new javax.swing.JButton();
         btn_AplicarDescuento = new javax.swing.JButton();
+        btn_devolver = new javax.swing.JButton();
         lbl_IconoEmpresa = new javax.swing.JLabel();
         lbl_Promocion = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -370,33 +371,49 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable {
         btn_AplicarDescuento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_Venta/icon_Descuento.png"))); // NOI18N
         btn_AplicarDescuento.setMnemonic('a');
 
+        btn_devolver.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_Venta/icon_DevolverProducto.png"))); // NOI18N
+        btn_devolver.setMnemonic('m');
+        btn_devolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_devolverActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jpn_BotonesLayout = new javax.swing.GroupLayout(jpn_Botones);
         jpn_Botones.setLayout(jpn_BotonesLayout);
         jpn_BotonesLayout.setHorizontalGroup(
             jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpn_BotonesLayout.createSequentialGroup()
-                .addGap(33, 33, 33)
+                .addContainerGap()
                 .addComponent(btn_BuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(83, 83, 83)
+                .addGap(18, 18, 18)
+                .addComponent(btn_devolver, javax.swing.GroupLayout.PREFERRED_SIZE, 180, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btn_Quitar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(btn_AplicarDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57)
+                .addGap(18, 18, 18)
                 .addComponent(btn_Cobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
         jpn_BotonesLayout.setVerticalGroup(
             jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpn_BotonesLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addGroup(jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_BuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(22, 22, 22)
+                .addGroup(jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(btn_AplicarDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btn_Quitar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jpn_BotonesLayout.createSequentialGroup()
+                            .addGap(1, 1, 1)
+                            .addComponent(btn_Cobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jpn_BotonesLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(btn_Cobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_Quitar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(3, 3, 3))
+                    .addGroup(jpn_BotonesLayout.createSequentialGroup()
+                        .addGroup(jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btn_devolver, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_BuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(2, 2, 2)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -478,6 +495,10 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable {
         System.exit(0);
     }
     }//GEN-LAST:event_formWindowClosing
+
+    private void btn_devolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_devolverActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_devolverActionPerformed
 
     /**
      * @param args the command line arguments
@@ -598,6 +619,7 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable {
     public javax.swing.JButton btn_BuscarProducto;
     public javax.swing.JButton btn_Cobrar;
     public javax.swing.JButton btn_Quitar;
+    public javax.swing.JButton btn_devolver;
     public javax.swing.JButton btn_regresar;
     public javax.swing.JTable dgv_Productos;
     private javax.swing.JLabel jLabel16;

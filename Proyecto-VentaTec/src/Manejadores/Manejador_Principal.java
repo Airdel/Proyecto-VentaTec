@@ -188,7 +188,7 @@ public class Manejador_Principal {
             IP.btn_CrearUsuario.setVisible(true);
             IP.btn_VentanaInventario.setVisible(true);
         }else if(MP.getTipoUSU().equals("U")){
-            IP.btn_VentanaDocumentos.setVisible(false);
+            IP.btn_VentanaDocumentos.setVisible(true);
             IP.btn_CrearUsuario.setVisible(false);
             IP.btn_VentanaRegistrarProducto.setVisible(false);
         }else{System.out.println("No encontro Tipo Usuario");}
