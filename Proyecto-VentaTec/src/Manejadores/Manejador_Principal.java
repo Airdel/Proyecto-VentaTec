@@ -10,6 +10,9 @@ import Modulos.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
+import static javax.swing.JOptionPane.YES_OPTION;
+import static javax.swing.JOptionPane.showConfirmDialog;
 
 /**
  *
@@ -45,7 +48,7 @@ public class Manejador_Principal {
     private Manejador_Principal MAP;
     private Manejador_Registro MAR = new Manejador_Registro(IR, MR);
     private Manejador_Ventas MAV;
-    private Manejador_CerrarCaja MACC = new Manejador_CerrarCaja(ICC, MCC);
+    private Manejador_CerrarCaja MACC = new Manejador_CerrarCaja(ICC, MCC, this.IP);
     private Manejador_AbrirCaja MAAC = new Manejador_AbrirCaja(IAC, MAC);
     private Manejador_NuevoUsu MNU = new Manejador_NuevoUsu(IAU, MU);
     //-----Manejador_x-------------------// 
@@ -141,12 +144,18 @@ public class Manejador_Principal {
         this.IP.btn_CerrarCaja.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent ae) {
                //----Revisa si esta abierto Cerrar Caja---//
+               if (showConfirmDialog(IP, "¿Está seguro de realizar el Cierre de caja?",
+                "Cierre de Caja", YES_NO_OPTION) == YES_OPTION) {
                 if(ICC.isVisible()==false){
                     MACC.setMAC(MAC);
                     ICC.setVisible(true);
-                    ICC.setEnabled(true);
+                    ICC.setEnabled(false);
+                    IP.btn_VentanaNuevaVenta.setEnabled(false);
+                                     
                 }
                //----Revisa si esta abierto Cerrar Caja---//
+    }
+                
            } 
         });
         this.IP.btn_AbrirCaja.addActionListener(new ActionListener() {

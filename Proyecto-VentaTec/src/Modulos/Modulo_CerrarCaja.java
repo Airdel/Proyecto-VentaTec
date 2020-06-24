@@ -5,16 +5,20 @@
  */
 package Modulos;
 
+import Manejadores.Manejador_AbrirCaja;
+
 /**
  *
  * @author LUIS es gai
  */
 public class Modulo_CerrarCaja {
     //--------Declaracion Variables-------//
+    
     private double total;
     private double cajafondo;
     private double ganancias;
     private int s500,s50,s5,s200,s20,s2,s100,s10,s1;
+    private Modulo_AbrirCaja MAC;
     //--------Declaracion Variables-------//
     
     public Modulo_CerrarCaja() {
@@ -34,11 +38,11 @@ public class Modulo_CerrarCaja {
     //---------Fin COnstructor-----------//
     
     //----------Suma el cada spiner-----------//
-    public void sumTotal(){
+    public void sumTotal(Modulo_AbrirCaja AC){
         total = (s500 * 500) + (s50 * 50) + (s5 * 5) + (s200 * 200) + (s20 * 20) + (s2 * 2) + (s100 * 100) + (s10 * 10) + (s1 * 1);
         if(total-cajafondo < 0){
         ganancias = 0;
-        }else{ganancias = total - cajafondo;}
+        }else{ganancias = total - AC.getCajafondo();System.out.println("Ganancias: "+ganancias + "\n"+"CajaFondo:"+AC.getCajafondo());}
     }// Fin sumTotal
 
     //-------- get -------//

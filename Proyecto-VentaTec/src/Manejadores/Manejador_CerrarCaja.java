@@ -6,6 +6,7 @@
 package Manejadores;
 
 import Interfaces.Interfaz_CerrarCaja;
+import Interfaces.Interfaz_Principal;
 import Modulos.Modulo_AbrirCaja;
 import Modulos.Modulo_CerrarCaja;
 import java.awt.event.ActionEvent;
@@ -21,12 +22,35 @@ public class Manejador_CerrarCaja {
     private Interfaz_CerrarCaja ICC;
     private Modulo_CerrarCaja MCC;
     private Modulo_AbrirCaja MAC;
+    private Interfaz_Principal IP;
     //---Declaracion de variables-----------//
     //------Inicia Interfaz Cerrar Caja----------//
-    public Manejador_CerrarCaja(Interfaz_CerrarCaja ICC1,Modulo_CerrarCaja MCC1) {
+    public void ArqueoCaja(){
+        MCC.setS1(Integer.parseInt(ICC.spin_1.getValue() + ""));
+                MCC.setS10(Integer.parseInt(ICC.spin_10.getValue() + ""));
+                MCC.setS100(Integer.parseInt(ICC.spin_100.getValue() + ""));
+                MCC.setS2(Integer.parseInt(ICC.spin_2.getValue() + ""));
+                MCC.setS20(Integer.parseInt(ICC.spin_20.getValue() + ""));
+                MCC.setS200(Integer.parseInt(ICC.spin_200.getValue() + ""));
+                MCC.setS5(Integer.parseInt(ICC.spin_5.getValue() + ""));
+                MCC.setS50(Integer.parseInt(ICC.spin_50.getValue() + ""));
+                MCC.setS500(Integer.parseInt(ICC.spin_500.getValue() + ""));
+                //------Suma todos los valores------//
+                MCC.sumTotal(MAC);
+                //------Suma todos los valores------//
+                //-----Coloca el Fondo de caja de Modulo Abrir caja--------//
+                MCC.setCajafondo(MAC.getCajafondo());
+                //-----Coloca el Fondo de caja de Modulo Abrir caja--------//
+                //-----Actualiza los label de Interfaz Cerrar Caja--------//
+                ICC.lblTotal.setText(    "$"+MCC.getTotal()    );
+                ICC.lblCajaFondo.setText("$"+MAC.getCajafondo());
+                ICC.lblGanancias.setText("$"+MCC.getGanancias());
+    }
+    public Manejador_CerrarCaja(Interfaz_CerrarCaja ICC1,Modulo_CerrarCaja MCC1,Interfaz_Principal ip) {
         //---Inicializacion variables-----------//
         this.ICC = ICC1;
         this.MCC = MCC1;
+        this.IP = ip;
         //---Inicializacion variables-----------//
         //------------ACTION LISTENER PERFORMED-----------//
 //        ICC.btn_Cancelar.addActionListener(new ActionListener() {
@@ -37,31 +61,17 @@ public class Manejador_CerrarCaja {
 //            }
 //            //-----Oculta Interfaz Cerrar Caja--------//
 //        });
+       
         ICC.btn_CorteCaja.addActionListener(new ActionListener() {
             //-----Inicializa Modulo Cerrar Caja--------//
             public void actionPerformed(ActionEvent ae) {
                 try{
-                MCC.setS1(Integer.parseInt(ICC.spin_1.getValue() + ""));
-                MCC.setS10(Integer.parseInt(ICC.spin_10.getValue() + ""));
-                MCC.setS100(Integer.parseInt(ICC.spin_100.getValue() + ""));
-                MCC.setS2(Integer.parseInt(ICC.spin_2.getValue() + ""));
-                MCC.setS20(Integer.parseInt(ICC.spin_20.getValue() + ""));
-                MCC.setS200(Integer.parseInt(ICC.spin_200.getValue() + ""));
-                MCC.setS5(Integer.parseInt(ICC.spin_5.getValue() + ""));
-                MCC.setS50(Integer.parseInt(ICC.spin_50.getValue() + ""));
-                MCC.setS500(Integer.parseInt(ICC.spin_500.getValue() + ""));
-                //-----Coloca el Fondo de caja de Modulo Abrir caja--------//
-                MCC.setCajafondo(MAC.getCajafondo());
-                //-----Coloca el Fondo de caja de Modulo Abrir caja--------//
-                //------Suma todos los valores------//
-                MCC.sumTotal();
-                //------Suma todos los valores------//
-                //-----Actualiza los label de Interfaz Cerrar Caja--------//
-                ICC.lblTotal.setText("$"+MCC.getTotal());
-                ICC.lblCajaFondo.setText(MAC.getCajafondo() + "");
-                ICC.lblGanancias.setText(MCC.getGanancias() + "");
+                ArqueoCaja();
+                
                 JOptionPane.showMessageDialog(ICC, "Corte realizado");
                 ICC.btn_CorteCaja.setEnabled(false);
+                IP.btn_VentanaNuevaVenta.setEnabled(false);
+                ICC.setVisible(false);
                 //-----Actualiza los label de Interfaz Cerrar Caja--------//
                 }catch(Exception e){
                 System.out.println("Error: "+e.getMessage());
