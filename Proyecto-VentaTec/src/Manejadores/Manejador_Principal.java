@@ -152,7 +152,7 @@ public class Manejador_Principal {
                     ICC.setEnabled(false);
                     IP.btn_VentanaNuevaVenta.setEnabled(false);
                     IP.btn_CerrarSesion.setEnabled(true);
-                    
+                    IP.btn_CerrarCaja.setEnabled(false);
                                      
                 }
                //----Revisa si esta abierto Cerrar Caja---//

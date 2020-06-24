@@ -38,9 +38,10 @@ public class SubInterfaz_Venta_BuscarProducto extends javax.swing.JFrame {
 
         jButton1.setText("jButton1");
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Buscar Producto");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent evt) {
                 formWindowClosing(evt);
@@ -112,10 +113,7 @@ public class SubInterfaz_Venta_BuscarProducto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        if (showConfirmDialog(rootPane, "¿Desea salir del sistema?",
-                "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
-            System.exit(0);
-        }
+
     }//GEN-LAST:event_formWindowClosing
 
     /**
