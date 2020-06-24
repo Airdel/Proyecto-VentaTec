@@ -7,7 +7,7 @@ package Interfaces;
 
 /**
  *
- * @author darie
+ * @author INOVATEC
  */
 public class Interfaz_DevolverProducto extends javax.swing.JFrame {
 
@@ -27,69 +27,48 @@ public class Interfaz_DevolverProducto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        lbl_IdProducto = new javax.swing.JLabel();
         btn_Confirmar = new javax.swing.JButton();
         btn_Cancelar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        lbl_IdVenta = new javax.swing.JLabel();
         txt_IdProducto = new javax.swing.JTextField();
         txt_IdVenta = new javax.swing.JTextField();
+        lbl_Background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel1.setText("Código de Producto:");
+        lbl_IdProducto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbl_IdProducto.setText("Código de Producto:");
+        getContentPane().add(lbl_IdProducto);
+        lbl_IdProducto.setBounds(2, 23, 170, 22);
 
-        btn_Confirmar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_Confirmar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btn_Confirmar.setText("Confirmar");
+        getContentPane().add(btn_Confirmar);
+        btn_Confirmar.setBounds(10, 110, 165, 50);
 
-        btn_Cancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btn_Cancelar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         btn_Cancelar.setText("Cancelar");
+        getContentPane().add(btn_Cancelar);
+        btn_Cancelar.setBounds(190, 110, 130, 50);
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Código de Venta:");
+        lbl_IdVenta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lbl_IdVenta.setText("Código de Venta:");
+        getContentPane().add(lbl_IdVenta);
+        lbl_IdVenta.setBounds(30, 70, 140, 22);
 
-        txt_IdProducto.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_IdProducto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        getContentPane().add(txt_IdProducto);
+        txt_IdProducto.setBounds(183, 20, 140, 28);
 
-        txt_IdVenta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_IdVenta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        getContentPane().add(txt_IdVenta);
+        txt_IdVenta.setBounds(180, 70, 140, 28);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btn_Confirmar)
-                        .addGap(64, 64, 64)
-                        .addComponent(btn_Cancelar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_IdProducto)
-                            .addComponent(txt_IdVenta))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txt_IdProducto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_IdVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Confirmar)
-                    .addComponent(btn_Cancelar))
-                .addContainerGap())
-        );
+        lbl_Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/src_CerrarCaja/bluetriangles.png"))); // NOI18N
+        getContentPane().add(lbl_Background);
+        lbl_Background.setBounds(0, 0, 340, 170);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -132,8 +111,9 @@ public class Interfaz_DevolverProducto extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn_Cancelar;
     public javax.swing.JButton btn_Confirmar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lbl_Background;
+    private javax.swing.JLabel lbl_IdProducto;
+    private javax.swing.JLabel lbl_IdVenta;
     public javax.swing.JTextField txt_IdProducto;
     public javax.swing.JTextField txt_IdVenta;
     // End of variables declaration//GEN-END:variables
