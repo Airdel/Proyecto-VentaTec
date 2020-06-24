@@ -23,10 +23,6 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         pnlTabla = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDocumento = new javax.swing.JTable();
-        jToolBar2 = new javax.swing.JToolBar();
-        btnImpTicket = new javax.swing.JButton();
-        btnPDF = new javax.swing.JButton();
-        btnEnviarM = new javax.swing.JButton();
         pnlInformacion = new javax.swing.JPanel();
         lblTP2 = new javax.swing.JLabel();
         lblTotal = new javax.swing.JLabel();
@@ -53,6 +49,10 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         jToolBar1 = new javax.swing.JToolBar();
         btnRegresar = new javax.swing.JButton();
         btnupdate = new javax.swing.JButton();
+        jToolBar2 = new javax.swing.JToolBar();
+        btnImpTicket = new javax.swing.JButton();
+        btnPDF = new javax.swing.JButton();
+        btnEnviarM = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Documentación");
@@ -88,25 +88,8 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         pnlTabla.add(jScrollPane1);
         jScrollPane1.setBounds(20, 0, 650, 310);
 
-        jToolBar2.setRollover(true);
-
-        btnImpTicket.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/impresion.png"))); // NOI18N
-        btnImpTicket.setText("Imprime Ticket");
-        jToolBar2.add(btnImpTicket);
-
-        btnPDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/pdf.png"))); // NOI18N
-        btnPDF.setText("PDF");
-        jToolBar2.add(btnPDF);
-
-        btnEnviarM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/correo.png"))); // NOI18N
-        btnEnviarM.setText("Enviar por Email");
-        jToolBar2.add(btnEnviarM);
-
-        pnlTabla.add(jToolBar2);
-        jToolBar2.setBounds(10, 330, 650, 70);
-
         jPanel1.add(pnlTabla);
-        pnlTabla.setBounds(0, 110, 670, 410);
+        pnlTabla.setBounds(0, 110, 670, 330);
 
         pnlInformacion.setBackground(new java.awt.Color(255, 255, 255));
         pnlInformacion.setLayout(null);
@@ -114,7 +97,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         lblTP2.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblTP2.setText("Total:");
         pnlInformacion.add(lblTP2);
-        lblTP2.setBounds(10, 10, 100, 19);
+        lblTP2.setBounds(10, 10, 100, 18);
 
         lblTotal.setFont(new java.awt.Font("Montserrat", 1, 26)); // NOI18N
         lblTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -125,7 +108,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         lblTP3.setFont(new java.awt.Font("Montserrat", 1, 12)); // NOI18N
         lblTP3.setText("SubTotal");
         pnlInformacion.add(lblTP3);
-        lblTP3.setBounds(10, 70, 50, 16);
+        lblTP3.setBounds(10, 70, 50, 15);
 
         lblUsuario.setFont(new java.awt.Font("Montserrat", 1, 12)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(102, 102, 102));
@@ -138,13 +121,13 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         lblSubTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblSubTotal.setText("$0.00");
         pnlInformacion.add(lblSubTotal);
-        lblSubTotal.setBounds(0, 86, 200, 24);
+        lblSubTotal.setBounds(0, 86, 200, 23);
 
         lblUser4.setFont(new java.awt.Font("Montserrat", 1, 12)); // NOI18N
         lblUser4.setForeground(new java.awt.Color(102, 102, 102));
         lblUser4.setText("IVA:");
         pnlInformacion.add(lblUser4);
-        lblUser4.setBounds(10, 160, 30, 16);
+        lblUser4.setBounds(10, 160, 30, 15);
 
         lblIva.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         lblIva.setForeground(new java.awt.Color(102, 102, 102));
@@ -157,7 +140,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         lblUser6.setForeground(new java.awt.Color(102, 102, 102));
         lblUser6.setText("Fecha Venta:");
         pnlInformacion.add(lblUser6);
-        lblUser6.setBounds(10, 190, 80, 16);
+        lblUser6.setBounds(10, 190, 80, 15);
 
         lblFechaV.setFont(new java.awt.Font("Montserrat", 1, 18)); // NOI18N
         lblFechaV.setForeground(new java.awt.Color(102, 102, 102));
@@ -201,16 +184,16 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         jToolBar3.setBounds(40, 0, 120, 160);
 
         pnlInformacion.add(pnlBotonInformacion);
-        pnlBotonInformacion.setBounds(10, 220, 190, 230);
+        pnlBotonInformacion.setBounds(10, 220, 190, 220);
 
         lblUser5.setFont(new java.awt.Font("Montserrat", 1, 12)); // NOI18N
         lblUser5.setForeground(new java.awt.Color(102, 102, 102));
         lblUser5.setText("Usuario:");
         pnlInformacion.add(lblUser5);
-        lblUser5.setBounds(10, 130, 50, 16);
+        lblUser5.setBounds(10, 130, 50, 15);
 
         jPanel1.add(pnlInformacion);
-        pnlInformacion.setBounds(680, 60, 210, 460);
+        pnlInformacion.setBounds(680, 60, 210, 450);
 
         txtBuscar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -293,6 +276,24 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         jPanel1.add(pnlBotonMenu);
         pnlBotonMenu.setBounds(0, 0, 890, 50);
 
+        jToolBar2.setBackground(new java.awt.Color(255, 255, 255));
+        jToolBar2.setRollover(true);
+
+        btnImpTicket.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/impresion.png"))); // NOI18N
+        btnImpTicket.setText("Imprime Ticket");
+        jToolBar2.add(btnImpTicket);
+
+        btnPDF.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/pdf.png"))); // NOI18N
+        btnPDF.setText("PDF");
+        jToolBar2.add(btnPDF);
+
+        btnEnviarM.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fotos/correo.png"))); // NOI18N
+        btnEnviarM.setText("Enviar por Email");
+        jToolBar2.add(btnEnviarM);
+
+        jPanel1.add(jToolBar2);
+        jToolBar2.setBounds(0, 440, 670, 70);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -301,7 +302,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 526, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 648, Short.MAX_VALUE)
         );
 
         pack();
@@ -377,8 +378,8 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
     private javax.swing.JPanel pnlBotonInformacion;
     private javax.swing.JPanel pnlBotonMenu;
     private javax.swing.JPanel pnlBusqueda;
-    private javax.swing.JPanel pnlInformacion;
-    private javax.swing.JPanel pnlTabla;
+    public javax.swing.JPanel pnlInformacion;
+    public javax.swing.JPanel pnlTabla;
     public javax.swing.JTable tblDocumento;
     public javax.swing.JTextField txtBuscar;
     // End of variables declaration//GEN-END:variables

@@ -20,27 +20,28 @@ import Modulos.ConexionBD;
 import MailyOtros.MailException;
 import Modulos.Modulo_Documentos;
 import Modulos.Modulo_Ticket;
-import java.awt.FileDialog;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.FilenameFilter;
-import java.io.IOException;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import static java.awt.print.Printable.NO_SUCH_PAGE;
+import static java.awt.print.Printable.PAGE_EXISTS;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.util.Properties;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.ListSelectionModel;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author LUIS INC
  */
-public class Manejador_Documentacion{
+public class Manejador_Documentacion implements Printable{
     //-----------Declaracion de Variables--------------//
     private Interfaz_Documentacion ID;
     private Interfaz_Principal IP;
@@ -179,50 +180,31 @@ public class Manejador_Documentacion{
     }// Fin impTicket
     
     private void HacerPDF() {
-        String nombredearchivo2 = "";
-        JFileChooser fileChooser = new JFileChooser();
-        fileChooser.setFileFilter(new FileNameExtensionFilter("Documento txt", "txt"));
-        fileChooser.setFileFilter(new FileNameExtensionFilter("Documento pdf", "pdf"));
-        
-        int seleccion = fileChooser.showSaveDialog(ID);
-        if (seleccion == JFileChooser.APPROVE_OPTION){
-            String archivo = (fileChooser.getFileFilter().getDescription());
-            String filtro = "." + archivo.substring(archivo.length() - 3);
-            if(filtro.equals(".les")){filtro = "";}
-            nombredearchivo2 = fileChooser.getSelectedFile().getName();
-            System.out.println(fileChooser.getSelectedFile().getAbsolutePath() + filtro);
-            if(nombredearchivo2!=""){
-                File file = new File(fileChooser.getSelectedFile().getAbsolutePath() + filtro);
-                if (!file.exists()) {
-                    try {
-                        file.createNewFile();
-                    } catch (IOException ex) {
-                        //Logger.getLogger(Registrar.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-                try {
-                    FileWriter fw = new FileWriter(file);
-                    BufferedWriter bw = new BufferedWriter(fw);
-
-                    for (int i = 0; i < ID.tblDocumento.getRowCount(); i++) {
-                        for (int j = 0; j < ID.tblDocumento.getColumnCount(); j++) {
-                            bw.write(ID.tblDocumento.getValueAt(i, j).toString() + "/");
-                        }
-                        bw.newLine();
-                    }
-                    bw.close();
-                    fw.close();
-                    JOptionPane.showMessageDialog(ID, "El archivo ha sido guardado correctamente con el nombre de " + nombredearchivo2);
-                } catch (IOException ex) {
-                    //Logger.getLogger(Registrar.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            else
-            {
-                return;
-            }
-        }
+        try{
+            PrinterJob gap=PrinterJob.getPrinterJob();
+            gap.setPrintable(this);
+            boolean top=gap.printDialog();
+            if(top){gap.print();}
+       }catch(PrinterException e){showMessageDialog(null,"Error");}
     }// Fin Hacer PDF
+    
+    
+    
+    @Override
+    public int print(Graphics grphcs, PageFormat pf, int i) throws PrinterException {
+        if(i>0){return NO_SUCH_PAGE;}
+        Graphics2D hub = (Graphics2D) grphcs;
+        hub.translate(pf.getImageableX() + 30, pf.getImageableY() + 20);
+        hub.scale(0.7, 0.7);
+        ID.pnlInformacion.print(grphcs);
+        hub.translate(pf.getImageableX() + 20, pf.getImageableY() + 480);
+        hub.scale(0.9, 0.8);
+        ID.pnlTabla.print(grphcs);
+        return PAGE_EXISTS; 
+    }
+    
+    
+    
     //-------------------------Funciones void---------------//
     //-------------------------Funciones Return---------------//
     public boolean rellenalbl(){
