@@ -198,7 +198,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         );
 
         JPanel_Principal.add(Ventana_JPanelPrincipal);
-        Ventana_JPanelPrincipal.setBounds(-30, 0, 1282, 771);
+        Ventana_JPanelPrincipal.setBounds(-30, 0, 1280, 771);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
