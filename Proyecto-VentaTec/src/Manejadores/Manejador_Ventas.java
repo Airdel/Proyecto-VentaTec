@@ -204,7 +204,6 @@ public class Manejador_Ventas {
                     IV.txt_Cantidad.setText("1");
                 }
             }
-
         });
         //--------Listener Key Listener------------//
         //--------Action Listener Performed------------//
@@ -255,11 +254,9 @@ public class Manejador_Ventas {
                 } else {
                     showMessageDialog(IV, "Es necesario seleccionar un registro");
                 }
-
             }
         }
         );
-
         this.IV.btn_BuscarProducto.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 IniciaSub();
@@ -288,9 +285,7 @@ public class Manejador_Ventas {
                     IV.dgv_Productos.requestFocus();
                 }
             }
-
         });
-
         this.IV.btn_Quitar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 if (IV.dgv_Productos.getSelectedRow() >= 0) {
@@ -305,14 +300,12 @@ public class Manejador_Ventas {
         });
         this.IV.btn_regresar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-
                 if (showConfirmDialog(IV, "¿Desea salir de la venta?",
                         "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
 
                     IV.dispose();
                     IP.setVisible(true);
                 }
-
             }
         });
         //--------Action Listener Performed------------//
