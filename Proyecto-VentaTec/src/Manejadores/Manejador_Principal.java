@@ -185,7 +185,7 @@ public class Manejador_Principal {
                     //IAC.setVisible(false); //Cierre de la interfaz de abrir caja
                     
                     }
-                }catch(Exception e){JOptionPane.showMessageDialog(IAC, "Solo Numeros"+e);}
+                }catch(Exception e){JOptionPane.showMessageDialog(IAC, "Solo Numeros");}
                 }
                //----Revisa si esta abierto Abrir Caja---//
            } 

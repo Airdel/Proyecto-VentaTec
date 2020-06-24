@@ -1,11 +1,13 @@
 package Manejadores;
 
+import Interfaces.Interfaz_DevolverProducto;
 import Interfaces.Interfaz_Principal;
 import Interfaces.Interfaz_Venta;
 import Interfaces.SubInterfaz_Venta_BuscarProducto;
 import Interfaces.Sub_Venta;
 import MailyOtros.ventaException;
 import Modulos.ConexionBD;
+import Modulos.Modulo_DevolverProducto;
 import Modulos.Modulo_Venta;
 import Modulos.Modulo_SubVenta;
 import com.mxrck.autocompleter.TextAutoCompleter;
@@ -40,6 +42,9 @@ public class Manejador_Ventas {
     private Modulo_SubVenta MSUV;
     private Manejador_SubVenta MASUV;
     private Interfaz_Principal IP;
+    private Interfaz_DevolverProducto IDP;
+    private Modulo_DevolverProducto MDP;
+    private Manejador_DevolverProducto MADP;
 
     //---Declaracion de Variables-----------//
     //------Inicio de Interfaz Venta-----------//
@@ -80,7 +85,7 @@ public class Manejador_Ventas {
                                     MV.agregaProduc((row - 1) + "",B[0] + "", B[2] + "", B[3] + "",impUnit + "",  B[5]+ "");
                                     MV.sumaSubTotal();
                                     MV.sumaTodo();
-                                    IV.txt_Codigo.setText(B[0] + "");
+                                    actualizalbl(); 
                                 }else{
                                     JOptionPane.showMessageDialog(IV, "Producto no encontrado");
                                 }
@@ -150,11 +155,9 @@ public class Manejador_Ventas {
             }
         }
         );
-        this.IV.txt_Cantidad.addKeyListener(
-                new java.awt.event.KeyAdapter() {
+        this.IV.txt_Cantidad.addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
-            public void keyTyped(KeyEvent ke
-            ) {
+            public void keyTyped(KeyEvent ke) {
                 char c = ke.getKeyChar();
                 if (!(c >= 48 && c <= 57)) {
                     ke.consume();
@@ -170,8 +173,6 @@ public class Manejador_Ventas {
                         CBD.openConexion();
                         String A = CBD.searchProduct2("[ID PRODUCTO]", IV.txt_Codigo.getText());
                         Object B[] = new Object[6];
-
-                        
                         if(!(validaProducto())){
                             try {
                                 if(!(A.equals(""))){
@@ -199,13 +200,20 @@ public class Manejador_Ventas {
                         IV.dgv_Productos.requestFocus();
                     }
                     IV.txt_Cantidad.setText("1");
-
                 }
             }
-
         });
         //--------Listener Key Listener------------//
         //--------Action Listener Performed------------//
+        this.IV.btn_devolver.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                IDP = new Interfaz_DevolverProducto();
+                MDP = new Modulo_DevolverProducto();
+                MADP = new Manejador_DevolverProducto(IDP, MDP);
+                IDP.setVisible(true);
+            }
+        });
         this.IV.btn_AplicarDescuento.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
 
@@ -245,11 +253,9 @@ public class Manejador_Ventas {
                 } else {
                     showMessageDialog(IV, "Es necesario seleccionar un registro");
                 }
-
             }
         }
         );
-
         this.IV.btn_BuscarProducto.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 IniciaSub();
@@ -278,9 +284,7 @@ public class Manejador_Ventas {
                     IV.dgv_Productos.requestFocus();
                 }
             }
-
         });
-
         this.IV.btn_Quitar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 if (IV.dgv_Productos.getSelectedRow() >= 0) {
@@ -295,14 +299,12 @@ public class Manejador_Ventas {
         });
         this.IV.btn_regresar.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
-
                 if (showConfirmDialog(IV, "¿Desea salir de la venta?",
                         "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
 
                     IV.dispose();
                     IP.setVisible(true);
                 }
-
             }
         });
         //--------Action Listener Performed------------//
@@ -444,13 +446,17 @@ public class Manejador_Ventas {
         float PRECIOU = 0;
         float precioUimporte = 0;
         float imp = 0;
-        int stock;
+        int stock = 0,stockDP = 0;
         try{
             stock = Integer.parseInt(CBD.getInventario(IV.txt_Codigo.getText()));
         }catch(Exception e){JOptionPane.showMessageDialog(IV, "Producto no encontrado");
             IV.lbl_Cantidad.requestFocus();
             return true;
         }
+        try{
+            stockDP = Integer.parseInt(CBD.getCantidadDevProc(IV.txt_Codigo.getText()));
+        }catch(Exception e){}
+        stock = stock - stockDP;
         if(stock == 0){
             IV.lblHora.requestFocus();
             showMessageDialog(null,"No se encuentra este producto en inventario. Cantidad de producto = 0");

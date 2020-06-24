@@ -282,9 +282,10 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
             resultado1.close();
             return A; 
         }catch(SQLException e){
-            return null;
         }//Fin try catch
-   
+        String B[] = new String[1];
+        B[0] = "";
+        return B;
     }//fin clase getTicketID
     
     //-------------------------Devuelve un Arreglo Con todos los datos de una tabla------------------------------------------------
@@ -331,7 +332,7 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
        
     }//Fin AllTableData
     
-       public String [] allProvedor(){
+    public String [] allProvedor(){
         try {
             sp = con.prepareStatement("SELECT   [NOMBRE PROVEEDOR] FROM PROVEEDORES");
             resultado = sp.executeQuery();
@@ -351,8 +352,7 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
             return null;
         }//Fin try catch
     }
-    
-    
+       
  public String[] searchInTable(String campo, String dato){
         try {
             sp = con.prepareStatement("SELECT * FROM PRODUCTOS where " + campo + " like '" + dato +"%'");
@@ -412,6 +412,34 @@ public String searchProduct2(String campo, String dato){
             if(resultado.next()){
                 cad = resultado.getString(1) + "," + resultado.getString(5) + "," + resultado.getString(6) +"," +
                       resultado.getFloat(7) + "," + resultado.getFloat(7) + ",0.0";
+                return cad;
+            }
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            resultado = null;
+        }//Fin try catch
+        return "";
+}
+
+public boolean devolverProc(String IDPRODUCTO, String IDVENTA){
+        try {
+            sp = con.prepareStatement("EXEC PS_DEVOLVERPROC " + IDVENTA + "," + IDPRODUCTO);
+            resultado = sp.executeQuery();
+            return true;
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            resultado = null;
+        }//Fin try catch
+        return false;
+}
+
+public String getCantidadDevProc(String IDProducto){
+        try {
+            sp = con.prepareStatement("SELECT SUM(CANTIDAD) FROM [PRODUCTO DEFECTUOSO] WHERE IDPRODUCTO = " + IDProducto);
+            resultado = sp.executeQuery();
+            String cad = "";
+            if(resultado.next()){
+                cad = resultado.getString(1) + "";
                 return cad;
             }
         }catch (SQLException ex) {
