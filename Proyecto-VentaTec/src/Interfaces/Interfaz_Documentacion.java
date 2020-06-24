@@ -62,6 +62,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         pnlBotonMenu = new javax.swing.JPanel();
         jToolBar1 = new javax.swing.JToolBar();
         btnRegresar = new javax.swing.JButton();
+        btnupdate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Documentación");
@@ -95,7 +96,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         }
 
         pnlTabla.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 10, 650, 310);
+        jScrollPane1.setBounds(20, 0, 650, 310);
 
         jToolBar2.setRollover(true);
 
@@ -240,11 +241,11 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 341, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 323, Short.MAX_VALUE)
                 .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(18, 18, 18))
         );
         pnlBusquedaLayout.setVerticalGroup(
             pnlBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,8 +253,9 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(pnlBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(lblTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pnlBusquedaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblTicket, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -269,6 +271,19 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         btnRegresar.setText("Regresar");
         jToolBar1.add(btnRegresar);
 
+        btnupdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_Inventario/update.png"))); // NOI18N
+        btnupdate.setBorderPainted(false);
+        btnupdate.setContentAreaFilled(false);
+        btnupdate.setFocusable(false);
+        btnupdate.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnupdate.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnupdateActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(btnupdate);
+
         javax.swing.GroupLayout pnlBotonMenuLayout = new javax.swing.GroupLayout(pnlBotonMenu);
         pnlBotonMenu.setLayout(pnlBotonMenuLayout);
         pnlBotonMenuLayout.setHorizontalGroup(
@@ -281,9 +296,8 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
         pnlBotonMenuLayout.setVerticalGroup(
             pnlBotonMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlBotonMenuLayout.createSequentialGroup()
-                .addGap(0, 3, Short.MAX_VALUE)
-                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(0, 11, Short.MAX_VALUE)
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPanel1.add(pnlBotonMenu);
@@ -302,6 +316,10 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnupdateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -345,6 +363,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
     public javax.swing.JButton btnInfoAdicional;
     public javax.swing.JButton btnPDF;
     public javax.swing.JButton btnRegresar;
+    public javax.swing.JButton btnupdate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

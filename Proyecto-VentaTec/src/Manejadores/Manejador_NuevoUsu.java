@@ -107,7 +107,7 @@ public class Manejador_NuevoUsu {
             //---------Valida Solo Letras------------//
             public void keyTyped(KeyEvent ke) {
                 char c = ke.getKeyChar();
-                if (!((c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c == KeyEvent.VK_ESCAPE) || (c == 130) || (c == 181) || (c == 144) || (c == 214) || (c == 224) || (c == 233) || (c >= 160 && c <= 163))) {
+                if (!((c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c == KeyEvent.VK_ESCAPE)|| (c == KeyEvent.VK_SPACE) || (c == 130) || (c == 181) || (c == 144) || (c == 214) || (c == 224) || (c == 233) || (c >= 160 && c <= 163))) {
                     ke.consume();
                 } else if (IU.txtNombreCom.getText().length() == 40) {//----Tamaño----//
                     ke.consume();
@@ -133,7 +133,7 @@ public class Manejador_NuevoUsu {
             //---------Valida Solo Letras------------//
             public void keyTyped(KeyEvent ke) {
                 char c = ke.getKeyChar();
-                if (!((c >= 65 && c <= 90) || (c >= 97 && c <= 122) || (c == KeyEvent.VK_ESCAPE) || (c == 130) || (c == 181) || (c == 144) || (c == 214) || (c == 224) || (c == 233) || (c >= 160 && c <= 163))) {
+                if (!((c >= 65 && c <= 90)|| (c >= 48 && c <= 57)  || (c >= 97 && c <= 122) || (c == KeyEvent.VK_ESCAPE) || (c == 130) || (c == 181) || (c == 144) || (c == 214) || (c == 224) || (c == 233) || (c >= 160 && c <= 163))) {
                     ke.consume();
                 } else if (IU.txtNombreUSU.getText().length() == 20) {//----Tamaño----//
                     ke.consume();
