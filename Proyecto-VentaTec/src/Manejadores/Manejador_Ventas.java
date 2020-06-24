@@ -206,6 +206,18 @@ public class Manejador_Ventas {
         });
         //--------Listener Key Listener------------//
         //--------Action Listener Performed------------//
+        this.IV.btn_devolver.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                CBD.openConexion();
+                if(CBD.devolverProc("1", "1")){
+                    JOptionPane.showMessageDialog(IV, "Producto devuelto exitosamente");
+                }else{
+                    JOptionPane.showMessageDialog(IV, "Producto no encontrado en la venta");
+                }
+                CBD.closeConexion();
+            }
+        });
         this.IV.btn_AplicarDescuento.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
 

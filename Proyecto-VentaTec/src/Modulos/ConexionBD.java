@@ -331,7 +331,7 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
        
     }//Fin AllTableData
     
-       public String [] allProvedor(){
+    public String [] allProvedor(){
         try {
             sp = con.prepareStatement("SELECT   [NOMBRE PROVEEDOR] FROM PROVEEDORES");
             resultado = sp.executeQuery();
@@ -351,8 +351,7 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
             return null;
         }//Fin try catch
     }
-    
-    
+       
  public String[] searchInTable(String campo, String dato){
         try {
             sp = con.prepareStatement("SELECT * FROM PRODUCTOS where " + campo + " like '" + dato +"%'");
@@ -419,6 +418,18 @@ public String searchProduct2(String campo, String dato){
             resultado = null;
         }//Fin try catch
         return "";
+}
+
+public boolean devolverProc(String IDPRODUCTO, String IDVENTA){
+        try {
+            sp = con.prepareStatement("EXEC PS_DEVOLVERPROC " + IDVENTA + "," + IDPRODUCTO);
+            resultado = sp.executeQuery();
+            return true;
+        }catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            resultado = null;
+        }//Fin try catch
+        return false;
 }
 //-----------------------------------------------------------select--inventarios----------------
 public String[] getInve(){
