@@ -35,9 +35,14 @@ public class Interfaz_DevolverProducto extends javax.swing.JFrame {
         txt_IdVenta = new javax.swing.JTextField();
         lbl_Background = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("Devolver Producto");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
+        setMaximumSize(new java.awt.Dimension(333, 171));
+        setMinimumSize(new java.awt.Dimension(333, 171));
+        setName("Devolver Producto"); // NOI18N
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(333, 171));
         getContentPane().setLayout(null);
 
         lbl_IdProducto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N

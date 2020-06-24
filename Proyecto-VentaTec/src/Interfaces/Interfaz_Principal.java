@@ -75,7 +75,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         Ventana_JPanelPrincipal = new javax.swing.JDesktopPane();
         lbl_IconoEmpresa = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setTitle("VentaTec - Abarrotes \"Los Ayala\"");
         setBackground(new java.awt.Color(177, 216, 211));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
@@ -200,10 +200,10 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-      if (showConfirmDialog(rootPane, "¿Desea salir del sistema?",
-            "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
-        System.exit(0);
-    }
+//      if (showConfirmDialog(rootPane, "¿Desea salir del sistema?",
+//            "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
+//        System.exit(0);
+//    }
     }//GEN-LAST:event_formWindowClosing
 
     /**
