@@ -29,14 +29,14 @@ public class Manejador_CerrarCaja {
         this.MCC = MCC1;
         //---Inicializacion variables-----------//
         //------------ACTION LISTENER PERFORMED-----------//
-        ICC.btn_Cancelar.addActionListener(new ActionListener() {
-            //-----Oculta Interfaz Cerrar Caja--------//
-            public void actionPerformed(ActionEvent ae) {
-                ICC.setVisible(false);
-                ICC.setEnabled(false);
-            }
-            //-----Oculta Interfaz Cerrar Caja--------//
-        });
+//        ICC.btn_Cancelar.addActionListener(new ActionListener() {
+//            //-----Oculta Interfaz Cerrar Caja--------//
+//            public void actionPerformed(ActionEvent ae) {
+//                ICC.setVisible(false);
+//                ICC.setEnabled(false);
+//            }
+//            //-----Oculta Interfaz Cerrar Caja--------//
+//        });
         ICC.btn_CorteCaja.addActionListener(new ActionListener() {
             //-----Inicializa Modulo Cerrar Caja--------//
             public void actionPerformed(ActionEvent ae) {

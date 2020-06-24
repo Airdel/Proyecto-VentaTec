@@ -9,6 +9,7 @@ import Interfaces.*;
 import Modulos.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,6 +37,7 @@ public class Manejador_Principal {
     private Modulo_CerrarCaja MCC = new Modulo_CerrarCaja();
     private Modulo_AbrirCaja MAC = new Modulo_AbrirCaja();
     private Modulo_Usuario MU = new Modulo_Usuario();
+    
     //-----Modulo_x-------------------//
     //-----Manejador_x-------------------//
     private Manejador_Documentacion MAD = new Manejador_Documentacion(ID, MD);
@@ -150,12 +152,28 @@ public class Manejador_Principal {
         this.IP.btn_AbrirCaja.addActionListener(new ActionListener() {
            public void actionPerformed(ActionEvent ae) {
                //----Revisa si esta abierto Abrir Caja---//
-                if(IAC.isVisible()==false ){
-                    IAC.setVisible(true);
-                    IAC.setEnabled(true);
+                if(IP.btn_CerrarCaja.isEnabled()==false){
+                    //IAC.setVisible(true);
+                    //IAC.setEnabled(true);
                     IP.btn_CerrarCaja.setEnabled(true);
                     IP.btn_AbrirCaja.setEnabled(false);
                     IP.btn_VentanaNuevaVenta.setEnabled(true);
+                    try{
+                    //------Agrega el Fondo de caja-------//
+                    double i = Double.parseDouble(JOptionPane.showInputDialog(IP, "Agregar caja fondo"));
+                    if(i < 0){
+                        JOptionPane.showMessageDialog(IAC, "Solo Numeros positivos!");
+                        System.out.println("i="+i);
+                    }else if(i>0){
+                    //------Agrega el Fondo de Caja a Modulo Abrir Caja-------//
+                    MAC.setCajafondo(i);
+                    JOptionPane.showMessageDialog(IP, "Fondo establecido: "+MAC.getCajafondo());
+                    //------Agrega el Fondo de Caja a Modulo Abrir Caja-------//
+                    
+                    //IAC.setVisible(false); //Cierre de la interfaz de abrir caja
+                    
+                    }
+                }catch(Exception e){JOptionPane.showMessageDialog(IAC, "Solo Numeros"+e);}
                 }
                //----Revisa si esta abierto Abrir Caja---//
            } 
