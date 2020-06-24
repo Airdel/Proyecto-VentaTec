@@ -351,9 +351,6 @@
           <Image iconType="3" name="/Imagenes/Iconos_Venta/icon_Empresa.png"/>
         </Property>
       </Properties>
-      <Events>
-        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lbl_IconoEmpresaMouseReleased"/>
-      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
       </AuxValues>

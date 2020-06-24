@@ -126,6 +126,13 @@ public class Manejador_Documentacion{
             }
         });
         //----------Action Listener Performed---------------//
+        this.ID.btnupdate.addActionListener(new ActionListener() {
+           public void actionPerformed(ActionEvent ae) {
+                DTM.setRowCount(0);
+                rellenaTabla();
+                JOptionPane.showMessageDialog(ID,"La tabla se ha actualizado");
+            }
+        });
     }
     //-------------Fin de constructor-----------//
     //-------------------------Funciones void---------------//

@@ -1,12 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Interfaces;
-import Manejadores.*;
-import Modulos.*;
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -18,15 +10,19 @@ import static javax.swing.JOptionPane.showConfirmDialog;
 
 /**
  *
- * @author InovaTec
- */
+ * @author INOVATEC
+ * 
+* DECLARACIÓN DE VARIABLES - vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+*/
 public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
     public char Tipo_Usuario;
     public Interfaz_Inventario INN = new Interfaz_Inventario();
     public Interfaz_Documentacion IDD = new Interfaz_Documentacion();
     public Interfaz_Venta IVV = new Interfaz_Venta();
     public Interfaz_Registro IRR = new Interfaz_Registro();
-        
+/**
+* DECLARACIÓN DE VARIABLES - ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+*/        
         
     /**
      * Creates new form Principal
@@ -41,19 +37,16 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
     public void IniCom(){
         initComponents();
         this.setSize(1285, 740);
-        this.setExtendedState(this.MAXIMIZED_BOTH);
-        
+        this.setExtendedState(this.MAXIMIZED_BOTH);        
         this.getContentPane().setBackground(new Color(223, 223, 223));
         Jpanel_Botones.setBackground(new Color(223, 223 ,223));
-        //JPanel_Principal.setBackground(new Color(177,216,211));
-        //JPanel_Principal.setBackground(new Color(99,208,205));
         JPanel_Principal.setBackground(new Color(223, 223, 223));
         jPanel1.setBackground(new Color(223, 223, 223));
         /*99; 208; 205*/
         Ventana_JPanelPrincipal.add(INN);
         Ventana_JPanelPrincipal.add(IRR);
         Ventana_JPanelPrincipal.add(IDD);
-        //Ventana_JPanelPrincipal.add(IVV);
+        
         
     }
 
@@ -112,11 +105,6 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         btn_VentanaRegistrarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_RegistrarProducto.png"))); // NOI18N
         btn_VentanaRegistrarProducto.setText("Registrar Producto");
         btn_VentanaRegistrarProducto.setName("btn_RegistrarProducto"); // NOI18N
-        btn_VentanaRegistrarProducto.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_VentanaRegistrarProductoActionPerformed(evt);
-            }
-        });
         Jpanel_Botones.add(btn_VentanaRegistrarProducto);
         btn_VentanaRegistrarProducto.setBounds(10, 200, 198, 85);
 
@@ -124,11 +112,6 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         btn_CerrarSesion.setText("Cerrar Sesión");
         btn_CerrarSesion.setToolTipText("Salir");
         btn_CerrarSesion.setName("btn_CerrarSesion"); // NOI18N
-        btn_CerrarSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_CerrarSesionActionPerformed(evt);
-            }
-        });
         Jpanel_Botones.add(btn_CerrarSesion);
         btn_CerrarSesion.setBounds(10, 600, 198, 89);
 
@@ -144,11 +127,6 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         btn_VentanaNuevaVenta.setToolTipText("");
         btn_VentanaNuevaVenta.setEnabled(false);
         btn_VentanaNuevaVenta.setName("btn_NuevaVenta"); // NOI18N
-        btn_VentanaNuevaVenta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_VentanaNuevaVentaActionPerformed(evt);
-            }
-        });
         Jpanel_Botones.add(btn_VentanaNuevaVenta);
         btn_VentanaNuevaVenta.setBounds(10, 100, 200, 89);
 
@@ -160,11 +138,6 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
 
         btn_CrearUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/inicioseses.png"))); // NOI18N
         btn_CrearUsuario.setText("Crear Usuario");
-        btn_CrearUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_CrearUsuarioActionPerformed(evt);
-            }
-        });
         Jpanel_Botones.add(btn_CrearUsuario);
         btn_CrearUsuario.setBounds(10, 500, 198, 87);
 
@@ -226,22 +199,6 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_CrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CrearUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_CrearUsuarioActionPerformed
-
-    private void btn_VentanaNuevaVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VentanaNuevaVentaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_VentanaNuevaVentaActionPerformed
-
-    private void btn_VentanaRegistrarProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_VentanaRegistrarProductoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_VentanaRegistrarProductoActionPerformed
-
-    private void btn_CerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CerrarSesionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btn_CerrarSesionActionPerformed
-
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
       if (showConfirmDialog(rootPane, "¿Desea salir del sistema?",
             "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
@@ -287,13 +244,9 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         });
     }
     
-    
-    
     String H,M,S,AMPM;
     Calendar  calendario;
-    Thread h1;
-    
-    
+    Thread h1;        
     public void run() {
         Thread ct=Thread.currentThread();
         while(ct==h1){
@@ -304,9 +257,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
                Thread.sleep(1000);
            }catch(InterruptedException e){}
         }
-    }
-    
-    
+    }   
     private void calcula() {
         Calendar calendar=new GregorianCalendar();
         Date fechaHoraActual=new Date();
@@ -327,17 +278,13 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
           calendar.get(Calendar.SECOND):"0"+
           calendar.get(Calendar.SECOND);
     
-    }
-
-    
-    
+    } 
      //obtener la hora del SYSTEM VENVATEC :vVLSVKDFBJVBJSDBHNVSDJB
      private static String fechaSystem(){
       Date fecha=new Date();
       SimpleDateFormat formatoF= new SimpleDateFormat("dd/MM/YYYY");
       return formatoF.format(fecha);
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JPanel JPanel_Principal;
     private javax.swing.JPanel Jpanel_Botones;

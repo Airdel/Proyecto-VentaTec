@@ -83,7 +83,7 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         btnGuardar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnGuardar.setContentAreaFilled(false);
         getContentPane().add(btnGuardar);
-        btnGuardar.setBounds(130, 440, 170, 70);
+        btnGuardar.setBounds(340, 440, 170, 70);
 
         lblnombre.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
         lblnombre.setForeground(new java.awt.Color(66, 65, 70));
@@ -199,7 +199,7 @@ public class Interfaz_AgregaUsu extends javax.swing.JInternalFrame {
         btnRegresar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRegresar.setContentAreaFilled(false);
         getContentPane().add(btnRegresar);
-        btnRegresar.setBounds(340, 440, 160, 70);
+        btnRegresar.setBounds(120, 440, 160, 70);
 
         txtNombreUSU.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txtNombreUSU.setForeground(new java.awt.Color(102, 102, 102));
