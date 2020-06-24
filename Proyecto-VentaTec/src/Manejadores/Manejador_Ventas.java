@@ -155,11 +155,9 @@ public class Manejador_Ventas {
             }
         }
         );
-        this.IV.txt_Cantidad.addKeyListener(
-                new java.awt.event.KeyAdapter() {
+        this.IV.txt_Cantidad.addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
-            public void keyTyped(KeyEvent ke
-            ) {
+            public void keyTyped(KeyEvent ke) {
                 char c = ke.getKeyChar();
                 if (!(c >= 48 && c <= 57)) {
                     ke.consume();

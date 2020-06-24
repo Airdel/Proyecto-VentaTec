@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author LUISM
+ * @author LUISMI
  */
 public class Manejador_DevolverProducto {
     private Interfaz_DevolverProducto IDP;
