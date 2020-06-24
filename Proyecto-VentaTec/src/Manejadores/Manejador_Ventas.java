@@ -211,6 +211,7 @@ public class Manejador_Ventas {
                 IDP = new Interfaz_DevolverProducto();
                 MDP = new Modulo_DevolverProducto();
                 MADP = new Manejador_DevolverProducto(IDP, MDP);
+                IDP.setVisible(true);
             }
         });
         this.IV.btn_AplicarDescuento.addActionListener(new ActionListener() {
