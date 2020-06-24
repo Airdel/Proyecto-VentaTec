@@ -260,9 +260,9 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
     //--------------------Devuelve un Arreglo con lo que contiene la varibel resultado---------------------------------------------------
     public String[] getTicketID(int ID){
         try{
-            ps = con.prepareCall("{CALL PS_TICKET_ID("+ID+")}");
+            ps = con.prepareCall("EXEC PS_TICKET_ID "+ID);
             resultado = ps.executeQuery();
-            PreparedStatement sp1 = con.prepareStatement("{CALL PS_TICKET_ID("+ID+")}");
+            PreparedStatement sp1 = con.prepareStatement("EXEC PS_TICKET_ID "+ID);
             ResultSet resultado1 = sp1.executeQuery();
             int row = countRow(resultado1);
             //Declaraacion de variables 
@@ -270,8 +270,8 @@ CallableStatement ps; //PRARA LLAMAR A LOS PROCEDURES
             String A[] = new String[row];
             //Recorrer las filas que contiene Resultado
             while(resultado.next()){
-                A[i] = resultado.getInt(1) + "," + resultado.getString(2) + "," + resultado.getInt(3) + "," +
-                       resultado.getInt(4) + "," + resultado.getFloat(5) + "," + resultado.getFloat(6) + "," + 
+                A[i] = resultado.getInt(1) + "," + resultado.getInt(2) + "," + resultado.getString(3) + "," +
+                       resultado.getString(4) + "," + resultado.getInt(5) + "," + resultado.getFloat(6) + "," + 
                        resultado.getFloat(7);
              
                 i++;
@@ -421,10 +421,10 @@ public String searchProduct2(String campo, String dato){
         return "";
 }
 
-public boolean devolverProc(String IDPRODUCTO, String IDVENTA){
+public boolean devolverProc(int IDPRODUCTO, int IDVENTA){
         try {
             sp = con.prepareStatement("EXEC PS_DEVOLVERPROC " + IDVENTA + "," + IDPRODUCTO);
-            resultado = sp.executeQuery();
+            sp.execute();
             return true;
         }catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -623,7 +623,7 @@ public String getInveID(String id){
            ConexionBD CBD = new ConexionBD();
            CBD.openConexion();
            
-           System.out.println(CBD.getInfoTick("1"));
+           System.out.println(CBD.devolverProc(1,1));
            
            CBD.closeConexion();
        }
