@@ -1,4 +1,3 @@
-
 package Interfaces;
 
 import java.awt.Color;
@@ -8,60 +7,63 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
+import static javax.swing.JOptionPane.YES_OPTION;
+import static javax.swing.JOptionPane.showConfirmDialog;
+
 /**
  *
  * @author user
  */
 
-public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
-  
+public class Interfaz_Venta extends javax.swing.JFrame implements Runnable {
 
-    
     public Interfaz_Venta() {
         initComponents();
+        this.setExtendedState(this.MAXIMIZED_BOTH);
         ///--------------------
-        new Thread(){
-           
-            public void run  (){
+       /* new Thread() {
+            public void a() {
                 int x = 700;
-                int y =panel3.getLocation().y;
-                int y2 =panelsup.getLocation().y;
-               
-                while(true){
+                int y = panel3.getLocation().y;
+                int y2 = panelsup.getLocation().y;
+
+                while (true) {
                     x--;
-                    if(x <-200){
-                    x=700;
+                    if (x > getWidth()) {
+                        x = 0;
+                        System.out.println(x + "soy x");
                     }
-                    panel3.setLocation(x,y);
-                    panelsup.setLocation(x,y2);
-                    
+                    panel3.setLocation(x, y);
+                    panelsup.setLocation(x, y2);
+                    System.out.println(y + "soy y");
                     try {
-                        sleep(2000);
-                    }catch (Exception e) {
-                    }
+                        Thread.sleep(10);
+                    } catch (Exception e) {
                     }
                 }
-            
-    }.start();
+            }
+        }.start();*/
         //-----------------------
         lblFecha.setText(fechaSystem());
-        h1=new Thread(this);
+        h1 = new Thread(this);
         h1.start();
         resize(1435, 731);
         cargarimagen();
         panel1.setBackground(new Color(223, 223, 223));
-        panel2.setBackground(new Color(0, 229 ,238));
-        panel3.setBackground(new Color(0, 229 ,238));
-        jpn_ComandosDeslizantesInferior.setBackground(new Color(0, 229 ,238));
-        jpn_InformacionDeslizanteSuperior.setBackground(new Color(0, 229 ,238));
-        panelsup.setBackground(new Color(0, 229 ,238));
+        panel2.setBackground(new Color(0, 229, 238));
+        panel3.setBackground(new Color(0, 229, 238));
+        jpn_ComandosDeslizantesInferior.setBackground(new Color(0, 229, 238));
+        jpn_InformacionDeslizanteSuperior.setBackground(new Color(0, 229, 238));
+        panelsup.setBackground(new Color(0, 229, 238));
     }
 
-        private void cargarimagen()
-    {
-        CargarImagen d= new CargarImagen(lbl_Promocion);
-        new DropTarget(panel1,d);
+    private void cargarimagen() {
+        CargarImagen d = new CargarImagen(lbl_Promocion);
+        new DropTarget(panel1, d);
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -119,6 +121,11 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
         setTitle("Ventas!");
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
         setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         panel1.setLayout(null);
 
@@ -151,7 +158,7 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
         jScrollPane1.setViewportView(dgv_Productos);
 
         panel1.add(jScrollPane1);
-        jScrollPane1.setBounds(380, 295, 932, 200);
+        jScrollPane1.setBounds(380, 295, 932, 220);
 
         javax.swing.GroupLayout panel2Layout = new javax.swing.GroupLayout(panel2);
         panel2.setLayout(panel2Layout);
@@ -240,7 +247,7 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
         );
 
         panel1.add(jpn_Fecha);
-        jpn_Fecha.setBounds(1020, 60, 375, 117);
+        jpn_Fecha.setBounds(1020, 60, 375, 115);
 
         jpn_InformacionDeslizanteSuperior.setBackground(new java.awt.Color(51, 255, 51));
 
@@ -283,16 +290,16 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
 
         jpn_ComandosDeslizantesInferior.setBackground(new java.awt.Color(51, 255, 51));
 
-        jLabel9.setText("COMANDOS PARA EL SISTEMA");
+        jLabel9.setText("(Q) = REGRESAR               (F5)= BUSCAR PRODUCTO          (+)=COBRAR      (ALT+C) QUITAR PRODUCTO          (ALT+A)= APLICAR DESCUENTO");
 
         javax.swing.GroupLayout panel3Layout = new javax.swing.GroupLayout(panel3);
         panel3.setLayout(panel3Layout);
         panel3Layout.setHorizontalGroup(
             panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel3Layout.createSequentialGroup()
-                .addGap(479, 479, 479)
-                .addComponent(jLabel9)
-                .addContainerGap(734, Short.MAX_VALUE))
+                .addGap(200, 200, 200)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 857, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(304, Short.MAX_VALUE))
         );
         panel3Layout.setVerticalGroup(
             panel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,7 +312,7 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
             jpn_ComandosDeslizantesInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpn_ComandosDeslizantesInferiorLayout.createSequentialGroup()
                 .addComponent(panel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 40, Short.MAX_VALUE))
+                .addGap(0, 69, Short.MAX_VALUE))
         );
         jpn_ComandosDeslizantesInferiorLayout.setVerticalGroup(
             jpn_ComandosDeslizantesInferiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,7 +322,7 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
         );
 
         panel1.add(jpn_ComandosDeslizantesInferior);
-        jpn_ComandosDeslizantesInferior.setBounds(10, 690, 1430, 16);
+        jpn_ComandosDeslizantesInferior.setBounds(10, 750, 1430, 14);
 
         lbl_NumeroDeArticulosValor.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         lbl_NumeroDeArticulosValor.setText("0");
@@ -368,34 +375,33 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
         jpn_BotonesLayout.setHorizontalGroup(
             jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpn_BotonesLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(33, 33, 33)
                 .addComponent(btn_BuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
+                .addGap(83, 83, 83)
                 .addComponent(btn_Quitar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
                 .addComponent(btn_AplicarDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(57, 57, 57)
                 .addComponent(btn_Cobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24))
+                .addGap(22, 22, 22))
         );
         jpn_BotonesLayout.setVerticalGroup(
             jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jpn_BotonesLayout.createSequentialGroup()
+                .addGap(24, 24, 24)
                 .addGroup(jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpn_BotonesLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btn_AplicarDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_Cobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_Quitar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btn_BuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpn_BotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btn_AplicarDescuento, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_Quitar, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpn_BotonesLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_BuscarProducto, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(1, 1, 1)
+                        .addComponent(btn_Cobrar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         panel1.add(jpn_Botones);
-        jpn_Botones.setBounds(380, 500, 932, 180);
+        jpn_Botones.setBounds(380, 530, 932, 200);
 
         lbl_IconoEmpresa.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_Venta/icon_Empresa.png"))); // NOI18N
         panel1.add(lbl_IconoEmpresa);
@@ -460,13 +466,18 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 713, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(panel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+       if (showConfirmDialog(rootPane, "¿Desea salir del sistema?",
+            "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
+        System.exit(0);
+    }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments
@@ -503,22 +514,34 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
             }
         });
     }
-    
-    
-    
-    String H,M,S,AMPM;
-    Calendar  calendario;
-    Thread h1,h2;
-    
+
+    String H, M, S, AMPM;
+    Calendar calendario;
+    Thread h1, h2;
+
     @Override
     public void run() {
-        Thread ct=Thread.currentThread();
-        while(ct==h1){
-           calcula();
-           lblHora.setText(H+":"+M+":"+S + " "+AMPM);
-           try{
-               Thread.sleep(1000);
-           }catch(InterruptedException e){}
+        Thread ct = Thread.currentThread();
+        int x = 1500;
+        int y = panel3.getLocation().y;
+        int y2 = panelsup.getLocation().y;
+        while (ct == h1) {
+            calcula();
+            lblHora.setText(H + ":" + M + ":" + S + " " + AMPM);
+            if (x <= -10) {
+                x = 1500;
+                panel3.setLocation(x, y);
+                panelsup.setLocation(x, y2);
+            }
+            x =x-80;
+            //System.out.println(x+"soy x");
+            panel3.setLocation(x, y);
+            panelsup.setLocation(x, y2);
+
+            try {
+                Thread.sleep(900);
+            } catch (InterruptedException e) {
+            }
         }/*
         Thread a=Thread.currentThread();
         int x = 700;
@@ -538,41 +561,37 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
                     }catch (Exception e) {
                     }
     }*/
-    } 
-    
-    
-    
-    private void calcula() {
-        Calendar calendar=new GregorianCalendar();
-        Date fechaHoraActual=new Date();
-        calendar.setTime(fechaHoraActual);
-        AMPM=calendar.get(Calendar.AM_PM)==Calendar.AM?"AM":"PM";
-        if(AMPM.equals("AM")){
-            H=calendar.get(Calendar.HOUR_OF_DAY)>9?""+
-              calendar.get(Calendar.HOUR_OF_DAY):"0"+
-              calendar.get(Calendar.HOUR_OF_DAY);
-        }else{
-            int h=calendar.get(Calendar.HOUR_OF_DAY)-12;
-            H=h>9?""+h:"0"+h;
-       }
-        M=calendar.get(Calendar.MINUTE)>9?""+
-          calendar.get(Calendar.MINUTE):"0"+
-          calendar.get(Calendar.MINUTE);
-        S=calendar.get(Calendar.SECOND)>9?""+
-          calendar.get(Calendar.SECOND):"0"+
-          calendar.get(Calendar.SECOND);
-    
-    }
-    
-    
-     //obtener la hora del SYSTEM VENVATEC :vVLSVKDFBJVBJSDBHNVSDJB
-     private static String fechaSystem(){
-      Date fecha=new Date();
-      SimpleDateFormat formatoF= new SimpleDateFormat("dd/MM/YYYY");
-      return formatoF.format(fecha);
     }
 
-   
+    private void calcula() {
+        Calendar calendar = new GregorianCalendar();
+        Date fechaHoraActual = new Date();
+        calendar.setTime(fechaHoraActual);
+        AMPM = calendar.get(Calendar.AM_PM) == Calendar.AM ? "AM" : "PM";
+        if (AMPM.equals("AM")) {
+            H = calendar.get(Calendar.HOUR_OF_DAY) > 9 ? ""
+                    + calendar.get(Calendar.HOUR_OF_DAY) : "0"
+                    + calendar.get(Calendar.HOUR_OF_DAY);
+        } else {
+            int h = calendar.get(Calendar.HOUR_OF_DAY) - 12;
+            H = h > 9 ? "" + h : "0" + h;
+        }
+        M = calendar.get(Calendar.MINUTE) > 9 ? ""
+                + calendar.get(Calendar.MINUTE) : "0"
+                + calendar.get(Calendar.MINUTE);
+        S = calendar.get(Calendar.SECOND) > 9 ? ""
+                + calendar.get(Calendar.SECOND) : "0"
+                + calendar.get(Calendar.SECOND);
+
+    }
+
+    //obtener la hora del SYSTEM VENVATEC :vVLSVKDFBJVBJSDBHNVSDJB
+    private static String fechaSystem() {
+        Date fecha = new Date();
+        SimpleDateFormat formatoF = new SimpleDateFormat("dd/MM/YYYY");
+        return formatoF.format(fecha);
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton btn_AplicarDescuento;
@@ -582,11 +601,11 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
     public javax.swing.JButton btn_regresar;
     public javax.swing.JTable dgv_Productos;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel9;
+    public javax.swing.JLabel jLabel9;
     public javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     public javax.swing.JPanel jpn_Botones;
-    private javax.swing.JPanel jpn_ComandosDeslizantesInferior;
+    public javax.swing.JPanel jpn_ComandosDeslizantesInferior;
     public javax.swing.JPanel jpn_Fecha;
     private javax.swing.JPanel jpn_InformacionDeslizanteSuperior;
     public javax.swing.JLabel labelsup;
@@ -615,7 +634,7 @@ public class Interfaz_Venta extends javax.swing.JFrame implements Runnable{
     public java.awt.Panel panel1;
     private javax.swing.JPanel panel2;
     public javax.swing.JPanel panel3;
-    private javax.swing.JPanel panelsup;
+    public javax.swing.JPanel panelsup;
     public javax.swing.JTextField txt_BuscarProducto;
     public javax.swing.JTextField txt_Cantidad;
     public javax.swing.JTextField txt_Codigo;

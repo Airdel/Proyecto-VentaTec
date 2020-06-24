@@ -95,7 +95,23 @@ public class Modulo_Venta {
         this.subtotal = 0;
         this.iva = 0;
     }
+    public void redondeaTodo(){
+        this.total = redondearDecimales(total, 2);
+        this.subtotal = redondearDecimales(subtotal, 2);
+        this.iva = redondearDecimales(iva, 2);
+    }
     //-------funciones void----------//
+    //-------funciones retornables----------//
+    public static double redondearDecimales(double valorInicial, int numeroDecimales) {
+        double parteEntera, resultado;
+        resultado = valorInicial;
+        parteEntera = Math.floor(resultado);
+        resultado=(resultado-parteEntera)*Math.pow(10, numeroDecimales);
+        resultado=Math.round(resultado);
+        resultado=(resultado/Math.pow(10, numeroDecimales))+parteEntera;
+        return resultado;
+    }
+    //-------funciones retornables----------//
     //------- get ----------//
 
     public String getNameUsu() {

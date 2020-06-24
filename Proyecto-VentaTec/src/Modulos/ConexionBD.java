@@ -547,7 +547,7 @@ public String getInveID(String id){
     public void insertTicket(int id_ticket,int id_venta,double Total,double subtotal,double iva){
         try{
             
-            sp = con.prepareStatement("INSERT INTO TICKETS(([ID TICKET],[ID VENTA],TOTAL,SUBTOTAL,IVA)) VALUES(?,?,?,?,?)");//consulta sql para insertar
+            sp = con.prepareStatement("INSERT INTO TICKETS([ID TICKET],[ID VENTA],TOTAL,SUBTOTAL,IVA) VALUES(?,?,?,?,?)");//consulta sql para insertar
             sp.setInt(1, id_ticket);//datos
             sp.setInt(2, id_venta);//datos
             sp.setDouble(3, Total);//datos

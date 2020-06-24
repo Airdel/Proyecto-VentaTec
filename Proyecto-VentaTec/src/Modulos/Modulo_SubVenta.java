@@ -62,6 +62,13 @@ public class Modulo_SubVenta {
         total = subtotal + iva;
         sobrante = efectivo - total;
     }
+    public void redondeaTodo(){
+        this.total = redondearDecimales(total, 2);
+        this.subtotal = redondearDecimales(subtotal, 2);
+        this.iva = redondearDecimales(iva, 2);
+        this.efectivo = redondearDecimales(efectivo, 2);
+        this.sobrante = redondearDecimales(sobrante, 2);
+    }
     //-------funciones void----------//
     //-------funciones retornables----------//
     public int buscaFolio(){
@@ -73,7 +80,16 @@ public class Modulo_SubVenta {
             }
             folio = (Integer.parseInt(A[A.length - 1]) + 1);
         CBD.closeConexion();
-        return folio + 1;
+        return folio;
+    }
+    public static double redondearDecimales(double valorInicial, int numeroDecimales) {
+        double parteEntera, resultado;
+        resultado = valorInicial;
+        parteEntera = Math.floor(resultado);
+        resultado=(resultado-parteEntera)*Math.pow(10, numeroDecimales);
+        resultado=Math.round(resultado);
+        resultado=(resultado/Math.pow(10, numeroDecimales))+parteEntera;
+        return resultado;
     }
     //-------funciones retornables----------//
     //------- get ----------//

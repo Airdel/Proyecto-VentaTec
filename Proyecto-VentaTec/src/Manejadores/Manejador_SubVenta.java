@@ -68,20 +68,24 @@ public class Manejador_SubVenta {
     //-----------Funciones Void-----------//
     public void ConfirmaVenta() {
         CBD.openConexion();
-        //------Agrega todos los Renglones de Tabla Productos  E y S---------//
-        CBD.insertVentas(MSUV.getFolioVenta(),MSUV.getId_Usuario());
+        //----folio--Agrega todos los Renglones de Tabla Productos  E y S---------//
+        int folio = MSUV.getFolioVenta();
+        System.out.println(folio + " FolioVenta");
+        CBD.insertVentas(folio,MSUV.getId_Usuario());
+        System.out.println("DESPUES DEL INSERT ventas");
         for (int i = 0; i < MSUV.tamañoMaximo; i++) {
             String CodigoProducto = MSUV.idProduc.get(i);
             int Cantidad = Integer.parseInt(MSUV.Cantidad.get(i));
             CBD.insertInOut(CodigoProducto,'S',Cantidad);
-            System.out.println(MSUV.getFolioVenta() + "Folio");
-            CBD.insertDetails(MSUV.getFolioVenta(),
+            CBD.insertDetails(folio,
                     MSUV.idProduc.get(i),
                     Integer.parseInt(MSUV.Cantidad.get(i)),
                     Float.parseFloat(MSUV.descuento.get(i)),
                     MSUV.getSubtotal(),"Descripcion");
+            System.out.println("DESPUES DEL INSERT DETAILS No" + i);
         }
-        CBD.insertTicket(MSUV.getFolioVenta(),MSUV.getFolioVenta(),MSUV.getTotal(),MSUV.getSubtotal(),MSUV.getIva());
+        CBD.insertTicket(folio,folio,MSUV.getTotal(),MSUV.getSubtotal(),MSUV.getIva());
+        System.out.println("DESPUES DEL INSERT TICKET");
         //------Agrega todos los Renglones de Tabla Productos---------//
         //------Agrega todos los Renglones de DETALLE VENTA---------//
         ;
@@ -94,6 +98,7 @@ public class Manejador_SubVenta {
     }// Fin ConfirmaVenta
 
     public void rellenaSub() {
+        MSUV.redondeaTodo();
         //------Inicializa los label con valores del Modulo Sub----//
         SUV.lblTotal.setText("$" + MSUV.getTotal());
         SUV.lblSubTotal.setText("$" + MSUV.getSubtotal());

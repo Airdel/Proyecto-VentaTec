@@ -16,6 +16,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
      */
     public Interfaz_Documentacion() {
         this.setSize(649, 498);
+        this.setLocation(100,50);
         initComponents();
     }
 
@@ -228,7 +229,7 @@ public class Interfaz_Documentacion extends javax.swing.JInternalFrame {
 
         lblTicket.setFont(new java.awt.Font("Montserrat", 1, 12)); // NOI18N
         lblTicket.setForeground(new java.awt.Color(102, 102, 102));
-        lblTicket.setText("456478");
+        lblTicket.setText("00000");
 
         javax.swing.GroupLayout pnlBusquedaLayout = new javax.swing.GroupLayout(pnlBusqueda);
         pnlBusqueda.setLayout(pnlBusquedaLayout);

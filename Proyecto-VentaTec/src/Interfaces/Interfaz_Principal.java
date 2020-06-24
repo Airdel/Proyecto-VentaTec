@@ -12,6 +12,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import static javax.swing.JOptionPane.YES_NO_OPTION;
+import static javax.swing.JOptionPane.YES_OPTION;
+import static javax.swing.JOptionPane.showConfirmDialog;
 
 /**
  *
@@ -37,7 +40,8 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
     
     public void IniCom(){
         initComponents();
-        this.setSize(1259, 700);
+        this.setSize(1285, 740);
+        this.setExtendedState(this.MAXIMIZED_BOTH);
         
         this.getContentPane().setBackground(new Color(223, 223, 223));
         Jpanel_Botones.setBackground(new Color(223, 223 ,223));
@@ -83,6 +87,11 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         setBackground(new java.awt.Color(177, 216, 211));
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
         setSize(new java.awt.Dimension(1366, 768));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         Jpanel_Botones.setBackground(new java.awt.Color(51, 204, 0));
@@ -233,6 +242,13 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_CerrarSesionActionPerformed
 
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+      if (showConfirmDialog(rootPane, "¿Desea salir del sistema?",
+            "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
+        System.exit(0);
+    }
+    }//GEN-LAST:event_formWindowClosing
+
     /**
      * @param args the command line arguments
      */
@@ -312,6 +328,7 @@ public class Interfaz_Principal extends javax.swing.JFrame implements Runnable{
           calendar.get(Calendar.SECOND);
     
     }
+
     
     
      //obtener la hora del SYSTEM VENVATEC :vVLSVKDFBJVBJSDBHNVSDJB

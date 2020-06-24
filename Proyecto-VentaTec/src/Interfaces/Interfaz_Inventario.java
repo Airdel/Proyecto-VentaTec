@@ -18,6 +18,7 @@ public class Interfaz_Inventario extends javax.swing.JInternalFrame {
     public Interfaz_Inventario() {
         initComponents();
         lblid.setVisible(false);
+        this.setLocation(70,50);
     }
 
     /**

@@ -27,10 +27,13 @@ import java.awt.event.MouseEvent;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.util.Properties;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -76,6 +79,8 @@ public class Manejador_Documentacion{
                 String cad = ID.txtBuscar.getText();
                 if(!(cad.equals(""))){
                     BuscarTicket(cad);
+                }else{
+                    JOptionPane.showMessageDialog(ID, "El texto de busqueda esta vacio");
                 }
             }
         });
@@ -101,8 +106,16 @@ public class Manejador_Documentacion{
         this.ID.btnEnviarM.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 String cad = JOptionPane.showInputDialog("Coloca tu correo");
-                if(!(cad.equals(""))){
-                    EnviarMail(cad);
+                if(!(cad == null)){
+                    String B[] = cad.split("@");
+                    String A[] = cad.split(".");
+                    if(B.length == 2){
+                        if(A.length ==2 || A.length == 3){
+                            EnviarMail(cad);
+                            return;
+                        }
+                    }
+                    JOptionPane.showMessageDialog(ID, "Correo mal escrito");
                 }
             }
         });
@@ -155,46 +168,52 @@ public class Manejador_Documentacion{
         //-----------Imprime Ticket------------//
         MT.ImprimirTicket();
         CBD.closeConexion();
+        JOptionPane.showMessageDialog(ID, "El Documento se a impreso");
     }// Fin impTicket
     
     private void HacerPDF() {
-        String nombredearchivo2,archivo2;
-        FileDialog fd = new FileDialog(IP, "Guardar", FileDialog.SAVE);
-        fd.setVisible(true);
-        nombredearchivo2 = fd.getDirectory() + fd.getFile() + ".pdf";
-        if(nombredearchivo2!=""){
-            archivo2 = fd.getFile() + ".pdf";
-            File file = new File(nombredearchivo2);
-            if (!file.exists()) {
+        String nombredearchivo2 = "";
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Documento txt", "txt"));
+        fileChooser.setFileFilter(new FileNameExtensionFilter("Documento pdf", "pdf"));
+        
+        int seleccion = fileChooser.showSaveDialog(ID);
+        if (seleccion == JFileChooser.APPROVE_OPTION){
+            String archivo = (fileChooser.getFileFilter().getDescription());
+            String filtro = "." + archivo.substring(archivo.length() - 3);
+            if(filtro.equals(".les")){filtro = "";}
+            nombredearchivo2 = fileChooser.getSelectedFile().getName();
+            System.out.println(fileChooser.getSelectedFile().getAbsolutePath() + filtro);
+            if(nombredearchivo2!=""){
+                File file = new File(fileChooser.getSelectedFile().getAbsolutePath() + filtro);
+                if (!file.exists()) {
+                    try {
+                        file.createNewFile();
+                    } catch (IOException ex) {
+                        //Logger.getLogger(Registrar.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
                 try {
-                    file.createNewFile();
+                    FileWriter fw = new FileWriter(file);
+                    BufferedWriter bw = new BufferedWriter(fw);
+
+                    for (int i = 0; i < ID.tblDocumento.getRowCount(); i++) {
+                        for (int j = 0; j < ID.tblDocumento.getColumnCount(); j++) {
+                            bw.write(ID.tblDocumento.getValueAt(i, j).toString() + "/");
+                        }
+                        bw.newLine();
+                    }
+                    bw.close();
+                    fw.close();
+                    JOptionPane.showMessageDialog(ID, "El archivo ha sido guardado correctamente con el nombre de " + nombredearchivo2);
                 } catch (IOException ex) {
                     //Logger.getLogger(Registrar.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            try {
-                FileWriter fw = new FileWriter(file);
-                BufferedWriter bw = new BufferedWriter(fw);
-
-                for (int i = 0; i < ID.tblDocumento.getRowCount(); i++) {
-                    for (int j = 0; j < ID.tblDocumento.getColumnCount(); j++) {
-                        bw.write(ID.tblDocumento.getValueAt(i, j).toString() + "/");
-                    }
-                    bw.newLine();
-                }
-                bw.close();
-                fw.close();
-                JOptionPane.showMessageDialog(ID, "El archivo ha sido guardado correctamente con el nombre de " + archivo2);
-                DTM.setColumnCount(4);
-                DefaultTableModel model = (DefaultTableModel) ID.tblDocumento.getModel();
-                model.setRowCount(0);
-            } catch (IOException ex) {
-                //Logger.getLogger(Registrar.class.getName()).log(Level.SEVERE, null, ex);
+            else
+            {
+                return;
             }
-        }
-        else
-        {
-            return;
         }
     }// Fin Hacer PDF
     //-------------------------Funciones void---------------//

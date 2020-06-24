@@ -5,6 +5,10 @@
  */
 package Interfaces;
 
+import static javax.swing.JOptionPane.YES_NO_OPTION;
+import static javax.swing.JOptionPane.YES_OPTION;
+import static javax.swing.JOptionPane.showConfirmDialog;
+
 /**
  *
  * @author darie
@@ -16,6 +20,7 @@ public class SubInterfaz_Venta_BuscarProducto extends javax.swing.JFrame {
      */
     public SubInterfaz_Venta_BuscarProducto() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -38,6 +43,13 @@ public class SubInterfaz_Venta_BuscarProducto extends javax.swing.JFrame {
         jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Buscar Producto");
+        setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Icon_Empresa_Transparente.png")).getImage());
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setText("Codigo");
 
@@ -112,6 +124,13 @@ public class SubInterfaz_Venta_BuscarProducto extends javax.swing.JFrame {
     private void txtCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCodeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCodeActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        if (showConfirmDialog(rootPane, "¿Desea salir del sistema?",
+                "Salir del sistema", YES_NO_OPTION) == YES_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

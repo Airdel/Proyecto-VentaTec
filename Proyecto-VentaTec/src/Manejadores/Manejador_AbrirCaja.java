@@ -6,7 +6,6 @@
 package Manejadores;
 
 import Interfaces.Interfaz_AbrirCaja;
-import Interfaces.Interfaz_Principal;
 import Modulos.Modulo_AbrirCaja;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

@@ -12,6 +12,9 @@
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
     <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
+  <Events>
+    <EventHandler event="windowClosing" listener="java.awt.event.WindowListener" parameters="java.awt.event.WindowEvent" handler="formWindowClosing"/>
+  </Events>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -32,10 +35,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <Component id="panel1" min="-2" pref="713" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
+          <Component id="panel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -84,7 +84,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="380" y="295" width="932" height="200"/>
+              <AbsoluteConstraints x="380" y="295" width="932" height="220"/>
             </Constraint>
           </Constraints>
 
@@ -391,6 +391,9 @@
                   <Color blue="99" green="99" red="ff" type="rgb"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+              </AuxValues>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -433,9 +436,12 @@
               <Color blue="33" green="ff" red="33" type="rgb"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="690" width="1430" height="-1"/>
+              <AbsoluteConstraints x="10" y="750" width="1430" height="-1"/>
             </Constraint>
           </Constraints>
 
@@ -444,7 +450,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="panel3" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="40" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="69" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -467,9 +473,9 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="479" max="-2" attributes="0"/>
-                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="734" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="200" max="-2" attributes="0"/>
+                          <Component id="jLabel9" min="-2" pref="857" max="-2" attributes="0"/>
+                          <EmptySpace pref="304" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -482,8 +488,11 @@
               <SubComponents>
                 <Component class="javax.swing.JLabel" name="jLabel9">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="COMANDOS PARA EL SISTEMA"/>
+                    <Property name="text" type="java.lang.String" value="(Q) = REGRESAR               (F5)= BUSCAR PRODUCTO          (+)=COBRAR      (ALT+C) QUITAR PRODUCTO          (ALT+A)= APLICAR DESCUENTO"/>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -612,7 +621,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="380" y="500" width="-1" height="180"/>
+              <AbsoluteConstraints x="380" y="530" width="-1" height="200"/>
             </Constraint>
           </Constraints>
 
@@ -620,36 +629,34 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                       <Component id="btn_BuscarProducto" min="-2" pref="162" max="-2" attributes="0"/>
-                      <EmptySpace pref="91" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
                       <Component id="btn_Quitar" min="-2" pref="162" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
+                      <EmptySpace pref="89" max="32767" attributes="0"/>
                       <Component id="btn_AplicarDescuento" min="-2" pref="162" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                       <Component id="btn_Cobrar" min="-2" pref="162" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btn_AplicarDescuento" min="-2" pref="158" max="-2" attributes="0"/>
-                                  <Component id="btn_Cobrar" min="-2" pref="160" max="-2" attributes="0"/>
-                                  <Component id="btn_Quitar" alignment="0" min="-2" pref="159" max="-2" attributes="0"/>
-                              </Group>
+                          <Component id="btn_BuscarProducto" min="-2" pref="161" max="-2" attributes="0"/>
+                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                              <Component id="btn_AplicarDescuento" min="-2" pref="158" max="-2" attributes="0"/>
+                              <Component id="btn_Quitar" min="-2" pref="159" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btn_BuscarProducto" min="-2" pref="161" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                              <Component id="btn_Cobrar" min="-2" pref="160" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="15" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
