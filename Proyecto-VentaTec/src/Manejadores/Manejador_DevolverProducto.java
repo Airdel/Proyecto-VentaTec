@@ -15,9 +15,11 @@ import javax.swing.JOptionPane;
 
 /**
  * Miguelon
+ *
  * @author LUISMI
  */
 public class Manejador_DevolverProducto {
+
     private Interfaz_DevolverProducto IDP;
     private Modulo_DevolverProducto MDP;
     private ConexionBD CBD;
@@ -54,21 +56,28 @@ public class Manejador_DevolverProducto {
                 IDP.dispose();
             }
         });
-    
+
         this.IDP.btn_Confirmar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                MDP.setIDProducto(Integer.parseInt(IDP.txt_IdProducto.getText()));
-                MDP.setIDVenta(Integer.parseInt(IDP.txt_IdVenta.getText()));
-                CBD.openConexion();
-                if(CBD.devolverProc(MDP.getIDProducto(), MDP.getIDVenta())){
-                    JOptionPane.showMessageDialog(IDP, "Producto devuelto exitosamente");
-                }else{
-                    JOptionPane.showMessageDialog(IDP, "Producto no encontrado en la venta");
+                if (!(IDP.txt_IdProducto.getText().equals("") || IDP.txt_IdVenta.getText().equals("")
+                        || (IDP.txt_IdProducto.getText().equals(" ") || IDP.txt_IdVenta.getText().equals(" ")))) {
+                    MDP.setIDProducto(Integer.parseInt(IDP.txt_IdProducto.getText()));
+                    MDP.setIDVenta(Integer.parseInt(IDP.txt_IdVenta.getText()));
+                    CBD.openConexion();
+                    if (CBD.devolverProc(MDP.getIDProducto(), MDP.getIDVenta())) {
+                        JOptionPane.showMessageDialog(IDP, "Producto devuelto exitosamente");
+                    } else {
+                        JOptionPane.showMessageDialog(IDP, "Producto no encontrado en la venta");
+                    }
+                    CBD.closeConexion();
+
+                } else {
+                    JOptionPane.showMessageDialog(IDP, "¡Existen campos vacios!");
                 }
-                CBD.closeConexion();
             }
+
         });
-        
+
     }
 }

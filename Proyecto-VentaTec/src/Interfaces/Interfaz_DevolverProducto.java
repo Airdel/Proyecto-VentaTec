@@ -44,7 +44,6 @@ public class Interfaz_DevolverProducto extends javax.swing.JFrame {
         setName("Devolver Producto"); // NOI18N
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(333, 171));
-        getContentPane().setLayout(null);
 
         lbl_IdProducto.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbl_IdProducto.setText("Código de Producto:");

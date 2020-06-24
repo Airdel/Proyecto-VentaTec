@@ -94,7 +94,6 @@ public class Interfaz_Bienvenida extends javax.swing.JFrame {
     private void initComponents() {
 
         barra = new javax.swing.JProgressBar();
-        jLabel3 = new javax.swing.JLabel();
         labporcentaje = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -114,19 +113,15 @@ public class Interfaz_Bienvenida extends javax.swing.JFrame {
         getContentPane().add(barra);
         barra.setBounds(0, 300, 547, 19);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/icon_Empresa.png"))); // NOI18N
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(150, -10, 240, 180);
-
         labporcentaje.setFont(new java.awt.Font("Consolas", 0, 24)); // NOI18N
         labporcentaje.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labporcentaje.setText("1");
         getContentPane().add(labporcentaje);
         labporcentaje.setBounds(230, 270, 90, 21);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/src_CerrarCaja/istockphoto-1146368775-1024x1024.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Iconos_InterfazPrincipal/icon_Empresa.png"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, -40, 550, 360);
+        jLabel1.setBounds(160, -40, 390, 360);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -147,7 +142,6 @@ public class Interfaz_Bienvenida extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JProgressBar barra;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel labporcentaje;
     // End of variables declaration//GEN-END:variables
 }
